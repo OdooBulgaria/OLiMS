@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+    	
+    	 
+        <!-- top level menu: no parent -->
+        <menuitem id="main_olims_menu" name="OLiMS"/>
+        <!-- A first level in the left side menu is needed
+             before using action= attribute -->
+        <menuitem id="olims_menu" name="OLiMS" parent="main_olims_menu"/>
+        <!-- the following menuitem should appear *after*
+             its parent olims_menu and *after* its
+             action course_list_action -->
+        
+        
+             
+	
+
+       !-- Analysis Service form view -->
+        <record model="ir.ui.view" id="olims_analysis_service_form_view">
+            <field name="name">analysis_service.form</field>
+            <field name="model">olims.analysis_service</field>
+            <field name="arch" type="xml">
+                <form string="Analysis Profile Form">
+                	<field name="Title"></field>
+                	<field name="ShortTitle"></field>
+                	<field name="Description"></field>
+                	<field name="ScientificName"></field>
+                	<field name="Unit"></field>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="olims_analysis_service_tree_view">
+            <field name="name">analysis_service.tree</field>
+            <field name="model">olims.analysis_service</field>
+            <field name="arch" type="xml">
+                <tree string="Analysis Profile">
+                    <field name="Title"></field>
+                	<field name="ShortTitle"></field>
+                	<field name="Description"></field>
+                	<field name="ScientificName"></field>
+                	<field name="Unit"></field>
+                </tree>
+            </field>
+        </record>
+             
+		<record model="ir.actions.act_window" id="analysis_service_list_action">
+            <field name="name">Analysis Service</field>
+            <field name="res_model">olims.analysis_service</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="analysis_service_menu" name="Analysis Service" parent="olims_menu"
+                  action="analysis_service_list_action"/>
+                  
+                   
+		!-- Analysis Profile form view -->
+        <record model="ir.ui.view" id="olims_analysis_profile_form_view">
+            <field name="name">analysis_profile.form</field>
+            <field name="model">olims.analysis_profile</field>
+            <field name="arch" type="xml">
+                <form string="Analysis Profile Form">
+                	<field name="Profile_Key"></field>
+                	<field name="service"></field>
+                	<field name="field_dummy"></field>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="olims_analysis_profile_tree_view">
+            <field name="name">analysis_profile.tree</field>
+            <field name="model">olims.analysis_profile</field>
+            <field name="arch" type="xml">
+                <tree string="Analysis Profile">
+                    <field name="Profile_Key"/>
+                    <field name="service"/>
+                </tree>
+            </field>
+        </record>
+                    
+	   <record model="ir.actions.act_window" id="analysis_profile_list_action">
+            <field name="name">Analysis Profile</field>
+            <field name="res_model">olims.analysis_profile</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="analysis_profile_menu" name="Analysis Profile" parent="olims_menu"
+                  action="analysis_profile_list_action"/>
+    </data>
+</openerp>
