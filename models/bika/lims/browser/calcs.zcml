@@ -1,0 +1,29 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="bika">
+
+<!--  When interim fields are changed, javascript calls this to populate result fields  -->
+  <browser:page
+    for="*"
+    name="listing_string_entry"
+    class="bika.lims.browser.calcs.ajaxCalculateAnalysisEntry"
+    permission="zope.Public"
+    layer="bika.lims.interfaces.IBikaLIMS"
+  />
+
+  <adapter
+    for="bika.lims.interfaces.IAnalysis"
+    factory="bika.lims.browser.calcs.CalculationResultAlerts"
+    name="bika.lims.calculation_result_icons"
+  />
+
+  <browser:page
+      for="*"
+      name="get_method_calculation"
+      class="bika.lims.browser.calcs.ajaxGetMethodCalculation"
+      permission="zope.Public"
+      layer="bika.lims.interfaces.IBikaLIMS"
+  />
+</configure>

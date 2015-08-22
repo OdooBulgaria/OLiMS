@@ -1,0 +1,630 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2012-10-20 09:21+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+
+#
+msgid "AR Imports"
+msgstr "AR Imports"
+
+msgid "AR Priorities"
+msgstr ""
+
+msgid "AR Template"
+msgstr ""
+
+msgid "AR Templates"
+msgstr ""
+
+msgid "ARReport"
+msgstr ""
+
+msgid "Add Analyses"
+msgstr ""
+
+msgid "Add Blank Reference"
+msgstr ""
+
+msgid "Add Control Reference"
+msgstr ""
+
+msgid "Add Duplicate"
+msgstr ""
+
+msgid "Administration"
+msgstr ""
+
+msgid "Analyses"
+msgstr ""
+
+msgid "Analysis"
+msgstr ""
+
+msgid "Analysis Categories"
+msgstr ""
+
+msgid "Analysis Category"
+msgstr ""
+
+msgid "Analysis Profile"
+msgstr ""
+
+msgid "Analysis Profiles"
+msgstr ""
+
+msgid "Analysis Request"
+msgstr ""
+
+msgid "Analysis Requests"
+msgstr ""
+
+msgid "Analysis Service"
+msgstr ""
+
+msgid "Analysis Services"
+msgstr ""
+
+msgid "Analysis Specification"
+msgstr ""
+
+msgid "Analysis Specifications"
+msgstr ""
+
+msgid "Attachment"
+msgstr ""
+
+msgid "Attachment Type"
+msgstr ""
+
+msgid "Attachment Types"
+msgstr ""
+
+msgid "Attachments"
+msgstr ""
+
+msgid "Batch"
+msgstr ""
+
+msgid "Batch Book"
+msgstr ""
+
+msgid "Batch Label"
+msgstr ""
+
+msgid "Batch Labels"
+msgstr ""
+
+msgid "Batches"
+msgstr ""
+
+msgid "Bika Setup"
+msgstr ""
+
+msgid "Calculation"
+msgstr ""
+
+msgid "Calculations"
+msgstr ""
+
+msgid "Calibrations"
+msgstr ""
+
+msgid "Certificates"
+msgstr ""
+
+msgid "Client"
+msgstr ""
+
+msgid "Clients"
+msgstr ""
+
+msgid "Contacts"
+msgstr ""
+
+msgid "Container"
+msgstr ""
+
+msgid "Container Type"
+msgstr ""
+
+msgid "Container Types"
+msgstr ""
+
+msgid "Containers"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/profiles/default/types/AnalysisRequest.xml, line: -1
+msgid "Create Invoice"
+msgstr ""
+
+msgid "Department"
+msgstr ""
+
+msgid "Departments"
+msgstr ""
+
+msgid "Duplicate Analysis"
+msgstr ""
+
+msgid "Email pricelist"
+msgstr ""
+
+msgid "Export"
+msgstr ""
+
+msgid "Extracts"
+msgstr ""
+
+msgid "Imports"
+msgstr ""
+
+msgid "Instrument"
+msgstr ""
+
+msgid "Instrument Type"
+msgstr ""
+
+msgid "Instrument Types"
+msgstr ""
+
+msgid "Instruments"
+msgstr ""
+
+msgid "Internal Calibration Tests"
+msgstr ""
+
+msgid "Invoice"
+msgstr ""
+
+msgid "Invoices"
+msgstr ""
+
+msgid "Lab Contact"
+msgstr ""
+
+msgid "Lab Contacts"
+msgstr ""
+
+msgid "Lab Departments"
+msgstr ""
+
+msgid "Lab Products"
+msgstr ""
+
+msgid "Laboratory"
+msgstr ""
+
+msgid "Laboratory Information"
+msgstr ""
+
+msgid "Large Sticker"
+msgstr ""
+
+msgid "Log"
+msgstr ""
+
+msgid "Login details"
+msgstr ""
+
+msgid "Manage Analyses"
+msgstr ""
+
+msgid "Manage Results"
+msgstr ""
+
+msgid "Manufacturer"
+msgstr ""
+
+msgid "Manufacturers"
+msgstr ""
+
+msgid "Method"
+msgstr ""
+
+msgid "Methods"
+msgstr ""
+
+msgid "Orders"
+msgstr ""
+
+msgid "Preservation"
+msgstr ""
+
+msgid "Preservations"
+msgstr ""
+
+msgid "Pricelist"
+msgstr ""
+
+msgid "Pricelists"
+msgstr ""
+
+msgid "Prices"
+msgstr ""
+
+msgid "Print"
+msgstr ""
+
+msgid "Print pricelist"
+msgstr ""
+
+msgid "Productivity"
+msgstr ""
+
+msgid "Published results"
+msgstr ""
+
+msgid "Quality Control"
+msgstr ""
+
+msgid "Queries"
+msgstr ""
+
+msgid "Query"
+msgstr ""
+
+msgid "Reference Analysis"
+msgstr ""
+
+msgid "Reference Definition"
+msgstr ""
+
+msgid "Reference Definitions"
+msgstr ""
+
+msgid "Reference Sample"
+msgstr ""
+
+msgid "Reference Samples"
+msgstr ""
+
+msgid "Reference Values"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/profiles/default/types/RejectAnalysis.xml, line: -1
+msgid "Reject Analysis"
+msgstr ""
+
+msgid "Report"
+msgstr ""
+
+msgid "Reports"
+msgstr ""
+
+msgid "Results not requested"
+msgstr ""
+
+msgid "SR Template"
+msgstr ""
+
+msgid "SR Templates"
+msgstr ""
+
+msgid "Sample"
+msgstr ""
+
+msgid "Sample Condition"
+msgstr ""
+
+msgid "Sample Conditions"
+msgstr ""
+
+msgid "Sample Matrices"
+msgstr ""
+
+msgid "Sample Matrix"
+msgstr ""
+
+msgid "Sample Partition"
+msgstr ""
+
+msgid "Sample Partitions"
+msgstr ""
+
+msgid "Sample Point"
+msgstr ""
+
+msgid "Sample Points"
+msgstr ""
+
+msgid "Sample Type"
+msgstr ""
+
+msgid "Sample Types"
+msgstr ""
+
+msgid "SamplePoints"
+msgstr ""
+
+msgid "Samples"
+msgstr ""
+
+msgid "SamplesFolder"
+msgstr ""
+
+msgid "Sampling Deviation"
+msgstr ""
+
+msgid "Sampling Deviations"
+msgstr ""
+
+#
+msgid "Sampling Round Templates"
+msgstr ""
+
+msgid "Schedule"
+msgstr ""
+
+msgid "Small Sticker"
+msgstr ""
+
+msgid "Sticker"
+msgstr ""
+
+msgid "Storage Location"
+msgstr ""
+
+msgid "Storage Locations"
+msgstr ""
+
+msgid "Sub-group"
+msgstr ""
+
+msgid "Sub-groups"
+msgstr ""
+
+msgid "Supplier"
+msgstr ""
+
+msgid "Suppliers"
+msgstr ""
+
+msgid "Supply Order"
+msgstr ""
+
+msgid "Supply Orders"
+msgstr ""
+
+msgid "Validations"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/profiles/default/types/Client.xml, line: -1
+msgid "WINE-40: Do not move or remove this entry."
+msgstr ""
+
+msgid "Worksheet"
+msgstr ""
+
+msgid "Worksheet Template"
+msgstr ""
+
+msgid "Worksheet Templates"
+msgstr ""
+
+msgid "Worksheets"
+msgstr ""
+
+#. Default: "Activate"
+msgid "activate_transition_title"
+msgstr "Activate"
+
+#. Default: "Assign"
+msgid "assign_transition_title"
+msgstr "Assign"
+
+#. Default: "Add attachment"
+msgid "attach_transition_title"
+msgstr "Add attachment"
+
+#. Default: "Cancel"
+msgid "cancel_transition_title"
+msgstr "Cancel"
+
+#. Default: "Close"
+msgid "close_transition_title"
+msgstr "Close"
+
+msgid "copy_to_new_transition_title"
+msgstr "Copy to new"
+
+#. Default: "Deactivate"
+msgid "deactivate_transition_title"
+msgstr "Deactivate"
+
+#. Default: "Dispatch order"
+msgid "dispatch_transition_title"
+msgstr "Dispatch order"
+
+#. Default: "Dispose"
+msgid "dispose_transition_title"
+msgstr "Dispose"
+
+#. Default: "Duplicate"
+msgid "duplicate_transition_title"
+msgstr "Duplicate"
+
+#. Default: "Expire"
+msgid "expire_transition_title"
+msgstr "Expire"
+
+#. Default: "Import"
+msgid "import_transition_title"
+msgstr "Import"
+
+# This is for the "retract_ar" transition, to invalidate a published AR.
+#. Default: "Invalidate"
+msgid "invalidate_transition_title"
+msgstr "Invalidate"
+
+msgid "label_schema_AR Templates"
+msgstr "AR Templates"
+
+msgid "label_schema_Accounting"
+msgstr "Accounting"
+
+msgid "label_schema_Address"
+msgstr "Address"
+
+msgid "label_schema_Analyses"
+msgstr "Analyses"
+
+msgid "label_schema_Bank details"
+msgstr "Bank details"
+
+msgid "label_schema_Calculation"
+msgstr "Calculation"
+
+msgid "label_schema_Container and Preservation"
+msgstr "Container and Preservation"
+
+msgid "label_schema_Dates"
+msgstr "Dates"
+
+msgid "label_schema_Description"
+msgstr "Description"
+
+msgid "label_schema_Email Telephone Fax"
+msgstr "Email Telephone Fax"
+
+msgid "label_schema_ID Server"
+msgstr "ID Server"
+
+msgid "label_schema_Labels"
+msgstr "Labels"
+
+msgid "label_schema_Layout"
+msgstr "Layout"
+
+msgid "label_schema_Location"
+msgstr "Location"
+
+msgid "label_schema_Method"
+msgstr "Method"
+
+msgid "label_schema_Preferences"
+msgstr "Preferences"
+
+msgid "label_schema_Publication preference"
+msgstr "Publication preference"
+
+msgid "label_schema_Reference Values"
+msgstr "Reference Values"
+
+msgid "label_schema_Result Options"
+msgstr "Result Options"
+
+msgid "label_schema_Results Reports"
+msgstr "Results Reports"
+
+msgid "label_schema_SR Templates"
+msgstr "SR Templates"
+
+msgid "label_schema_Sample Partitions"
+msgstr "Sample Partitions"
+
+msgid "label_schema_Security"
+msgstr "Security"
+
+msgid "label_schema_Uncertainties"
+msgstr "Uncertainties"
+
+#. Default: "Open"
+msgid "open_transition_title"
+msgstr "Open"
+
+#
+msgid "plone_manual_test"
+msgstr "Plone Manual Test"
+
+#. Default: "Prepublish"
+msgid "prepublish_transition_title"
+msgstr "Prepublish"
+
+#. Default: "Preserve"
+msgid "preserve_transition_title"
+msgstr "Preserve"
+
+#. Default: "Publish"
+msgid "publish_transition_title"
+msgstr "Publish"
+
+#. Default: "Reassign"
+msgid "reassign_transition_title"
+msgstr "Reassign"
+
+#. Default: "Receive sample"
+msgid "receive_transition_title"
+msgstr "Receive sample"
+
+#. Default: "Reinstate"
+msgid "reinstate_transition_title"
+msgstr "Reinstate"
+
+#. Default: "Reject"
+msgid "reject_transition_title"
+msgstr "Reject"
+
+#. Default: "Republish"
+msgid "republish_transition_title"
+msgstr "Republish"
+
+#. Default: "Retract"
+msgid "retract_transition_title"
+msgstr "Retract"
+
+#. Default: "Retract worksheet"
+msgid "retract_worksheet_transition_title"
+msgstr "Retract worksheet"
+
+# This is for the "revert" transition, which is meant to look like a
+# "retract".
+#. Default: "Retract"
+msgid "revert_transition_title"
+msgstr "Retract"
+
+#. Default: "Sample"
+msgid "sample_transition_title"
+msgstr "Sample"
+
+#. Default: "Save analyses"
+msgid "save_analyses_button_transition_title"
+msgstr "Save analyses"
+
+#. Default: "Save partitions"
+msgid "save_partitions_button_transition_title"
+msgstr "Save partitions"
+
+#. Default: "Save selection"
+msgid "save_selection_button_transition_title"
+msgstr "Save selection"
+
+#. Default: "Submit ARImport"
+msgid "submit_arimport_transition_title"
+msgstr "Submit ARImport"
+
+#. Default: "Submit for verification"
+msgid "submit_transition_title"
+msgstr "Submit for verification"
+
+#. Default: "Remove"
+msgid "unassign_transition_title"
+msgstr "Remove"
+
+#. Default: "Verify"
+msgid "verify_transition_title"
+msgstr "Verify"
+

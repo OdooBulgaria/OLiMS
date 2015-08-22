@@ -1,0 +1,15 @@
+#!/bin/bash
+
+reldir=`dirname $0`
+PYTHON=/usr/bin/python
+BIKA_BASE=./zinstance
+COUNTER_FILE=$BIKA_BASE/var/id.counter
+LOG_FILE=$BIKA_BASE/var/log/idserver.log
+PID_FILE=$BIKA_BASE/var/idserver.pid
+PORT=8081
+
+exec $PYTHON /home/godfrey/workspace/bika.lims/bika/lims/scripts/id-server.py \
+	-f $COUNTER_FILE \
+	-p $PORT \
+	-l $LOG_FILE \
+	-d $PID_FILE

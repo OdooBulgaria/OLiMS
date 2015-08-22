@@ -1,0 +1,273 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="bika">
+
+    <browser:page
+      for="bika.lims.interfaces.IContainers"
+      name="folder_view"
+      class=".bika_containers.ContainersView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.IContainerTypes"
+      name="folder_view"
+      class=".bika_containertypes.ContainerTypesView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.IPreservations"
+      name="folder_view"
+      class=".bika_preservations.PreservationsView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.IDepartments"
+      name="folder_view"
+      class=".bika_departments.DepartmentsView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.ILabContacts"
+      name="folder_view"
+      class=".bika_labcontacts.LabContactsView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.IARPriorities"
+      name="folder_view"
+      class=".bika_arpriorities.ARPrioritiesView"
+      permission="bika.lims.permissions.ManageARPriority"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.IAnalysisCategories"
+      name="folder_view"
+      class=".bika_analysiscategories.AnalysisCategoriesView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.IAnalysisProfiles"
+      name="folder_view"
+      class=".bika_analysisprofiles.ProfilesView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.IARTemplates"
+      name="folder_view"
+      class=".bika_artemplates.TemplatesView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.ISampleConditions"
+      name="folder_view"
+      class=".bika_sampleconditions.SampleConditionsView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.ISampleMatrices"
+      name="folder_view"
+      class=".bika_samplematrices.SampleMatricesView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.IStorageLocations"
+      name="folder_view"
+      class=".bika_storagelocations.StorageLocationsView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.ISamplePoints"
+      name="folder_view"
+      class=".bika_samplepoints.SamplePointsView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.ISampleTypes"
+      name="folder_view"
+      class=".bika_sampletypes.SampleTypesView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.ISamplingDeviations"
+      name="folder_view"
+      class=".bika_samplingdeviations.SamplingDeviationsView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.IAnalysisSpecs"
+      name="folder_view"
+      class=".bika_analysisspecs.AnalysisSpecsView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.IInstruments"
+      name="folder_view"
+      class=".bika_instruments.InstrumentsView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.IInstrumentTypes"
+      name="folder_view"
+      class=".bika_instrumenttypes.InstrumentTypesView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.ICalculations"
+      name="folder_view"
+      class=".bika_calculations.CalculationsView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.IAttachmentTypes"
+      name="folder_view"
+      class=".bika_attachmenttypes.AttachmentTypesView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.IAnalysisServices"
+      name="base_view"
+      class=".bika_analysisservices.AnalysisServicesView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.IAnalysisServices"
+      name="copy"
+      class=".bika_analysisservices.AnalysisServiceCopy"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.ILabProducts"
+      name="folder_view"
+      class=".bika_labproducts.LabProductsView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.IManufacturers"
+      name="folder_view"
+      class=".bika_manufacturers.ManufacturersView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.IReferenceDefinitions"
+      name="folder_view"
+      class=".bika_referencedefinitions.ReferenceDefinitionsView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.ISRTemplates"
+      name="folder_view"
+      class=".bika_srtemplates.TemplatesView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.ISubGroups"
+      name="folder_view"
+      class=".bika_subgroups.SubGroupsView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.ISuppliers"
+      name="folder_view"
+      class=".bika_suppliers.SuppliersView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.IWorksheetTemplates"
+      name="folder_view"
+      class=".bika_worksheettemplates.WorksheetTemplatesView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="bika.lims.interfaces.IBatchLabels"
+      name="folder_view"
+      class=".bika_batchlabels.BatchLabelsView"
+      permission="bika.lims.ManageBika"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <!-- For autocomplete dropdown -->
+    <browser:page
+      for="*"
+      name="ajax_storagelocations"
+      class=".bika_storagelocations.ajax_StorageLocations"
+      permission="zope.Public"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <browser:page
+      for="*"
+      name="ajax_samplepoints"
+      class=".bika_samplepoints.ajax_SamplePoints"
+      permission="zope.Public"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+    <!-- For autocomplete dropdown -->
+    <browser:page
+      for="*"
+      name="ajax_sampletypes"
+      class=".bika_sampletypes.ajax_SampleTypes"
+      permission="zope.Public"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+</configure>

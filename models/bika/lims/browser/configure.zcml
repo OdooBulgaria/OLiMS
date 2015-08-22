@@ -1,0 +1,117 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="bika">
+
+  <include package="plone.resource" file="meta.zcml"/>
+
+  <include file="bika-frontpage.zcml"/>
+
+  <include file="analysis.zcml"/>
+  <include file="analysisprofile.zcml"/>
+  <include file="analysisservice.zcml"/>
+  <include file="analysisspec.zcml"/>
+  <include file="artemplate.zcml"/>
+  <include file="attachment.zcml"/>
+  <include file="batchfolder.zcml"/>
+  <include file="bika_listing.zcml"/>
+  <include file="calcs.zcml"/>
+  <include file="client.zcml"/>
+  <include file="clientfolder.zcml"/>
+  <include file="invoicefolder.zcml"/>
+  <include file="invoicebatch.zcml"/>
+  <include file="invoice.zcml"/>
+  <include file="contact.zcml"/>
+  <include file="duplicateanalysis.zcml"/>
+  <include file="instrument.zcml"/>
+  <include file="instrumenttype.zcml"/>
+  <include file="late_analyses.zcml"/>
+  <include file="manufacturer.zcml"/>
+  <include file="menu.zcml"/>
+  <include file="method.zcml"/>
+  <include file="remarks.zcml"/>
+  <include file="referenceanalysis.zcml"/>
+  <include file="referencesample.zcml"/>
+  <include file="pricelist.zcml"/>
+  <include file="sample.zcml"/>
+  <include file="stickers.zcml"/>
+  <include file="supplier.zcml"/>
+  <include file="supplyorder.zcml"/>
+  <include file="supplyorderfolder.zcml"/>
+  <include file="worksheet.zcml"/>
+  <include file="worksheetfolder.zcml"/>
+  <include file="viewlets.zcml"/>
+  <include file="arimports.zcml"/>
+
+  <include package=".analysisrequest"/>
+  <include package=".batch"/>
+
+  <include package=".fields"/>
+  <include package=".widgets"/>
+  <include package=".reports"/>
+
+  <browser:page
+      for="*"
+      name="log"
+      class="bika.lims.browser.log.LogView"
+      permission="zope2.View"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+  <browser:page
+      for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+      name="accreditation"
+      class="bika.lims.browser.accreditation.AccreditationView"
+      permission="zope2.View"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+  <browser:page
+      for="*"
+      name="at_validate_field"
+      class=".validation.InlineValidationView"
+      permission="zope2.View"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+  <!-- Zope 3 browser resources -->
+
+  <browser:resourceDirectory
+      name="bika.lims.images"
+      directory="images"
+      layer="bika.lims.interfaces.IBikaLIMS"
+      />
+
+  <browser:resourceDirectory
+      name="bika.lims.css"
+      directory="css"
+      layer="bika.lims.interfaces.IBikaLIMS"
+      />
+
+  <browser:resourceDirectory
+      name="bika.lims.js"
+      directory="js"
+      layer="bika.lims.interfaces.IBikaLIMS"
+      />
+
+
+
+<!-- #TODO Mike: duplicate of stanza on line 71 above -->
+  <browser:page
+      for="bika.lims.interfaces.IARImport"
+      name="at_validate_field"
+      class=".validation.InlineValidationView"
+      permission="zope2.View"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+  <browser:page
+      for="bika.lims.interfaces.IARImportFolder"
+      name="arimports"
+      class="bika.lims.browser.arimports.GlobalARImportsView"
+      permission="bika.lims.ManageARImport"
+      layer="bika.lims.interfaces.IBikaLIMS"
+    />
+
+
+</configure>

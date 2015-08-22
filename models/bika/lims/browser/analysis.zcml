@@ -1,0 +1,29 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="bika">
+
+    <adapter
+      for="bika.lims.interfaces.IAnalysis"
+      provides="bika.lims.interfaces.IFieldIcons"
+      factory="bika.lims.browser.analysis.ResultOutOfRangeIcons"
+    />
+
+    <adapter
+      for="bika.lims.interfaces.IRoutineAnalysis"
+      provides="bika.lims.interfaces.IResultOutOfRange"
+      factory="bika.lims.browser.analysis.ResultOutOfRange"
+    />
+
+    <adapter
+      name="analysis_priority_icons"
+      for="bika.lims.interfaces.IAnalysis"
+      factory="bika.lims.adapters.priorityicons.PriorityIcons"
+    />
+    
+    <adapter 
+    factory="bika.lims.browser.analysis.JSONReadExtender"
+    provides="bika.lims.interfaces.IJSONReadExtender" />
+
+</configure>

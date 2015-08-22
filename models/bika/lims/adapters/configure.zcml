@@ -1,0 +1,74 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="bika">
+
+    <adapter
+      factory=".widgetvisibility.ClientFieldWidgetVisibility"
+      provides="bika.lims.interfaces.IATWidgetVisibility"
+      for="bika.lims.interfaces.IAnalysisRequest"
+      name="ClientFieldWV"
+    />
+
+    <adapter
+      factory=".widgetvisibility.BatchARAdd_BatchFieldWidgetVisibility"
+      provides="bika.lims.interfaces.IATWidgetVisibility"
+      for="bika.lims.interfaces.IAnalysisRequest"
+      name="BatchBatchFieldWV"
+    />
+
+    <adapter
+      factory=".widgetvisibility.OptionalFieldsWidgetVisibility"
+      provides="bika.lims.interfaces.IATWidgetVisibility"
+      for="bika.lims.interfaces.IAnalysisRequest"
+      name="OptionalFieldsWidgetVisibility"
+    />
+    <adapter
+      factory=".widgetvisibility.OptionalFieldsWidgetVisibility"
+      provides="bika.lims.interfaces.IATWidgetVisibility"
+      for="bika.lims.interfaces.ISample"
+      name="OptionalFieldsWidgetVisibility"
+    />
+    <adapter
+      factory=".widgetvisibility.OptionalFieldsWidgetVisibility"
+      provides="bika.lims.interfaces.IATWidgetVisibility"
+      for="bika.lims.interfaces.IBatch"
+      name="OptionalFieldsWidgetVisibility"
+    />
+
+    <adapter
+      factory=".widgetvisibility.WorkflowAwareWidgetVisibility"
+      provides="bika.lims.interfaces.IATWidgetVisibility"
+      for="bika.lims.interfaces.IAnalysisRequest"
+      name="WorkflowAwareWV"
+    />
+    <adapter
+      factory=".widgetvisibility.WorkflowAwareWidgetVisibility"
+      provides="bika.lims.interfaces.IATWidgetVisibility"
+      for="bika.lims.interfaces.ISample"
+      name="WorkflowAwareWV"
+    />
+
+    <adapter
+      factory=".widgetvisibility.SamplingWorkflowWidgetVisibility"
+      provides="bika.lims.interfaces.IATWidgetVisibility"
+      for="bika.lims.interfaces.ISample"
+      name="SamplingWorkflowWV"
+    />
+
+    <adapter
+      factory=".widgetvisibility.SamplingWorkflowWidgetVisibility"
+      provides="bika.lims.interfaces.IATWidgetVisibility"
+      for="bika.lims.interfaces.IAnalysisRequest"
+      name="SamplingWorkflowWV"
+    />
+
+    <adapter
+      for="zope.interface.Interface
+           zope.publisher.interfaces.browser.IBrowserRequest"
+      factory="bika.lims.adapters.referencewidgetvocabulary.DefaultReferenceWidgetVocabulary"
+      provides="bika.lims.interfaces.IReferenceWidgetVocabulary"
+    />
+
+</configure>

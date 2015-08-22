@@ -1,0 +1,131 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:tal="http://xml.zope.org/namespaces/tal"
+	xmlns:metal="http://xml.zope.org/namespaces/metal"
+	xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+	metal:use-macro="here/main_template/macros/master"
+	i18n:domain="bika">
+<body
+	tal:define="
+		form_id view/form_id;
+		table_only python:hasattr(view, 'table_only') and view.table_only or view.request.get('table_only','') == form_id;"
+	tal:omit-tag="python:table_only">
+
+<metal:content-title fill-slot="content-title"
+	tal:define="
+		form_id view/form_id;
+		table_only python:hasattr(view, 'table_only') and view.table_only or view.request.get('table_only','') == form_id;"
+	tal:condition="python:not table_only">
+	<h1>
+        <img tal:condition="view/icon|nothing" tal:attributes="src view/icon"/>
+        <img tal:condition="view/getPriorityIcon | nothing"
+             src="" tal:attributes="src view/getPriorityIcon"/>
+        <span class="documentFirstHeading" tal:content="view/title"/>
+    </h1>
+</metal:content-title>
+
+<metal:content-description fill-slot="content-description"
+	tal:define="
+		form_id view/form_id;
+		table_only python:hasattr(view, 'table_only') and view.table_only or view.request.get('table_only','') == form_id;"
+	tal:condition="python:not table_only">
+	<div class="documentDescription"
+		tal:content="view/description"
+		tal:condition="view/description"/>
+</metal:content-description>
+
+<metal:content-core fill-slot="content-core"
+	tal:define="
+		form_id view/form_id;
+		table_only python:hasattr(view, 'table_only') and view.table_only or view.request.get('table_only','') == form_id;">
+
+	<tal:searchform condition="python:not table_only">
+
+		<table style="margin-bottom:0;"><tr><td>
+			<form id="applytemplate_form" method="POST">
+				<input type="hidden" name="submitted" value="1"/>
+				<input tal:replace="structure context/@@authenticator/authenticator"/>
+				<label for="getWorksheetTemplate" i18n:translate="">Select template</label>
+				<select id="ProfileSelector" name="getWorksheetTemplate">
+					<option value=""></option>
+					<tal:profile repeat="profile view/getWorksheetTemplates">
+						<option
+							tal:attributes="
+								value python:profile[0];
+								selected python: view.request.get('WorksheetTemplate', '') == profile[0] and 'selected' or ''"
+							tal:content="python:profile[1]"/>
+					</tal:profile>
+				</select>&nbsp;
+				<input type="submit"
+					   class="applytemplate"
+				       value="Apply template"
+				       i18n:attributes="value"/>
+			</form>
+
+		</td></tr></table>
+
+		<fieldset class="criteria" name="criteria" style="margin-top: 0.5em;">
+			<label tal:attributes="for string:${form_id}_getCategoryTitle"
+				i18n:translate="">Category</label>
+			<select id="CategorySelector"
+					tal:attributes="name string:${form_id}_getCategoryTitle"
+					class="listing-filter">
+				<option value="any" i18n:translate="">Any</option>
+				<tal:options repeat="category view/getCategories">
+					<option
+						tal:attributes="
+							value python:category;
+							selected python: view.request.form.get(form_id+'_getCategoryTitle', '') == category and 'selected' or ''"
+						tal:content="python:category"/>
+				</tal:options>
+			</select>
+
+			<label tal:attributes="for string:${form_id}_Title"
+				i18n:translate="">Service</label>
+			<select id="ServiceSelector"
+					tal:attributes="name string:${form_id}_Title"
+					class="listing-filter">
+				<option value="any" i18n:translate="">Any</option>
+				<tal:options repeat="service view/getServices">
+					<option
+						tal:attributes="
+							value python:service;
+							selected python: view.request.form.get(form_id+'_Title', '') == service and 'selected' or ''"
+						tal:content="python:service"/>
+				</tal:options>
+			</select>
+
+			<label tal:attributes="for string:${form_id}_getClientTitle"
+				i18n:translate="">Client</label>
+			<select id="ClientSelector"
+					tal:attributes="name string:${form_id}_getClientTitle"
+					class="listing-filter">
+				<option value="any" i18n:translate="">Any</option>
+				<tal:options repeat="client view/getClients">
+					<option
+						tal:attributes="
+							value python:client;
+							selected python: view.request.form.get(form_id+'_getClientTitle', '') == client and 'selected' or ''"
+						tal:content="python:client"/>
+				</tal:options>
+			</select>&nbsp;
+			<a tal:attributes="href view/view_url" i18n:translate=""
+				class="ws-analyses-search-button">Search</a>
+		</fieldset>
+
+	</tal:searchform>
+	<fieldset/>
+
+	<div id="folderlisting-main-table"
+		tal:content="structure view/contents_table"/>
+
+	<tal:remarks define="
+		field python:context.Schema()['Remarks'];
+		errors python:{};">
+		<p style="margin-top:2em;"/>
+		 <metal:widget use-macro="python:context.widget('Remarks', mode='edit')" />
+	</tal:remarks>
+
+</metal:content-core>
+
+</body>
+</html>

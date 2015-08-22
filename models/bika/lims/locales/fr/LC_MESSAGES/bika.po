@@ -1,0 +1,4178 @@
+#
+# Translators:
+# Ahmed BEN BRAHIM <ahmed.benbrahim@hotmail.com>, 2013
+# Ahmed BEN BRAHIM <ahmed.benbrahim@hotmail.com>, 2013
+# Antoine Plumereau <toineplume@gmail.com>, 2015
+# az <azeddine.moumin@gmail.com>, 2012
+# az <azeddine.moumin@gmail.com>, 2012
+# az <azeddine.moumin@gmail.com>, 2012
+# Bonamour <nicolas.bonamour-du-tartre@parisdescartes.fr>, 2013
+# CestPasFaux <rodriguesdossantos.vincent@gmail.com>, 2012
+# DELAMARRE <julien.delamarre@univ-rouen.fr>, 2014
+# Didier Desplanque <didier.desplanque@gmail.com>, 2012-2013
+# hbrahi1 <extradisk@yahoo.com>, 2014
+# Bonamour <nicolas.bonamour-du-tartre@parisdescartes.fr>, 2013
+# CestPasFaux <rodriguesdossantos.vincent@gmail.com>, 2012
+# CestPasFaux <rodriguesdossantos.vincent@gmail.com>, 2012
+msgid ""
+msgstr ""
+"Project-Id-Version: Bika-LIMS\n"
+"POT-Creation-Date: 2012-01-01 23:11+0000\n"
+"PO-Revision-Date: 2015-04-07 14:43+0000\n"
+"Last-Translator: Antoine Plumereau <toineplume@gmail.com>\n"
+"Language-Team: French (http://www.transifex.com/projects/p/bika-lims/language/fr/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: DOMAIN\n"
+"Language: fr\n"
+
+msgid "${contact_fullname} can log into the LIMS by using ${contact_username} as username. Contacts must change their own passwords. If a password is forgotten a contact can request a new password from the login form."
+msgstr "${contact_fullname} peut se connecter au LIMS en utilisant ${contact_username} comme nom d'utilisateur. Les contacts doivent changer leur propre mot de passe. Si un mot de passe est oublié, un contact peut faire une demande de nouveau mot de passe via le formulaire de connexion."
+
+msgid "${items} are missing Preserver or Date Preserved"
+msgstr "Il manque une date ou durée de conservation pour ${items}."
+
+msgid "${items} are waiting for preservation."
+msgstr "${items} sont en attente de conservation."
+
+msgid "${items} are waiting to be received."
+msgstr "${items} sont en attente de réception."
+
+msgid "${items} invalidated."
+msgstr "${items} invalidés"
+
+msgid "${items} were successfully created."
+msgstr "${items} créés avec succès."
+
+msgid "${items}: partitions are waiting to be received."
+msgstr "${items}: aliquotes en attente de réception"
+
+msgid "${item} is missing Preserver or Preservation Date"
+msgstr "Il manque une date ou durée de conservation pour ${item}."
+
+msgid "${item} is waiting for preservation."
+msgstr "${item} est en attente de conservation."
+
+msgid "${item} is waiting to be received."
+msgstr "${item} est en attente de réception."
+
+msgid "${item} was successfully created."
+msgstr "${item} a été créé avec succès."
+
+msgid "${item}: ${part} is waiting to be received."
+msgstr "${item}: ${part} est en attente de réception."
+
+msgid "%"
+msgstr "%"
+
+msgid "% Error"
+msgstr "% Erreur"
+
+msgid "% Performed"
+msgstr "% Réalisé"
+
+msgid "% Published"
+msgstr "% Publié"
+
+msgid "%s has no '%s' column."
+msgstr "%s n'a pas de colonne '%s'."
+
+msgid "&nbsp;"
+msgstr "&nbsp;"
+
+msgid "'Classic' indicates importing analysis requests per sample and analysis service selection. With 'Profiles', analysis profile keywords are used to select multiple analysis services together"
+msgstr "'Classique' indique que l'import de demandes d'analyses se fait par sélection d'échantillons et de services analytiques. Avec 'Profils', des mots-clés correspondants à des profils d'analyses sont utilisés pour sélectionner de multiples services analytiques simultanément."
+
+msgid "(Blank)"
+msgstr "(Vide)"
+
+msgid "(Control)"
+msgstr "(Controle)"
+
+msgid "(Duplicate)"
+msgstr "(Dupliqué)"
+
+msgid "(Hazardous)"
+msgstr "(Dangereux)"
+
+msgid "(Required)"
+msgstr "(Requis)"
+
+msgid "+-"
+msgstr "±"
+
+#
+# File: bika.lims/bika/lims/browser/analysisrequest/templates/analysisrequests.pt, line: 35
+msgid "1"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/browser/analysisrequest/templates/analysisrequests.pt, line: 44
+msgid "10"
+msgstr ""
+
+msgid "16x16 pixel icon used for the this priority in listings."
+msgstr "Icône de 16x16 pixels utilisée pour cette priorité dans les listes."
+
+#
+# File: bika.lims/bika/lims/browser/analysisrequest/templates/analysisrequests.pt, line: 36
+msgid "2"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/browser/analysisrequest/templates/analysisrequests.pt, line: 37
+msgid "3"
+msgstr ""
+
+msgid "32x32 pixel icon used for the this priority in object views."
+msgstr "Icône de 32x32 pixels utilisée pour cette priorité dans les vues d'objets"
+
+#
+# File: bika.lims/bika/lims/browser/analysisrequest/templates/analysisrequests.pt, line: 38
+msgid "4"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/browser/analysisrequest/templates/analysisrequests.pt, line: 39
+msgid "5"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/browser/analysisrequest/templates/analysisrequests.pt, line: 40
+msgid "6"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/browser/analysisrequest/templates/analysisrequests.pt, line: 41
+msgid "7"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/browser/analysisrequest/templates/analysisrequests.pt, line: 42
+msgid "8"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/browser/analysisrequest/templates/analysisrequests.pt, line: 43
+msgid "9"
+msgstr ""
+
+msgid "< Min"
+msgstr "< Min"
+
+#
+msgid "<p>${service} requires the following services to be selected:</p><br/><p>${deps}</p><br/><p>Do you want to apply these selections now?</p>"
+msgstr ""
+
+#
+msgid "<p>The following services depend on ${service}, and will be unselected if you continue:</p><br/><p>${deps}</p><br/><p>Do you want to remove these selections now?</p>"
+msgstr ""
+
+msgid "> Max"
+msgstr "> Max"
+
+msgid "AR ${ar_number}"
+msgstr "BA ${ar_number}"
+
+msgid "AR Attachment Option"
+msgstr "Option de lien du BA"
+
+msgid "AR ID Padding"
+msgstr "Pas d'ID des BA"
+
+msgid "AR Import"
+msgstr "Importation de BA"
+
+msgid "AR Import options"
+msgstr "Options d'Importation des BA"
+
+msgid "AR Templates"
+msgstr "Modèles de BA"
+
+msgid "AR for retested results"
+msgstr "BA pour résultats issus d'une contre-analyse"
+
+msgid "ARs: ${ars}"
+msgstr "BAs : ${ars} "
+
+msgid "Account Name"
+msgstr "Nom du compte"
+
+msgid "Account Number"
+msgstr "Numéro de compte"
+
+msgid "Account Type"
+msgstr "Type de compte"
+
+msgid "Accreditation"
+msgstr "Accréditation"
+
+msgid "Accreditation Body Abbreviation"
+msgstr "Accréditation abrégée"
+
+msgid "Accreditation Body URL"
+msgstr "URL de l'Accréditation"
+
+msgid "Accreditation Logo"
+msgstr "Logo d'accréditation"
+
+msgid "Accreditation Reference"
+msgstr "Référence Accréditation"
+
+msgid "Accreditation page header"
+msgstr "En-tête d'accréditation"
+
+msgid "Accredited"
+msgstr "Accrédité"
+
+msgid "Action"
+msgstr "Action"
+
+msgid "Actions performed by users (or specific user) between a period of time"
+msgstr "Actions réalisées par les utilisateurs (ou par un utilisateur spécifique) sur une période"
+
+msgid "Active"
+msgstr "Actif"
+
+msgid "Ad-Hoc"
+msgstr "ad-hoc"
+
+msgid "Add"
+msgstr "Ajout"
+
+msgid "Add Analyses"
+msgstr "Ajout d'analyse"
+
+msgid "Add Blank Reference"
+msgstr "Ajout d'un blanc de référence"
+
+msgid "Add Control Reference"
+msgstr "Ajout d'une référence de contrôle"
+
+msgid "Add Duplicate"
+msgstr "Ajout d'un duplicat"
+
+msgid "Add Profile"
+msgstr "Ajouter un profil"
+
+#
+# worksheet.js
+msgid "Add Remark"
+msgstr ""
+
+msgid "Add Template"
+msgstr "Ajouter un modèle"
+
+msgid "Add a remarks field to all analyses"
+msgstr "Ajoute un champ de commentaires à toutes les analyses"
+
+msgid "Add new"
+msgstr "Ajouter"
+
+msgid "Additional remarks:"
+msgstr "Commentaires additionnels :"
+
+msgid "Address"
+msgstr "Adresse"
+
+msgid "Adds a two-digit year after the ID prefix"
+msgstr "Ajoute les 2 derniers chiffres de l'année après le préfixe ID"
+
+msgid "Administrative Reports"
+msgstr "Rapports administratifs"
+
+msgid "After ${end_date}"
+msgstr "Après ${end_date}"
+
+msgid "Agency"
+msgstr "Agence"
+
+msgid "All"
+msgstr "Tous"
+
+msgid "All Accredited analysis services are listed here."
+msgstr "Tous les services d'analyse accrédités sont listés ici."
+
+msgid "All analyses assigned"
+msgstr "Toutes les analyses  assignées"
+
+msgid "All analyses of type"
+msgstr "Toutes les analyses de type"
+
+msgid "All reference samples in the system are displayed here."
+msgstr "Tous les échantillons de référence du système sont affichés ici"
+
+msgid "Allow Lab Clerks to create and edit clients"
+msgstr "Autoriser les assistants de laboratoire à créer et éditer les clients"
+
+#
+# File: bika.lims/bika/lims/content/analysisservice.py, line: 315
+msgid "Allow Manual Detection Limit input"
+msgstr ""
+
+msgid "Allow access to worksheets only to assigned analysts"
+msgstr "Autorise l'accès aux feuilles de travail uniquement aux analystes auxquels elles sont assignées"
+
+msgid "Allow instrument entry of results"
+msgstr "Autorise la saisie de résultat par les automates"
+
+msgid "Allow manual entry of results"
+msgstr "Autorise la saisie manuelle de résultats"
+
+#
+# File: bika.lims/bika/lims/content/analysisservice.py, line: 800
+msgid "Allow manual uncertainty value input"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/content/analysisservice.py, line: 316
+msgid "Allow the analyst to manually replace the default Detection Limits (LDL and UDL) on results entry views"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/content/analysisservice.py, line: 801
+msgid "Allow the analyst to manually replace the default uncertainty value."
+msgstr ""
+
+msgid "Alternative Calculation"
+msgstr "Calcul alternatif"
+
+msgid "Always expand the selected categories in client views"
+msgstr "Toujours déployer les catégories sélectionnées dans les vues client."
+
+msgid "Amount"
+msgstr "Quantité"
+
+msgid "An item's type (e.g. Event)"
+msgstr "Un type d'élément (e.g. évènement)"
+
+msgid "An item's workflow state (e.g.published)"
+msgstr "Un statut du workflow (e.g. publié) "
+
+msgid "Analyses"
+msgstr "Analyses"
+
+msgid "Analyses in error shoulder range"
+msgstr "Analyses dans la marge d'erreur acceptable"
+
+msgid "Analyses out of range"
+msgstr "Analyses hors spécifications"
+
+msgid "Analyses per analysis service"
+msgstr "Analyses par service analytique"
+
+msgid "Analyses per sample type"
+msgstr "Analyses par type d'échantillon"
+
+msgid "Analyses per service"
+msgstr "Analyses par service"
+
+msgid "Analyses performed and published as % of total"
+msgstr "Analyses réalisées et publiées en % du total"
+
+msgid "Analyses performed as % of total"
+msgstr "Analyses réalisées comme % du total"
+
+msgid "Analyses related reports"
+msgstr "Rapports liés aux analyses"
+
+msgid "Analyses repeated"
+msgstr "Analyses répétées"
+
+msgid "Analyses results out of specified range"
+msgstr "Résultats analytiques hors de la plage spécifiée"
+
+msgid "Analyses retested"
+msgstr "Analyses relancées"
+
+msgid "Analyses summary per department"
+msgstr "Résumé des analyses par département"
+
+msgid "Analyses which have been retested"
+msgstr "Analyses ayant été relancées"
+
+msgid "Analysis"
+msgstr "Analyse"
+
+msgid "Analysis Attachment Option"
+msgstr "Option de liaison à l'analyse"
+
+msgid "Analysis Categories"
+msgstr "Classification par département"
+
+msgid "Analysis Category"
+msgstr "Catégorie d'analyse"
+
+msgid "Analysis Keyword"
+msgstr "Mot clé de l'analyse"
+
+msgid "Analysis Profile"
+msgstr "Profil d'analyse"
+
+msgid "Analysis Profiles"
+msgstr "Profiles d'analyse"
+
+msgid "Analysis Request"
+msgstr "Demande d'analyse"
+
+msgid "Analysis Request ID"
+msgstr "ID demande d'analyse"
+
+msgid "Analysis Request Imports"
+msgstr "Importation de la Demande Analytique"
+
+msgid "Analysis Request Priorities"
+msgstr "Priorités des demandes d'analyses"
+
+msgid "Analysis Request Specifications"
+msgstr "Spécifications de demande d'analyses"
+
+msgid "Analysis Requests"
+msgstr "Demandes d'analyse"
+
+msgid "Analysis Service"
+msgstr "Service d'analyse"
+
+msgid "Analysis Services"
+msgstr "Classification des analyses"
+
+msgid "Analysis Specification"
+msgstr "Spécifications analytiques"
+
+msgid "Analysis Specifications"
+msgstr "Spécifications d'analyse"
+
+msgid "Analysis State"
+msgstr "État d'analyse"
+
+msgid "Analysis Type"
+msgstr "Type d'analyse"
+
+msgid "Analysis category"
+msgstr "Catégorie d'analyse"
+
+msgid "Analysis request ${AR} was successfully created."
+msgstr "La demande d'analyse ${AR} a été créée avec succès."
+
+msgid "Analysis requests ${ARs} were successfully created."
+msgstr "Les demandes d'analyses ${ARs} ont été créées avec succès."
+
+msgid "Analysis requests and analyses"
+msgstr "Demandes analytiques et analyses"
+
+msgid "Analysis requests and analyses per client"
+msgstr "Demandes analytiques et analyses triées par client"
+
+msgid "Analysis requests not invoiced"
+msgstr "Demandes Analytiques Non envoyées"
+
+msgid "Analysis requests will be selected if any of their analyses have this analysis service selected."
+msgstr "Les demandes d'analyses seront sélectionnées si  l'une d'entre elles a ce service analytique sélectionné."
+
+msgid "Analysis requests will be selected if any of their analyses' services are in this category."
+msgstr "Les demandes d'analyse seront sélectionnées si le service analytique de l'une d'entre elles appartient à cette catégorie."
+
+msgid "Analysis result within error range"
+msgstr "Résultat analytique dans la plage d'erreur"
+
+msgid "Analysis results"
+msgstr "Résultats d'analyse"
+
+msgid "Analysis results for ${subject_parts}"
+msgstr "Résultats analytiques pour ${subject_parts}"
+
+msgid "Analysis results for per sample point and analysis service"
+msgstr "Résultats analytiques par point d'échantillonnage et service analytique"
+
+msgid "Analysis results out of lab or client specified range Note that this may take several minutes"
+msgstr "Résultats analytiques hors des spécifications du laboratoire ou du client. Note : cela peut prendre plusieurs minutes"
+
+msgid "Analysis service"
+msgstr "Service analytique"
+
+msgid "Analysis specifications reset to lab defaults."
+msgstr "Restauration des spécifications analytiques à celles par défaut du laboratoire."
+
+msgid "Analysis specifications which are edited directly on the Analysis Request."
+msgstr "Spécifications analytiques éditées directement sur la demande d'analyse"
+
+msgid "Analysis turnaround time"
+msgstr "Durée moyenne de l'analyse"
+
+msgid "Analysis turnaround time over time"
+msgstr "Temps de traitement de l'analyse sur la période"
+
+msgid "Analysis turnaround times"
+msgstr "Temps de traitement des analyses"
+
+msgid "Analysis turnaround times over time"
+msgstr "Temps de traitement des analyses sur la période"
+
+msgid "AnalysisProfile Request"
+msgstr "Demande de profil d'analyses"
+
+msgid "Analyst"
+msgstr "Analyste"
+
+msgid "Analyst must be specified."
+msgstr "L'analyste doit être spécifié."
+
+msgid "Any"
+msgstr "Tous"
+
+msgid "Applied"
+msgstr "Appliqué"
+
+msgid "Apply"
+msgstr "Appliquer"
+
+msgid "Apply template"
+msgstr "Appliquer le modèle"
+
+msgid "Apply wide"
+msgstr "Appliquer à l'ensemble"
+
+#
+# File: bika.lims/bika/lims/content/instrumentcertification.py, line: 103
+msgid "Approved by"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/content/instrument.py, line: 181
+# File: bika.lims/bika/lims/content/instrumentcertification.py, line: 16
+msgid "Asset Number"
+msgstr ""
+
+msgid "Assigned"
+msgstr "Affecté"
+
+msgid "Assigned to worksheet"
+msgstr "Assigné à une feuille de travail"
+
+msgid "Assigned to: ${worksheet_id}"
+msgstr "Assigné à : ${worksheet_id}"
+
+msgid "Attach to"
+msgstr "Lié à"
+
+msgid "Attachment"
+msgstr "Lien"
+
+msgid "Attachment Keys"
+msgstr "Clé de lien"
+
+msgid "Attachment Option"
+msgstr "Option de lien"
+
+msgid "Attachment Type"
+msgstr "Type de lien"
+
+msgid "Attachment Types"
+msgstr "Types de liens"
+
+msgid "Attachment not permitted"
+msgstr "Pas de fichier attaché autorisé"
+
+msgid "Attachment required"
+msgstr "Fichier attaché requis"
+
+msgid "Attachment type"
+msgstr "type de pièce-jointe"
+
+msgid "Attachments"
+msgstr "Liens"
+
+msgid "Autofill"
+msgstr "Autocomplétion"
+
+msgid "Autoimport"
+msgstr "Import automatique"
+
+msgid "Automatic log-off"
+msgstr "Déconnexion automatiqueDéconnexion automatique"
+
+msgid "Automatic sticker printing"
+msgstr "Impression automatique d'étiquettes"
+
+msgid "Available templates"
+msgstr "Modèles diponibles"
+
+msgid "Average TAT"
+msgstr "Moyenne TAT"
+
+msgid "Average early"
+msgstr "Moyenne début"
+
+msgid "Average late"
+msgstr "Moyenne fin"
+
+msgid "Badly formed state: ${errmsg}"
+msgstr "Etat mal formé : ${errmsg}"
+
+msgid "Bank branch"
+msgstr "Filiale de la banque"
+
+msgid "Bank name"
+msgstr "Nom de la banque"
+
+msgid "Basis"
+msgstr "Base"
+
+msgid "Batch"
+msgstr "Lot"
+
+msgid "Batch ID"
+msgstr "Lot ID"
+
+msgid "Batch Labels"
+msgstr "Libellés du lot"
+
+msgid "Batches"
+msgstr "Lots"
+
+msgid "Bearing"
+msgstr "Direction"
+
+msgid "Before ${start_date}"
+msgstr "Avant le ${start_date}"
+
+msgid "Big Icon"
+msgstr "Grande icône"
+
+msgid "Bika LIMS Configuration"
+msgstr "Configuration de Bika LIMS"
+
+msgid "Billing address"
+msgstr "adresse de facturation"
+
+msgid "Blank"
+msgstr "Vide"
+
+msgid "Blank QC analyses"
+msgstr "Analyses QC à blanc"
+
+msgid "Brand"
+msgstr "marque"
+
+msgid "Bulk discount applies"
+msgstr "Remise sur la quantité"
+
+msgid "Bulk price (excluding VAT)"
+msgstr "Prix de gros (HT)"
+
+msgid "Business Phone"
+msgstr "téléphone professionnel"
+
+msgid "By"
+msgstr "Par"
+
+msgid "CC Contact ID"
+msgstr "CC contact ID"
+
+msgid "CC Contacts"
+msgstr "CC contacts"
+
+msgid "CC Email - Invoice"
+msgstr "CC email - Facture"
+
+msgid "CC Email - Report"
+msgstr "CC email - Rapport"
+
+msgid "CC Emails"
+msgstr "Emails CC"
+
+msgid "CCContact"
+msgstr "CCContact"
+
+msgid "CSID"
+msgstr "CSID"
+
+msgid "Calculate Precision from Uncertainties"
+msgstr "Calcule la précision à partir des incertitudes"
+
+msgid "Calculation"
+msgstr "Calcul"
+
+msgid "Calculation Formula"
+msgstr "Formule de calcul"
+
+msgid "Calculation Interim Fields"
+msgstr "Champ(s) de calcul intermédiaire"
+
+msgid "Calculation: ${calc_name}"
+msgstr "Calcul : ${calc_name}"
+
+msgid "Calculation: None"
+msgstr "Calibration : aucune"
+
+msgid "Calculations"
+msgstr "calculs"
+
+msgid "Calibration"
+msgstr "Etalonnage"
+
+msgid "Calibration Certificates"
+msgstr "Certificat d'étalonnage"
+
+#
+# File: bika.lims/bika/lims/content/instrumentcalibration.py, line: 34
+msgid "Calibration report date"
+msgstr ""
+
+msgid "Calibrator"
+msgstr "Métrologue"
+
+msgid "Can be reported as dry matter"
+msgstr "Peut être exprimé comme matière sèche"
+
+msgid "Cancelled"
+msgstr "Annulé"
+
+msgid "Cannot activate calculation, because the following service dependencies are inactive: ${inactive_services}"
+msgstr "Ne peut activer le calcul car les services suivants sont inactifs : ${inactive_services}"
+
+msgid "Cannot deactivate calculation, because it is in use by the following services: ${calc_services}"
+msgstr "Ne peut désactiver le calcul car utilisé par les services suivants : ${calc_services}"
+
+msgid "Cannot verify: Submitted by current user"
+msgstr "Vérification impossible : soumis par l'utilisateur courant"
+
+msgid "Capacity"
+msgstr "Capacité"
+
+msgid "Captured"
+msgstr "Saisi"
+
+msgid "Cardinal"
+msgstr "Cardinal"
+
+msgid "Catalogue Number"
+msgstr "Référence catalogue"
+
+msgid "Categorise analysis services"
+msgstr "Classe les services analytiques"
+
+msgid "Category"
+msgstr "Catégorie"
+
+msgid "Category cannot be deactivated because it contains Analysis Services"
+msgstr "La catégorie ne peut pas être désactivée parce qu'elle contient des services analytiques"
+
+msgid "Cert. Num"
+msgstr "Num. de cert."
+
+msgid "Certificate Code"
+msgstr "Référence du certificat"
+
+#
+# File: bika.lims/bika/lims/content/method.py, line: 119
+msgid "Check if the method has been accredited"
+msgstr ""
+
+msgid "Check this box if the analysis service is included in the laboratory's schedule of accredited analyses"
+msgstr "Cochez cette case si le service analytique est inclus dans le programme d'analyses accréditées du laboratoire"
+
+msgid "Check this box if the samples taken at this point are 'composite' and put together from more than one sub sample, e.g. several surface samples from a dam mixed together to be a representative sample for the dam. The default, unchecked, indicates 'grab' samples"
+msgstr "Cochez cette case si les échantillons prélevés à ce point sont des \"composites\", c'est à dire plusieurs échantillons réunis  et mélangés afin de former un échantillon représentatif. Décoché, par défaut, indique des échantillons indépendants."
+
+msgid "Check this box if this container is already preserved.Setting this will short-circuit the preservation workflow for sample partitions stored in this container."
+msgstr "Cochez cette case si ce conteneur est déjà conditionné. Cette option va court-circuiter le workflow de conservation pour les échantillons stockés dans ce conteneur."
+
+msgid "Check this box if this is the default priority"
+msgstr "Cochez cette case si c'est la priorité par défaut."
+
+msgid "Check this box if your laboratory is accredited"
+msgstr "Cocher cette case si votre laboratoire est accrédité"
+
+msgid "Check this box to ensure a separate sample container is used for this analysis service"
+msgstr "Cochez cette case pour garantir qu'un conteneur d'échantillon distinct est analysé pour ce service analytique."
+
+msgid "Check this if you want to use a separate ID server. Prefixes are configurable separately in each Bika site"
+msgstr "Cochez si vous voulez utiliser un ID serveur séparé. Les préfixes sont configurables séparément dans chaque site Bika."
+
+msgid "Choose default AR specification values"
+msgstr "Choisissez les valeurs de BA spécifiées par défaut"
+
+msgid "Choose the default specifications used for all AR views to display alerts and notifications.  These will also be applied when an AR is published in permanent media, e.g. PDF."
+msgstr "Choisissez les spécifications utilisées par défaut pour toutes les vues de BA pour afficher les alertes et notifications. Cela s'applique aussi quand un BA est publié via un média permanent, par exemple un PDF."
+
+msgid "City"
+msgstr "Ville"
+
+msgid "Classic"
+msgstr "Classique"
+
+msgid "Click on Analysis Categories (against shaded background) to see Analysis Services in each category. Enter minimum and maximum values to indicate a valid results range. Any result outside this range will raise an alert. The % Error field allows for an % uncertainty to be considered when evaluating results against minimum and maximum values. A result out of range but still in range if the % error is taken into consideration, will raise a less severe alert."
+msgstr "Cliquez sur les catégories d'analyses (ci-contre sur fond sombre) pour voir les services d'analyses de chaque catégorie. Entrer des valeurs minimales et maximales pour indiquer la plage de validité des résultats. Chaque résultat en dehors de cette plage déclenchera une alerte. Le champ % d'erreur permet d'utiliser un % d'incertitude lors de la comparaison des résultats aux valeurs minimales et maximales. Un résultat en dehors de de la plage indiquée mais encore dans la plage si l'on prend en considération le % d'erreur relatif déclenchera une alerte de niveau inférieur."
+
+msgid "Click on Analysis Categories (against shaded backgroundto see Analysis Services in each category. Enter minimum and maximum values to indicate a valid results range. Any result outside this range will raise an alert. The % Error field allows for an % uncertainty to be considered when evaluating results against minimum and maximum values. A result out of range but still in range if the % error is taken into consideration, will raise a less severe alert."
+msgstr "Cliquez sur les catégories d'analyses (ci-contre sur fond sombre) pour voir les services d'analyses de chaque catégorie. Entrer des valeurs minimales et maximales pour indiquer la plage de validité des résultats. Chaque résultat en dehors de cette plage déclenchera une alerte. Le champ % d'erreur permet d'utiliser un % d'incertitude lors de la comparaison des résultats aux valeurs minimales et maximales. Un résultat en dehors de de la plage indiquée mais encore dans la plage si l'on prend en considération le % d'erreur relatif déclenchera une alerte de niveau inférieur."
+
+msgid "Click on Analysis Categories (against shaded backgroundto see Analysis Services in each category. Enter minimum and maximum values to indicate a valid results range. Any result outside this range will raise an alert. The % Error field allows for an % uncertainty to be considered when evaluating results against minimum and maximum values. A result out of range but still in range if the % error is taken into consideration, will raise a less severe alert. If the result is below '< Min' the result will be shown as '< [min]'. The same applies for results above '> Max'"
+msgstr "Cliquez sur les catégories d'analyses (ci-contre sur fond sombre) pour voir les services d'analyses de chaque catégorie. Entrer des valeurs minimales et maximales pour indiquer la plage de validité des résultats. chaque résultat en dehors de cette plage déclenchera une alerte. Le champ % d'erreur permet d'utiliser un % d'incertitude lors de la comparaison des résultats aux valeurs minimales et maximales. Un résultat en dehors de de la plage indiquée mais encore dans la plage si l'on prend en considération le % d'erreur relatif déclenchera une alerte de niveau inférieur. Si le résultat est inférieur au minimum, le résultat sera exprimé sous la forme '< [min]'. Le même principe s'applique pour les résultats supérieurs, exprimés '> [max]'."
+
+msgid "Click to download"
+msgstr "Cliquez pour télécharger"
+
+msgid "Client"
+msgstr "Client"
+
+msgid "Client Address"
+msgstr "Adresse du client"
+
+msgid "Client Batch ID"
+msgstr "ID du lot du client"
+
+msgid "Client City"
+msgstr "Localité du client"
+
+msgid "Client Email"
+msgstr "Email client"
+
+msgid "Client Fax"
+msgstr "Fax client"
+
+msgid "Client ID"
+msgstr "Identifiant"
+
+msgid "Client Landing Page"
+msgstr "Page d'accueil du client"
+
+msgid "Client Name"
+msgstr "Nom du client"
+
+msgid "Client Order"
+msgstr "Commande du client"
+
+msgid "Client Order Number"
+msgstr "Numéro de commande du client"
+
+msgid "Client Phone"
+msgstr "Téléphone client"
+
+msgid "Client Ref"
+msgstr "Réf client"
+
+msgid "Client Reference"
+msgstr "Référence client"
+
+msgid "Client Remarks"
+msgstr "Remarques client"
+
+msgid "Client SID"
+msgstr "SID client"
+
+msgid "Client Sample ID"
+msgstr "ID d'échantillon client"
+
+msgid "Client contact required before request may be submitted"
+msgstr "Un contact client est nécessaire avant de soumettre une requête"
+
+msgid "Clients"
+msgstr "Clients"
+
+msgid "Closed"
+msgstr "Fermé"
+
+msgid "Code for the location"
+msgstr "Code de localisation"
+
+msgid "Code for the site"
+msgstr "Code du site"
+
+msgid "Code the the shelf"
+msgstr "Code du meuble"
+
+msgid "Comma (,)"
+msgstr "Virgule (,)"
+
+msgid "Comments"
+msgstr "Commentaires"
+
+msgid "Comments or results interpretation"
+msgstr "Commentaires ou interprétation des résultats"
+
+#
+# File: bika.lims/bika/lims/content/analysisprofile.py, line: 69
+# File: bika.lims/bika/lims/content/analysisservice.py, line: 904
+msgid "Commercial ID"
+msgstr ""
+
+msgid "Composite"
+msgstr "Composé"
+
+msgid "Confidence Level %"
+msgstr "Taux de confiance"
+
+msgid "Configure the sample partitions and preservations for this template. Assign analyses to the different partitions on the template's Analyses tab"
+msgstr "Configure la répartition et conservation des échantillons pour ce modèle. Assigne des analyses aux différentes sections sur l'onglet des modèles d'analyses"
+
+msgid "Confirm password"
+msgstr "Confirmer le mot de passe"
+
+msgid "Considerations"
+msgstr "Considérations"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "Contact ID"
+msgstr "ID contact"
+
+msgid "Contact Name"
+msgstr "Nom contact"
+
+msgid "Contacts"
+msgstr "Contacts"
+
+msgid "Contacts to CC"
+msgstr "CC contacts"
+
+msgid "Container"
+msgstr "Conteneur"
+
+msgid "Container Type"
+msgstr "Type de conteneur"
+
+msgid "Container Types"
+msgstr "Types de conteneur"
+
+msgid "Containers"
+msgstr "Conteneurs"
+
+msgid "Content Type"
+msgstr "Type de contenu"
+
+msgid "Content type"
+msgstr "Type de contenu"
+
+msgid "Control"
+msgstr "Contrôle"
+
+msgid "Control QC analyses"
+msgstr "Contrôle QC des analyses"
+
+msgid "Copy"
+msgstr "Copier"
+
+msgid "Copy analysis services"
+msgstr "Copier les analyses"
+
+msgid "Copy from"
+msgstr "Copier de "
+
+msgid "Copy to new"
+msgstr "Copier dans un  nouveau"
+
+msgid "Count"
+msgstr "Compter"
+
+msgid "Country"
+msgstr "Pays"
+
+msgid "Create a new sample of this type"
+msgstr "Créer un nouvel échantillon de ce type"
+
+msgid "Created"
+msgstr "Créé"
+
+msgid "Created by"
+msgstr "Créé par "
+
+msgid "Created by:"
+msgstr "Créé par :"
+
+msgid "Creator"
+msgstr "Créateur"
+
+msgid "Criteria"
+msgstr "Critère"
+
+msgid "Currency"
+msgstr "Devise"
+
+msgid "Current"
+msgstr "Actuel"
+
+msgid "Custom decimal mark"
+msgstr "Signe décimal personnalisé"
+
+#
+# File: bika.lims/bika/lims/browser/analyses.py, line: 81
+# File: bika.lims/bika/lims/browser/worksheet.py, line: 406
+msgid "DL"
+msgstr ""
+
+msgid "Daily samples received"
+msgstr "Echantillons reçus quotidiennement"
+
+msgid "Data Interface"
+msgstr "Interface de données"
+
+msgid "Data Interface Options"
+msgstr "Options d'interface de données"
+
+msgid "Data entry day book"
+msgstr "Cahier d'enregistrement quotidien"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Date Applied"
+msgstr "Date d'application"
+
+msgid "Date Created"
+msgstr "Date de création"
+
+msgid "Date Dispatched"
+msgstr "Date de répartition"
+
+msgid "Date Disposed"
+msgstr "Date de mise à disposition"
+
+msgid "Date Expired"
+msgstr "Date d'expiration"
+
+msgid "Date Imported"
+msgstr "Date d'importation"
+
+msgid "Date Loaded"
+msgstr "Date de chargement"
+
+msgid "Date Opened"
+msgstr "Date d'ouverture"
+
+msgid "Date Preserved"
+msgstr "Date de conservation"
+
+msgid "Date Published"
+msgstr "Date de publication"
+
+msgid "Date Received"
+msgstr "Date de réception"
+
+msgid "Date Requested"
+msgstr "Date de la demande"
+
+msgid "Date Sampled"
+msgstr "Date d'échantillonnage"
+
+msgid "Date Submitted"
+msgstr "Date de soumission"
+
+msgid "Date from which the calibration certificate is valid"
+msgstr "Date jusqu'à laquelle le certificat d'étalonnage est valide"
+
+msgid "Date from which the instrument is under calibration"
+msgstr "Date à partir de laquelle l'équipement est étalonné"
+
+msgid "Date from which the instrument is under maintenance"
+msgstr "Date à partir de laquelle l'équipement est en maintenance"
+
+msgid "Date from which the instrument is under validation"
+msgstr "Date à partir de laquelle l'équipement est en validation"
+
+msgid "Date received"
+msgstr "Date de réception"
+
+msgid "Date until the certificate is valid"
+msgstr "Date jusqu'à laquelle le certificat est valide"
+
+msgid "Date until the instrument will not be available"
+msgstr "Date jusqu'à laquelle l'équipement sera indisponible"
+
+msgid "Date when the calibration certificate was granted"
+msgstr "Date de délivrance du certificat"
+
+msgid "Days"
+msgstr "Jours"
+
+msgid "De-activate until next calibration test"
+msgstr "Désactiver jusqu'au prochain étalonnage"
+
+msgid "Decimal mark to use in the reports from this Client."
+msgstr "signe décimal à utiliser dans les rapports pour ce client"
+
+msgid "Default"
+msgstr "Défaut"
+
+msgid "Default AR Specifications"
+msgstr "Spécifications par défaut des BA"
+
+msgid "Default Calculation"
+msgstr "Calcul par défaut"
+
+msgid "Default Container"
+msgstr "conteneur par défaut"
+
+msgid "Default Container Type"
+msgstr "Type de conteneur par défaut"
+
+msgid "Default Instrument"
+msgstr "Equipement par défaut"
+
+msgid "Default Method"
+msgstr "Méthode par défaut"
+
+msgid "Default Preservation"
+msgstr "Conservation par défaut"
+
+msgid "Default Priority?"
+msgstr "Priorité par défaut ?"
+
+msgid "Default calculation to be used from the default Method selected. The Calculation for a method can be assigned in the Method edit view."
+msgstr "Calcul sélectionné par défaut utilisé quand la méthode par défaut est utilisée. Le calcul pour une méthode peut être attribué par la vue d'édition des méthodes."
+
+msgid "Default categories"
+msgstr "Catégories par défaut"
+
+msgid "Default container for new sample partitions"
+msgstr "Conteneur par défaut pour les nouvelles répartitions d'échantillons"
+
+msgid "Default containers: ${container_list}"
+msgstr "Conteneurs par défaut : ${container_list}"
+
+msgid "Default decimal mark"
+msgstr "Signe décimal par défaut"
+
+msgid "Default preservations: ${preservation_list}"
+msgstr "Conservation par défaut : ${preservation_list}"
+
+msgid "Default sample retention period"
+msgstr "Période par défaut de rétention de l'échantillon"
+
+msgid "Default scientific notation format for reports"
+msgstr "Formattage par défaut des notations scientifiques pour les rapports"
+
+msgid "Default scientific notation format for results"
+msgstr "Formattage par défaut des notations scientifiques pour les résultats"
+
+msgid "Default value"
+msgstr "Valeur par défaut"
+
+msgid "DefaultARSpecs_description"
+msgstr "Description des spécifications par défaut des BA"
+
+#
+# File: bika.lims/bika/lims/content/method.py, line: 27
+msgid "Define an identifier code for the method. It must be unique."
+msgstr ""
+
+msgid "Define interim fields such as vessel mass, dilution factors, should your calculation require them. The field title specified here will be used as column headers and field descriptors where the interim fields are displayed. If 'Apply wide' is enabled the field ill be shown in a selection box on the top of the worksheet, allowing to apply a specific value to all the corresponding fields on the sheet."
+msgstr "Définit des champs intermédiaires requis pour les calculs comme la tare du récipient, les facteurs de dilution. Le titre du champ spécifié sera utilisé comme en-tête de colonne et descripteur de champ là où les champs provisoires sont affichés. Si \"appliquer partout\" est activé le champ sera montré dans la case de sélection en haut de la feuille de travail, permettant d'appliquer une valeur spécifique à tous les champs correspondants sur la feuille."
+
+msgid "Define the number of decimals to be used for this result."
+msgstr "Définit le nombre de décimales utilisées pour ce résultat."
+
+msgid "Define the precision when converting values to exponent notation.  The default is 7."
+msgstr "Définit la précision lors de conversions de valeurs en notation exponentielle. Le défaut est de 7."
+
+#
+# File: bika.lims/bika/lims/content/bikasetup.py, line: 443
+msgid "Define the prefixes for the unique sequential IDs the system issues for objects. In the 'Padding' field, indicate with how many leading zeros the numbers must be padded. E.g. a prefix of WS for worksheets with padding of 4, will see them numbered from WS-0001 to WS-9999. Sequence Start indicates the number from which the next ID should start. This is set only if it is greater than existing id numbers. Note that the gap created by jumping IDs cannot be refilled. NB: Note that samples and analysis requests are prefixed with sample type abbreviations and are not configured in this table - their padding can be set in the specified fields below"
+msgstr ""
+
+msgid "Define the search terms for the items you want to list by choosing what to match on. The list of results will be dynamically updated."
+msgstr "Définissez les termes de recherche pour les éléments que vous voulez lister en choisissant sur lesquels faire les correspondances. La liste de résultats sera dynamiquement mise à jour."
+
+msgid "Degrees"
+msgstr "Degrés"
+
+msgid "Delete attachment"
+msgstr "Supprimer la pièce-jonte"
+
+msgid "Department"
+msgstr "Département"
+
+msgid "Dependent Analyses"
+msgstr "Analyses dépendantes"
+
+msgid "Describes the method in layman terms. This information is made available to lab clients"
+msgstr "Décrivez la méthode en termes profanes. Cette information est rendue disponible aux clients du laboratoire."
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Description of the actions made during the calibration"
+msgstr "Description des actions effectuées durant l'étalonnage."
+
+msgid "Description of the actions made during the maintenance process"
+msgstr "Description des actions réalisées pendant la maintenance."
+
+msgid "Description of the actions made during the validation"
+msgstr "Description des actions réalisées durant la validation"
+
+msgid "Description of the location"
+msgstr "Description de l'emplacement"
+
+msgid "Description of the shelf"
+msgstr "Descritption du meuble"
+
+msgid "Description of the site"
+msgstr "Description du site"
+
+msgid "Deviation"
+msgstr "Déviation"
+
+msgid "Discount %"
+msgstr "Remise %"
+
+msgid "Dispatched"
+msgstr "Envoyé"
+
+msgid "Display Value"
+msgstr "Afficher la valeur"
+
+#
+# File: bika.lims/bika/lims/content/analysisservice.py, line: 297
+msgid "Display a Detection Limit selector"
+msgstr ""
+
+msgid "Display an alert on new releases of Bika LIMS"
+msgstr "Affiche une alerte lorsqu'une nouvelle version de Bika LIMS est disponible"
+
+msgid "Display individual sample partitions "
+msgstr "Afficher la répartition des échantillons individuels"
+
+msgid "Disposal Date"
+msgstr "Date de traitement"
+
+msgid "Disposed"
+msgstr "traité"
+
+msgid "District"
+msgstr "District"
+
+msgid "Division by zero"
+msgstr "Division par zéro"
+
+msgid "Document"
+msgstr "Document"
+
+msgid "Dormant"
+msgstr "Inactif"
+
+msgid "Dot (.)"
+msgstr "Point (.)"
+
+msgid "Down from"
+msgstr "Diminution de"
+
+msgid "Down to"
+msgstr "Réduit à"
+
+msgid "Download"
+msgstr "Télécharger"
+
+msgid "Dry"
+msgstr "Sec"
+
+msgid "Dry matter analysis"
+msgstr "Analyse de matière sèche"
+
+msgid "Due"
+msgstr "Dû"
+
+msgid "Due Date"
+msgstr "Echéance"
+
+msgid "Dup Var"
+msgstr "Rép Var"
+
+msgid "Duplicate"
+msgstr "Réplicat"
+
+msgid "Duplicate Of"
+msgstr "Réplicat de"
+
+msgid "Duplicate QC analyses"
+msgstr "Analyses QC répliquées"
+
+msgid "Duplicate Variation %"
+msgstr "Variation du réplicat %"
+
+msgid "Duplicate analysis QC"
+msgstr "Réplicat d'analyse QC"
+
+msgid "Duplicate analysis quality control graphs"
+msgstr "Graphes de contrôle de la qualité des réplicats"
+
+msgid "Duration"
+msgstr "Durée"
+
+msgid "E.g. SANAS, APLAC, etc."
+msgstr "Ex. SANAS, APLAC, etc."
+
+msgid "Earliness"
+msgstr "Anticipé"
+
+msgid "Early"
+msgstr "Tôt"
+
+msgid "Elevation"
+msgstr "Hauteur"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Email Address"
+msgstr "Adresse mail"
+
+msgid "Email subject line"
+msgstr "Sujet de l'email"
+
+msgid "Enable AR Specifications"
+msgstr "Activer les spécifications des BA"
+
+msgid "Enable the Sampling workflow"
+msgstr "Activer le workflow d'échantillonnage"
+
+msgid "End Date"
+msgstr "Date de fin"
+
+msgid "Enhancement"
+msgstr "Amélioration"
+
+msgid "Enter a user name, usually something like 'jsmith'. No spaces or special characters. Usernames and passwords are case sensitive, make sure the caps lock key is not enabled. This is the name used to log in."
+msgstr "Entrer un nom d'utilisateur, normalement quelque chose comme 'jsmith'. Pas d'espaces ni de caractères spéciaux. Les noms d'utilisateurs et mots de passe sont sensibles à la casse, vérifiiez l'état de la touche \"caps lock\". C'est le nom utilisé pour se connecter."
+
+msgid "Enter an email address. This is necessary in case the password is lost. We respect your privacy, and will not give the address away to any third parties or expose it anywhere."
+msgstr "Entrer une adresse email. C'est nécessaire en cas de perte du mot de passe. Nous respectons vos informations privées et ne communiquerons pas l'adresse à un tiers ni ne la diffuserons."
+
+msgid "Enter discount percentage value"
+msgstr "Saisir le taux de remise"
+
+msgid "Enter percentage value eg. 14.0"
+msgstr "Saisir un pourcentage  ex: 14.0"
+
+#
+# File: bika.lims/bika/lims/content/analysisprofile.py, line: 90
+msgid "Enter percentage value eg. 14.0. This percentage is applied on the Analysis Profile only, overriding the systems VAT"
+msgstr ""
+
+msgid "Enter percentage value eg. 14.0. This percentage is applied system wide but can be overwrittem on individual items"
+msgstr "Saisir un pourcentage  (ex : 14.0). Ce pourcentage est appliqué à l'ensemble du système mais peut être écrasé sur des éléments individuels."
+
+msgid "Enter percentage value eg. 33.0"
+msgstr "Saisir la valeur du pourcentage ex: 33.0"
+
+msgid "Enter the Sample Point's latitude in degrees 0-90, minutes 0-59, seconds 0-59 and N/S indicator"
+msgstr "Entrer la latitude du point d'échantillonnage en degrés (0-90), minutes (0-59), secondes (0-59), cardinalité (N/S)"
+
+msgid "Enter the Sample Point's longitude in degrees 0-180, minutes 0-59, seconds 0-59 and E/W indicator"
+msgstr "Entrer la longitude du point d'échantillonnage en degrés (0-180), minutes (0-59), secondes (0-59), cardinalité (E/W)"
+
+msgid "Enter the details of each of the analysis services you want to copy."
+msgstr "Entrer le détail de chacune des analyses que vous voulez copier"
+
+msgid "Enter the details of your lab's service accreditations here.  The following fields are available:  lab_is_accredited, lab_name, lab_country, confidence, accreditation_body_name, accreditation_standard, accreditation_reference<br/>"
+msgstr "Entrez ici le détail des accréditation de votre laboratoire. Les champs suivants sont disponibles : lab_is_accredited, lab_name, lab_country, confidence, accreditation_body_name, accreditation_standard, accreditation_reference"
+
+msgid "Entity"
+msgstr "Entité"
+
+msgid "Erroneus result publication from ${request_id}"
+msgstr "Publication de résultat erroné pour ${request_id}"
+
+msgid "Exclude from invoice"
+msgstr "Exclu de la facture"
+
+msgid "Expected Result"
+msgstr "Résultat attendu"
+
+msgid "Expected Values"
+msgstr "Valeurs attendues"
+
+msgid "Expired"
+msgstr "Expiré"
+
+msgid "Expiry Date"
+msgstr "Date d'expiration"
+
+msgid "Exponential format precision"
+msgstr "Précision pour le format exponentiel"
+
+msgid "Exponential format threshold"
+msgstr "sensibilité pour le format exponentiel"
+
+#
+# File: Profile, line: -1
+# File: description, line: -1
+# File: in, line: -1
+# File: configure.zcml, line: -1
+msgid "Extension profile for the Bika LIMS"
+msgstr ""
+
+msgid "Fax"
+msgstr "Fax"
+
+msgid "Fax (business)"
+msgstr "Fax (entreprise)"
+
+msgid "Female"
+msgstr "Femme"
+
+msgid "Field"
+msgstr "Champ"
+
+msgid "Field Analyses"
+msgstr "Champ d'analyses"
+
+msgid "Field Preservation"
+msgstr "Champ de conservation"
+
+msgid "Field Title"
+msgstr "Titre du champ"
+
+msgid "File"
+msgstr "Fichier"
+
+msgid "File attachments to results, e.g. microscope photos, will be included in emails to recipients if this option is enabled"
+msgstr "Les fichiers attachés aux résultats (ex : photos de microscopie) seront inclus dans les emails aux destinataires si cette option est activée."
+
+msgid "Filename"
+msgstr "Nom du fichier"
+
+msgid "Find items which have been invoiced."
+msgstr "Trouver les éléments facturés"
+
+msgid "Firstname"
+msgstr "Prénom"
+
+msgid "Formula"
+msgstr "Formule"
+
+msgid "From"
+msgstr "De"
+
+msgid "From ${start_date} to ${end_date}"
+msgstr "De ${start_date} à ${end_date}"
+
+msgid "Full Name"
+msgstr "Nom complet"
+
+msgid "Future dated sample"
+msgstr "Echantillons futurs"
+
+msgid "Generate report"
+msgstr "Générer le rapport"
+
+msgid "Go back"
+msgstr "Retour"
+
+msgid "Greeting title eg. Mr, Mrs, Dr"
+msgstr "Titre (Mr, Mrs, Dr...)"
+
+msgid "Group analysis services by category in the LIMS tables, helpful when the list is long"
+msgstr "Groupe les analyses par catégorie dans les tables du LIMS : utile si la liste est longue"
+
+msgid "Group by"
+msgstr "Grouper par"
+
+msgid "Grouping period"
+msgstr "Période de regroupement"
+
+msgid "Hazardous"
+msgstr "Dangereux"
+
+#
+# File: bika.lims/bika/lims/browser/analysisrequest/manage_analyses.py, line: 56
+# File: bika.lims/bika/lims/browser/widgets/analysisprofileanalyseswidget.py, line: 74
+# File: bika.lims/bika/lims/browser/widgets/artemplateanalyseswidget.py, line: 76
+msgid "Hidden"
+msgstr ""
+
+msgid "Hidden Field"
+msgstr "Champ caché"
+
+msgid "Hours"
+msgstr "Heures"
+
+#
+# File: bika.lims/bika/lims/content/supplier.py, line: 49
+msgid "IBN"
+msgstr ""
+
+msgid "ID"
+msgstr "ID"
+
+msgid "ID Server URL"
+msgstr "ID serveur URL"
+
+msgid "ID Server unavailable"
+msgstr "ID serveur indisponible"
+
+msgid "IMPORTANT: Don't use \"Bika\" or \"BIKA\" as the instance name, this is a reserved namespace. If you get \"Site Error\" citing \"AttributeError: adapters\", this is the most likely cause."
+msgstr "IMPORTANT : ne pas utiliser \"Bika\" ou \"BIKA\" comme nom d'instance, ce sont des espaces de noms réservés. Si vous obtenez \"Site Error\" citant \"AttrributeError:adapters\",  c'est la cause la plus probable."
+
+msgid "If 'Allow instrument entry of results' is selected, the method from the default instrument will be used. Otherwise, only the methods selected above will be displayed."
+msgstr "Si \"Autoriser la saisie de résultats par les équipements\" est sélectionné, la méthode de l'instrument par défaut sera utilisée. Sinon, seules les méthodes sélectionnées au-dessus seront affichées."
+
+msgid "If a sample is taken periodically at this sample point, enter frequency here, e.g. weekly"
+msgstr "Si un échantillon est prélevé périodiquement à ce point d'échantillonnage, entrer une fréquence, par exemple hebdomadaire"
+
+#
+# File: bika.lims/bika/lims/content/analysisservice.py, line: 298
+msgid "If checked, a selection list will be displayed next to the analysis' result field in results entry views. By using this selector, the analyst will be able to set the value as a Detection Limit (LDL or UDL) instead of a regular result"
+msgstr ""
+
+msgid "If checked, the instrument will be unavailable until the next valid calibration was performed. This checkbox will automatically be unchecked."
+msgstr "Si coché, l'équipement sera indisponible jusqu'au prochain étalonnage correct. Cette case à cocher est automatiquement décochée."
+
+msgid "If enabled, the name of the analysis will be written in italics."
+msgstr "Si activé, le nom de l'analyse sera écrit en italique."
+
+#
+# File: bika.lims/bika/lims/content/analysisservice.py, line: 892
+msgid "If enabled, this analysis and its results will not be displayed by default in reports. This setting can be overrided in Analysis Profile and/or Analysis Request"
+msgstr ""
+
+msgid "If no Title value is entered, the Batch ID will be used."
+msgstr "Si aucun titre n'est saisi, l'ID du lot sera utilisé"
+
+msgid "If required, select a calculation for the The analysis services linked to this method. Calculations can be configured under the calculations item in the LIMS set-up"
+msgstr "Si requis, sélectionne un calcul pour les analyses liées à cette méthode. Les calculs peuvent être configurés par l'élément calculs dans le paramétrage du LIMS"
+
+msgid "If required, select a calculation for the analysis here. Calculations can be configured under the calculations item in the LIMS set-up"
+msgstr "Si requis, sélectionnez une formule de calcul pour cette analyse. Les calculs se configurent sous l'élément calculs dans le paramétrage du LIMS."
+
+msgid "If text is entered here, it is used instead of the title when the service is listed in column headings. HTML formatting is allowed."
+msgstr "Si du texte est saisi ici, il sera utilisé en lieu et place du titre quand le service est utilisé dans l'en-tête des colonnes. Le format HTML peut-être utilisé."
+
+msgid "If there are previous results for a service in the same batch of Analysis Requests, they will be displayed in the report."
+msgstr "S'il existe des résultats antérieurs pour un service dans le même lot de demandes d'analyses, ils seront affichés sur le rapport."
+
+msgid "If this container is pre-preserved, then the preservation method could be selected here."
+msgstr "Si le conteneur est pré-conditionné, alors le la méthode de conditionnement pourra être sélectionnée ici."
+
+#
+# File: bika.lims/bika/lims/content/bikasetup.py, line: 100
+msgid "If unchecked, analysts and lab clerks will be able to manage Worksheets, too. If the users have restricted access only to those worksheets for which they are assigned, this option will be checked and readonly."
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/content/bikasetup.py, line: 91
+msgid "If unchecked, analysts will have access to all worksheets."
+msgstr ""
+
+msgid "Import"
+msgstr "Import"
+
+msgid "Import Option"
+msgstr "Option d'importation"
+
+msgid "Imported"
+msgstr "Importé"
+
+msgid "In-lab calibration procedure"
+msgstr "Procédure d'étalonnage interne"
+
+msgid "Inactive"
+msgstr "Inactif"
+
+msgid "Include Previous Results From Batch"
+msgstr "Inclus les précédents résultats du lot"
+
+msgid "Include all analysis requests belonging to the selected objects."
+msgstr "Inclus toutes les demandes d'analyses appartenant à l'ensemble des objets sélectionnés."
+
+msgid "Include and display pricing information"
+msgstr "Inclus et affiche les informations tarifaires"
+
+msgid "Include descriptions"
+msgstr "Inclus les descriptions"
+
+msgid "Include year in ID prefix"
+msgstr "Inclure l'année dans le préfixe d'ID"
+
+#
+# File: bika.lims/bika/lims/validators.py, line: 855
+msgid "Incorrect IBAN number: %s"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/validators.py, line: 816
+msgid "Incorrect NIB number: %s"
+msgstr ""
+
+msgid "Indeterminate result"
+msgstr "Résultat indéterminé"
+
+msgid "Indicates whether file attachments, e.g. microscope images, are required for this analysis and whether file upload function will be available for it on data capturing screens"
+msgstr "Indique soit que des fichiers joints (ex images de microscopie) sont requis soit que la fonction d'upload de fichiers sera disponible sur les écrans de capture des données."
+
+#
+msgid "Info"
+msgstr ""
+
+msgid "Inherit From"
+msgstr "Hérite de "
+
+msgid "Initial revision"
+msgstr "Révision initiale"
+
+#
+# File: bika.lims/bika/lims/browser/templates/plone-addsite.pt, line: 188
+msgid "Install"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/browser/templates/plone-addsite.pt, line: 13
+msgid "Install a Bika Distribution"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/content/instrument.py, line: 213
+msgid "Installation Certificate"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/content/instrument.py, line: 214
+msgid "Installation certificate upload"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/content/instrument.py, line: 205
+msgid "InstallationDate"
+msgstr ""
+
+msgid "Instructions"
+msgstr "Instructions"
+
+msgid "Instructions for in-lab regular calibration routines intended for analysts"
+msgstr "Instructions internes d'étalonnage à l'intention des techniciens d'analyse."
+
+msgid "Instructions for regular preventive and maintenance routines intended for analysts"
+msgstr "Instructions de maintenance et d'entretien à destination des techniciens d'analyse."
+
+msgid "Instrument"
+msgstr "Équipement"
+
+msgid "Instrument Calibrations"
+msgstr "Étalonnages de l'équipement"
+
+msgid "Instrument Import"
+msgstr "Import de l'équipement"
+
+msgid "Instrument Maintenance"
+msgstr "Maintenance de l'équipement"
+
+msgid "Instrument Scheduled Tasks"
+msgstr "Tâches planifiées pour l'équipement"
+
+msgid "Instrument Types"
+msgstr "Types d'équipement"
+
+msgid "Instrument Validations"
+msgstr "Validations de l'équipement"
+
+msgid "Instrument entry of results not allowed for ${service}"
+msgstr "Entrées de résultats par l'automate non autorisé pour ${service}"
+
+msgid "Instrument exporter not found"
+msgstr "Exportateur de l'équipement introuvable"
+
+msgid "Instrument failed reference test"
+msgstr "L'équipement a échoué au test de référence"
+
+msgid "Instrument has no data interface selected"
+msgstr "L'équipement n'a pas d'interface de données sélectionnée."
+
+msgid "Instrument type"
+msgstr "Type d'équipement"
+
+msgid "Instruments"
+msgstr "Équipements"
+
+msgid "Internal Calibration Tests"
+msgstr "Tests d'étalonnage internes"
+
+msgid "Internal Certificate"
+msgstr "Certificat interne"
+
+msgid "Interpolation"
+msgstr "Interpolation"
+
+msgid "Invalid"
+msgstr "Invalide"
+
+msgid "Invalid AR retested"
+msgstr "BA invalide retesté"
+
+#
+msgid "Invalid instruments are not shown: ${invalid_list}"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/validators.py, line: 267
+msgid "Invalid wildcards found: ${wildcards}"
+msgstr ""
+
+msgid "Invoice"
+msgstr "Facture"
+
+msgid "Invoice Date"
+msgstr "Date de facture"
+
+msgid "Invoice Exclude"
+msgstr "Exclus de la facture"
+
+msgid "Invoice Number"
+msgstr "Numéro de facture"
+
+msgid "InvoiceBatch has no End Date"
+msgstr "Le lot de facturation n'a pas de date de fin"
+
+msgid "InvoiceBatch has no Start Date"
+msgstr "Le lot de facturation n'a pas de date de début"
+
+msgid "InvoiceBatch has no Title"
+msgstr "Le lot de facturation n'a pas de titre"
+
+msgid "Invoiced"
+msgstr "Facturé"
+
+msgid "Invoices"
+msgstr "Factures"
+
+msgid "Item is inactive."
+msgstr "L'élément est inactif"
+
+msgid "Items per page"
+msgstr "Éléments par page"
+
+msgid "Items to be included in email subject lines"
+msgstr "Éléments à inclure dans le sujet du message électronique"
+
+#
+# File: bika.lims/bika/lims/content/instrumentcalibration.py, line: 95
+# File: bika.lims/bika/lims/content/instrumentcertification.py, line: 91
+# File: bika.lims/bika/lims/content/instrumentvalidation.py, line: 80
+msgid "Job Title"
+msgstr ""
+
+msgid "Job title"
+msgstr "Profession"
+
+msgid "Key"
+msgstr "Clé"
+
+msgid "Key Error"
+msgstr "Clé d'erreur"
+
+msgid "Keyword"
+msgstr "Mot clé"
+
+msgid "Keywords"
+msgstr "Mots clé"
+
+msgid "Lab"
+msgstr "Laboratoire"
+
+msgid "Lab Analyses"
+msgstr "Analyses de laboratoire"
+
+msgid "Lab Contacts"
+msgstr "Contacts du laboratoire"
+
+msgid "Lab Departments"
+msgstr "Départements du labo"
+
+msgid "Lab Preservation"
+msgstr "Conservation du laboratoire"
+
+msgid "Lab Products"
+msgstr "Produits du labo"
+
+msgid "Lab URL"
+msgstr "URL du laboratoire"
+
+msgid "Label"
+msgstr "Libellé"
+
+msgid "Laboratory"
+msgstr "Laboratoire"
+
+msgid "Laboratory Accredited"
+msgstr "Laboratoire accrédité"
+
+msgid "Last modified"
+msgstr "Dernière modification"
+
+msgid "Late"
+msgstr "En retard"
+
+msgid "Late Analyses"
+msgstr "Analyses en retard"
+
+msgid "Late Analysis"
+msgstr "Analyses en retard"
+
+msgid "Latitude"
+msgstr "Latitude"
+
+msgid "Limit Search Results"
+msgstr "Limiter les résultats de recherche"
+
+msgid "Linear"
+msgstr "Linéaire"
+
+msgid "Linked Sample"
+msgstr "Échantillon lié"
+
+msgid "Lists all samples received for a date range"
+msgstr "Liste de tous les échantillons reçus pour une période"
+
+msgid "Load Setup Data"
+msgstr "Charger les données de paramétrage"
+
+msgid "Load documents describing the method here"
+msgstr "Chargez les documents décrivant la méthode"
+
+msgid "Load from file"
+msgstr "Charger à partir du fichier"
+
+msgid "Load the certificate document here"
+msgstr "Charger le certificat ici"
+
+msgid "Loaded"
+msgstr "Chargé"
+
+#
+# File: bika.lims/bika/lims/content/instrument.py, line: 189
+msgid "Location"
+msgstr ""
+
+msgid "Location Code"
+msgstr "Code de l'emplacement"
+
+msgid "Location Description"
+msgstr "Description de l'emplacement"
+
+msgid "Location Title"
+msgstr "Titre de l'emplacement"
+
+msgid "Location Type"
+msgstr "Type d'emplacement"
+
+msgid "Location where sample is kept"
+msgstr "Emplacement où l'échantillon est conservé"
+
+msgid "Location where sample was taken"
+msgstr "Emplacement où l'échantillon a été pris"
+
+#
+# File: bika.lims/bika/lims/content/instrument.py, line: 244
+msgid "Location where the manual set is shelved"
+msgstr ""
+
+msgid "Log"
+msgstr "Enregistrement"
+
+msgid "Login details"
+msgstr "Détails de connexion"
+
+msgid "Login failed. Both email address and password are case sensitive, check that caps lock is not enabled."
+msgstr "La connexion a échoué. L'adresse email et le mot de passe sont sensibles à la casse, vérifiez que le le verrouillage des majuscules n'est pas activé."
+
+msgid "Login failed. Both login name and password are case sensitive, check that caps lock is not enabled."
+msgstr "La connexion a échoué. Le login et le mot de passe sont sensibles à la casse, vérifiez que le le verrouillage des majuscules n'est pas activé."
+
+msgid "Longitude"
+msgstr "Longitude"
+
+msgid "Lot Number"
+msgstr "N° de lot"
+
+#
+# File: bika.lims/bika/lims/content/analysisservice.py, line: 247
+msgid "Lower Detection Limit (LDL)"
+msgstr ""
+
+msgid "Mailing address"
+msgstr "Adresse d'envoi par mail"
+
+msgid "Maintainer"
+msgstr "Mainteneur"
+
+#. Default: "Type"
+msgid "Maintenance type"
+msgstr "Type de maintenance"
+
+msgid "Male"
+msgstr "Mâle"
+
+msgid "Manager"
+msgstr "Manager"
+
+msgid "Manager Email"
+msgstr "E-mail manager"
+
+msgid "Manager Phone"
+msgstr "Téléphone manager"
+
+msgid "Manual"
+msgstr "Manuel"
+
+msgid "Manual entry"
+msgstr "Saisie manuelle"
+
+msgid "Manual entry of results"
+msgstr "Saisie manuelle des résultats"
+
+#
+msgid "Manual entry of results for method ${methodname} is not allowed"
+msgstr ""
+
+#
+msgid "Manual entry of results for method {methodname} is not allowed and no valid instruments found: ${invalid_list}"
+msgstr ""
+
+msgid "Manufacturer"
+msgstr "Fabriquant"
+
+msgid "Manufacturers"
+msgstr "Fabricants"
+
+msgid "Max"
+msgstr "Max"
+
+msgid "Max Time"
+msgstr "Temps max"
+
+msgid "Maximum columns per results email"
+msgstr "Nombre maximum de colonnes par mail de résultats"
+
+msgid "Maximum possible size or volume of samples."
+msgstr "Taille ou volume maximum des échantillons."
+
+msgid "Maximum time allowed for completion of the analysis. A late analysis alert is raised when this period elapses"
+msgstr "Temps maximum alloué pour réaliser toutes les analyses. Dépassé ce temps, une alerte de retard est affichée."
+
+msgid "Maximum turn-around time"
+msgstr "Temps maximum de traitement"
+
+msgid "Member discount %"
+msgstr "Remise membre %"
+
+msgid "Member discount applies"
+msgstr "Application de la remise membre"
+
+msgid "Metadata"
+msgstr "Métadonnées"
+
+msgid "Method"
+msgstr "Méthode"
+
+msgid "Method Document"
+msgstr "Document de méthode"
+
+#
+# File: bika.lims/bika/lims/content/method.py, line: 26
+msgid "Method ID"
+msgstr ""
+
+#. Default: "Instructions"
+msgid "Method Instructions"
+msgstr "Instructions de méthode"
+
+msgid "Method: ${method_name}"
+msgstr "Méthode : ${method_name}"
+
+msgid "Method: None"
+msgstr "Méthode : aucune"
+
+msgid "Methods"
+msgstr "Méthodes"
+
+msgid "Methods included in the ${accreditation_body} schedule of Accreditation for this Laboratory. Analysis remarks are not accredited"
+msgstr "Méthodes inclues dans le programme d'accréditation ${accreditation_body} du Laboratoire. Les remarques analytiques ne sont pas accréditées."
+
+msgid "Middle initial"
+msgstr "Milieu initial"
+
+msgid "Middle name"
+msgstr "Nom du milieu"
+
+msgid "Min"
+msgstr "Min"
+
+msgid "Mine"
+msgstr "Source"
+
+msgid "Minimum 5 characters."
+msgstr "5 caractères minimum"
+
+msgid "Minimum Volume"
+msgstr "Volume minimal"
+
+msgid "Minimum number of results for QC stats calculations"
+msgstr "Nombre minimal de résultat pour le calcul des statistiques de QC"
+
+msgid "Minutes"
+msgstr "Minutes"
+
+msgid "Mobile Phone"
+msgstr "Téléphone mobile"
+
+msgid "Model"
+msgstr "Modèle"
+
+msgid "Modification date"
+msgstr "Date de modification"
+
+msgid "More"
+msgstr "Plus"
+
+msgid "More than one instrument can do an Analysis Service. The instruments selected here are displayed in the Analysis Request creation view for its selection when this Analysis Service is selected."
+msgstr "Plus d'un équipement peut réaliser une analyse. Les équipements sélectionnés ici sont affichés dans la vue de création de demande d'analyse pour la sélection quand cette analyse est sélectionnée."
+
+#
+# File: bika.lims/bika/lims/content/supplier.py, line: 39
+msgid "NIB"
+msgstr ""
+
+msgid "Name"
+msgstr "Nom"
+
+msgid "New"
+msgstr "Nouveau"
+
+msgid "No"
+msgstr "Non"
+
+msgid "No Analysis Requests matched your query"
+msgstr "Pas de demande d'analyse correspondant à votre requête"
+
+msgid "No actions found for user ${user}"
+msgstr "Pas d'actions trouvées pour l'utilisateur ${user}"
+
+msgid "No analyses have been selected"
+msgstr "Aucune analyse sélectionnée"
+
+msgid "No analyses matched your query"
+msgstr "Pas d'analyse correspondant à votre requête"
+
+msgid "No analyses were added"
+msgstr "Pas d'analyses ajoutées"
+
+msgid "No analyses were added to this worksheet."
+msgstr "Pas d'analyses ajoutées à cette feuille de travail."
+
+msgid "No analysis selected"
+msgstr "Pas d'analyse sélectionnée."
+
+#
+# File: bika.lims/bika/lims/exportimport/instruments/thermoscientific/multiskan/go.py, line: 33
+msgid "No analysis service selected"
+msgstr ""
+
+msgid "No analysis services were selected."
+msgstr "Pas d'analyses sélectionnées"
+
+msgid "No changes made."
+msgstr "Pas de changements effectués."
+
+msgid "No control type specified"
+msgstr "Aucun type de contrôle spécifié"
+
+msgid "No default containers specified for this service"
+msgstr "Pas de conteneur par défaut spécifié pour ce service."
+
+msgid "No default preservations specified for this service"
+msgstr "Pas de conservation spécifiée pour ce service"
+
+msgid "No file selected"
+msgstr "Pas de fichier sélectionné"
+
+msgid "No historical actions matched your query"
+msgstr "Pas d'actions dans l'historique correspondant à votre recherche"
+
+msgid "No items have been selected"
+msgstr "Aucun article sélectionné"
+
+msgid "No items selected"
+msgstr "Pas d'articles sélectionnés"
+
+msgid "No new items were created."
+msgstr "Pas de nouvel élément créé"
+
+msgid "No of containers"
+msgstr "N° de conteneur"
+
+msgid "No reference sample was selected."
+msgstr "Aucun échantillon de référence sélectionné"
+
+msgid "No report specified in request"
+msgstr "Pas de rapport spécifié dans la requête"
+
+msgid "No samples matched your query"
+msgstr "Pas d'échantillon correspondant à votre requête"
+
+msgid "No user exists for ${contact_fullname} and he/she will not be able to log in. Fill in the form below to create one for him/her."
+msgstr "Aucun utilisateur n'existe pour ${contact_fullname} et elle/il ne peut pas se connecter. Remplir le formulaire ci-dessous pour lui en créer un."
+
+#
+msgid "No valid instruments found: ${invalid_list}"
+msgstr ""
+
+msgid "None"
+msgstr "Aucun"
+
+msgid "Not Permitted"
+msgstr "Non autorisé"
+
+msgid "Not available"
+msgstr "Non disponible"
+
+msgid "Not defined"
+msgstr "Non défini"
+
+msgid "Num columns"
+msgstr "Num colonne"
+
+msgid "Number of Analyses"
+msgstr "Nombre d'analyses"
+
+msgid "Number of Analysis requests and analyses"
+msgstr "Nombre de demandes d'analyses et d'analyses"
+
+msgid "Number of Analysis requests and analyses per client"
+msgstr "Nombre de demandes d'analyses et d'analyses par client"
+
+msgid "Number of analyses"
+msgstr "Nombre d'analyses"
+
+msgid "Number of analyses out of range for period"
+msgstr "Nombre d'analyses hors spécifications pour la période"
+
+msgid "Number of analyses requested per analysis service"
+msgstr "Nombre d'analyses demandées par service analytique"
+
+msgid "Number of analyses requested per sample type"
+msgstr "Nombre de demandes d'analyses et d'analyses par type"
+
+msgid "Number of analyses retested for period"
+msgstr "Nombre d'analyses retestées pour la période"
+
+msgid "Number of analysis requested and published per department and expresed as a percentage of all analyses performed"
+msgstr "Nombre d'analyses demandées et publiées par département et exprimées comme un pourcentage de toutes les analyses réalisées."
+
+msgid "Number of requests"
+msgstr "Nombre de demandes"
+
+msgid "Number of samples"
+msgstr "Nombre d'échantillons"
+
+msgid "Numeric value indicating the sort order of objects that are prioritised"
+msgstr "Valeur numérique indiquant l'ordre de tri des objets priorisés"
+
+msgid "Object ID"
+msgstr "ID de l'objet"
+
+msgid "Once preserved, the sample must be disposed of within this time period.  If not specified, the sample type retention period will be used."
+msgstr "Lorsqu'il a été conservé, l'échantillon doit être éliminé à l'issue de la période. Faute de spécification, la période de rétention du type d'échantillon sera utilisée."
+
+msgid "Only lab managers can create and manage worksheets"
+msgstr "Seuls les responsables de laboratoire peuvent créer et gérer les feuilles de travail"
+
+#
+msgid "Only the analyses for which the selected instrument is allowed will be added automatically."
+msgstr ""
+
+msgid "Only to empty or zero fields"
+msgstr "Champs à valeur vide ou zéro"
+
+msgid "Open"
+msgstr "Ouvert"
+
+msgid "Order"
+msgstr "Commande"
+
+msgid "Order Date"
+msgstr "Date de commande"
+
+msgid "Order ID"
+msgstr "ID commande"
+
+msgid "Order Number"
+msgstr "Numéro de commande"
+
+msgid "Orders"
+msgstr "Commandes"
+
+msgid "Orders: ${orders}"
+msgstr "Commandes :${orders}"
+
+msgid "Organization responsible of granting the calibration certificate"
+msgstr "Organisme chargé de délivrer le certificat d'étalonnage"
+
+msgid "Original File"
+msgstr "Fichier original"
+
+msgid "Other productivity reports"
+msgstr "Autres rapports de productivité"
+
+msgid "Out of date"
+msgstr "Périmé"
+
+msgid "Output format"
+msgstr "Format de sortie"
+
+msgid "PDF"
+msgstr "PDF"
+
+#
+msgid "Parent"
+msgstr ""
+
+msgid "Partition"
+msgstr "Répartition"
+
+msgid "Partition Setup"
+msgstr "Paramétrage de la répartition"
+
+msgid "Partitions"
+msgstr "Répartitions"
+
+msgid "Password"
+msgstr "Mot de passe"
+
+msgid "Password lifetime"
+msgstr "Durée de vie du mot de passe"
+
+msgid "Pending"
+msgstr "En attente"
+
+msgid "Pending orders"
+msgstr "Commandes en attente"
+
+msgid "Performed"
+msgstr "Réalisé"
+
+#
+# File: bika.lims/bika/lims/content/instrumentcalibration.py, line: 89
+# File: bika.lims/bika/lims/content/instrumentvalidation.py, line: 74
+msgid "Performed by"
+msgstr ""
+
+msgid "Period"
+msgstr "Période"
+
+msgid "Permitted"
+msgstr "Autorisé"
+
+msgid "Permitted Error %"
+msgstr "Erreur autorisée %"
+
+msgid "Phone"
+msgstr "Téléphone"
+
+msgid "Phone (business)"
+msgstr "Téléphone (bureau)"
+
+msgid "Phone (home)"
+msgstr "Téléphone (domicile)"
+
+msgid "Phone (mobile)"
+msgstr "Téléphone (portable)"
+
+#
+# File: bika.lims/bika/lims/content/instrument.py, line: 197
+msgid "Photo image file"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/content/instrument.py, line: 198
+msgid "Photo of the instrument"
+msgstr ""
+
+msgid "Physical address"
+msgstr "Adresse physique"
+
+msgid "Picking Slip"
+msgstr "Bordereau"
+
+msgid "Please list all options for the analysis result if you want to restrict it to specific options only, e.g. 'Positive', 'Negative' and 'Indeterminable'.  The option's result value must be a number"
+msgstr "Lister toutes les options pour les résultats analytiques si vous voulez les restreindre seulement à des options spécifiques, par exemple 'Positif', 'Négatif', et 'Indéterminé'. Les résultats des options doivent être un nombre."
+
+#
+# File: bika.lims/bika/lims/content/analysisservice.py, line: 881
+msgid "Please specify preservations that differ from the analysis service's default preservation per sample type here."
+msgstr ""
+
+msgid "Please upload the logo you are authorised to use on your website and results reports by your accreditation body. Maximum size is 175 x 175 pixels."
+msgstr "Uploadez le logo que vous êtes autorisé par votre organisme accréditeur à utiliser sur votre site et vos rapports de résultats. Taille maximale de 175x175 pixels."
+
+msgid "Point of Capture"
+msgstr "Point de saisie"
+
+msgid "Position"
+msgstr "Position"
+
+msgid "Postal address"
+msgstr "Adresse postale"
+
+msgid "Postal code"
+msgstr "Code postal"
+
+msgid "Pre-preserved"
+msgstr "Pré conservé"
+
+msgid "Precision as number of decimals"
+msgstr "Précision, comme nombre de décimales"
+
+msgid "Precision as the number of significant digits according to the uncertainty. The decimal position will be given by the first number different from zero in the uncertainty, at that position the system will round up the uncertainty and results. For example, with a result of 5.243 and an uncertainty of 0.22, the system will display correctly as 5.2+-0.2. If no uncertainty range is set for the result, the system will use the fixed precision set."
+msgstr "Précision comme le nombre de décimales significatives en accord avec l'incertitude. La position décimale sera donnée par le premier chiffre différent de zéro dans l'incertitude, à la position que le système  arrondira au-dessus l'incertitude et le résultat. Par exemple, pour un résultat de 5.243 et une incertitude de 0.22, le système affichera 5.2+/-0.2. S'il n'y a pas de plage d'incertitude pour le résultat, le système utilisera la précision spécifiée."
+
+msgid "Preferred decimal mark for reports."
+msgstr "Marqueur décimal préféré pour les rapports"
+
+msgid "Preferred decimal mark for results"
+msgstr "Marqueur décimal préféré pour les résultats"
+
+msgid "Preferred scientific notation format for reports"
+msgstr "Format de notation scientifique préféré pour les rapports"
+
+msgid "Preferred scientific notation format for results"
+msgstr "Format de notation scientifique préféré pour les résultats"
+
+msgid "Prefix"
+msgstr "Préfixe"
+
+msgid "Prefixes"
+msgstr "Prefixes"
+
+msgid "Premium"
+msgstr "Premium"
+
+#
+# File: bika.lims/bika/lims/content/instrumentcertification.py, line: 85
+msgid "Prepared by"
+msgstr ""
+
+msgid "Preservation"
+msgstr "Conservation"
+
+msgid "Preservation Category"
+msgstr "Catégorie de conservation"
+
+msgid "Preservations"
+msgstr "Conservations"
+
+msgid "Preserver"
+msgstr "Personne ayant stocké"
+
+msgid "Preventive"
+msgstr "Préventif"
+
+msgid "Preventive maintenance procedure"
+msgstr "Procédure de maintenance préventive"
+
+msgid "Price"
+msgstr "Prix"
+
+msgid "Price (excluding VAT)"
+msgstr "Prix (HT)"
+
+msgid "Price Premium Percentage"
+msgstr "Pourcentage de prix premium"
+
+msgid "Price excluding VAT"
+msgstr "Prix HT"
+
+msgid "Pricelist for"
+msgstr "Liste de prix pour"
+
+msgid "Pricelists"
+msgstr "Tarifs"
+
+msgid "Print"
+msgstr "Imprimession"
+
+msgid "Print date:"
+msgstr "Date d'impression"
+
+msgid "Priority"
+msgstr "Priorité"
+
+msgid "Product"
+msgstr "Produit"
+
+msgid "Productivity Reports"
+msgstr "Rapports de productivité"
+
+#
+# File: bika.lims/bika/lims/browser/templates/plone-overview.pt, line: 28
+msgid "Professional Open Source LIMS/LIS"
+msgstr ""
+
+msgid "Profile"
+msgstr "Profil"
+
+msgid "Profile Analyses"
+msgstr "Profil analytique"
+
+msgid "Profile Key"
+msgstr "Clé du profil"
+
+msgid "Profile Keyword"
+msgstr "Mot-clé profil"
+
+msgid "Profiles"
+msgstr "Profils"
+
+msgid "Proforma (Not yet invoiced)"
+msgstr "Proforma (pas encore facturé)"
+
+#
+# File: bika.lims/bika/lims/content/analysisservice.py, line: 913
+msgid "Protocol ID"
+msgstr ""
+
+msgid "Public. Lag"
+msgstr "Délai public"
+
+msgid "Publication Specification"
+msgstr "Spécification de publication"
+
+msgid "Publication preference"
+msgstr "Préférence de publication "
+
+msgid "Published"
+msgstr "Publié"
+
+msgid "Published Analysis Requests which have not been invoiced"
+msgstr "Demandes d'analyses publiées non facturées"
+
+msgid "Published By"
+msgstr "Publié par"
+
+msgid "Published results"
+msgstr "Résultats publiés"
+
+msgid "QC"
+msgstr "QC"
+
+msgid "QC Analyses"
+msgstr "Analyses QC"
+
+msgid "QC Sample ID"
+msgstr "ID échantillon QC"
+
+msgid "QC Samples(Analyses)"
+msgstr "Échantillons (analyses) QC"
+
+msgid "Quality Control Reports"
+msgstr "Rapports de Contrôle Qualité"
+
+msgid "Quantity"
+msgstr "Quantité"
+
+msgid "Query"
+msgstr "Requête"
+
+msgid "QuoteID"
+msgstr "ID citation"
+
+msgid "Range Comment"
+msgstr "Plage de commentaires"
+
+msgid "Range comment"
+msgstr "Plage de commentaires"
+
+msgid "Range max"
+msgstr "Plage max"
+
+msgid "Range min"
+msgstr "Plage min"
+
+msgid "Range spec"
+msgstr "Plage de spécifications"
+
+msgid "Re-enter the password. Make sure the passwords are identical."
+msgstr "Saisissez de nouveau le mot de passe. Assurez-vous que les mots de passe sont identiques."
+
+msgid "Reassign"
+msgstr "Réassigné"
+
+msgid "Receive"
+msgstr "Reçoit"
+
+msgid "Received"
+msgstr "Reçu"
+
+msgid "Recept. Lag"
+msgstr "Délai de réception"
+
+msgid "Recipients"
+msgstr "Récipients"
+
+msgid "Refer to <a target=\"_blank\" href=\"https://github.com/bikalabs/Bika-LIMS/wiki/Creating-new-report-templates\">Creating new report templates</a> documentation from Bika LIMS wiki to get more or add your own report templates."
+msgstr "Se héférer à <a target=\"_blank\" href=\"https://github.com/bikalabs/Bika-LIMS/wiki/Creating-new-report-templates\">Créer un nouveau modèle de rapport</a> de la documentation du wiki Bika LIMS pour plus d'informations ou ajouter vos propres modèles."
+
+msgid "Reference"
+msgstr "Référence"
+
+msgid "Reference Analyses"
+msgstr "Anlyses de référence"
+
+msgid "Reference Definition"
+msgstr "Définition de référence"
+
+msgid "Reference Definitions"
+msgstr "Définitions de référence"
+
+msgid "Reference Sample"
+msgstr "Échantillon de référence"
+
+msgid "Reference Samples"
+msgstr "Echantillons de référence"
+
+msgid "Reference Supplier"
+msgstr "Fournisseur de référence"
+
+msgid "Reference Type"
+msgstr "Type de référence"
+
+msgid "Reference Values"
+msgstr "Valeurs de référence"
+
+msgid "Reference analysis QC"
+msgstr "Analyse de référence QC"
+
+msgid "Reference analysis quality control graphs"
+msgstr "Graphes de contrôle de la qualité des analyses de référence"
+
+msgid "Reference analysis quality control graphs "
+msgstr "Graphes de contrôle de la qualité des analyses de référence"
+
+msgid "Reference sample"
+msgstr "Échantillon de référence"
+
+msgid "Reference sample values are zero or 'blank'"
+msgstr "Les valeurs des échantillons de référence sont nulles ou vides"
+
+msgid "ReferenceAnalysesGroupID"
+msgstr "ID du groupe d'analyses de référence"
+
+msgid "ReferenceDefinition represents a Reference Definition or sample type used for quality control testing"
+msgstr "ReferenceDefinition représente une définition de référence ou un type d'échantillon utilisé pour les tests de QC"
+
+msgid "Refs: ${references}"
+msgstr "Refs: ${references}"
+
+msgid "Register"
+msgstr "Enregistrer"
+
+msgid "Relative percentage difference, ${variation_here} %, is out of valid range (${variation} %))"
+msgstr "Le pourcentage de différence relatif, ${variation_here} %, est hors plage (${variation} %)"
+
+msgid "Remarks"
+msgstr "Remarques"
+
+msgid "Remarks to take into account before calibration"
+msgstr "Remarques à prendre en compte avant étalonnage"
+
+msgid "Remarks to take into account before performing the task"
+msgstr "Remarques à prendre en compte avant de réaliser la tache"
+
+msgid "Remarks to take into account before validation"
+msgstr "Remarques à prendre en compte avant validation"
+
+msgid "Remarks to take into account for maintenance process"
+msgstr "Remarques à prendre en compte avant la maintenance"
+
+msgid "Repair"
+msgstr "Réparation"
+
+msgid "Repeated analyses"
+msgstr "Analyses répétées"
+
+msgid "Report"
+msgstr "Rapport"
+
+msgid "Report Contact Names"
+msgstr "Noms des contacts à reporter"
+
+#
+# File: bika.lims/bika/lims/content/instrumentcalibration.py, line: 33
+# File: bika.lims/bika/lims/content/instrumentvalidation.py, line: 18
+msgid "Report Date"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/content/instrumentcalibration.py, line: 103
+# File: bika.lims/bika/lims/content/instrumentvalidation.py, line: 88
+msgid "Report ID"
+msgstr ""
+
+msgid "Report Type"
+msgstr "Type de rapport"
+
+msgid "Report as Dry Matter"
+msgstr "Publication comme matière sèche"
+
+#
+# File: bika.lims/bika/lims/content/instrumentcalibration.py, line: 104
+# File: bika.lims/bika/lims/content/instrumentvalidation.py, line: 89
+msgid "Report identification number"
+msgstr ""
+
+msgid "Report of published analysis requests which have not been invoiced"
+msgstr "Rappor des demandes d'analyse publiées non facturées"
+
+msgid "Report tables between a period of time the number of analyses published and expressed as a percentage of all analyses performed."
+msgstr "Tableaux périodiques du nombre d'analyses publiées et exprimées en pourcentage de l'ensemble des analyses réalisées"
+
+msgid "Report tables between a period of time the number of samples received and results reported for them with differences between the two"
+msgstr "Tableau périodique du nombre d'échantillons reçus et résultats rapportés pour ceux-ci et mentionnant aussi la différence entre les deux"
+
+msgid "Report tables of Analysis Requests and totals submitted between a period of time"
+msgstr "Tableau périodique des demandes d'analyses et totaux soumis"
+
+msgid "Report type"
+msgstr "Type de rapport"
+
+#
+# File: bika.lims/bika/lims/content/instrumentcertification.py, line: 117
+msgid "Report upload"
+msgstr ""
+
+msgid "Reports"
+msgstr "rapports"
+
+msgid "Request"
+msgstr "Demande"
+
+msgid "Request ID"
+msgstr "ID demande"
+
+msgid "Request new analyses"
+msgstr "Demander de nouvelles analyses"
+
+msgid "Requested"
+msgstr "Demandé"
+
+msgid "Requests"
+msgstr "Demandes"
+
+msgid "Required"
+msgstr "Requis"
+
+msgid "Required Volume"
+msgstr "Volume requis"
+
+#
+# File: bika.lims/bika/lims/browser/analysisrequest/add.py, line: 405
+msgid "Required fields have no values: ${field_names}"
+msgstr ""
+
+msgid "Restrict categories"
+msgstr "Catégories restreintes"
+
+msgid "Result"
+msgstr "Résultat"
+
+msgid "Result Footer"
+msgstr "Pied de page des résultats"
+
+msgid "Result Options"
+msgstr "Options de résultat"
+
+msgid "Result Value"
+msgstr "Valeur résultat"
+
+msgid "Result in shoulder range"
+msgstr "Résultat dans la plage haute"
+
+msgid "Result out of range"
+msgstr "Résultat hors intervalle"
+
+msgid "Result values with at least this number of significant digits are displayed in scientific notation using the letter 'e' to indicate the exponent.  The precision can be configured in individual Analysis Services."
+msgstr "Les valeurs de résultat avec au moins ce nombre de décimales significatives sont affichés en notation scientifique utilisant la lettre 'e' pour indiquer l'exposant. La précision peut-être configurée dans les analyses individuelles"
+
+#
+# File: bika.lims/bika/lims/content/analysisrequest.py, line: 1249
+msgid "Results Interpreation"
+msgstr ""
+
+msgid "Results Interpretation"
+msgstr "Interprétation des résultats"
+
+msgid "Results attachments permitted"
+msgstr "Résultats liés autorisés"
+
+msgid "Results have been withdrawn"
+msgstr "Les résultats ont été retirés"
+
+#
+# File: bika.lims/bika/lims/browser/analysisrequest/templates/analysisrequest_view.pt, line: 123
+msgid "Results interpretation"
+msgstr ""
+
+msgid "Results per sample point"
+msgstr "Résultats par point d'échatillonnage"
+
+msgid "Results per samplepoint and analysis service"
+msgstr "Résultats par point d'échantillonnage et analyse"
+
+msgid "Retention Perdiod"
+msgstr "Période de conservation"
+
+msgid "Retention Period"
+msgstr "Période de conservation"
+
+msgid "Retested"
+msgstr "Retesté"
+
+msgid "Retracted analyses"
+msgstr "Analyses retirées"
+
+msgid "Retraction report unavailable"
+msgstr "Rapport de rétractation indisponible"
+
+msgid "Retractions"
+msgstr "Rétractations"
+
+msgid "Review state"
+msgstr "État de révision"
+
+msgid "Routine Samples(Analyses)"
+msgstr "Échantillons (analyses) de routine "
+
+msgid "SR Templates"
+msgstr "Modèles SR"
+
+#
+# File: bika.lims/bika/lims/content/supplier.py, line: 59
+msgid "SWIFT code."
+msgstr ""
+
+#. Default: "Title"
+msgid "Salutation"
+msgstr "Salutation"
+
+msgid "Same as the above, but sets the default on analysis services. This setting can be set per individual analysis on its own configuration"
+msgstr "Identique à ci-dessus, mais définit le défaut pour les analyses. Ce paramétrage peut être défini pour une analyse individuelle lors de sa configuration"
+
+msgid "Sample"
+msgstr "Échantillon"
+
+msgid "Sample Condition"
+msgstr "Condition d'échantillonnage"
+
+msgid "Sample Conditions"
+msgstr "Conditions d'échantillonnage"
+
+msgid "Sample Date"
+msgstr "Date de l'échantillon"
+
+msgid "Sample Due"
+msgstr "Échéance de l'échantillon"
+
+msgid "Sample ID"
+msgstr "ID échantillon"
+
+msgid "Sample ID Padding"
+msgstr "Taille de l'ID échantillon"
+
+#
+# File: bika.lims/bika/lims/content/bikasetup.py, line: 479
+msgid "Sample ID Sequence Start"
+msgstr ""
+
+msgid "Sample Matrices"
+msgstr "Matrices d'échantillons"
+
+msgid "Sample Matrix"
+msgstr "Matrice d'échantillons"
+
+msgid "Sample Partitions"
+msgstr "Répartition d'échantillon"
+
+msgid "Sample Point"
+msgstr "Point d'échantillonnage"
+
+msgid "Sample Points"
+msgstr "Points d'échantillonnage"
+
+msgid "Sample Type"
+msgstr "Type d'échantillon"
+
+msgid "Sample Type Prefix"
+msgstr "Préfixe du type d'échantillon"
+
+msgid "Sample Type Specifications (Client)"
+msgstr "Spécifications du type d'échantillon (client)"
+
+msgid "Sample Type Specifications (Lab)"
+msgstr "Spécifications du type d'échantillon (labo)"
+
+msgid "Sample Types"
+msgstr "Types d'échantillon"
+
+msgid "Sample condition"
+msgstr "État de l'échantillon"
+
+msgid "Sample point"
+msgstr "Point d'échantillonnage"
+
+msgid "Sample related reports"
+msgstr "Rapports relatifs à l'échantillon"
+
+msgid "Sample type"
+msgstr "Type d'échantillon"
+
+msgid "SampleMatrix"
+msgstr "Matrice de l'échantillon"
+
+msgid "SampleType"
+msgstr "Type d'échantillon"
+
+msgid "Sampler"
+msgstr "Préleveur"
+
+msgid "Samples"
+msgstr "Échantillons"
+
+msgid "Samples of this type should be treated as hazardous"
+msgstr "Les échantillons de ce type doivent être traités comme dangereux"
+
+msgid "Samples received vs. reported"
+msgstr "Échantillons reçus vs. rapportés"
+
+msgid "Samples received vs. samples reported"
+msgstr "Échantillons reçus vs. échantillons rapportés"
+
+msgid "Samples: ${samples}"
+msgstr "Échantillons: ${samples}"
+
+msgid "Sampling Date"
+msgstr "Date d'échantillonnage"
+
+msgid "Sampling Deviation"
+msgstr "Écart d'échantillonnage"
+
+msgid "Sampling Deviations"
+msgstr "Écarts d'échantillonnage"
+
+msgid "Sampling Frequency"
+msgstr "Fréquence d'échantillonnage"
+
+msgid "Save"
+msgstr "Sauver"
+
+msgid "Save remarks"
+msgstr "Sauvegarder les remarques"
+
+msgid "Scheduled task"
+msgstr "Tâches planifiées"
+
+msgid "Scientific name"
+msgstr "Nom scientifique"
+
+msgid "Search"
+msgstr "Chercher"
+
+msgid "Search terms"
+msgstr "Rechercher les termes"
+
+msgid "Seconds"
+msgstr "secondes"
+
+#
+# File: bika.lims/bika/lims/content/bikasetup.py, line: 411
+msgid "Select 'Register' if you want stickers to be automatically printed when new ARs or sample records are created. Select 'Receive' to print stickers when ARs or Samples are received. Select 'None' to disable automatic printing"
+msgstr ""
+
+msgid "Select AR Templates to include"
+msgstr "Sélectionner le  modèle de DA à inclure"
+
+msgid "Select a data interface"
+msgstr "Sélectionner l'interface de données"
+
+msgid "Select a default preservation for this analysis service. If the preservation depends on the sample type combination, specify a preservation per sample type in the table below"
+msgstr "Sélectionnez une conservation par défaut pour cette analyse. Si la conservation dépend d'une combinaison de types d'échantillons, spécifiez une conservation par type d'échantillon dans la table ci-dessous."
+
+msgid "Select a destinaton position and the AR to duplicate."
+msgstr "Sélectionnez une destination et la DA à dupliquer"
+
+msgid "Select a manager from the available personnel configured under the 'lab contacts' setup item. Departmental managers are referenced on analysis results reports containing analyses by their department."
+msgstr "Sélectionnez un gestionnaire à partir du personnel disponible configuré dans le paramétrage 'contacts du laboratoire'. Les gestionnaires de département sont référencés sur les rapports de résultats d'analyses contenant les analyses par département"
+
+msgid "Select a sample to create a secondary AR"
+msgstr "Sélectionnez un échantillon pour créer une DA secondaire"
+
+msgid "Select all items"
+msgstr "Sélectionner tous les éléments"
+
+msgid "Select an Import/Export interface for this instrument."
+msgstr "Sélectionner une interface d'import/export pour cet équipement"
+
+msgid "Select analyses to include in this template"
+msgstr "Sélectionnez les analyses à inclure dans ce modèle"
+
+msgid "Select analyst"
+msgstr "Sélectionner analyste"
+
+msgid "Select existing file"
+msgstr "Sélectionnez un fichier existant"
+
+msgid "Select if analyses to be excluded from invoice"
+msgstr "Sélectionnez si des analyses doivent être exclues de la facture"
+
+msgid "Select if is an in-house calibration certificate"
+msgstr "Sélectionnez si c'est un certificat de calibration interne"
+
+msgid "Select if the calculation to be used is the calculation set by default in the default method. If unselected, the calculation can be selected manually"
+msgstr "Sélectionnez si le calcul utilisé est le calcul spécifié par défaut dans la méthode par défaut. Si non sélectionné, le calcul peut être sélectionné manuellement"
+
+msgid "Select if the descriptions should be included"
+msgstr "Sélectionnez si les descriptions doivent être inclues"
+
+msgid "Select if the results for this Analysis Service can be set manually."
+msgstr "Sélectionnez si les résultats pour cette analyse peuvent être saisis manuellement"
+
+msgid "Select if the results for this Analysis Service can be set using an Instrument."
+msgstr "Sélectionnez si les résultats pour cette analyse peuvent être renseignés par un équipement"
+
+msgid "Select instrument"
+msgstr "Sélectionnez instrument"
+
+msgid "Select only analysis requests where one or more analyses were analyzed by this user."
+msgstr "Sélectionnez seulement les demandes d'analyses où une ou plusieurs analyses ont été réalisées par cet utilisateur"
+
+msgid "Select services in the left column to locate reference samples. Select a reference by clicking it. "
+msgstr "Sélectionnez les services dans la colonne de gauche pour localiser les échantillons de référence. Sélectionnez une référence en cliquant dessus."
+
+msgid "Select template"
+msgstr "Sélectionnez le modèle"
+
+msgid "Select the country the site will show by default"
+msgstr "Sélectionnez le pays dans lequel le site sera affiché par défaut"
+
+msgid "Select the currency the site will use to display prices."
+msgstr "Sélectionnez la devise que le site va utiliser pour afficher les tarifs."
+
+msgid "Select the default container to be used for this analysis service. If the container to be used depends on the sample type and preservation combination, specify the container in the sample type table below"
+msgstr "Sélectionnez le récipient par défaut à utiliser pour cette analyse. Si le récipient à utiliser dépend de la combinaison du type d'échantillon et de la conservation, spécifiez le récipient dans la table de types d'échantillon ci-dessous."
+
+#
+# File: bika.lims/bika/lims/profiles/default/registry.xml, line: -1
+msgid "Select the default landing page. This is used when a Client user logs into the system, or when a client is selected from the client folder listing."
+msgstr ""
+
+msgid "Select the preferred instrument"
+msgstr "Sélectionnez l'équipement privilégié"
+
+msgid "Select this to activate the sample collection workflow steps."
+msgstr "Sélectionnez pour activer les étapes du workflow de collecte d'échantillon."
+
+msgid "Select which Analyses should be included on the Worksheet"
+msgstr "Sélectionnez quelles analyses devraient être inclues dans la feuille de travail"
+
+msgid "Select which fields to display when 'Tabular view' is selected in the display menu."
+msgstr "Sélectionnez quels champs afficher quand 'Vue tabulaire' est sélectionné dans le menu d'affichage."
+
+msgid "Select which sticker to print when automatic sticker printing is enabled"
+msgstr "Sélectionnez quel étiquette imprimer quand l'impression automatique est activée"
+
+msgid "Send email"
+msgstr "Envoyer email"
+
+msgid "Separate"
+msgstr "Séparer"
+
+msgid "Separate Container"
+msgstr "Contenants distincts"
+
+msgid "Serial No"
+msgstr "N° de série"
+
+msgid "Service"
+msgstr "Service"
+
+#
+# ../browser/js/analysisrequest.js
+msgid "Service dependencies"
+msgstr ""
+
+msgid "Service is included in the ${accreditation_body_abbrev}"
+msgstr "Le service est inclus dans le ${accreditation_body_abbrev}"
+
+msgid "Services"
+msgstr "Services"
+
+msgid "Set the maintenance task as closed."
+msgstr "Définir la tâche de maintenance comme terminée."
+
+msgid "Set the maximum number of analysis requests per results email. Too many columns per email are difficult to read for some clients who prefer fewer results per email"
+msgstr "Définissez le nombre maximal de demandes d'analyses par email de résultats. Trop de colonnes par email peuvent être difficiles à lire."
+
+msgid "Set the specification to be used before publishing an AR."
+msgstr "Définissez les spécifications à utiliser avant de publier la DA."
+
+msgid "Set up the laboratory analysis service results specifications"
+msgstr "Configurez les spécifications des résultats d'analyse du laboratoire"
+
+msgid "Shelf Code"
+msgstr "Code du rangement"
+
+msgid "Shelf Description"
+msgstr "Description du rangement"
+
+msgid "Shelf Title"
+msgstr "Titre du rangement"
+
+msgid "Shipping address"
+msgstr "Adresse d'expédition"
+
+msgid "Short title"
+msgstr "Titre court"
+
+#
+# File: bika.lims/bika/lims/browser/analysisrequest/templates/analysisrequest_publish.pt, line: 31
+msgid "Show Hidden Analyses"
+msgstr ""
+
+msgid "Show QC Analyses"
+msgstr "Montrer les analyses QC"
+
+msgid "Show only selected categories in client views"
+msgstr "Montrer uniquement les catégories dans les vues client"
+
+msgid "Signature"
+msgstr "Signature"
+
+msgid "Site Code"
+msgstr "Code du site"
+
+msgid "Site Description"
+msgstr "Description du site"
+
+msgid "Site Title"
+msgstr "Titre du site"
+
+msgid "Size"
+msgstr "Taille"
+
+#
+# ../browser/js/attachments.js
+msgid "Slot"
+msgstr ""
+
+msgid "Small Icon"
+msgstr "Petite icône"
+
+msgid "Some analyses use out-of-date or uncalibrated instruments. Results edition not allowed"
+msgstr "Des analyses nécessitent des équipements hors calibration ou obsolètes. Édition des résultats non autorisée."
+
+msgid "Sort Key"
+msgstr "Clé de tri"
+
+msgid "Sort the collection on this index"
+msgstr "Trier la collection sur cet index"
+
+msgid "Sort the results in reversed order"
+msgstr "Trier les résultats en ordre inverse"
+
+msgid "Specification"
+msgstr "Spécification"
+
+msgid "Specifications"
+msgstr "Spécifications"
+
+msgid "Specify the maximum number of items to show."
+msgstr "Spécifiez le nombre maximum d'éléments à montrer."
+
+msgid "Specify the size of the Worksheet, e.g. corresponding to a specific instrument's tray size. Then select an Analysis 'type' per Worksheet position. Where QC samples are selected, also select which Reference Sample should be used. If a duplicate analysis is selected, indicate which sample position it should be a duplicate of"
+msgstr "Définissez la taille de la feuille de travail (ex : correspondant au nombre d'échantillons traitable en une série sur un équipement). Puis sélectionnez une analyse type par position de la feuille de travail. Là où les échantillons QC sont sélectionnés, sélectionnez aussi quel échantillon de référence devrait être utilisé. Si une analyse dupliquée est sélectionnée, indiquez de quel position d'échantillon c'est un réplicat."
+
+msgid "Specify the uncertainty value for a given range, e.g. for results in a range with minimum of 0 and maximum of 10, where the uncertainty value is 0.5 - a result of 6.67 will be reported as 6.67 +- 0.5. You can also specify the uncertainty value as a percentage of the result value, by adding a '%' to the value entered in the 'Uncertainty Value' column, e.g. for results in a range with minimum of 10.01 and a maximum of 100, where the uncertainty value is 2% - a result of 100 will be reported as 100 +- 2. Please ensure successive ranges are continuous, e.g. 0.00 - 10.00 is followed by 10.01 - 20.00, 20.01 - 30 .00 etc."
+msgstr "Définissez la valeur de l'incertitude pour une plage donnée, par exemple dans une plage avec un minimum de 0 et un maximum de 10 où l'incertitude est de 0.5, un résultat de 6.67 sera reporté comme 6.67+/-0.5. Vous pouvez aussi définir une valeur d'incertitude comme un pourcentage de la valeur du résultat, en ajoutant un '%' à la valeur saisie dans la colonne «Valeur de l'incertitude», par exemple pour les résultats ayant une incertitude de 2%, un résultat de 100 sera reporté comme 100+/-2. Assurez-vous que les plages successives sont continues (ex : 0.00 - 10.00 puis 10.01 - 20.00 puis 20.01 - 30 .00 etc.)."
+
+msgid "Start Date"
+msgstr "Date de début"
+
+msgid "State"
+msgstr "État"
+
+msgid "Status"
+msgstr "Statut"
+
+msgid "Sticker templates"
+msgstr "Modèles d'étiquettes"
+
+msgid "Storage Location"
+msgstr "Lieu de stockage "
+
+msgid "Storage Locations"
+msgstr "Lieux de stockage "
+
+msgid "Sub-group"
+msgstr "Sous-groupe"
+
+msgid "Sub-groups"
+msgstr "Sous-groupes"
+
+msgid "Subgroups are sorted with this key in group views"
+msgstr "Les sous-groupes sont triés avec cette clé dans la vue des groupes"
+
+msgid "Submit"
+msgstr "Soumettre"
+
+msgid "Submit a valid Open XML (.XLSX) file containing Bika setup records to continue."
+msgstr "Soumettez un fichier XML ouvert (.XLSX) contenant des enregistrements paramétrés dans Bika pour continuer."
+
+msgid "Subtotal"
+msgstr "Sous-total"
+
+msgid "Supplier"
+msgstr "Fournisseur"
+
+msgid "Suppliers"
+msgstr "Fournisseurs"
+
+msgid "Supply Order"
+msgstr "Numéro de commande"
+
+msgid "Surname"
+msgstr "Nom"
+
+msgid "Table Columns"
+msgstr "Colonnes du tableau"
+
+msgid "Task"
+msgstr "Tâche"
+
+#. Default: "Type"
+msgid "Task type"
+msgstr "Type de tâche"
+
+msgid "Technical description and instructions intended for analysts"
+msgstr "Description technique et instructions destinées aux analystes"
+
+msgid "Temperature"
+msgstr "Température"
+
+msgid "Template"
+msgstr "Modèle"
+
+msgid "The Analysis Profile selection for this template"
+msgstr "La sélection de profil d'analyses pour ce modèle"
+
+msgid "The Analysis Service can be performed by using more than one Method. The methods selected here are displayed in the Analysis Request creation view for its selection when this Analaysis Service is selected. Only methods with 'Allow manual entry of results' enabled are displayed."
+msgstr "L'analyse peut-être réalisée selon plusieurs méthodes. Les méthodes sélectionnées ici sont affichées à la vue de création de la demande d'analyse quand l'analyse est sélectionnée. Seules les méthodes permettant la saisie manuelle de résultats sont affichées."
+
+msgid "The ID assigned to the client's request by the lab"
+msgstr "L'ID attribuée à la demande client par le laboratoire"
+
+msgid "The ID assigned to the client's sample by the lab"
+msgstr "L'ID attribuée à l'échantillon client par le laboratoire"
+
+msgid "The Laboratory's web address"
+msgstr "Adresse web du laboratoire"
+
+#
+# File: bika.lims/bika/lims/content/analysisservice.py, line: 248
+msgid "The Lower Detection Limit is the lowest value to which the measured parameter can be measured using the specified testing methodology. Results entered which are less than this value will be reported as < LDL"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/content/analysisservice.py, line: 264
+msgid "The Upper Detection Limit is the highest value to which the measured parameter can be measured using the specified testing methodology. Results entered which are greater than this value will be reported as > UDL"
+msgstr ""
+
+msgid "The accreditation standard that applies, e.g. ISO 17025"
+msgstr "Le référentiel d'accréditation appliqué (ex : ISO 17025)"
+
+msgid "The analyses included in this profile, grouped per category"
+msgstr "Les analyses inclues dans ce profil, groupées par catégorie"
+
+msgid "The analysis to be used for determining dry matter."
+msgstr "Les analyses utilisées pour déterminer le poids sec."
+
+msgid "The analyst or agent responsible of the calibration"
+msgstr "L'analyste ou technicien responsable de la calibration"
+
+msgid "The analyst or agent responsible of the maintenance"
+msgstr "L'analyste ou technicien responsable de la maintenance"
+
+msgid "The analyst responsible of the validation"
+msgstr "L'analyste responsable de la validation"
+
+msgid "The attachments linked to analysis requests and analyses"
+msgstr "Les fichiers liés à la demande analytique et aux analyses"
+
+msgid "The category the analysis service belongs to"
+msgstr "La catégorie à laquelle appartient l'analyse"
+
+#
+# File: bika.lims/bika/lims/content/instrument.py, line: 206
+msgid "The date the instrument was installed"
+msgstr ""
+
+msgid "The decimal mark selected in Bika Setup will be used."
+msgstr "Le marqueur décimal sélectionné lors du paramétrage de Bika LIMS sera utilisé."
+
+msgid "The default container type. New sample partitions are automatically assigned a container of this type, unless it has been specified in more details per analysis service"
+msgstr "Le récipient par défaut. Les nouveaux échantillons sont automatiquement assignés à un conteneur de ce type, à moins que ce soit spécifié plus en détail par analyse"
+
+msgid "The discount percentage entered here, is applied to the prices for clients flagged as 'members', normally co-operative members or associates deserving of this discount"
+msgstr "Le pourcentage de remise entré ici s'applique aux tarifs des clients marqués comme 'membres', normalement partenaires ou associés méritant cette remise."
+
+msgid "The full URL: http://URL/path:port"
+msgstr "L'URL complète : http://URL/path:port"
+
+msgid "The height or depth at which the sample has to be taken"
+msgstr "La hauteur ou profondeur à laquelle l'échantillon a été pris en charge"
+
+#
+# File: bika.lims/bika/lims/content/instrument.py, line: 182
+msgid "The instrument's ID in the lab's asset register"
+msgstr ""
+
+msgid "The instrument's model number"
+msgstr "numéro de modèle de l'instrument"
+
+msgid "The lab is not accredited, or accreditation has not been configured. "
+msgstr "Le laboratoire n'est pas accrédité ou aucune accréditation n'a été configurée."
+
+msgid "The laboratory department"
+msgstr "Le département du laboratoire"
+
+msgid "The length of the zero-padding for Sample IDs"
+msgstr "Le nombre de zéros des ID échantillons."
+
+msgid "The length of the zero-padding for the AR number in AR IDs"
+msgstr "Le nombre de zéros de la partie numérique des DA dans les ID des DA"
+
+msgid "The list of sample points from which this sample type can be collected.  If no sample points are selected, then all sample points are available."
+msgstr "La liste des points d'échantillonnage à partir duquel ce type d'échantillon peut être collecté. S'il n'y a pas de points d'échantillonnage sélectionné, alors tous les points d'échantillonnage sont disponibles"
+
+msgid "The list of sample types that can be collected at this sample point.  If no sample types are selected, then all sample types are available."
+msgstr "La liste des types d'échantillons qui peuvent être collectés à ce point d'échantillonnage. S'il n'y a pas de type d'échantillon sélectionné, alors tous les types sont disponibles"
+
+msgid "The measurement units for this analysis service' results, e.g. mg/l, ppm, dB, mV, etc."
+msgstr "Les unités de mesure pour les résultats de cette analyse, e.g. mg/l, ppm, dB, mV, etc."
+
+msgid "The minimum sample volume required for analysis eg. '10 ml' or '1 kg'."
+msgstr "Le volume minimal d'échantillon requis pour l'analyse e.g. '10 ml' ou '1 kg'."
+
+#
+# File: bika.lims/bika/lims/content/bikasetup.py, line: 480
+msgid "The number from which the next id should start. This is set only if it is greater than existing id numbers. Note that the resultant gap between IDs cannot be filled."
+msgstr ""
+
+msgid "The number of analyses requested per analysis service"
+msgstr "le nombre d'analyses demandées par service d'analyse"
+
+msgid "The number of analyses requested per sample type"
+msgstr "nombre de requêtes et d'analyses par type d'échantillon"
+
+msgid "The number of days before a password expires. 0 disables password expiry"
+msgstr "nombre de jours avant expiration du mot de passe. 0 désactive l'expiration du mot de passe."
+
+msgid "The number of days before a sample expires and cannot be analysed any more. This setting can be overwritten per individual sample type in the sample types setup"
+msgstr "Le nombre de jours avant qu'un échantillon expire et ne puisse plus être analysé. Ce paramétrage peut être écrasé par celui du type d'échantillon individuel."
+
+msgid "The number of minutes before a user is automatically logged off. 0 disables automatic log-off"
+msgstr "Le nombre de minutes avant qu'un utilisateur soit automatiquement déconnecté. 0 désactive la déconnexion automatique."
+
+msgid "The number of requests and analyses"
+msgstr "nombre de demandes et d'analyses"
+
+msgid "The number of requests and analyses per client"
+msgstr "nombre de demandes et d'analyses par client"
+
+msgid "The percentage used to calculate the price for analyses done at this priority"
+msgstr "Le pourcentage utilisé pour calculer le prix des analyses réalisées à cette priorité"
+
+msgid "The period for which un-preserved samples of this type can be kept before they expire and cannot be analysed any further"
+msgstr "La période à l'issue de laquelle les échantillons non conservés de ce type peuvent être gardés avant qu'ils n'expirent et ne puissent plus être analysés. "
+
+#
+# File: bika.lims/bika/lims/content/instrumentcertification.py, line: 104
+msgid "The person at the supplier who approved the certificate"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/content/instrumentcalibration.py, line: 90
+# File: bika.lims/bika/lims/content/instrumentvalidation.py, line: 75
+msgid "The person at the supplier who performed the task"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/content/instrumentcertification.py, line: 86
+msgid "The person at the supplier who prepared the certificate"
+msgstr ""
+
+msgid "The person that created an item"
+msgstr "La personne qui a créé un item"
+
+msgid "The price charged per analysis for clients who qualify for bulk discounts"
+msgstr "Le prix chargé par analyse pour les clients ayant des remises de gros."
+
+#
+# File: bika.lims/bika/lims/content/analysisprofile.py, line: 70
+msgid "The profile's commercial ID for accounting purposes."
+msgstr ""
+
+msgid "The profile's keyword is used to uniquely identify it in import files. It has to be unique, and it may not be the same as any Calculation Interim field ID."
+msgstr "Le mot-clé du profil est utilisé pour l'identifier de manière unique dans les fichiers importés. Ce doit être unique, et ne peut pas non plus être identique à un identifiant unique de champ de calcul intermédiaire."
+
+msgid "The reference code issued to the lab by the accreditation body"
+msgstr "Code de référence délivré au laboratoire par l'organisme d'accréditation"
+
+msgid "The results for the Analysis Services that use this method can be set manually"
+msgstr "Les résultats de cette analyse peuvent être saisis manuellement"
+
+msgid "The results of field analyses are captured during sampling at the sample point, e.g. the temperature of a water sample in the river where it is sampled. Lab analyses are done in the laboratory"
+msgstr "Les résultats d'analyses de terrain sont acquis lors du prélèvement au point de prélèvement, par exemple la température d'un échantillon d'eau. Les analyses de laboratoire sont faites en laboratoire."
+
+#
+# File: bika.lims/bika/lims/content/instrument.py, line: 190
+msgid "The room and location where the instrument is installed"
+msgstr ""
+
+msgid "The selected instruments have support for this method. Use the Instrument edit view to assign the method to a specific instrument"
+msgstr "Les équipements sélectionnés supportent cette méthode. Utilisez la vue d'édition de l'équipement pour assigner la méthode à un instrument spécifique."
+
+msgid "The serial number that uniquely identifies the instrument"
+msgstr "Le numéro de série qui identifie de façon unique l'instrument"
+
+#
+# File: bika.lims/bika/lims/content/analysisservice.py, line: 914
+msgid "The service's analytical protocol ID"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/content/analysisservice.py, line: 905
+msgid "The service's commercial ID for accounting purposes"
+msgstr ""
+
+msgid "The system wide default configuration to indicate whether file attachments are required, permitted or not per analysis request"
+msgstr "La configuration globale par défaut permet d'indiquer par demande d'analyse que des pièces-jointes sont ou non requises ou permises, "
+
+msgid "The turnaround time of analyses"
+msgstr "Temps de traitement des analyses"
+
+msgid "The turnaround time of analyses plotted over time"
+msgstr "Suivi graphique temporel du temps d'analyse"
+
+msgid "The turnaround times of analyses"
+msgstr "Les temps moyens d'analyses"
+
+msgid "The turnaround times of analyses plotted over time"
+msgstr "Suivi graphique temporel du temps d'analyse"
+
+msgid "The unique keyword used to identify the analysis service in import files of bulk AR requests and results imports from instruments. It is also used to identify dependent analysis services in user defined results calculations"
+msgstr "Le mot-clé unique utilisé pour identifier l'analyse dans les fichiers importés de demandes d'analyse et fichiers de résultats importés à partir d'équipements. C'est aussi utilisé pour identifier les analyses dépendantes dans les calculs de résultats définis par l'utilisateur."
+
+msgid "There are field analyses without submitted results."
+msgstr "Il y a des analyses de terrain sans résultat saisi."
+
+msgid "There are no results."
+msgstr "Il n'y a pas de résultats"
+
+msgid "These results can be reported as dry matter"
+msgstr "Ces résultats peuvent être reportés comme poids sec."
+
+msgid "These results have been withdrawn and are listed here for trace-ability purposes. Please follow the link to the retest"
+msgstr "Ces résultats ont été écrasés et sont listés ici pour des motifs de traçabilité. S'il vous plaît suivez le lien vers le recontrôle."
+
+msgid "This Analysis Request has been generated automatically due to the retraction of the Analysis Request ${retracted_request_id}."
+msgstr "Cette demande d'analyse a été générée automatiquement suite au retrait de la demande d'analyse ${retracted_request_id}"
+
+msgid "This Analysis Request has been withdrawn and is shown for trace-ability purposes only. Retest: ${retest_child_id}."
+msgstr "Cette demande d'analyse a été écrasée et est montrée pour des raisons de traçabilité uniquement. Recontrôle : ${retest_child_id}"
+
+msgid "This Analysis Service cannot be activated because it's calculation is inactive."
+msgstr "Cette analyse ne peut pas être activée parce que son calcul est inactif"
+
+msgid "This Analysis Service cannot be deactivated because one or more active calculations list it as a dependency"
+msgstr "Cette analyse ne peut pas être désactivée parce qu'un ou plusieurs calculs en dépendent"
+
+msgid "This service does not require a separate partition"
+msgstr "Cette analyse ne requiert pas un fractionnement."
+
+msgid "This service requires a separate container."
+msgstr "Cette analyse requiert un récipient séparé."
+
+msgid "This text will be appended to results reports."
+msgstr "Ce texte sera ajouté aux rapports d'analyse."
+
+msgid "This value is reported at the bottom of all published results"
+msgstr "Cette valeur est reportée au bas de tous les résultats publiés"
+
+#
+# ../browser/js/client.js
+msgid "This will remove all existing client analysis specifications and create copies of all lab specifications. Are you sure you want to do this?"
+msgstr ""
+
+msgid "This worksheet has been created to replace the rejected worksheet at ${ws_id}"
+msgstr "Cette feuille de travail a été créée pour remplacer la feuille de travail rejetée ${ws_id}"
+
+msgid "This worksheet has been rejected.  The replacement worksheet is ${ws_id}"
+msgstr "Cette  feuille de travail a été rejetée. La feuille de travail de remplacement est ${ws_id}"
+
+msgid "Tip. Attached documents will not be loaded unless they are present in the instance."
+msgstr "Astuce. Documents joints ne seront pas chargés à moins qu'il soient présents dans l'instance."
+
+msgid "Title"
+msgstr "Titre"
+
+msgid "Title of location"
+msgstr "Titre de la localisation"
+
+msgid "Title of the shelf"
+msgstr "Titre du meuble"
+
+msgid "Title of the site"
+msgstr "Titre du site"
+
+msgid "To"
+msgstr "Jusqu'à"
+
+msgid "To Be Preserved"
+msgstr "A conserver"
+
+msgid "To Be Sampled"
+msgstr "A échantillonner"
+
+#
+# File: bika.lims/bika/lims/content/analysiscategory.py, line: 22
+msgid "To be displayed below each Analysis Category section on results reports."
+msgstr ""
+
+msgid "To be verified"
+msgstr "A vérifier"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Total Lag"
+msgstr "Délai total"
+
+msgid "Total Price"
+msgstr "Prix Total"
+
+msgid "Total analyses"
+msgstr "Total analyses"
+
+msgid "Total data points"
+msgstr "Total points de données"
+
+msgid "Total price"
+msgstr "Prix total"
+
+msgid "Total:"
+msgstr "Total :"
+
+msgid "Traceability"
+msgstr "Traçabilité"
+
+msgid "Turn this on if you want to work with sample partitions"
+msgstr "Activez ceci uniquement si vous voulez travailler avec des aliquots"
+
+msgid "Turnaround time (h)"
+msgstr "Période (h)"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Type Error"
+msgstr "Type d'erreur "
+
+msgid "Type of location"
+msgstr "Type de localisation"
+
+#
+msgid "Unable to apply the selected instrument"
+msgstr ""
+
+#
+msgid "Unable to load instruments: ${invalid_list}"
+msgstr ""
+
+msgid "Unable to load the template"
+msgstr "Impossible de charger le modèle"
+
+msgid "Unable to send an email to alert lab client contacts that the Analysis Request has been retracted: ${error}"
+msgstr "Impossible d'envoyer un email alertant les contacts client du laboratoire qu'une analyse a été invalidée : ${error}"
+
+msgid "Unassigned"
+msgstr "Non assigné"
+
+msgid "Uncertainty"
+msgstr "Incertitude"
+
+msgid "Uncertainty value"
+msgstr "Valeur d'incertitude"
+
+msgid "Undefined"
+msgstr "Non défini"
+
+msgid "Unit"
+msgstr "Unité"
+
+#
+# File: bika.lims/bika/lims/validators.py, line: 843
+msgid "Unknown IBAN country %s"
+msgstr ""
+
+msgid "Unpublished"
+msgstr "Non publié"
+
+msgid "Unrecognized file format ${file_format}"
+msgstr "Format de fichier non reconnu ${file_format}"
+
+msgid "Unrecognized file format ${fileformat}"
+msgstr "Format de fichier non reconnu ${file_format}"
+
+msgid "Upload a scanned signature to be used on printed analysis results reports. Ideal size is 250 pixels wide by 150 high"
+msgstr "Uploadez une signature qui sera utilisée à l'impression des rapports de résultats d'analyse. La taille idéale est de 250 pixels de large par 150 de haut."
+
+#
+# File: bika.lims/bika/lims/content/analysisservice.py, line: 263
+msgid "Upper Detection Limit (UDL)"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/content/analysisprofile.py, line: 111
+msgid "Use Analysis Profile Price"
+msgstr ""
+
+msgid "Use default calculation"
+msgstr "Usilise le calcul par défault"
+
+msgid "Use external ID server"
+msgstr "Utilisation d'un serveur ID externe"
+
+msgid "Use this field to pass arbitrary parameters to the export/import modules."
+msgstr "Utilisez ce champ pour passer des paramètres arbitraires aux modules d'import/export."
+
+msgid "User"
+msgstr "Utilisateur"
+
+#
+# File: bika.lims/bika/lims/content/instrument.py, line: 221
+msgid "User Manual ID"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/content/instrument.py, line: 243
+msgid "User Manual Location"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/content/instrument.py, line: 236
+msgid "User Manual Version"
+msgstr ""
+
+msgid "User Name"
+msgstr "Nom utilisateur"
+
+msgid "User history"
+msgstr "Historique utilisateur"
+
+#
+# File: bika.lims/bika/lims/content/instrument.py, line: 228
+msgid "User manual"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/content/instrument.py, line: 229
+msgid "User manual upload "
+msgstr ""
+
+msgid "Users history"
+msgstr "Historique utilisateurs"
+
+msgid "Using too few data points does not make statistical sense. Set an acceptable minimum number of results before QC statistics will be calculated and plotted"
+msgstr "L'utilisation de trop peu de points ne permet pas de donner un sens aux statistiques. Paramétrez un nombre minimal acceptable de résultats avant que les statistiques de QC soient calculées et représentées."
+
+msgid "VAT"
+msgstr "Taxes"
+
+msgid "VAT %"
+msgstr "Taxes %"
+
+msgid "VAT Amount"
+msgstr "Montant TVA"
+
+msgid "VAT Total"
+msgstr "Total TVA"
+
+msgid "VAT number"
+msgstr "N° TVA"
+
+msgid "Valid from"
+msgstr "Valide à partir de"
+
+msgid "Valid to"
+msgstr "Valide jusqu'au"
+
+msgid "Validation"
+msgstr "Validation"
+
+msgid "Validation failed: '${keyword}': duplicate keyword"
+msgstr "Echec de la validation : '${keyword}' : mot clé dupliqué"
+
+msgid "Validation failed: '${title}': This keyword is already in use by calculation '${used_by}'"
+msgstr "Échec de la validation : '${title}' : ce mot-clé est déjà utilisé par le calcul '${used_by}'"
+
+msgid "Validation failed: '${title}': This keyword is already in use by service '${used_by}'"
+msgstr "Échec de la validation : '${title}' : ce mot-clé est déjà utilisé par le service '${used_by}'"
+
+msgid "Validation failed: '${title}': duplicate title"
+msgstr "Échec de la validation : '${title}' : titre dupliqué"
+
+msgid "Validation failed: '${value}' is not unique"
+msgstr "Échec de validation : '${value}' n'est pas unique"
+
+msgid "Validation failed: Bearing must be E/W"
+msgstr "Échec à la validation: la direction doit être Est/Ouest"
+
+msgid "Validation failed: Bearing must be N/S"
+msgstr "Échec à la validation: la direction doit être Nord/Sud"
+
+msgid "Validation failed: Error percentage must be between 0 and 100"
+msgstr "échec de la validation. Le pourcentage d'erreur doit être compris entre 0 et 100"
+
+msgid "Validation failed: Error value must be 0 or greater"
+msgstr "Échec de la validation : la valeur d'erreur doit être supérieure ou égale à 0"
+
+msgid "Validation failed: Error values must be numeric"
+msgstr "Échec de la validation : les valeurs d'erreur doivent être numériques"
+
+msgid "Validation failed: Expected values must be between Min and Max values"
+msgstr "échec de la validation. Les valeurs attendues doivent être comprises entre les valeurs Min et Max"
+
+msgid "Validation failed: Expected values must be numeric"
+msgstr "échec de la validation. Les valeurs attendues doivent être numériques"
+
+msgid "Validation failed: Keyword '${keyword}' is invalid"
+msgstr "Échec de la validation : le mot-clé '${keyword}' n'est pas valide"
+
+msgid "Validation failed: Max values must be greater than Min values"
+msgstr "échec de la validation. Les valeurs Max doivent être supérieures au valeurs Min"
+
+msgid "Validation failed: Max values must be numeric"
+msgstr "échec de la validation. Les valeurs Max doivent être numériques"
+
+msgid "Validation failed: Min values must be numeric"
+msgstr "Échec de la validation : les valeurs Min doivent être numériques"
+
+msgid "Validation failed: Percentage error values must be between 0 and 100"
+msgstr "Échec de la validation : les valeurs de pourcentage d'erreur doivent être entre 0 et 100"
+
+msgid "Validation failed: Percentage error values must be numeric"
+msgstr "Échec de la validation : les valeurs de pourcentage d'erreur doivent être numériques"
+
+msgid "Validation failed: PrePreserved containers must have a preservation selected."
+msgstr "Échec de la validation : les conteneurs pré-conservés doivent avoir une conservation sélectionnée."
+
+msgid "Validation failed: Result Text cannot be blank"
+msgstr "Échec de la validation : le résultat texte ne peut pas être vide."
+
+msgid "Validation failed: Result Values must be numbers"
+msgstr "Echec à la validation: Les valeurs de résultat doivent être numériques"
+
+msgid "Validation failed: The selection requires the following categories to be selected: ${categories}"
+msgstr "Échec de la validation : la sélection nécessite que les catégories suivantes soient sélectionnées : ${categories}"
+
+msgid "Validation failed: Values must be numbers"
+msgstr "Échec de la validation : les valeurs doivent être des nombres"
+
+msgid "Validation failed: column title '${title}' must have keyword '${keyword}'"
+msgstr "Échec de la validation : le titre de la colonne '${title}' doit avoir le mot-clé '${keyword}'"
+
+msgid "Validation failed: degrees is 180; minutes must be zero"
+msgstr "Échec de la validation : les degrés sont de 180 ; les minutes doivent être 0."
+
+msgid "Validation failed: degrees is 180; seconds must be zero"
+msgstr "Échec de la validation : les degrés sont 180; les minutes doivent être 0"
+
+msgid "Validation failed: degrees is 90; minutes must be zero"
+msgstr "Échec de la validation : 90 degrés ; les minutes doivent être 0"
+
+msgid "Validation failed: degrees is 90; seconds must be zero"
+msgstr "Échec de la validation : 90 degrés : les secondes doivent être 0"
+
+msgid "Validation failed: degrees must be 0 - 180"
+msgstr "Échec de la validation : les degrés doivent entre 0 et 180"
+
+msgid "Validation failed: degrees must be 0 - 90"
+msgstr "Echec à la validation: Le degré d'angle doit être entre 0 - 90"
+
+msgid "Validation failed: degrees must be numeric"
+msgstr "Echec à la validation: un résultat en degrés doit être numérique"
+
+msgid "Validation failed: keyword '${keyword}' must have column title '${title}'"
+msgstr ""
+
+msgid "Validation failed: keyword contains invalid characters"
+msgstr "Echec à la validation: Le mot clé contient des caractères non-autorisés"
+
+msgid "Validation failed: keyword is required"
+msgstr ""
+
+msgid "Validation failed: minutes must be 0 - 59"
+msgstr "Echec à la validation: Les minutes doivent être comprises entre 0 - 59"
+
+msgid "Validation failed: minutes must be numeric"
+msgstr "Echec à la validation: un résultat en minutes doit être numérique"
+
+msgid "Validation failed: percent values must be between 0 and 100"
+msgstr ""
+
+msgid "Validation failed: percent values must be numbers"
+msgstr ""
+
+msgid "Validation failed: seconds must be 0 - 59"
+msgstr "Echec à la validation: Les secondes sont comprises entre 0 - 59"
+
+msgid "Validation failed: seconds must be numeric"
+msgstr "Echec à la validation: un résultat en secondes doit être numérique"
+
+msgid "Validation failed: title is required"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/content/instrumentvalidation.py, line: 19
+msgid "Validation report date"
+msgstr ""
+
+msgid "Validator"
+msgstr ""
+
+msgid "Validity"
+msgstr "Validité"
+
+msgid "Value"
+msgstr "Valeur"
+
+msgid "Values can be entered here which will override the defaults specified in the Calculation Interim Fields."
+msgstr ""
+
+msgid "Verified"
+msgstr "Vérifié"
+
+msgid "Version"
+msgstr "Version"
+
+msgid "Versioning for this file has been disabled because it is too large"
+msgstr "Le suivi de version de ce fichier a été désactivé car trop long"
+
+msgid "Volume"
+msgstr "Volume"
+
+msgid "Web address for the accreditation body"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/content/supplier.py, line: 30
+msgid "Website."
+msgstr ""
+
+msgid "Weeks To Expire"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/content/analysisprofile.py, line: 112
+msgid "When it's set, the system uses the analysis profile's price to quote and the system's VAT is overridden by the analysis profile's specific VAT"
+msgstr ""
+
+msgid "When the results of duplicate analyses on worksheets, carried out on the same sample, differ with more than this percentage, an alert is raised"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/validators.py, line: 260
+msgid "Wildcards for interims are not allowed: ${wildcards}"
+msgstr ""
+
+msgid "Work Performed"
+msgstr ""
+
+msgid "Workflow"
+msgstr ""
+
+msgid "Worksheet"
+msgstr "Feuille de travail"
+
+msgid "Worksheet Layout"
+msgstr "Présentation de la feuille de travail"
+
+msgid "Worksheet Templates"
+msgstr "Modèles de feuille de travail"
+
+msgid "Worksheets"
+msgstr "Feuilles de travail"
+
+#
+# File: bika.lims/bika/lims/validators.py, line: 850
+msgid "Wrong IBAN length by %s: %sshort by %i"
+msgstr ""
+
+msgid "Yes"
+msgstr "Oui"
+
+msgid "You do not have sufficient privileges to manage worksheets."
+msgstr ""
+
+msgid "You do not have sufficient privileges to view the worksheet ${worksheet_title}."
+msgstr ""
+
+msgid "You must assign this request to a client"
+msgstr ""
+
+msgid "You must select an instrument"
+msgstr "Vous devez sélectionner un équipement"
+
+msgid "You should introduce a default result key."
+msgstr ""
+
+msgid "action"
+msgstr ""
+
+msgid "activate"
+msgstr "activer"
+
+msgid "analysis"
+msgstr ""
+
+msgid "analysis requests selected"
+msgstr ""
+
+msgid "and others"
+msgstr ""
+
+#. the ISO 17025 standard. Bika is Open Source, flexible and allows
+#. customisations to your lab's specific requirements."
+#. Default: "The Bika LIMS workflow fits all lab disciplines, conforming to the ISO 17025 standard. Bika is Open Source, flexible and allows customisations to your lab's specific requirements."
+msgid "bika-frontpage-description"
+msgstr ""
+
+#. ${version}"
+#. Default: "<img src=\"${DYNAMIC_CONTENT}\" /> Welcome to Bika LIMS ${version}"
+msgid "bika-frontpage-title"
+msgstr ""
+
+msgid "bika_manual_test"
+msgstr "Bika Manual Test"
+
+#. an analysis using this calculation is displayed.</p><p>To enter a
+#. Calculation, use standard maths operators,  + - * / ( ), and all keywords
+#. available, both from other Analysis Services and the Interim Fields
+#. specified here, as variables. Enclose them in square brackets [
+#. ].</p><p>E.g, the calculation for Total Hardness, the total of Calcium
+#. (ppm) and Magnesium (ppm) ions in water, is entered as [Ca] + [Mg], where
+#. Ca and MG are the keywords for those two Analysis Services.</p>"
+#. Default: "<p>The formula you type here will be dynamically calculated when an analysis using this calculation is displayed.</p><p>To enter a Calculation, use standard maths operators,  + - * / ( ), and all keywords available, both from other Analysis Services and the Interim Fields specified here, as variables. Enclose them in square brackets [ ].</p><p>E.g, the calculation for Total Hardness, the total of Calcium (ppm) and Magnesium (ppm) ions in water, is entered as [Ca] + [Mg], where Ca and MG are the keywords for those two Analysis Services.</p>"
+msgid "calculation_formula_description"
+msgstr ""
+
+msgid "comment"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/browser/batch/publish.py, line: 113
+msgid "datalines"
+msgstr ""
+
+#. The variables used here are the same as used in the strftime formating.
+#. Supported are ${A}, ${a}, ${B}, ${b}, ${H}, ${I}, ${m}, ${d}, ${M}, ${p},
+#. ${S}, ${Y}, ${y}, ${Z}, each used as variable in the msgstr.
+#. For example: "${A} ${d}. ${B} ${Y}, ${H}:${M} ${Z}"
+#. In english speaking countries default is:
+#. ${b} ${d}, ${Y} ${I}:${M} ${p}
+msgid "date_format_long"
+msgstr "${Y}-${m}-${d} ${I}:${M} ${p}"
+
+#. The variables used here are the same as used in the strftime formating.
+#. Supported are ${A}, ${a}, ${B}, ${b}, ${H}, ${I}, ${m}, ${d}, ${M}, ${p},
+#. ${S}, ${Y}, ${y}, ${Z}, each used as variable in the msgstr.
+#. For example: "${A} ${d}. ${B} ${Y}, ${H}:${M} ${Z}"
+#. In english speaking countries default is:
+#. ${b} ${d}, ${Y}
+msgid "date_format_short"
+msgstr "${Y}-${m}-${d}"
+
+#. Date format used with the datepicker jqueryui plugin.
+#. Please only use 'dd', 'mm', 'yy', '-', '/', '.' in this string.
+#. Default: "mm/dd/yy"
+msgid "date_format_short_datepicker"
+msgstr "yy-mm-dd"
+
+msgid "deactivate"
+msgstr "desactiver"
+
+#. Default: "Analysis Request Priority"
+msgid "heading_arpriority"
+msgstr ""
+
+#. Default: "Import Analysis Request Data"
+msgid "heading_import_ar"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/browser/templates/instrument_qc_failures_viewlet.pt, line: 28
+#. Default: "${nr_disabled} instrument disabled until successful calibration:"
+msgid "instrument_qc_failed"
+msgstr ""
+
+#. Default: "${nr_failed} instrument is out-of-date:"
+msgid "instrument_qc_out_of_date"
+msgstr ""
+
+#. being done:"
+#. Default: "${nr_failed} instruments disposed until new calibration tests being done:"
+msgid "instruments_qc_disposed"
+msgstr ""
+
+#. Default: "${nr_disabled} instruments disabled until successful calibration:"
+msgid "instruments_qc_failed"
+msgstr ""
+
+#. Default: "${nr_failed} instruments are out-of-date:"
+msgid "instruments_qc_out_of_date"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/browser/templates/instrument_qc_failures_viewlet.pt, line: 68
+#. Default: "${nr_failed} instruments in calibration progress:"
+msgid "instruments_qc_uncalibrated"
+msgstr ""
+
+#
+# File: bika.lims/bika/lims/browser/templates/instrument_qc_failures_viewlet.pt, line: 56
+#. Default: "${nr_failed} instruments in validation progress:"
+msgid "instruments_qc_unvalidated"
+msgstr ""
+
+msgid "keywords"
+msgstr ""
+
+#. Default: "CC Emails - Invoice"
+msgid "label_CCEmailsInvoice"
+msgstr ""
+
+#. Default: "CC Names - Report"
+msgid "label_CCNamesReport"
+msgstr ""
+
+#. Default: "Client Reference"
+msgid "label_ClientReference"
+msgstr ""
+
+#. Default: "Detail"
+msgid "label_Detail"
+msgstr ""
+
+#. Default: "Order"
+msgid "label_OrderID"
+msgstr ""
+
+#. Default: "Add to the following groups:"
+msgid "label_add_to_groups"
+msgstr ""
+
+#. Default: "Analyses"
+msgid "label_analyses"
+msgstr ""
+
+#. Default: "CC"
+msgid "label_cc"
+msgstr ""
+
+#. Default: "CC Contact ID"
+msgid "label_cccontactid"
+msgstr ""
+
+#. Default: "CC Emails - Report"
+msgid "label_ccemails"
+msgstr ""
+
+#. Default: "Client ID"
+msgid "label_clientid"
+msgstr ""
+
+#. Default: "Client"
+msgid "label_clientname"
+msgstr ""
+
+#. Default: "Client Ref"
+msgid "label_clientref"
+msgstr ""
+
+#. Default: "Client Sid"
+msgid "label_clientsid"
+msgstr ""
+
+#. Default: "Contact Name"
+msgid "label_contact"
+msgstr ""
+
+#. Default: "Contact ID"
+msgid "label_contactid"
+msgstr ""
+
+#. Default: "Container Type"
+msgid "label_containertype"
+msgstr ""
+
+#. Default: "Date applied"
+msgid "label_dateapplied"
+msgstr ""
+
+#. Default: "Date imported"
+msgid "label_dateimported"
+msgstr ""
+
+#. Default: "File name"
+msgid "label_filename"
+msgstr ""
+
+#. Default: "Select Analysis request data file"
+msgid "label_import_ar_file"
+msgstr ""
+
+#. Default: "Import option"
+msgid "label_import_option"
+msgstr ""
+
+#. Default: "Order ID"
+msgid "label_orderid"
+msgstr ""
+
+#. Default: "Picking slip"
+msgid "label_pickingslip"
+msgstr ""
+
+#. Default: "Priority"
+msgid "label_priority"
+msgstr ""
+
+#. Default: "Profile"
+msgid "label_profile"
+msgstr ""
+
+#. Default: "Remarks"
+msgid "label_remarks"
+msgstr ""
+
+#. Default: "Report as DM"
+msgid "label_report_dry_matter"
+msgstr ""
+
+#. Default: "Request ID"
+msgid "label_requestid"
+msgstr ""
+
+#. Default: "Sample Date"
+msgid "label_sampledate"
+msgstr ""
+
+#. Default: "Sample"
+msgid "label_samplename"
+msgstr ""
+
+#. Default: "Sample Point"
+msgid "label_samplepoint"
+msgstr ""
+
+#. Default: "Sample type"
+msgid "label_sampletype"
+msgstr ""
+
+#. Default: "Specification"
+msgid "label_specification"
+msgstr ""
+
+#. Default: "Status"
+msgid "label_status"
+msgstr ""
+
+#. Default: "Valid"
+msgid "label_valid"
+msgstr ""
+
+msgid "max"
+msgstr "max"
+
+msgid "min"
+msgstr "min"
+
+msgid "name"
+msgstr ""
+
+#. current version is ${current_version}. ${click_here} to disable
+#. notifications about new releases."
+#. Default: "Version ${new_version} was released on ${new_date}, and your current version is ${current_version}. ${click_here} to disable notifications about new releases."
+msgid "new_version_available_description"
+msgstr ""
+
+#. Default: "New Bika LIMS release available"
+msgid "new_version_available_title"
+msgstr ""
+
+msgid "repeating every"
+msgstr ""
+
+msgid "repeatperiod"
+msgstr ""
+
+msgid "size"
+msgstr ""
+
+#. Default: "Content listing"
+msgid "summary_content_listing"
+msgstr ""
+
+#. Default: "Bika"
+msgid "text_default_site_title"
+msgstr ""
+
+#. The variables used here are the same as used in the strftime formating.
+#. Supported are ${A}, ${a}, ${B}, ${b}, ${H}, ${I}, ${m}, ${d}, ${M}, ${p},
+#. ${S}, ${Y}, ${y}, ${Z}, each used as variable in the msgstr.
+#. For example: "${A} ${d}. ${B} ${Y}, ${H}:${M} ${Z}"
+#. In english speaking countries default is:
+#. ${I}:${M} ${p}
+msgid "time_format"
+msgstr "${I}:${M} ${p}"
+
+#. Default: "Required"
+msgid "title_required"
+msgstr ""
+
+msgid "to"
+msgstr "à"
+
+msgid "type"
+msgstr ""
+
+msgid "until"
+msgstr ""
+
+#. and the version installed on disk is ${new_version}. Please remember to
+#. ${backup_instructions_link}, and then ${click_here} to perform the
+#. upgrade."
+#. Default: "Your current database profile version is ${installed_version}, and the version installed on disk is ${new_version}. Please remember to ${backup_instructions_link}, and then ${click_here} to perform the upgrade."
+msgid "upgrade_available_description"
+msgstr ""
+
+#. Default: "Upgrade step available"
+msgid "upgrade_available_title"
+msgstr ""
+
+msgid "value"
+msgstr ""
+

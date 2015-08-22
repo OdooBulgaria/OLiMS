@@ -1,0 +1,76 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:tal="http://xml.zope.org/namespaces/tal"
+    xmlns:metal="http://xml.zope.org/namespaces/metal"
+    xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+    metal:use-macro="here/main_template/macros/master"
+    i18n:domain="bika">
+
+<body tal:define="
+    portal context/@@plone_portal_state/portal;
+    global out_of_range python:0;
+    global late python:0;
+    tabindex view/tabindex;
+    now view/now">
+
+<metal:content-title fill-slot="content-title">
+    <h1>
+    <img tal:condition="view/icon | nothing"
+         src="" tal:attributes="src view/icon"/>
+    <img tal:condition="view/getPriorityIcon | nothing"
+         src="" tal:attributes="src view/getPriorityIcon"/>
+    <span class="documentFirstHeading" tal:content="context/title_or_id"></span>
+	<img tal:condition="python:context.getSample().getSampleType().getHazardous()"
+		title="Hazardous"
+		i18n:attributes="value"
+		tal:attributes="src string:${view/portal_url}/++resource++bika.lims.images/hazardous_big.png"/>
+	<img tal:condition="python:context.getInvoiceExclude()"
+		title="Exclude from invoice"
+		i18n:attributes="value"
+		tal:attributes="src string:${view/portal_url}/++resource++bika.lims.images/invoice_exclude_big.png"/>
+    </h1>
+</metal:content-title>
+
+<metal:content-description fill-slot="content-description">
+</metal:content-description>
+
+<metal:content-core fill-slot="content-core" tal:define="
+	tabindex view/tabindex;
+	portal context/@@plone_portal_state/portal;
+	ar_attach_allowed here/bika_setup/getARAttachmentsPermitted;
+	ar_review_state python: context.portal_workflow.getInfoFor(context, 'review_state');
+	analysis_attach_allowed here/bika_setup/getAnalysisAttachmentsPermitted;
+	attachments_allowed here/bika_setup/getAttachmentsPermitted;
+	attachments view/getAttachments;
+	delete_attachments python:True;
+	update_attachments python:True">
+
+    <div
+        tal:condition="update_attachments"
+        tal:define="ar_review_state ar_review_state">
+        <metal:block use-macro="here/attachments/macros/attachments"/>
+    </div>
+
+	<br/>
+
+    <tal:tables tal:repeat="table python:view.tables.items()" tal:condition="python:hasattr(view, 'tables')">
+        <h3>
+            <img
+				i18n:attributes="title"
+				title="Analyses"
+				tal:attributes="src string:${view/portal_url}/++resource++bika.lims.images/analysisservice.png"/>
+            <span tal:content="python: table[0]"/>
+        </h3>
+        <span tal:replace="structure python: table[1]"/>
+    </tal:tables>
+
+	<tal:remarks define="
+		field python:context.Schema()['Remarks'];
+		errors python:{};">
+		<p style="margin-top:2em;"/>
+		 <metal:widget use-macro="python:context.widget('Remarks', mode='edit')" />
+	</tal:remarks>
+
+</metal:content-core>
+
+</body>
+</html>

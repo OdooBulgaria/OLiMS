@@ -1,0 +1,23 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    i18n_domain="bika">
+
+  <genericsetup:registerProfile
+      name="default"
+      title="Bika LIMS"
+      directory="profiles/default"
+      description='Open Source Web based Laboratory Information Management System suitable for all types of laboratories'
+      provides="Products.GenericSetup.interfaces.EXTENSION"/>
+
+  <genericsetup:importStep
+      name="bika.lims.various"
+      title="bika: miscellaneous import steps"
+      description="Various import steps that are not handled by GS import/export handlers."
+      handler="bika.lims.setuphandlers.setupVarious">
+    <depends name="content" />
+  </genericsetup:importStep>
+
+  <include package=".upgrade"/>
+
+</configure>
