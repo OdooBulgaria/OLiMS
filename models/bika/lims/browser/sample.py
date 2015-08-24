@@ -1,11 +1,11 @@
-from AccessControl import getSecurityManager
-from DateTime import DateTime
-from Products.Archetypes.config import REFERENCE_CATALOG
-from Products.Archetypes.public import DisplayList
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import _createObjectByType
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import DateTime
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import DisplayList
+from dependencies.dependency import getToolByName
+from dependencies.dependency import _createObjectByType
 from bika.lims.browser import BrowserView
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from dependencies.dependency import ViewPageTemplateFile
 from bika.lims import EditSample
 from bika.lims import PMF
 from bika.lims import bikaMessageFactory as _
@@ -20,13 +20,13 @@ from bika.lims.utils import changeWorkflowState, to_unicode
 from bika.lims.utils import getUsers
 from bika.lims.utils import isActive
 from bika.lims.utils import to_utf8, getHiddenAttributesForClass
-from operator import itemgetter
+from dependencies.dependency import itemgetter
 from bika.lims.workflow import doActionFor
-from plone.app.layout.globals.interfaces import IViewView
-from plone.registry.interfaces import IRegistry
-from zope.component import queryUtility
-from zope.interface import implements
-from Products.ZCTextIndex.ParseTree import ParseError
+from dependencies.dependency import IViewView
+from dependencies.dependency import IRegistry
+from dependencies.dependency import queryUtility
+from dependencies.dependency import implements
+from dependencies.dependency import ParseError
 import json
 import plone
 import urllib

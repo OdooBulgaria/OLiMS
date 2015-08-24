@@ -5,13 +5,13 @@ from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t, isnumber
 from bika.lims import logger
 from bika.lims.utils import to_utf8
-from Products.Archetypes.config import REFERENCE_CATALOG
-from Products.CMFCore.utils import getToolByName
-from Products.PythonScripts.standard import html_quote
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import getToolByName
+from dependencies.dependency import html_quote
 from bika.lims.utils.analysis import format_numeric_result
-from zope.component import adapts
-from zope.component import getAdapters
-from zope.interface import implements
+from dependencies.dependency import adapts
+from dependencies.dependency import getAdapters
+from dependencies.dependency import implements
 
 import json
 import math

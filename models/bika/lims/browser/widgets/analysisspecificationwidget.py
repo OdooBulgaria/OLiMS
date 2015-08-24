@@ -1,13 +1,13 @@
-from AccessControl import ClassSecurityInfo
-from Products.Archetypes.Registry import registerWidget, registerPropertyType
-from Products.Archetypes.Widget import TypesWidget
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import registerWidget, registerPropertyType
+from dependencies.dependency import TypesWidget
+from dependencies.dependency import getToolByName
 from bika.lims.browser import BrowserView
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.browser.bika_listing import BikaListingView
-from zope.i18n.locales import locales
-from operator import itemgetter
+from dependencies.dependency import locales
+from dependencies.dependency import itemgetter
 import json
 from bika.lims.utils import isnumber
 

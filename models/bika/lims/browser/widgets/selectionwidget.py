@@ -1,7 +1,7 @@
-from Products.Archetypes.Widget import SelectionWidget as _s
-from Products.Archetypes.Registry import registerWidget
+from dependencies.dependency import SelectionWidget as _s
+from dependencies.dependency import registerWidget
 
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 
 class SelectionWidget(_s):
     _properties = _s._properties.copy()

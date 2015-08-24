@@ -1,6 +1,6 @@
 # coding=utf-8
-from AccessControl import getSecurityManager
-from Products.CMFPlone.utils import safe_unicode
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import safe_unicode
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t, dicts_to_dict, format_supsub
 from bika.lims.utils.analysis import format_uncertainty
@@ -12,16 +12,16 @@ from bika.lims.permissions import *
 from bika.lims.utils import isActive
 from bika.lims.utils import getUsers
 from bika.lims.utils import to_utf8
-from DateTime import DateTime
-from operator import itemgetter
-from Products.Archetypes.config import REFERENCE_CATALOG
-from Products.CMFCore.utils import getToolByName
-from Products.CMFCore.WorkflowCore import WorkflowException
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from dependencies.dependency import DateTime
+from dependencies.dependency import itemgetter
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import getToolByName
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import ViewPageTemplateFile
 from bika.lims.utils.analysis import format_numeric_result
-from zope.interface import implements
-from zope.interface import Interface
-from zope.component import getAdapters
+from dependencies.dependency import implements
+from dependencies.dependency import Interface
+from dependencies.dependency import getAdapters
 
 import json
 

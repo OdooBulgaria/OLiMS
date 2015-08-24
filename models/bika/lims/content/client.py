@@ -1,21 +1,21 @@
 """Client - the main organisational entity in bika.
 """
-from AccessControl import ClassSecurityInfo
-from Products.ATContentTypes.content import schemata
-from Products.Archetypes import atapi
-from Products.Archetypes.utils import DisplayList
-from Products.CMFCore import permissions
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import safe_unicode
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import schemata
+from dependencies.dependency import atapi
+from dependencies.dependency import DisplayList
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
 from bika.lims import PMF, bikaMessageFactory as _
 from bika.lims import interfaces
 from bika.lims.config import *
 from bika.lims.content.organisation import Organisation
 from bika.lims.interfaces import IClient
 from bika.lims.utils import isActive
-from zope.component import getUtility
-from zope.interface import implements
-from zope.interface.declarations import alsoProvides
+from dependencies.dependency import getUtility
+from dependencies.dependency import implements
+from dependencies.dependency import alsoProvides
 import json
 import sys
 from bika.lims.workflow import getCurrentState, StateFlow, InactiveState

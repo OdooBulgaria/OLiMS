@@ -1,7 +1,7 @@
 from bika.lims.jsonapi import load_field_values
 from bika.lims.interfaces import IJSONReadExtender, IAnalysisProfile
-from zope.component import adapts
-from zope.interface import implements
+from dependencies.dependency import adapts
+from dependencies.dependency import implements
 
 
 class JSONReadExtender(object):

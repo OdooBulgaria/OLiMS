@@ -2,24 +2,24 @@
 
 import sys
 
-from AccessControl import ClassSecurityInfo
-from DateTime import DateTime
-from Products.ATContentTypes.lib.historyaware import HistoryAwareMixin
-from Products.ATExtensions.Extensions.utils import makeDisplayList
-from Products.ATExtensions.ateapi import RecordField, RecordsField
-from Products.Archetypes.Registry import registerField
-from Products.Archetypes.public import DisplayList, ReferenceField, \
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import DateTime
+from dependencies.dependency import HistoryAwareMixin
+from dependencies.dependency import makeDisplayList
+from dependencies.dependency import RecordField, RecordsField
+from dependencies.dependency import registerField
+from dependencies.dependency import DisplayList, ReferenceField, \
     ComputedField, ComputedWidget, BooleanField, \
     BooleanWidget, StringField, SelectionWidget, \
     FixedPointField, DecimalWidget, IntegerField, \
     IntegerWidget, StringWidget, BaseContent, \
     Schema, registerType, MultiSelectionWidget
-from Products.Archetypes.references import HoldingReference
-from Products.CMFCore.permissions import View, ModifyPortalContent
-from Products.CMFCore.utils import getToolByName
-from Products.validation import validation
-from Products.validation.validators.RegexValidator import RegexValidator
-from Products.CMFCore.WorkflowCore import WorkflowException
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import View, ModifyPortalContent
+from dependencies.dependency import getToolByName
+from dependencies.dependency import validation
+from dependencies.dependency import RegexValidator
+from dependencies.dependency import WorkflowException
 from bika.lims import PMF, bikaMessageFactory as _
 from bika.lims.utils import to_utf8 as _c
 from bika.lims.utils import to_unicode as _u
@@ -34,8 +34,8 @@ from bika.lims.config import ATTACHMENT_OPTIONS, PROJECTNAME, \
 from bika.lims.content.bikaschema import BikaSchema
 from bika.lims.interfaces import IAnalysisService
 from magnitude import mg, MagnitudeError
-from zope import i18n
-from zope.interface import implements
+from dependencies.dependency import i18n
+from dependencies.dependency import implements
 import transaction
 import math
 

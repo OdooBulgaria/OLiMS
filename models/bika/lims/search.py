@@ -5,16 +5,16 @@ include objects indexed in catalogs other than portal_catalog
 """
 
 import os
-from DateTime import DateTime
-from plone.app.contentlisting.interfaces import IContentListing
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.browser.navtree import getNavigationRoot
-from Products.CMFPlone.PloneBatch import Batch
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.ZCTextIndex.ParseTree import ParseError
-from zope.i18nmessageid import MessageFactory
-from plone.app.search.browser import Search
-from plone.app.search.browser import quote_chars
+from dependencies.dependency import DateTime
+from dependencies.dependency import IContentListing
+from dependencies.dependency import getToolByName
+from dependencies.dependency import getNavigationRoot
+from dependencies.dependency import Batch
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import ParseError
+from dependencies.dependency import MessageFactory
+from dependencies.dependency import Search
+from dependencies.dependency import quote_chars
 import plone
 
 _ = MessageFactory('plone')

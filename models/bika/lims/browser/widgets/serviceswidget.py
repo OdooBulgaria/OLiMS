@@ -1,17 +1,17 @@
-from AccessControl import ClassSecurityInfo
-from Acquisition import aq_base, aq_inner
-from Products.Archetypes.Registry import registerWidget, registerPropertyType
-from Products.Archetypes.Widget import TypesWidget
-from Products.Archetypes.utils import shasattr
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import aq_base, aq_inner
+from dependencies.dependency import registerWidget, registerPropertyType
+from dependencies.dependency import TypesWidget
+from dependencies.dependency import shasattr
+from dependencies.dependency import getToolByName
 from archetypes.referencebrowserwidget import utils
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.browser.bika_listing import BikaListingView
 from bika.lims.config import POINTS_OF_CAPTURE
 from bika.lims.permissions import ManageBika
-from types import StringType
-from zope.site.hooks import getSite
+from dependencies.dependency import StringType
+from dependencies.dependency import getSite
 
 class ServicesView(BikaListingView):
     """ bika listing to display a list of services.

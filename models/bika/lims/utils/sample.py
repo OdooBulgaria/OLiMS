@@ -1,7 +1,7 @@
 
 from bika.lims.utils import tmpID
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import _createObjectByType
+from dependencies.dependency import getToolByName
+from dependencies.dependency import _createObjectByType
 
 
 def create_sample(context, request, values):

@@ -1,7 +1,7 @@
 # coding=utf-8
-from AccessControl import getSecurityManager
-from Products.CMFPlone.utils import _createObjectByType
-from Products.CMFPlone.utils import safe_unicode
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import _createObjectByType
+from dependencies.dependency import safe_unicode
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims import EditResults, EditWorksheet, ManageWorksheets
@@ -18,23 +18,23 @@ from bika.lims.subscribers import doActionFor
 from bika.lims.subscribers import skip
 from bika.lims.utils import to_utf8
 from bika.lims.utils import getUsers, isActive, tmpID
-from DateTime import DateTime
-from DocumentTemplate import sequence
-from operator import itemgetter
-from plone.app.content.browser.interfaces import IFolderContentsView
-from plone.app.layout.globals.interfaces import IViewView
-from Products.Archetypes.config import REFERENCE_CATALOG
-from Products.Archetypes.public import DisplayList
-from Products.CMFCore.utils import getToolByName
-from Products.CMFCore.WorkflowCore import WorkflowException
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from zope.component import adapts
-from zope.component import getAdapters
-from zope.component import getMultiAdapter
-from zope.interface import implements
+from dependencies.dependency import DateTime
+from dependencies.dependency import sequence
+from dependencies.dependency import itemgetter
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import IViewView
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import DisplayList
+from dependencies.dependency import getToolByName
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import adapts
+from dependencies.dependency import getAdapters
+from dependencies.dependency import getMultiAdapter
+from dependencies.dependency import implements
 from bika.lims.browser.referenceanalysis import AnalysesRetractedListReport
-from DateTime import DateTime
-from Products.CMFPlone.i18nl10n import ulocalized_time
+from dependencies.dependency import DateTime
+from dependencies.dependency import ulocalized_time
 from bika.lims.utils import to_utf8 as _c
 
 import plone

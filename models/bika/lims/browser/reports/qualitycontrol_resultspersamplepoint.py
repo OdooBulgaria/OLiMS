@@ -1,15 +1,15 @@
 import tempfile
 
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from dependencies.dependency import ViewPageTemplateFile
 from bika.lims import bikaMessageFactory as _
 from bika.lims.interfaces import IResultOutOfRange
 from bika.lims.utils import t, dicts_to_dict
 from bika.lims.browser import BrowserView
 from bika.lims.browser.reports.selection_macros import SelectionMacrosView
-from gpw import plot
-from plone.app.layout.globals.interfaces import IViewView
-from zope.component import getAdapters
-from zope.interface import implements
+from dependencies.dependency import plot
+from dependencies.dependency import IViewView
+from dependencies.dependency import getAdapters
+from dependencies.dependency import implements
 import os
 
 class Report(BrowserView):

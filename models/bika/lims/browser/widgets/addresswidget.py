@@ -1,9 +1,9 @@
-from AccessControl import ClassSecurityInfo
-from Products.Archetypes.utils import DisplayList
-from Products.Archetypes.Registry import registerWidget
-from Products.Archetypes.Widget import TypesWidget
-from Products.CMFPlone.i18nl10n import ulocalized_time
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import DisplayList
+from dependencies.dependency import registerWidget
+from dependencies.dependency import TypesWidget
+from dependencies.dependency import ulocalized_time
+from dependencies.dependency import getToolByName
 from bika.lims.browser import BrowserView
 from bika.lims.locales import COUNTRIES,STATES,DISTRICTS
 import json

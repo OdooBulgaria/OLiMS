@@ -1,5 +1,5 @@
-from Products.Archetypes.public import BaseSchema
-from plone.app.folder.folder import ATFolderSchema
+from dependencies.dependency import BaseSchema
+from dependencies.dependency import ATFolderSchema
 
 BikaSchema = BaseSchema.copy()
 BikaSchema['id'].widget.visible = False

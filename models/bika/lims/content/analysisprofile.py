@@ -3,19 +3,19 @@
     AnalysisProfile is used to save these common configurations (templates).
 """
 
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims import PMF, bikaMessageFactory as _
 from bika.lims.browser.widgets import AnalysisProfileAnalysesWidget
 from bika.lims.browser.widgets import ServicesWidget
 from bika.lims.config import PROJECTNAME
 from bika.lims.content.bikaschema import BikaSchema
-from Products.Archetypes.public import *
+from dependencies.dependency import *
 from bika.lims.interfaces import IAnalysisProfile
-from Products.Archetypes.references import HoldingReference
-from Products.ATExtensions.field import RecordsField
-from Products.CMFCore.permissions import View, ModifyPortalContent
-from Products.CMFCore.utils import getToolByName
-from zope.interface import Interface, implements
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import RecordsField
+from dependencies.dependency import View, ModifyPortalContent
+from dependencies.dependency import getToolByName
+from dependencies.dependency import Interface, implements
 import sys
 from bika.lims.interfaces import IAnalysisProfile
 

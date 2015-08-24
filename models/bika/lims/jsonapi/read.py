@@ -1,15 +1,15 @@
-from Products.CMFPlone.utils import safe_unicode
+from dependencies.dependency import safe_unicode
 from bika.lims import logger, to_utf8
 from bika.lims.interfaces import IJSONReadExtender
 from bika.lims.jsonapi import get_include_fields
-from plone.jsonapi.core import router
-from plone.jsonapi.core.interfaces import IRouteProvider
-from plone.protect.authenticator import AuthenticatorView
+from dependencies.dependency import router
+from dependencies.dependency import IRouteProvider
+from dependencies.dependency import AuthenticatorView
 from bika.lims.jsonapi import load_brain_metadata
 from bika.lims.jsonapi import load_field_values
-from Products.CMFCore.utils import getToolByName
-from zope import interface
-from zope.component import getAdapters
+from dependencies.dependency import getToolByName
+from dependencies.dependency import interface
+from dependencies.dependency import getAdapters
 import re
 import App
 

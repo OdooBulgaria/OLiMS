@@ -1,6 +1,6 @@
-from Products.Archetypes.browser.validation import InlineValidationView as _IVV
-from Acquisition import aq_inner
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import InlineValidationView as _IVV
+from dependencies.dependency import aq_inner
+from dependencies.dependency import getToolByName
 import json
 
 

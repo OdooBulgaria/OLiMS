@@ -1,13 +1,13 @@
 from bika.lims.browser import BrowserView
-from DateTime import DateTime
-from AccessControl import getSecurityManager
-from AccessControl import ClassSecurityInfo
-from Products.CMFCore.utils import getToolByName
-from Products.Archetypes.Widget import TextAreaWidget
-from Products.Archetypes.Registry import registerWidget
+from dependencies.dependency import DateTime
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import getToolByName
+from dependencies.dependency import TextAreaWidget
+from dependencies.dependency import registerWidget
 import plone
 
-from plone.intelligenttext.transforms import \
+from dependencies.dependency import \
      convertWebIntelligentPlainTextToHtml, \
      convertHtmlToWebIntelligentPlainText
 

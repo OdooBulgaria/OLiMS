@@ -1,12 +1,12 @@
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.config import PROJECTNAME
 from bika.lims.interfaces import ISubGroup
 from bika.lims.content.bikaschema import BikaSchema
 from bika.lims.fields import *
-from Products.Archetypes.public import *
-from zope.interface import implements
+from dependencies.dependency import *
+from dependencies.dependency import implements
 
 schema = BikaSchema.copy() + Schema((
     ExtStringField(

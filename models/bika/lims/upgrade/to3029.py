@@ -1,8 +1,8 @@
-from Acquisition import aq_inner
-from Acquisition import aq_parent
+from dependencies.dependency import aq_inner
+from dependencies.dependency import aq_parent
 from bika.lims.permissions import *
-from Products.CMFCore import permissions
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
 
 def upgrade(tool):
     # Hack prevent out-of-date upgrading

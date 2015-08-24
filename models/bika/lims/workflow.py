@@ -2,12 +2,12 @@ from bika.lims import enum
 from bika.lims import PMF
 from bika.lims.interfaces import IJSONReadExtender
 from bika.lims.utils import t
-from Products.CMFCore.interfaces import IContentish
-from zope.interface import Interface
-from Products.CMFCore.utils import getToolByName
-from Products.CMFCore.WorkflowCore import WorkflowException
-from zope.component import adapts
-from zope.interface import implements
+from dependencies.dependency import IContentish
+from dependencies.dependency import Interface
+from dependencies.dependency import getToolByName
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import adapts
+from dependencies.dependency import implements
 from bika.lims.jsonapi import get_include_fields
 
 

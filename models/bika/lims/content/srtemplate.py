@@ -2,7 +2,7 @@
     Sample Round Template
 """
 
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.browser.widgets import RecordsWidget as BikaRecordsWidget
@@ -10,9 +10,9 @@ from bika.lims.browser.widgets import SRTemplateARTemplatesWidget
 from bika.lims.config import PROJECTNAME
 from bika.lims.content.bikaschema import BikaSchema
 from bika.lims.idserver import renameAfterCreation
-from Products.Archetypes.public import *
-from Products.ATExtensions.field.records import RecordsField
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import *
+from dependencies.dependency import RecordsField
+from dependencies.dependency import getToolByName
 
 
 schema = BikaSchema.copy() + Schema((

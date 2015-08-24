@@ -1,8 +1,8 @@
-from plone.jsonapi.core import router
-from plone.jsonapi.core.interfaces import IRouteProvider
-from Products.CMFCore.utils import getToolByName
-from zExceptions import BadRequest
-from zope import interface
+from dependencies.dependency import router
+from dependencies.dependency import IRouteProvider
+from dependencies.dependency import getToolByName
+from dependencies.dependency import BadRequest
+from dependencies.dependency import interface
 import magnitude
 
 

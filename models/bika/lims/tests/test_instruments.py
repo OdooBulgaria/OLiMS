@@ -1,11 +1,11 @@
-from Products.CMFPlone.utils import _createObjectByType
+from dependencies.dependency import _createObjectByType
 from bika.lims.utils import tmpID
 from bika.lims.testing import BIKA_FUNCTIONAL_TESTING
 from bika.lims.tests.base import BikaFunctionalTestCase
 from bika.lims.idserver import renameAfterCreation
-from plone.app.testing import login, logout
-from plone.app.testing import TEST_USER_NAME
-from datetime import date
+from dependencies.dependency import login, logout
+from dependencies.dependency import TEST_USER_NAME
+from dependencies.dependency import date
 import unittest
 
 try:

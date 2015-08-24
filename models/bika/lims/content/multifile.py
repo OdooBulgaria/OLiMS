@@ -1,6 +1,6 @@
-from zope.interface import implements
-from Products.Archetypes import atapi
-from Products.Archetypes.public import BaseContent
+from dependencies.dependency import implements
+from dependencies.dependency import atapi
+from dependencies.dependency import BaseContent
 from bika.lims.interfaces import IMultifile
 from bika.lims.content.bikaschema import BikaSchema
 from bika.lims import bikaMessageFactory as _

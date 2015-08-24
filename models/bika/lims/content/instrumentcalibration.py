@@ -1,8 +1,8 @@
-from AccessControl import ClassSecurityInfo
-from Products.ATContentTypes.content import schemata
-from Products.Archetypes import atapi
-from Products.Archetypes.public import *
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import schemata
+from dependencies.dependency import atapi
+from dependencies.dependency import *
+from dependencies.dependency import getToolByName
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.browser.widgets import DateTimeWidget, ReferenceWidget

@@ -1,21 +1,21 @@
-from AccessControl.SecurityManagement import newSecurityManager
-from Acquisition import aq_base
+from dependencies.dependency import newSecurityManager
+from dependencies.dependency import aq_base
 from bika.lims import logger
 from bika.lims.testing import BIKA_FUNCTIONAL_TESTING, BIKA_SIMPLE_TESTING
-from plone.app.robotframework.remote import RemoteLibrary
-from plone.app.testing import setRoles
-from plone.app.testing import SITE_OWNER_NAME
-from plone.app.testing import SITE_OWNER_PASSWORD
-from plone.app.testing import TEST_USER_ID
-from plone.app.testing import TEST_USER_NAME
-from plone.app.testing import TEST_USER_PASSWORD
-from plone.protect.authenticator import AuthenticatorView
-from plone.testing.z2 import Browser
-from Products.CMFPlone.tests.utils import MockMailHost as _MMH
-from Products.MailHost.interfaces import IMailHost
-from re import match
-from Testing.ZopeTestCase.functional import Functional
-from zope.component import getSiteManager
+from dependencies.dependency import RemoteLibrary
+from dependencies.dependency import setRoles
+from dependencies.dependency import SITE_OWNER_NAME
+from dependencies.dependency import SITE_OWNER_PASSWORD
+from dependencies.dependency import TEST_USER_ID
+from dependencies.dependency import TEST_USER_NAME
+from dependencies.dependency import TEST_USER_PASSWORD
+from dependencies.dependency import AuthenticatorView
+from dependencies.dependency import Browser
+from dependencies.dependency import MockMailHost as _MMH
+from dependencies.dependency import IMailHost
+from dependencies.dependency import match
+from dependencies.dependency import Functional
+from dependencies.dependency import getSiteManager
 
 import unittest
 

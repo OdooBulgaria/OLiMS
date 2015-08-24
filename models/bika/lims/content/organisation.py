@@ -1,13 +1,13 @@
-from AccessControl import ClassSecurityInfo
-from Products.ATExtensions.ateapi import RecordWidget
-from Products.Archetypes.public import *
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import RecordWidget
+from dependencies.dependency import *
 from bika.lims.config import PROJECTNAME
-from Products.CMFCore import permissions as CMFCorePermissions
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import safe_unicode
+from dependencies.dependency import permissions as CMFCorePermissions
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
 from bika.lims.content.bikaschema import BikaSchema, BikaFolderSchema
 from archetypes.referencebrowserwidget import ReferenceBrowserWidget
-from plone.app.folder.folder import ATFolder
+from dependencies.dependency import ATFolder
 from bika.lims.browser.fields import AddressField
 from bika.lims.browser.widgets import AddressWidget
 from bika.lims import PMF, bikaMessageFactory as _

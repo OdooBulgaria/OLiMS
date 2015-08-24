@@ -1,7 +1,7 @@
 """InvoiceBatch is a container for Invoice instances.
 """
-from AccessControl import ClassSecurityInfo
-from Products.CMFPlone.utils import _createObjectByType
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import _createObjectByType
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.config import ManageInvoices, PROJECTNAME
@@ -9,12 +9,12 @@ from bika.lims.content.bikaschema import BikaSchema
 from bika.lims.content.invoice import InvoiceLineItem
 from bika.lims.interfaces import IInvoiceBatch
 from bika.lims.utils import get_invoice_item_description
-from DateTime import DateTime
-from Products.Archetypes.public import *
-from Products.CMFCore import permissions
+from dependencies.dependency import DateTime
+from dependencies.dependency import *
+from dependencies.dependency import permissions
 from bika.lims.workflow import isBasicTransitionAllowed
-from zope.container.contained import ContainerModifiedEvent
-from zope.interface import implements
+from dependencies.dependency import ContainerModifiedEvent
+from dependencies.dependency import implements
 
 schema = BikaSchema.copy() + Schema((
     DateTimeField('BatchStartDate',

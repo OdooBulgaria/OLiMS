@@ -3,9 +3,9 @@ import pkg_resources
 __version__ = pkg_resources.get_distribution("bika.lims").version
 
 # import this to create messages in the bika domain.
-from zope.i18nmessageid import MessageFactory
+from dependencies.dependency import MessageFactory
 bikaMessageFactory = MessageFactory('bika')
-from Products.Archetypes import PloneMessageFactory as PMF
+from dependencies.dependency import PloneMessageFactory as PMF
 
 # import this to log messages
 import logging
@@ -15,14 +15,14 @@ from bika.lims.validators import *
 from bika.lims.config import *
 from bika.lims.permissions import *
 
-from AccessControl import ModuleSecurityInfo, allow_module
-from Products.Archetypes.atapi import process_types, listTypes
-from Products.CMFCore import utils
-from Products.CMFCore.DirectoryView import registerDirectory
-from Products.CMFCore.utils import ContentInit, ToolInit, getToolByName
-from Products.CMFPlone import PloneMessageFactory
-from Products.CMFPlone.interfaces import IPloneSiteRoot
-from Products.GenericSetup import EXTENSION, profile_registry
+from dependencies.dependency import ModuleSecurityInfo, allow_module
+from dependencies.dependency import process_types, listTypes
+from dependencies.dependency import utils
+from dependencies.dependency import registerDirectory
+from dependencies.dependency import ContentInit, ToolInit, getToolByName
+from dependencies.dependency import PloneMessageFactory
+from dependencies.dependency import IPloneSiteRoot
+from dependencies.dependency import EXTENSION, profile_registry
 
 allow_module('AccessControl')
 allow_module('bika.lims')
@@ -37,112 +37,112 @@ allow_module('plone.registry.interfaces')
 
 def initialize(context):
 
-    from content.analysis import Analysis
-    from content.analysiscategory import AnalysisCategory
-    from content.analysisrequest import AnalysisRequest
-    from content.analysisrequestsfolder import AnalysisRequestsFolder
-    from content.analysisservice import AnalysisService
-    from content.analysisspec import AnalysisSpec
-    from content.arimport import ARImport
-    from content.arimportitem import ARImportItem
-    from content.arpriority import ARPriority
-    from content.analysisprofile import AnalysisProfile
-    from content.arreport import ARReport
-    from content.artemplate import ARTemplate
-    from content.attachment import Attachment
-    from content.attachmenttype import AttachmentType
-    from content.batch import Batch
-    from content.batchfolder import BatchFolder
-    from content.batchlabel import BatchLabel
-    from content.bikaschema import BikaSchema
-    from content.bikasetup import BikaSetup
-    from content.calculation import Calculation
-    from content.client import Client
-    from content.clientfolder import ClientFolder
-    from content.contact import Contact
-    from content.container import Container
-    from content.containertype import ContainerType
-    from content.department import Department
-    from content.duplicateanalysis import DuplicateAnalysis
-    from content.instrument import Instrument
-    from content.instrumentcalibration import InstrumentCalibration
-    from content.instrumentcertification import InstrumentCertification
-    from content.instrumentmaintenancetask import InstrumentMaintenanceTask
-    from content.instrumentscheduledtask import InstrumentScheduledTask
-    from content.instrumentvalidation import InstrumentValidation
-    from content.instrumenttype import InstrumentType
-    from content.invoice import Invoice
-    from content.invoicebatch import InvoiceBatch
-    from content.invoicefolder import InvoiceFolder
-    from content.labcontact import LabContact
-    from content.laboratory import Laboratory
-    from content.labproduct import LabProduct
-    from content.manufacturer import Manufacturer
-    from content.method import Method
-    from content.methods import Methods
-    from content.multifile import Multifile
-    from content.organisation import Organisation
-    from content.person import Person
-    from content.preservation import Preservation
-    from content.pricelist import Pricelist
-    from content.pricelistfolder import PricelistFolder
-    from content.queryfolder import QueryFolder
-    from content.query import Query
-    from content.referenceanalysis import ReferenceAnalysis
-    from content.referencedefinition import ReferenceDefinition
-    from content.referencesample import ReferenceSample
-    from content.referencesamplesfolder import ReferenceSamplesFolder
-    from content.rejectanalysis import RejectAnalysis
-    from content.report import Report
-    from content.reportfolder import ReportFolder
-    from content.sample import Sample
-    from content.samplecondition import SampleCondition
-    from content.samplematrix import SampleMatrix
-    from content.samplepartition import SamplePartition
-    from content.samplepoint import SamplePoint
-    from content.storagelocation import StorageLocation
-    from content.samplesfolder import SamplesFolder
-    from content.sampletype import SampleType
-    from content.samplingdeviation import SamplingDeviation
-    from content.srtemplate import SRTemplate
-    from content.subgroup import SubGroup
-    from content.supplier import Supplier
-    from content.suppliercontact import SupplierContact
-    from content.supplyorderfolder import SupplyOrderFolder
-    from content.supplyorder import SupplyOrder
-    from content.worksheet import Worksheet
-    from content.worksheetfolder import WorksheetFolder
-    from content.worksheettemplate import WorksheetTemplate
+    from dependencies.dependency import Analysis
+    from dependencies.dependency import AnalysisCategory
+    from dependencies.dependency import AnalysisRequest
+    from dependencies.dependency import AnalysisRequestsFolder
+    from dependencies.dependency import AnalysisService
+    from dependencies.dependency import AnalysisSpec
+    from dependencies.dependency import ARImport
+    from dependencies.dependency import ARImportItem
+    from dependencies.dependency import ARPriority
+    from dependencies.dependency import AnalysisProfile
+    from dependencies.dependency import ARReport
+    from dependencies.dependency import ARTemplate
+    from dependencies.dependency import Attachment
+    from dependencies.dependency import AttachmentType
+    from dependencies.dependency import Batch
+    from dependencies.dependency import BatchFolder
+    from dependencies.dependency import BatchLabel
+    from dependencies.dependency import BikaSchema
+    from dependencies.dependency import BikaSetup
+    from dependencies.dependency import Calculation
+    from dependencies.dependency import Client
+    from dependencies.dependency import ClientFolder
+    from dependencies.dependency import Contact
+    from dependencies.dependency import Container
+    from dependencies.dependency import ContainerType
+    from dependencies.dependency import Department
+    from dependencies.dependency import DuplicateAnalysis
+    from dependencies.dependency import Instrument
+    from dependencies.dependency import InstrumentCalibration
+    from dependencies.dependency import InstrumentCertification
+    from dependencies.dependency import InstrumentMaintenanceTask
+    from dependencies.dependency import InstrumentScheduledTask
+    from dependencies.dependency import InstrumentValidation
+    from dependencies.dependency import InstrumentType
+    from dependencies.dependency import Invoice
+    from dependencies.dependency import InvoiceBatch
+    from dependencies.dependency import InvoiceFolder
+    from dependencies.dependency import LabContact
+    from dependencies.dependency import Laboratory
+    from dependencies.dependency import LabProduct
+    from dependencies.dependency import Manufacturer
+    from dependencies.dependency import Method
+    from dependencies.dependency import Methods
+    from dependencies.dependency import Multifile
+    from dependencies.dependency import Organisation
+    from dependencies.dependency import Person
+    from dependencies.dependency import Preservation
+    from dependencies.dependency import Pricelist
+    from dependencies.dependency import PricelistFolder
+    from dependencies.dependency import QueryFolder
+    from dependencies.dependency import Query
+    from dependencies.dependency import ReferenceAnalysis
+    from dependencies.dependency import ReferenceDefinition
+    from dependencies.dependency import ReferenceSample
+    from dependencies.dependency import ReferenceSamplesFolder
+    from dependencies.dependency import RejectAnalysis
+    from dependencies.dependency import Report
+    from dependencies.dependency import ReportFolder
+    from dependencies.dependency import Sample
+    from dependencies.dependency import SampleCondition
+    from dependencies.dependency import SampleMatrix
+    from dependencies.dependency import SamplePartition
+    from dependencies.dependency import SamplePoint
+    from dependencies.dependency import StorageLocation
+    from dependencies.dependency import SamplesFolder
+    from dependencies.dependency import SampleType
+    from dependencies.dependency import SamplingDeviation
+    from dependencies.dependency import SRTemplate
+    from dependencies.dependency import SubGroup
+    from dependencies.dependency import Supplier
+    from dependencies.dependency import SupplierContact
+    from dependencies.dependency import SupplyOrderFolder
+    from dependencies.dependency import SupplyOrder
+    from dependencies.dependency import Worksheet
+    from dependencies.dependency import WorksheetFolder
+    from dependencies.dependency import WorksheetTemplate
 
-    from controlpanel.bika_analysiscategories import AnalysisCategories
-    from controlpanel.bika_analysisservices import AnalysisServices
-    from controlpanel.bika_analysisspecs import AnalysisSpecs
-    from controlpanel.bika_analysisprofiles import AnalysisProfiles
-    from controlpanel.bika_artemplates import ARTemplates
-    from controlpanel.bika_arpriorities import ARPriorities
-    from controlpanel.bika_attachmenttypes import AttachmentTypes
-    from controlpanel.bika_batchlabels import BatchLabels
-    from controlpanel.bika_calculations import Calculations
-    from controlpanel.bika_containers import Containers
-    from controlpanel.bika_containertypes import ContainerTypes
-    from controlpanel.bika_departments import Departments
-    from controlpanel.bika_instruments import Instruments
-    from controlpanel.bika_instrumenttypes import InstrumentTypes
-    from controlpanel.bika_labcontacts import LabContacts
-    from controlpanel.bika_labproducts import LabProducts
-    from controlpanel.bika_manufacturers import Manufacturers
-    from controlpanel.bika_preservations import Preservations
-    from controlpanel.bika_referencedefinitions import ReferenceDefinitions
-    from controlpanel.bika_sampleconditions import SampleConditions
-    from controlpanel.bika_samplematrices import SampleMatrices
-    from controlpanel.bika_samplepoints import SamplePoints
-    from controlpanel.bika_storagelocations import StorageLocations
-    from controlpanel.bika_sampletypes import SampleTypes
-    from controlpanel.bika_samplingdeviations import SamplingDeviations
-    from controlpanel.bika_srtemplates import SRTemplates
-    from controlpanel.bika_subgroups import SubGroups
-    from controlpanel.bika_suppliers import Suppliers
-    from controlpanel.bika_worksheettemplates import WorksheetTemplates
+    from dependencies.dependency import AnalysisCategories
+    from dependencies.dependency import AnalysisServices
+    from dependencies.dependency import AnalysisSpecs
+    from dependencies.dependency import AnalysisProfiles
+    from dependencies.dependency import ARTemplates
+    from dependencies.dependency import ARPriorities
+    from dependencies.dependency import AttachmentTypes
+    from dependencies.dependency import BatchLabels
+    from dependencies.dependency import Calculations
+    from dependencies.dependency import Containers
+    from dependencies.dependency import ContainerTypes
+    from dependencies.dependency import Departments
+    from dependencies.dependency import Instruments
+    from dependencies.dependency import InstrumentTypes
+    from dependencies.dependency import LabContacts
+    from dependencies.dependency import LabProducts
+    from dependencies.dependency import Manufacturers
+    from dependencies.dependency import Preservations
+    from dependencies.dependency import ReferenceDefinitions
+    from dependencies.dependency import SampleConditions
+    from dependencies.dependency import SampleMatrices
+    from dependencies.dependency import SamplePoints
+    from dependencies.dependency import StorageLocations
+    from dependencies.dependency import SampleTypes
+    from dependencies.dependency import SamplingDeviations
+    from dependencies.dependency import SRTemplates
+    from dependencies.dependency import SubGroups
+    from dependencies.dependency import Suppliers
+    from dependencies.dependency import WorksheetTemplates
 
     content_types, constructors, ftis = process_types(
         listTypes(PROJECTNAME),

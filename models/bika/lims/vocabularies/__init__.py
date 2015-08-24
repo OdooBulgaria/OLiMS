@@ -1,18 +1,18 @@
 # -*- coding:utf-8 -*-
-from Acquisition import aq_get
+from dependencies.dependency import aq_get
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.interfaces import IDisplayListVocabulary
 from bika.lims.utils import to_utf8
-from Products.Archetypes.public import DisplayList
-from Products.CMFCore.utils import getToolByName
-from zope.interface import implements
-from pkg_resources import resource_filename
-from plone.resource.utils import iterDirectoriesOfType
-from zope.schema.interfaces import IVocabularyFactory
-from zope.schema.vocabulary import SimpleTerm
-from zope.schema.vocabulary import SimpleVocabulary
-from zope.site.hooks import getSite
+from dependencies.dependency import DisplayList
+from dependencies.dependency import getToolByName
+from dependencies.dependency import implements
+from dependencies.dependency import resource_filename
+from dependencies.dependency import iterDirectoriesOfType
+from dependencies.dependency import IVocabularyFactory
+from dependencies.dependency import SimpleTerm
+from dependencies.dependency import SimpleVocabulary
+from dependencies.dependency import getSite
 
 import os
 import glob

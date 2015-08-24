@@ -1,5 +1,5 @@
 from bika.lims.interfaces import IFieldIcons
-from zope.interface import implements
+from dependencies.dependency import implements
 
 class PriorityIcons(object):
 

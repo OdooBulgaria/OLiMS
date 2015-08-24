@@ -1,15 +1,15 @@
-from DateTime import DateTime
-from AccessControl import ClassSecurityInfo
-from App.class_init import InitializeClass
-from OFS.SimpleItem import SimpleItem
-from Products.CMFCore import permissions
-from Products.CMFCore.utils import UniqueObject, getToolByName
+from dependencies.dependency import DateTime
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import InitializeClass
+from dependencies.dependency import SimpleItem
+from dependencies.dependency import permissions
+from dependencies.dependency import UniqueObject, getToolByName
 from bika.lims.config import ManageAnalysisRequests
 from bika.lims.tools import ToolFolder
-from cStringIO import StringIO
+from dependencies.dependency import StringIO
 import csv
 from bika.lims.interfaces.tools import Ibika_ar_export
-from zope.interface import implements
+from dependencies.dependency import implements
 
 class bika_ar_export(UniqueObject, SimpleItem):
     """ ARExportTool """

@@ -1,7 +1,7 @@
 """DuplicateAnalysis uses Analysis as it's base.  Until that's fixed there
 is some confusion.
 """
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.browser.fields import InterimFieldsField
@@ -9,11 +9,11 @@ from bika.lims.config import PROJECTNAME
 from bika.lims.content.analysis import schema, Analysis
 from bika.lims.interfaces import IDuplicateAnalysis
 from bika.lims.subscribers import skip
-from Products.Archetypes.config import REFERENCE_CATALOG
-from Products.Archetypes.public import *
-from Products.Archetypes.references import HoldingReference
-from Products.CMFCore.utils import getToolByName
-from zope.interface import implements
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import getToolByName
+from dependencies.dependency import implements
 
 
 schema = schema.copy() + Schema((

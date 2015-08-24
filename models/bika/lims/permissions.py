@@ -7,7 +7,7 @@
     both valid.
 
 """
-from Products.CMFCore.permissions import AddPortalContent
+from dependencies.dependency import AddPortalContent
 
 # Add Permissions:
 # ----------------

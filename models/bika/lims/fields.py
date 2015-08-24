@@ -1,15 +1,15 @@
 """Generic field extensions
 """
-from Acquisition import aq_inner
-from Acquisition import aq_parent
-from Acquisition import Implicit
-from Acquisition import ImplicitAcquisitionWrapper
+from dependencies.dependency import aq_inner
+from dependencies.dependency import aq_parent
+from dependencies.dependency import Implicit
+from dependencies.dependency import ImplicitAcquisitionWrapper
 from archetypes.schemaextender.interfaces import IExtensionField
-from Products.Archetypes.public import *
-from Products.ATExtensions.ateapi import DateTimeField
-from Products.ATExtensions.ateapi import RecordField, RecordsField
-from zope.interface import implements
-from zope.site.hooks import getSite
+from dependencies.dependency import *
+from dependencies.dependency import DateTimeField
+from dependencies.dependency import RecordField, RecordsField
+from dependencies.dependency import implements
+from dependencies.dependency import getSite
 
 class ExtensionField(object):
 

@@ -1,4 +1,4 @@
-from AccessControl import getSecurityManager
+from dependencies.dependency import getSecurityManager
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t, dicts_to_dict
 from bika.lims.browser.bika_listing import BikaListingView
@@ -8,14 +8,14 @@ from bika.lims.permissions import *
 from bika.lims.utils import logged_in_client
 from bika.lims.utils import to_utf8
 from bika.lims.workflow import doActionFor
-from DateTime import DateTime
-from Products.Archetypes import PloneMessageFactory as PMF
-from plone.app.content.browser.interfaces import IFolderContentsView
-from plone.app.layout.globals.interfaces import IViewView
-from Products.CMFCore.utils import getToolByName
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from zope.i18n.locales import locales
-from zope.interface import implements
+from dependencies.dependency import DateTime
+from dependencies.dependency import PloneMessageFactory as PMF
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import IViewView
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import locales
+from dependencies.dependency import implements
 
 import json
 import plone

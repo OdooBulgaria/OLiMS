@@ -9,11 +9,11 @@
 ##title=Initial post-login actions
 ##
 
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone import PloneMessageFactory as _
+from dependencies.dependency import getToolByName
+from dependencies.dependency import PloneMessageFactory as _
 from bika.lims.utils import logged_in_client
-from zope.component import getUtility
-from plone.registry.interfaces import IRegistry
+from dependencies.dependency import getUtility
+from dependencies.dependency import IRegistry
 REQUEST=context.REQUEST
 
 membership_tool=getToolByName(context, 'portal_membership')

@@ -1,5 +1,5 @@
 import os
-from Products.CMFPlone.utils import _createObjectByType
+from dependencies.dependency import _createObjectByType
 from bika.lims.browser.stickers import Sticker
 from bika.lims.content.analysis import Analysis
 from bika.lims.testing import BIKA_SIMPLE_TESTING
@@ -8,12 +8,12 @@ from bika.lims.utils import tmpID
 from bika.lims.utils.analysisrequest import create_analysisrequest
 from bika.lims.vocabularies import getStickerTemplates
 from bika.lims.workflow import doActionFor
-from plone.app.testing import login, logout
-from plone.app.testing import TEST_USER_NAME
+from dependencies.dependency import login, logout
+from dependencies.dependency import TEST_USER_NAME
 
 import unittest
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from plone.resource.utils import queryResourceDirectory
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import queryResourceDirectory
 
 
 class TestShowPartitions(BikaSimpleTestCase):

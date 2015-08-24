@@ -1,11 +1,11 @@
-from AccessControl import ClassSecurityInfo
-from Products.Archetypes.public import *
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import *
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.config import PROJECTNAME
 from bika.lims.interfaces import IReportFolder, IHaveNoBreadCrumbs
-from plone.app.folder.folder import ATFolder, ATFolderSchema
-from zope.interface import implements
+from dependencies.dependency import ATFolder, ATFolderSchema
+from dependencies.dependency import implements
 
 schema = ATFolderSchema.copy()
 

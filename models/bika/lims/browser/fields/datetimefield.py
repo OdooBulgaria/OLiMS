@@ -1,15 +1,15 @@
-from time import strptime
+from dependencies.dependency import strptime
 
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 
-from DateTime.DateTime import DateTime, safelocaltime
-from DateTime.interfaces import DateTimeError
-from Products.Archetypes.Registry import registerField
-from Products.Archetypes.interfaces import IDateTimeField
-from Products.Archetypes.public import *
-from Products.Archetypes.public import DateTimeField as DTF
+from dependencies.dependency import DateTime, safelocaltime
+from dependencies.dependency import DateTimeError
+from dependencies.dependency import registerField
+from dependencies.dependency import IDateTimeField
+from dependencies.dependency import *
+from dependencies.dependency import DateTimeField as DTF
 from bika.lims import logger
-from zope.interface import implements
+from dependencies.dependency import implements
 
 
 class DateTimeField(DTF):

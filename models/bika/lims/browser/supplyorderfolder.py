@@ -1,9 +1,9 @@
 from bika.lims import bikaMessageFactory as _
 from bika.lims.browser.bika_listing import BikaListingView
 from bika.lims.utils import t
-from operator import itemgetter
-from plone.app.layout.globals.interfaces import IViewView
-from zope.interface import implements
+from dependencies.dependency import itemgetter
+from dependencies.dependency import IViewView
+from dependencies.dependency import implements
 
 
 class SupplyOrderFolderView(BikaListingView):

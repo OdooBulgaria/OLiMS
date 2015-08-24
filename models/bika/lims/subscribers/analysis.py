@@ -1,18 +1,18 @@
-from AccessControl import getSecurityManager
-from Acquisition import aq_inner
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import aq_inner
 from bika.lims import logger
 from bika.lims.interfaces import IRoutineAnalysis
 from bika.lims.subscribers import doActionFor
 from bika.lims.subscribers import skip
 from bika.lims.utils import changeWorkflowState
-from DateTime import DateTime
-from Products.Archetypes.config import REFERENCE_CATALOG
-from Products.Archetypes.event import ObjectInitializedEvent
-from Products.CMFCore.utils import getToolByName
-from Products.CMFCore.WorkflowCore import WorkflowException
+from dependencies.dependency import DateTime
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import ObjectInitializedEvent
+from dependencies.dependency import getToolByName
+from dependencies.dependency import WorkflowException
 import transaction
 import zope.event
-from zope.interface import alsoProvides
+from dependencies.dependency import alsoProvides
 
 
 def ObjectInitializedEventHandler(instance, event):

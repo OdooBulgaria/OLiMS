@@ -1,15 +1,15 @@
 """Department - the department in the laboratory.
 """
-from Products.Archetypes.public import *
-from Products.Archetypes.references import HoldingReference
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import getToolByName
 from bika.lims.config import PROJECTNAME
 from bika.lims.content.bikaschema import BikaSchema
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 import sys
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
-from zope.interface import implements
+from dependencies.dependency import implements
 
 schema = BikaSchema.copy() + Schema((
     ReferenceField('Manager',

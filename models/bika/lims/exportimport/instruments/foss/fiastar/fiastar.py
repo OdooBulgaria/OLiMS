@@ -1,14 +1,14 @@
 """ FOSS FIAStar
 """
 from bika.lims.browser import BrowserView
-from DateTime import DateTime
-from Products.CMFCore.utils import getToolByName
-from plone.i18n.normalizer.interfaces import IIDNormalizer
-from zope.component import getUtility
+from dependencies.dependency import DateTime
+from dependencies.dependency import getToolByName
+from dependencies.dependency import IIDNormalizer
+from dependencies.dependency import getUtility
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from . import FOSSFIAStarCSVParser, FOSSFIAStarImporter
-from cStringIO import StringIO
+from dependencies.dependency import StringIO
 import json
 import traceback
 import csv

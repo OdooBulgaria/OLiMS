@@ -2,7 +2,7 @@
 
 """ReferenceAnalysis
 """
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t, formatDecimalMark
 from bika.lims.utils.analysis import format_numeric_result
@@ -14,15 +14,15 @@ from bika.lims.content.bikaschema import BikaSchema
 from bika.lims.interfaces import IReferenceAnalysis
 from bika.lims.subscribers import skip
 from bika.lims.utils.analysis import get_significant_digits
-from DateTime import DateTime
-from plone.app.blob.field import BlobField
-from Products.Archetypes.config import REFERENCE_CATALOG
-from Products.Archetypes.public import *
-from Products.Archetypes.references import HoldingReference
-from Products.ATExtensions.ateapi import DateTimeField
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import safe_unicode
-from zope.interface import implements
+from dependencies.dependency import DateTime
+from dependencies.dependency import BlobField
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import DateTimeField
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import implements
 
 
 schema = BikaSchema.copy() + Schema((

@@ -1,17 +1,17 @@
-from Products.ATContentTypes.content import schemata
-from Products.Archetypes import atapi
-from AccessControl import ClassSecurityInfo
-from DateTime import DateTime
-from Products.ATExtensions.ateapi import DateTimeField, DateTimeWidget
-from Products.Archetypes.config import REFERENCE_CATALOG
-from Products.Archetypes.public import *
-from Products.CMFCore.permissions import ListFolderContents, View
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import schemata
+from dependencies.dependency import atapi
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import DateTime
+from dependencies.dependency import DateTimeField, DateTimeWidget
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import *
+from dependencies.dependency import ListFolderContents, View
+from dependencies.dependency import getToolByName
 from bika.lims.content.bikaschema import BikaSchema
 from bika.lims.config import PROJECTNAME
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
-from zope.interface import implements
+from dependencies.dependency import implements
 
 schema = BikaSchema.copy() + Schema((
     FileField('ReportFile',

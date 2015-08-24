@@ -1,4 +1,4 @@
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.browser.fields import DurationField
@@ -6,10 +6,10 @@ from bika.lims.browser.widgets import DurationWidget
 from bika.lims.config import PROJECTNAME, PRESERVATION_CATEGORIES
 from bika.lims.content.bikaschema import BikaSchema
 from bika.lims.vocabularies import CatalogVocabulary
-from Missing import Value
-from operator import itemgetter
-from Products.Archetypes.public import *
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import Value
+from dependencies.dependency import itemgetter
+from dependencies.dependency import *
+from dependencies.dependency import getToolByName
 
 import json
 import plone.protect

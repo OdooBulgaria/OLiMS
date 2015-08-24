@@ -17,7 +17,7 @@
 # Returning a value other than True or False will leave the context in
 # "sampled" state
 
-from DateTime import DateTime
+from dependencies.dependency import DateTime
 workflow = context.portal_workflow
 
 if context.portal_type == 'Sample':

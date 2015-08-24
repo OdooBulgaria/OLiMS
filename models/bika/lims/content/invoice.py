@@ -1,17 +1,17 @@
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.config import ManageInvoices, ManageBika, PROJECTNAME
 from bika.lims.content.bikaschema import BikaSchema
 from bika.lims.interfaces import IInvoice
-from DateTime import DateTime
-from decimal import Decimal
-from persistent.mapping import PersistentMapping
-from Products.Archetypes.public import *
-from Products.ATExtensions.ateapi import DateTimeField, DateTimeWidget
-from Products.CMFCore.permissions import View
-from Products.CMFPlone.utils import safe_unicode
-from zope.interface import implements
+from dependencies.dependency import DateTime
+from dependencies.dependency import Decimal
+from dependencies.dependency import PersistentMapping
+from dependencies.dependency import *
+from dependencies.dependency import DateTimeField, DateTimeWidget
+from dependencies.dependency import View
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import implements
 import sys
 
 schema = BikaSchema.copy() + Schema((

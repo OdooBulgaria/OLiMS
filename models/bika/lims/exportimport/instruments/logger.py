@@ -1,4 +1,4 @@
-from Products.CMFPlone.utils import safe_unicode
+from dependencies.dependency import safe_unicode
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 

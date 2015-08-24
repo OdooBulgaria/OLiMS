@@ -1,4 +1,4 @@
-from Products.CMFPlone.utils import _createObjectByType, safe_unicode
+from dependencies.dependency import _createObjectByType, safe_unicode
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.browser.bika_listing import BikaListingView
@@ -7,16 +7,16 @@ from bika.lims.idserver import renameAfterCreation
 from bika.lims.interfaces import IAnalysisServices
 from bika.lims.utils import tmpID
 from bika.lims.validators import ServiceKeywordValidator
-from plone.app.content.browser.interfaces import IFolderContentsView
-from plone.app.folder.folder import ATFolder, ATFolderSchema
-from plone.app.layout.globals.interfaces import IViewView
-from Products.Archetypes import atapi
-from Products.ATContentTypes.content import schemata
-from Products.CMFCore.utils import getToolByName
-from Products.Five.browser import BrowserView
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from transaction import savepoint
-from zope.interface.declarations import implements
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import ATFolder, ATFolderSchema
+from dependencies.dependency import IViewView
+from dependencies.dependency import atapi
+from dependencies.dependency import schemata
+from dependencies.dependency import getToolByName
+from dependencies.dependency import BrowserView
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import savepoint
+from dependencies.dependency import implements
 
 
 class AnalysisServiceCopy(BrowserView):

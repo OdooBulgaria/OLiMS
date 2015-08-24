@@ -8,10 +8,10 @@
 ##parameters=
 ##
 
-from Products.CMFCore.utils import getToolByName
-from Products.CMFEditions import CMFEditionsMessageFactory as _
-from Products.CMFEditions.utilities import isObjectChanged, maybeSaveVersion
-from Products.CMFEditions.interfaces.IModifier import FileTooLargeToVersionError
+from dependencies.dependency import getToolByName
+from dependencies.dependency import CMFEditionsMessageFactory as _
+from dependencies.dependency import isObjectChanged, maybeSaveVersion
+from dependencies.dependency import FileTooLargeToVersionError
 
 putils = getToolByName(context, 'plone_utils')
 REQUEST = context.REQUEST

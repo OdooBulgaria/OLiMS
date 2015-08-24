@@ -1,19 +1,19 @@
-from AccessControl import getSecurityManager
-from AccessControl import Unauthorized
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import Unauthorized
 from bika.lims.idserver import renameAfterCreation
 from bika.lims.jsonapi import set_fields_from_request
 from bika.lims.jsonapi import resolve_request_lookup
 from bika.lims.permissions import AccessJSONAPI
 from bika.lims.utils import tmpID, dicts_to_dict
 from bika.lims.workflow import doActionFor
-from plone.jsonapi.core import router
-from plone.jsonapi.core.interfaces import IRouteProvider
-from Products.Archetypes.event import ObjectInitializedEvent
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import _createObjectByType
-from zExceptions import BadRequest
-from zope import event
-from zope import interface
+from dependencies.dependency import router
+from dependencies.dependency import IRouteProvider
+from dependencies.dependency import ObjectInitializedEvent
+from dependencies.dependency import getToolByName
+from dependencies.dependency import _createObjectByType
+from dependencies.dependency import BadRequest
+from dependencies.dependency import event
+from dependencies.dependency import interface
 
 import json
 import transaction

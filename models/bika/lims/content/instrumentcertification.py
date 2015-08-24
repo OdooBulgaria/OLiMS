@@ -1,13 +1,13 @@
-from AccessControl import ClassSecurityInfo
-from Products.ATContentTypes.content import schemata
-from Products.Archetypes import atapi
-from Products.Archetypes.public import *
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import schemata
+from dependencies.dependency import atapi
+from dependencies.dependency import *
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.browser.widgets import DateTimeWidget, ReferenceWidget
 from bika.lims.config import PROJECTNAME
 from bika.lims.content.bikaschema import BikaSchema
-from Products.CMFCore import permissions
+from dependencies.dependency import permissions
 
 schema = BikaSchema.copy() + Schema((
 

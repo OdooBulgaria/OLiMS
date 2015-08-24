@@ -1,22 +1,22 @@
 # -*- coding: utf-8 -*-
 
-from AccessControl import ModuleSecurityInfo, allow_module
+from dependencies.dependency import ModuleSecurityInfo, allow_module
 from bika.lims import logger
 from bika.lims.browser import BrowserView
-from DateTime import DateTime
-from email import Encoders
-from email.MIMEBase import MIMEBase
-from plone.memoize import ram
-from plone.registry.interfaces import IRegistry
-from Products.Archetypes.public import DisplayList
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import safe_unicode
+from dependencies.dependency import DateTime
+from dependencies.dependency import Encoders
+from dependencies.dependency import MIMEBase
+from dependencies.dependency import ram
+from dependencies.dependency import IRegistry
+from dependencies.dependency import DisplayList
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
 from socket import timeout
-from time import time
-from weasyprint import HTML, CSS
-from zope.component import queryUtility
-from zope.i18n import translate
-from zope.i18n.locales import locales
+from dependencies.dependency import time
+from dependencies.dependency import HTML, CSS
+from dependencies.dependency import queryUtility
+from dependencies.dependency import translate
+from dependencies.dependency import locales
 
 import App
 import Globals

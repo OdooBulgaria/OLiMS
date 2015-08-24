@@ -1,10 +1,10 @@
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import getToolByName
 from bika.lims.interfaces import ISample
 from bika.lims.utils import tmpID
 from bika.lims.utils.sample import create_sample
 from bika.lims.utils.samplepartition import create_samplepartition
 from bika.lims.workflow import doActionFor
-from Products.CMFPlone.utils import _createObjectByType
+from dependencies.dependency import _createObjectByType
 
 
 def create_analysisrequest(

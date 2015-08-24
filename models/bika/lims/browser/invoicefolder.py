@@ -3,9 +3,9 @@ from bika.lims.utils import t
 from bika.lims.browser.bika_listing import BikaListingView
 from bika.lims.permissions import AddInvoice
 from bika.lims.permissions import ManageInvoices
-from plone.app.content.browser.interfaces import IFolderContentsView
-from Products.CMFCore.utils import getToolByName
-from zope.interface import implements
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import getToolByName
+from dependencies.dependency import implements
 
 
 class InvoiceFolderContentsView(BikaListingView):

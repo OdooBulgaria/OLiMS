@@ -1,9 +1,9 @@
-from AccessControl import ClassSecurityInfo
-from Products.ATContentTypes.content import schemata
-from Products.Archetypes import atapi
-from Products.Archetypes.ArchetypeTool import registerType
-from Products.CMFCore import permissions
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import schemata
+from dependencies.dependency import atapi
+from dependencies.dependency import registerType
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
 from bika.lims.browser import BrowserView
 from bika.lims.browser.bika_listing import BikaListingView
 from bika.lims.config import PROJECTNAME
@@ -11,11 +11,11 @@ from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.content.bikaschema import BikaFolderSchema
 from bika.lims.interfaces import IInstruments
-from plone.app.layout.globals.interfaces import IViewView
-from plone.app.content.browser.interfaces import IFolderContentsView
-from plone.app.folder.folder import ATFolder, ATFolderSchema
-from zope.interface.declarations import implements
-from operator import itemgetter
+from dependencies.dependency import IViewView
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import ATFolder, ATFolderSchema
+from dependencies.dependency import implements
+from dependencies.dependency import itemgetter
 
 class InstrumentsView(BikaListingView):
     implements(IFolderContentsView, IViewView)

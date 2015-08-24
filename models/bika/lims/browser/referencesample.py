@@ -1,19 +1,19 @@
-from AccessControl import getSecurityManager
-from Products.Archetypes.config import REFERENCE_CATALOG
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import getToolByName
 from bika.lims.browser import BrowserView
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from dependencies.dependency import ViewPageTemplateFile
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.browser.bika_listing import BikaListingView
 from bika.lims.utils import isActive
-from operator import itemgetter
+from dependencies.dependency import itemgetter
 from bika.lims.browser.analyses import AnalysesView
-from plone.app.layout.globals.interfaces import IViewView
-from zope.component import getMultiAdapter
-from zope.interface import implements
+from dependencies.dependency import IViewView
+from dependencies.dependency import getMultiAdapter
+from dependencies.dependency import implements
 import json, plone
-from operator import itemgetter
+from dependencies.dependency import itemgetter
 
 class ViewView(BrowserView):
     """ Reference Sample View
@@ -380,8 +380,8 @@ class ReferenceSamplesView(BikaListingView):
             obj = items[x]['obj']
             if workflow.getInfoFor(obj, 'review_state') == 'current':
                 # Check expiry date
-                from Products.ATContentTypes.utils import DT2dt
-                from datetime import datetime
+                from dependencies.dependency import DT2dt
+                from dependencies.dependency import datetime
                 expirydate = DT2dt(obj.getExpiryDate()).replace(tzinfo=None)
                 if (datetime.today() > expirydate):
                     workflow.doActionFor(obj, 'expire')

@@ -1,20 +1,20 @@
-from AccessControl import ClassSecurityInfo
-from App.class_init import InitializeClass
-from OFS.SimpleItem import SimpleItem
-from Products.CMFCore import permissions
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import InitializeClass
+from dependencies.dependency import SimpleItem
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.interfaces import IIdServer
-from zope.interface.declarations import implements
-from hashlib import sha1
+from dependencies.dependency import implements
+from dependencies.dependency import sha1
 import App,os,sys,random,time,urllib,hmac
 
 try:
-    from zope.component.hooks import getSite
+    from dependencies.dependency import getSite
 except:
     # Plone < 4.3
-    from zope.app.component.hooks import getSite
+    from dependencies.dependency import getSite
 
 class IDServerUnavailable(Exception):
     pass

@@ -1,15 +1,15 @@
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims import bikaMessageFactory as _
 from bika.lims import logger
 from bika.lims.permissions import ViewRetractedAnalyses
 from bika.lims.utils import t, dicts_to_dict
 from bika.lims.utils.analysis import create_analysis
-from decimal import Decimal
-from Products.Archetypes.public import *
-from Products.Archetypes.Registry import registerField
-from Products.Archetypes.utils import shasattr
-from Products.CMFCore.utils import getToolByName
-from types import ListType, TupleType, DictType
+from dependencies.dependency import Decimal
+from dependencies.dependency import *
+from dependencies.dependency import registerField
+from dependencies.dependency import shasattr
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ListType, TupleType, DictType
 
 
 class ARAnalysesField(ObjectField):

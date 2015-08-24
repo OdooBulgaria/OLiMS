@@ -1,4 +1,4 @@
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.browser import BrowserView
@@ -7,13 +7,13 @@ from bika.lims.permissions import *
 from bika.lims.utils import to_unicode as _u
 from bika.lims.utils import to_utf8 as _c
 from bika.lims import logger
-from Acquisition import aq_base
-from types import DictType
-from operator import itemgetter
-from Products.Archetypes.Registry import registerWidget
-from Products.Archetypes.Widget import StringWidget
-from Products.CMFCore.utils import getToolByName
-from zope.component import getAdapters
+from dependencies.dependency import aq_base
+from dependencies.dependency import DictType
+from dependencies.dependency import itemgetter
+from dependencies.dependency import registerWidget
+from dependencies.dependency import StringWidget
+from dependencies.dependency import getToolByName
+from dependencies.dependency import getAdapters
 import json
 import plone
 

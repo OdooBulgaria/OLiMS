@@ -1,7 +1,7 @@
-from Products.CMFCore.utils import getToolByName
-from zope.i18n import translate
+from dependencies.dependency import getToolByName
+from dependencies.dependency import translate
 from bika.lims.browser import BrowserView
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from dependencies.dependency import ViewPageTemplateFile
 from bika.lims.utils import getUsers
 from bika.lims import bikaMessageFactory as _
 from bika.lims import PMF

@@ -1,7 +1,7 @@
-from DateTime import DateTime
-from Products.Archetypes.config import REFERENCE_CATALOG
-from Products.CMFCore.WorkflowCore import WorkflowException
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import DateTime
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import getToolByName
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims import logger

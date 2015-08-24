@@ -1,6 +1,6 @@
 """Sample represents a physical sample submitted for testing
 """
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t, getUsers
 from bika.lims.browser.widgets.datetimewidget import DateTimeWidget
@@ -10,18 +10,18 @@ from bika.lims.interfaces import ISample
 from bika.lims.permissions import SampleSample
 from bika.lims.workflow import doActionFor, isBasicTransitionAllowed
 from bika.lims.workflow import skip
-from DateTime import DateTime
-from Products.Archetypes import atapi
-from Products.Archetypes.config import REFERENCE_CATALOG
-from Products.Archetypes.public import *
-from Products.Archetypes.public import DisplayList
-from Products.Archetypes.references import HoldingReference
-from Products.ATContentTypes.lib.historyaware import HistoryAwareMixin
-from Products.ATContentTypes.utils import DT2dt, dt2DT
-from Products.CMFCore import permissions
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import safe_unicode
-from zope.interface import implements
+from dependencies.dependency import DateTime
+from dependencies.dependency import atapi
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import *
+from dependencies.dependency import DisplayList
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import HistoryAwareMixin
+from dependencies.dependency import DT2dt, dt2DT
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import implements
 
 from bika.lims.browser.fields import DateTimeField
 from bika.lims.browser.widgets import ReferenceWidget

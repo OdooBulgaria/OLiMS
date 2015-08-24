@@ -1,21 +1,21 @@
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import getToolByName
 from bika.lims.browser import BrowserView
 from bika.lims import PMF
 from bika.lims import logger
 from bika.lims.interfaces import ISetupDataImporter
-from openpyxl import load_workbook
-from pkg_resources import resource_filename
-from zope.component import getAdapters
+from dependencies.dependency import load_workbook
+from dependencies.dependency import resource_filename
+from dependencies.dependency import getAdapters
 import traceback
 
 import tempfile
 import transaction
 
 try:
-    from zope.component.hooks import getSite
+    from dependencies.dependency import getSite
 except:
     # Plone < 4.3
-    from zope.app.component.hooks import getSite
+    from dependencies.dependency import getSite
 
 
 class LoadSetupData(BrowserView):

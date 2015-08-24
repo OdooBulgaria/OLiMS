@@ -1,9 +1,9 @@
-from Products.CMFPlone.utils import _createObjectByType
-from zope import event
+from dependencies.dependency import _createObjectByType
+from dependencies.dependency import event
 
-from Products.CMFCore.utils import getToolByName
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from operator import itemgetter, methodcaller
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import itemgetter, methodcaller
 
 from bika.lims import bikaMessageFactory as _
 from bika.lims.browser import BrowserView

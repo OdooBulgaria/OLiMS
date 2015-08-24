@@ -1,5 +1,5 @@
-from AccessControl import ClassSecurityInfo
-from Products.CMFPlone.utils import safe_unicode
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import safe_unicode
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.browser.fields import HistoryAwareReferenceField
@@ -9,14 +9,14 @@ from bika.lims.config import PROJECTNAME
 from bika.lims.content.bikaschema import BikaSchema
 from bika.lims.interfaces import ICalculation
 from bika.lims.utils import to_utf8
-from Products.Archetypes.public import *
-from Products.Archetypes.references import HoldingReference
-from Products.ATContentTypes.lib.historyaware import HistoryAwareMixin
-from Products.CMFCore.permissions import ModifyPortalContent, View
-from Products.CMFCore.utils import getToolByName
-from Products.CMFCore.WorkflowCore import WorkflowException
-from zExceptions import Redirect
-from zope.interface import implements
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import HistoryAwareMixin
+from dependencies.dependency import ModifyPortalContent, View
+from dependencies.dependency import getToolByName
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import Redirect
+from dependencies.dependency import implements
 import sys
 import re
 import transaction

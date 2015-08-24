@@ -1,9 +1,9 @@
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from dependencies.dependency import ViewPageTemplateFile
 from bika.lims import bikaMessageFactory as _
 from bika.lims.browser import BrowserView
 from bika.lims.browser.reports.selection_macros import SelectionMacrosView
-from plone.app.layout.globals.interfaces import IViewView
-from zope.interface import implements
+from dependencies.dependency import IViewView
+from dependencies.dependency import implements
 
 
 def percentage(part, whole):

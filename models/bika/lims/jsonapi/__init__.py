@@ -1,6 +1,6 @@
-from Products.Archetypes.config import TOOL_NAME
-from Products.CMFCore.utils import getToolByName
-from zExceptions import BadRequest
+from dependencies.dependency import TOOL_NAME
+from dependencies.dependency import getToolByName
+from dependencies.dependency import BadRequest
 import json
 import Missing
 import sys, traceback
@@ -10,7 +10,7 @@ def handle_errors(f):
     """ simple JSON error handler
     """
     import traceback
-    from plone.jsonapi.core.helpers import error
+    from dependencies.dependency import error
 
     def decorator(*args, **kwargs):
         try:

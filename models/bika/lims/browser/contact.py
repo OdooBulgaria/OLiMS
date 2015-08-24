@@ -1,8 +1,8 @@
-from Acquisition import aq_parent, aq_inner, aq_base
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import safe_unicode
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.Archetypes.utils import DisplayList
+from dependencies.dependency import aq_parent, aq_inner, aq_base
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import DisplayList
 from bika.lims import PMF, bikaMessageFactory as _
 from bika.lims.browser import BrowserView
 import json

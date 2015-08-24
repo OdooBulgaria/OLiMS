@@ -1,11 +1,11 @@
-from plone.app.querystring.interfaces import IQuerystringRegistryReader
+from dependencies.dependency import IQuerystringRegistryReader
 from bika.lims.querystring.querybuilder import RegistryConfiguration
-from plone.app.querystring.registryreader import \
+from dependencies.dependency import \
     QuerystringRegistryReader as _QuerystringRegistryReader
-from plone.registry.interfaces import IRegistry
-from zope.component import getUtility
-from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from dependencies.dependency import IRegistry
+from dependencies.dependency import getUtility
+from dependencies.dependency import MessageFactory
+from dependencies.dependency import implements
 
 
 _p = MessageFactory('plone')

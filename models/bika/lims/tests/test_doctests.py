@@ -1,7 +1,7 @@
 from bika.lims.testing import BIKA_FUNCTIONAL_TESTING
-from doctest import DocFileSuite
-from doctest import DocTestSuite
-from plone.testing import layered
+from dependencies.dependency import DocFileSuite
+from dependencies.dependency import DocTestSuite
+from dependencies.dependency import layered
 import doctest
 import unittest
 

@@ -2,13 +2,13 @@
     format. Also, includes information about the date when was published, from
     who, the report recipients (and their emails) and the publication mode
 """
-from AccessControl import ClassSecurityInfo
-from Products.ATExtensions.ateapi import RecordsField
-from Products.Archetypes import atapi
-from Products.Archetypes.public import ReferenceField, FileField, \
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import RecordsField
+from dependencies.dependency import atapi
+from dependencies.dependency import ReferenceField, FileField, \
         StringField, Schema, BaseFolder
-from plone.app.blob.field import BlobField
-from Products.Archetypes.references import HoldingReference
+from dependencies.dependency import BlobField
+from dependencies.dependency import HoldingReference
 from bika.lims.config import PROJECTNAME
 from bika.lims.content.bikaschema import BikaSchema
 

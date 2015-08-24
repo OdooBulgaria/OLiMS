@@ -1,6 +1,6 @@
-from AccessControl import ClassSecurityInfo
-from Products.Archetypes.Registry import registerWidget
-from Products.ATExtensions.widget.records import RecordsWidget
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import registerWidget
+from dependencies.dependency import RecordsWidget
 
 class WorksheetTemplateLayoutWidget(RecordsWidget):
     security = ClassSecurityInfo()

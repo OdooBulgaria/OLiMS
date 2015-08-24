@@ -1,13 +1,13 @@
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.utils import to_utf8
-from plone.app.contentmenu.menu import WorkflowSubMenuItem as _WorkflowSubMenuItem
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import WorkflowSubMenuItem as _WorkflowSubMenuItem
+from dependencies.dependency import getToolByName
 
 try:
-    from Products.CMFPlacefulWorkflow import ManageWorkflowPolicies
+    from dependencies.dependency import ManageWorkflowPolicies
 except ImportError:
-    from Products.CMFCore.permissions import ManagePortal as ManageWorkflowPolicies
+    from dependencies.dependency import ManagePortal as ManageWorkflowPolicies
 
 
 class WorkflowSubMenuItem(_WorkflowSubMenuItem):

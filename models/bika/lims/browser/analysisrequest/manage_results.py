@@ -1,5 +1,5 @@
-from AccessControl import getSecurityManager
-from Products.CMFPlone.utils import safe_unicode
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import safe_unicode
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.browser.analyses import AnalysesView
@@ -9,12 +9,12 @@ from bika.lims.permissions import *
 from bika.lims.browser.analysisrequest import AnalysisRequestViewView
 from bika.lims.utils import to_utf8
 from bika.lims.workflow import doActionFor
-from DateTime import DateTime
-from Products.Archetypes import PloneMessageFactory as PMF
-from plone.app.layout.globals.interfaces import IViewView
-from Products.CMFCore.utils import getToolByName
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from zope.interface import implements
+from dependencies.dependency import DateTime
+from dependencies.dependency import PloneMessageFactory as PMF
+from dependencies.dependency import IViewView
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import implements
 
 import plone
 

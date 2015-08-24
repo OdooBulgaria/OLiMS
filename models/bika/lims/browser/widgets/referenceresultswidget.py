@@ -1,7 +1,7 @@
-from AccessControl import ClassSecurityInfo
-from Products.Archetypes.Registry import registerWidget
-from Products.Archetypes.Widget import TypesWidget
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import registerWidget
+from dependencies.dependency import TypesWidget
+from dependencies.dependency import getToolByName
 from bika.lims.browser import BrowserView
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t

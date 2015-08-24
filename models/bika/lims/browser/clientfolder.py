@@ -1,20 +1,20 @@
-from Products.CMFCore.permissions import View
-from AccessControl import getSecurityManager
+from dependencies.dependency import View
+from dependencies.dependency import getSecurityManager
 from bika.lims.permissions import AddClient
 from bika.lims.permissions import ManageClients
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import getToolByName
 from bika.lims.permissions import ManageAnalysisRequests
 from bika.lims.browser.bika_listing import BikaListingView
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
-from operator import itemgetter
+from dependencies.dependency import itemgetter
 from bika.lims.interfaces import IClientFolder
-from plone.app.content.browser.interfaces import IFolderContentsView
+from dependencies.dependency import IFolderContentsView
 from bika.lims.browser import BrowserView
-from zope.interface import implements
-from Products.CMFCore import permissions
-from zope.component import getUtility
-from plone.registry.interfaces import IRegistry
+from dependencies.dependency import implements
+from dependencies.dependency import permissions
+from dependencies.dependency import getUtility
+from dependencies.dependency import IRegistry
 import plone,json
 
 

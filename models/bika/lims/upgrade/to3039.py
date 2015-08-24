@@ -1,6 +1,6 @@
-from Acquisition import aq_inner
-from Acquisition import aq_parent
-from Products.CMFCore import permissions
+from dependencies.dependency import aq_inner
+from dependencies.dependency import aq_parent
+from dependencies.dependency import permissions
 
 
 def upgrade(tool):

@@ -1,5 +1,5 @@
-from Acquisition import aq_parent, aq_inner
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import aq_parent, aq_inner
+from dependencies.dependency import getToolByName
 
 def upgrade(tool):
     # Hack prevent out-of-date upgrading

@@ -1,13 +1,13 @@
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.content.bikaschema import BikaSchema
 from bika.lims.config import PROJECTNAME
 from bika.lims.idserver import renameAfterCreation
 from bika.lims.interfaces import IARPriority
-from Products.Archetypes import atapi
-from Products.Archetypes.public import *
-from zope.interface import implements
+from dependencies.dependency import atapi
+from dependencies.dependency import *
+from dependencies.dependency import implements
 
 schema = BikaSchema.copy() + Schema((
     IntegerField('sortKey',

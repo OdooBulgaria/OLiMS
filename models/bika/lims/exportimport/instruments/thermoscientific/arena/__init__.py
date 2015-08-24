@@ -1,6 +1,6 @@
 """ Thermo Scientific 'Arena'
 """
-from datetime import datetime
+from dependencies.dependency import datetime
 from bika.lims import logger
 from bika.lims.exportimport.instruments.resultsimport import \
     AnalysisResultsImporter, InstrumentCSVResultsFileParser

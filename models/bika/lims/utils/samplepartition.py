@@ -1,5 +1,5 @@
 from bika.lims.utils import tmpID
-from Products.CMFPlone.utils import _createObjectByType
+from dependencies.dependency import _createObjectByType
 from magnitude import mg
 
 

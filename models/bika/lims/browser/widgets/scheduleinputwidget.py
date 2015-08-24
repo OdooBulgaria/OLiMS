@@ -1,7 +1,7 @@
-from AccessControl import ClassSecurityInfo
-from Products.Archetypes.Widget import TypesWidget
-from Products.Archetypes.Registry import registerWidget
-from Products.CMFPlone.i18nl10n import ulocalized_time
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import TypesWidget
+from dependencies.dependency import registerWidget
+from dependencies.dependency import ulocalized_time
 
 class ScheduleInputWidget(TypesWidget):
     _properties = TypesWidget._properties.copy()

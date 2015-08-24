@@ -1,6 +1,6 @@
 import json
 
-from Products.CMFPlone.utils import _createObjectByType
+from dependencies.dependency import _createObjectByType
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import isAttributeHidden
 from bika.lims.browser import BrowserView
@@ -13,12 +13,12 @@ from bika.lims.utils import to_utf8 as _c
 from bika.lims.interfaces import IProductivityReport
 from bika.lims.interfaces import IQualityControlReport
 from bika.lims.interfaces import IAdministrationReport
-from DateTime import DateTime
-from plone.app.layout.globals.interfaces import IViewView
-from Products.CMFCore.utils import getToolByName
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from zope.component import getAdapters
-from zope.interface import implements
+from dependencies.dependency import DateTime
+from dependencies.dependency import IViewView
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import getAdapters
+from dependencies.dependency import implements
 import os
 import plone
 

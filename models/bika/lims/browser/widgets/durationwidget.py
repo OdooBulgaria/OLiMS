@@ -1,6 +1,6 @@
-from AccessControl import ClassSecurityInfo
-from Products.ATExtensions.widget import RecordWidget
-from Products.Archetypes.Registry import registerWidget
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import RecordWidget
+from dependencies.dependency import registerWidget
 import datetime
 
 class DurationWidget(RecordWidget):

@@ -1,10 +1,10 @@
-from webdav.common import rfc1123_date
-from AccessControl import ClassSecurityInfo
-from Products.CMFCore import permissions as CMFCorePermissions
-from Products.CMFCore.utils import getToolByName
-from Products.Archetypes.public import *
+from dependencies.dependency import rfc1123_date
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import permissions as CMFCorePermissions
+from dependencies.dependency import getToolByName
+from dependencies.dependency import *
 from bika.lims.content.bikaschema import BikaSchema
-from Products.ATExtensions.ateapi import RecordWidget
+from dependencies.dependency import RecordWidget
 from bika.lims.browser.widgets import AddressWidget
 from archetypes.referencebrowserwidget import ReferenceBrowserWidget
 from bika.lims.config import GENDERS, PROJECTNAME

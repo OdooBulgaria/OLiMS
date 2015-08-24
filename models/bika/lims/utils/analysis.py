@@ -3,9 +3,9 @@
 import math
 import zope.event
 from bika.lims.utils import formatDecimalMark
-from Products.Archetypes.event import ObjectInitializedEvent
-from Products.CMFCore.WorkflowCore import WorkflowException
-from Products.CMFPlone.utils import _createObjectByType
+from dependencies.dependency import ObjectInitializedEvent
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import _createObjectByType
 
 
 def create_analysis(context, service, keyword, interim_fields):

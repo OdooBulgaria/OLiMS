@@ -1,20 +1,20 @@
-from AccessControl.SecurityManagement import newSecurityManager
-from Acquisition import aq_inner, aq_parent
+from dependencies.dependency import newSecurityManager
+from dependencies.dependency import aq_inner, aq_parent
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.browser.bika_listing import BikaListingView
 from bika.lims.utils import to_utf8
-from DateTime import DateTime
-from operator import itemgetter
-from plone.app.layout.globals.interfaces import IViewView
-from plone.app.layout.viewlets.content import ContentHistoryView, ContentHistoryViewlet
-from Products.Archetypes.config import REFERENCE_CATALOG
-from Products.CMFCore.utils import getToolByName
-from Products.CMFCore.WorkflowCore import WorkflowException
-from Products.CMFPlone.utils import safe_unicode
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from zope.interface import implements
-from zope.publisher.browser import TestRequest
+from dependencies.dependency import DateTime
+from dependencies.dependency import itemgetter
+from dependencies.dependency import IViewView
+from dependencies.dependency import ContentHistoryView, ContentHistoryViewlet
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import getToolByName
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import implements
+from dependencies.dependency import TestRequest
 import json
 
 

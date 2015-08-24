@@ -1,25 +1,25 @@
 import csv
 import plone
 import time
-from collective.progressbar.events import InitialiseProgressBar
-from collective.progressbar.events import ProgressBar
-from collective.progressbar.events import UpdateProgressEvent
-from collective.progressbar.events import ProgressState
-from DateTime import DateTime
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import transaction_note
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.statusmessages.interfaces import IStatusMessage
-from Products.CMFPlone.utils import _createObjectByType
+from dependencies.dependency import InitialiseProgressBar
+from dependencies.dependency import ProgressBar
+from dependencies.dependency import UpdateProgressEvent
+from dependencies.dependency import ProgressState
+from dependencies.dependency import DateTime
+from dependencies.dependency import getToolByName
+from dependencies.dependency import transaction_note
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import IStatusMessage
+from dependencies.dependency import _createObjectByType
 from bika.lims import PMF, logger, bikaMessageFactory as _
 from bika.lims.browser import BrowserView
 from bika.lims.browser.bika_listing import BikaListingView
 from bika.lims.interfaces import IClient
 from bika.lims.permissions import *
 from bika.lims.utils import tmpID
-from plone.app.layout.globals.interfaces import IViewView
-from zope.interface import implements
-from zope.event import notify
+from dependencies.dependency import IViewView
+from dependencies.dependency import implements
+from dependencies.dependency import notify
 
 class ARImportView(BrowserView):
     implements(IViewView)

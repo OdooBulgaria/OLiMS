@@ -1,5 +1,5 @@
 from bika.lims.browser import BrowserView
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import getToolByName
 import plone
 import json
 

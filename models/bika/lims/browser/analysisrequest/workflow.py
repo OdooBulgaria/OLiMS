@@ -10,15 +10,15 @@ from bika.lims.utils import isActive
 from bika.lims.utils import tmpID
 from bika.lims.utils import to_utf8
 from bika.lims.workflow import doActionFor
-from DateTime import DateTime
+from dependencies.dependency import DateTime
 from string import Template
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-from email.Utils import formataddr
-from Products.Archetypes.config import REFERENCE_CATALOG
-from Products.Archetypes.event import ObjectInitializedEvent
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import safe_unicode, _createObjectByType
+from dependencies.dependency import MIMEMultipart
+from dependencies.dependency import MIMEText
+from dependencies.dependency import formataddr
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import ObjectInitializedEvent
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode, _createObjectByType
 
 import json
 import plone

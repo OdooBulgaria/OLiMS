@@ -1,12 +1,12 @@
 """
 """
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims.config import PROJECTNAME
 from bika.lims.interfaces import IQueryFolder, IHaveNoBreadCrumbs
-from plone.app.folder import folder
-from Products.Archetypes import atapi
-from Products.ATContentTypes.content import schemata
-from zope.interface import implements
+from dependencies.dependency import folder
+from dependencies.dependency import atapi
+from dependencies.dependency import schemata
+from dependencies.dependency import implements
 
 schema = folder.ATFolderSchema.copy()
 

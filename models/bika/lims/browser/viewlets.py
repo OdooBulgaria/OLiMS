@@ -2,10 +2,10 @@ import json
 import urllib
 import time
 
-from Products.CMFCore.utils import getToolByName
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from plone.app.layout.viewlets.common import ViewletBase
-from zope.component import getMultiAdapter
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import ViewletBase
+from dependencies.dependency import getMultiAdapter
 from bika.lims import logger
 
 

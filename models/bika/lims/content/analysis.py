@@ -2,23 +2,23 @@
 
 "DuplicateAnalysis uses this as it's base.  This accounts for much confusion."
 
-from AccessControl import getSecurityManager
-from AccessControl import ClassSecurityInfo
-from DateTime import DateTime
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import DateTime
 from bika.lims import logger
 from bika.lims.utils.analysis import format_numeric_result
-from plone.indexer import indexer
-from Products.ATContentTypes.content import schemata
-from Products.ATExtensions.ateapi import DateTimeField, DateTimeWidget, RecordsField
-from Products.Archetypes import atapi
-from Products.Archetypes.config import REFERENCE_CATALOG
-from Products.Archetypes.public import *
-from Products.Archetypes.references import HoldingReference
-from Products.CMFCore.WorkflowCore import WorkflowException
-from Products.CMFCore.permissions import View, ModifyPortalContent
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import safe_unicode, _createObjectByType
-from Products.CMFEditions.ArchivistTool import ArchivistRetrieveError
+from dependencies.dependency import indexer
+from dependencies.dependency import schemata
+from dependencies.dependency import DateTimeField, DateTimeWidget, RecordsField
+from dependencies.dependency import atapi
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import View, ModifyPortalContent
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode, _createObjectByType
+from dependencies.dependency import ArchivistRetrieveError
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims import logger
@@ -38,8 +38,8 @@ from bika.lims.utils import drop_trailing_zeros_decimal
 from bika.lims.utils.analysis import get_significant_digits
 from bika.lims.workflow import skip
 from bika.lims.workflow import doActionFor
-from decimal import Decimal
-from zope.interface import implements
+from dependencies.dependency import Decimal
+from dependencies.dependency import implements
 import datetime
 import math
 

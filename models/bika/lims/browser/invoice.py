@@ -1,9 +1,9 @@
 from bika.lims.browser import BrowserView
 from bika.lims.interfaces import IInvoiceView
-from Products.CMFCore.utils import getToolByName
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from zope.i18n.locales import locales
-from zope.interface import implements
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import locales
+from dependencies.dependency import implements
 
 
 class InvoiceView(BrowserView):

@@ -1,16 +1,16 @@
 """Allow plone.app.querystring/queryparser.py to accept catalog_name
 """
 
-from collections import namedtuple
+from dependencies.dependency import namedtuple
 import logging
 
-from Acquisition import aq_parent
-from DateTime import DateTime
-from plone.app.layout.navigation.interfaces import INavigationRoot
-from plone.registry.interfaces import IRegistry
-from Products.CMFCore.utils import getToolByName
-from zope.component import getUtility
-from zope.dottedname.resolve import resolve
+from dependencies.dependency import aq_parent
+from dependencies.dependency import DateTime
+from dependencies.dependency import INavigationRoot
+from dependencies.dependency import IRegistry
+from dependencies.dependency import getToolByName
+from dependencies.dependency import getUtility
+from dependencies.dependency import resolve
 
 logger = logging.getLogger('bika.lims.querystring')
 

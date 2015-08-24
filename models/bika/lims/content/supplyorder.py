@@ -1,8 +1,8 @@
 import sys
 
-from Products.Archetypes.public import *
+from dependencies.dependency import *
 
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims import bikaMessageFactory as _
 from bika.lims.browser.widgets import DateTimeWidget
 from bika.lims.browser.widgets import ReferenceWidget as BikaReferenceWidget
@@ -10,16 +10,16 @@ from bika.lims.config import PROJECTNAME
 from bika.lims.content.bikaschema import BikaSchema
 from bika.lims.interfaces import ISupplyOrder
 from bika.lims.utils import t
-from DateTime import DateTime
-from persistent.mapping import PersistentMapping
-from decimal import Decimal
-from Products.Archetypes import atapi
-from Products.Archetypes.references import HoldingReference
-from Products.CMFCore.permissions import View
-from Products.CMFPlone.interfaces import IConstrainTypes
-from Products.CMFPlone.utils import safe_unicode
-from zope.component import getAdapter
-from zope.interface import implements
+from dependencies.dependency import DateTime
+from dependencies.dependency import PersistentMapping
+from dependencies.dependency import Decimal
+from dependencies.dependency import atapi
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import View
+from dependencies.dependency import IConstrainTypes
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import getAdapter
+from dependencies.dependency import implements
 
 
 schema = BikaSchema.copy() + Schema((

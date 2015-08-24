@@ -1,6 +1,6 @@
 # ../../skins/bika/bika_widgets/artemplatepartitionswidget.pt
-from AccessControl import ClassSecurityInfo
-from Products.Archetypes.Registry import registerWidget
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import registerWidget
 from bika.lims.browser.widgets import RecordsWidget
 
 

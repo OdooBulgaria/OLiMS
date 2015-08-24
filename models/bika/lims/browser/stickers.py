@@ -1,10 +1,10 @@
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import getToolByName
 from bika.lims import bikaMessageFactory as _, t
 from bika.lims import logger
 from bika.lims.browser import BrowserView
 from bika.lims.vocabularies import getStickerTemplates
-from plone.resource.utils import iterDirectoriesOfType, queryResourceDirectory
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from dependencies.dependency import iterDirectoriesOfType, queryResourceDirectory
+from dependencies.dependency import ViewPageTemplateFile
 import glob, os, os.path, sys, traceback
 
 import os

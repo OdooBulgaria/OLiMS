@@ -1,17 +1,17 @@
-from AccessControl import ModuleSecurityInfo, allow_module
-from DateTime import DateTime
-from Products.Archetypes.public import DisplayList
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.TranslationServiceTool import TranslationServiceTool
+from dependencies.dependency import ModuleSecurityInfo, allow_module
+from dependencies.dependency import DateTime
+from dependencies.dependency import DisplayList
+from dependencies.dependency import getToolByName
+from dependencies.dependency import TranslationServiceTool
 from bika.lims.browser import BrowserView
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims import interfaces
 from bika.lims import logger
-from plone.i18n.normalizer.interfaces import IFileNameNormalizer
-from plone.i18n.normalizer.interfaces import IIDNormalizer
-from zope.component import getUtility
-from zope.interface import providedBy
+from dependencies.dependency import IFileNameNormalizer
+from dependencies.dependency import IIDNormalizer
+from dependencies.dependency import getUtility
+from dependencies.dependency import providedBy
 import copy,re,urllib
 import plone.protect
 import transaction

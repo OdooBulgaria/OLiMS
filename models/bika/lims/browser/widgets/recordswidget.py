@@ -1,6 +1,6 @@
-from AccessControl import ClassSecurityInfo
-from Products.ATExtensions.widget import RecordsWidget as ATRecordsWidget
-from Products.Archetypes.Registry import registerWidget
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import RecordsWidget as ATRecordsWidget
+from dependencies.dependency import registerWidget
 import json
 
 class RecordsWidget(ATRecordsWidget):

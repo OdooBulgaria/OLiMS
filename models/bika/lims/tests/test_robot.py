@@ -1,6 +1,6 @@
 from bika.lims.testing import BIKA_ROBOT_TESTING
-from plone.testing import layered
-from pkg_resources import resource_listdir
+from dependencies.dependency import layered
+from dependencies.dependency import resource_listdir
 import robotsuite
 import unittest
 

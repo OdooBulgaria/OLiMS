@@ -1,11 +1,11 @@
 # encoding=utf-8
 
-from Products.CMFPlone.utils import safe_unicode
+from dependencies.dependency import safe_unicode
 from bika.lims.controlpanel.bika_analysisservices import AnalysisServicesView
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
-from plone.app.content.browser.interfaces import IFolderContentsView
-from zope.interface import implements
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import implements
 
 
 class AccreditationView(AnalysisServicesView):

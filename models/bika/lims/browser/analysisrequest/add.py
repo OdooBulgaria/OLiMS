@@ -17,13 +17,13 @@ from bika.lims.utils import t
 from bika.lims.utils import tmpID
 from bika.lims.utils.analysisrequest import create_analysisrequest
 from magnitude import mg
-from plone.app.layout.globals.interfaces import IViewView
-from Products.Archetypes import PloneMessageFactory as PMF
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import _createObjectByType, safe_unicode
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from zope.component import getAdapter
-from zope.interface import implements
+from dependencies.dependency import IViewView
+from dependencies.dependency import PloneMessageFactory as PMF
+from dependencies.dependency import getToolByName
+from dependencies.dependency import _createObjectByType, safe_unicode
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import getAdapter
+from dependencies.dependency import implements
 
 
 class AnalysisServicesView(ASV):

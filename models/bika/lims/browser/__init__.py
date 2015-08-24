@@ -1,15 +1,15 @@
 """Bika's browser views are based on this one, for a nice set of utilities.
 """
-from DateTime.DateTime import DateTime, safelocaltime
-from DateTime.interfaces import DateTimeError
-from Products.CMFCore.utils import getToolByName
-from AccessControl import ClassSecurityInfo
-from Products.CMFPlone.i18nl10n import ulocalized_time as _ut
-from Products.Five.browser import BrowserView
+from dependencies.dependency import DateTime, safelocaltime
+from dependencies.dependency import DateTimeError
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import ulocalized_time as _ut
+from dependencies.dependency import BrowserView
 from bika.lims import logger
-from zope.cachedescriptors.property import Lazy as lazy_property
-from zope.i18n import translate
-from time import strptime as _strptime
+from dependencies.dependency import Lazy as lazy_property
+from dependencies.dependency import translate
+from dependencies.dependency import strptime as _strptime
 
 
 def strptime(context, value):

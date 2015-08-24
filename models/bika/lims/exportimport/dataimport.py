@@ -1,4 +1,4 @@
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from dependencies.dependency import ViewPageTemplateFile
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.browser import BrowserView
@@ -6,12 +6,12 @@ from bika.lims.content.instrument import getDataInterfaces
 from bika.lims.exportimport import instruments
 from bika.lims.exportimport.load_setup_data import LoadSetupData
 from bika.lims.interfaces import ISetupDataSetList
-from plone.app.layout.globals.interfaces import IViewView
-from Products.Archetypes.public import DisplayList
-from Products.CMFCore.utils import getToolByName
-from zope.interface import implements
-from pkg_resources import *
-from zope.component import getAdapters
+from dependencies.dependency import IViewView
+from dependencies.dependency import DisplayList
+from dependencies.dependency import getToolByName
+from dependencies.dependency import implements
+from dependencies.dependency import *
+from dependencies.dependency import getAdapters
 
 import plone
 

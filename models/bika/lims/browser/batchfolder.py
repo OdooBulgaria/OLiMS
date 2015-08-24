@@ -3,10 +3,10 @@ from bika.lims.browser.bika_listing import BikaListingView
 from bika.lims import bikaMessageFactory as _
 from bika.lims.config import ManageInvoices
 from bika.lims.utils import t
-from operator import itemgetter
-from plone.app.content.browser.interfaces import IFolderContentsView
+from dependencies.dependency import itemgetter
+from dependencies.dependency import IFolderContentsView
 from bika.lims.browser import BrowserView
-from zope.interface import implements
+from dependencies.dependency import implements
 import plone
 import json
 

@@ -1,4 +1,4 @@
-from zope.interface import Interface
+from dependencies.dependency import Interface
 
 
 class IBikaLIMS(Interface):

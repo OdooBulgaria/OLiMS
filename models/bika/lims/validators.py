@@ -1,11 +1,11 @@
-from Acquisition import aq_parent
-from Products.CMFPlone.utils import safe_unicode
+from dependencies.dependency import aq_parent
+from dependencies.dependency import safe_unicode
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import to_utf8
-from Products.CMFCore.utils import getToolByName
-from Products.validation import validation
-from Products.validation.interfaces.IValidator import IValidator
-from zope.interface import implements
+from dependencies.dependency import getToolByName
+from dependencies.dependency import validation
+from dependencies.dependency import IValidator
+from dependencies.dependency import implements
 import string
 
 import re

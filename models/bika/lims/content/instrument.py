@@ -1,11 +1,11 @@
-from AccessControl import ClassSecurityInfo
-from Products.ATContentTypes.content import schemata
-from Products.ATExtensions.ateapi import RecordsField
-from Products.Archetypes.atapi import *
-from Products.Archetypes.references import HoldingReference
-from Products.CMFCore.permissions import View, ModifyPortalContent
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import safe_unicode
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import schemata
+from dependencies.dependency import RecordsField
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import View, ModifyPortalContent
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.browser.fields import HistoryAwareReferenceField
@@ -15,10 +15,10 @@ from bika.lims.config import PROJECTNAME
 from bika.lims.content.bikaschema import BikaSchema, BikaFolderSchema
 from bika.lims.interfaces import IInstrument
 from bika.lims.utils import to_utf8
-from plone.app.folder.folder import ATFolder
-from zope.interface import implements
-from datetime import date
-from DateTime import DateTime
+from dependencies.dependency import ATFolder
+from dependencies.dependency import implements
+from dependencies.dependency import date
+from dependencies.dependency import DateTime
 from bika.lims.config import QCANALYSIS_TYPES
 
 schema = BikaFolderSchema.copy() + BikaSchema.copy() + Schema((

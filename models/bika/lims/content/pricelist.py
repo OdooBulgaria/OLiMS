@@ -1,18 +1,18 @@
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.browser.widgets.datetimewidget import DateTimeWidget
 from bika.lims.config import PRICELIST_TYPES, PROJECTNAME
 from bika.lims.content.bikaschema import BikaFolderSchema
 from bika.lims.interfaces import IPricelist
-from DateTime import DateTime
-from persistent.mapping import PersistentMapping
-from plone.app.folder import folder
-from Products.Archetypes.public import *
-from Products.CMFCore import permissions
-from zope.interface import implements
-from Products.CMFCore.utils import getToolByName
-from Products.CMFCore import permissions
+from dependencies.dependency import DateTime
+from dependencies.dependency import PersistentMapping
+from dependencies.dependency import folder
+from dependencies.dependency import *
+from dependencies.dependency import permissions
+from dependencies.dependency import implements
+from dependencies.dependency import getToolByName
+from dependencies.dependency import permissions
 
 
 

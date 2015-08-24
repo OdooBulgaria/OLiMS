@@ -1,5 +1,5 @@
-from Products.CMFCore.utils import getToolByName
-from Products.CMFCore import permissions
+from dependencies.dependency import getToolByName
+from dependencies.dependency import permissions
 from bika.lims.permissions import ManageWorksheets
 from bika.lims.permissions import AddClient, EditClient, ManageClients
 

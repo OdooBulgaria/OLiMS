@@ -1,16 +1,16 @@
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.config import ManageInvoices, PROJECTNAME
 from bika.lims.interfaces import IInvoiceFolder, IHaveNoBreadCrumbs
-from Products.Archetypes import atapi
-from Products.Archetypes.public import *
-from Products.ATContentTypes.content import folder
-from Products.ATContentTypes.content import schemata
-from Products.CMFCore import permissions
-from Products.CMFCore.utils import UniqueObject
-from ZODB.POSException import ConflictError
-from zope.interface import implements
+from dependencies.dependency import atapi
+from dependencies.dependency import *
+from dependencies.dependency import folder
+from dependencies.dependency import schemata
+from dependencies.dependency import permissions
+from dependencies.dependency import UniqueObject
+from dependencies.dependency import ConflictError
+from dependencies.dependency import implements
 
 schema = folder.ATFolderSchema.copy()
 schema['id'].widget.visible = {'edit':'hidden', 'view':'invisible'}

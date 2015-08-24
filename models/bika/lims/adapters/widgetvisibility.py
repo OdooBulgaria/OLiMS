@@ -2,10 +2,10 @@
 from bika.lims.interfaces import IAnalysisRequestsFolder, IBatch, IClient
 from bika.lims.interfaces import IATWidgetVisibility
 from bika.lims.utils import getHiddenAttributesForClass
-from Products.CMFCore.utils import getToolByName
-from Products.CMFCore.WorkflowCore import WorkflowException
-from types import DictType
-from zope.interface import implements
+from dependencies.dependency import getToolByName
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import DictType
+from dependencies.dependency import implements
 
 _marker = []
 

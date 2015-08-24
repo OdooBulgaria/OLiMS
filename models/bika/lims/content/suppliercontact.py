@@ -1,15 +1,15 @@
 """The contact person at a reference supplier organisation.
 """
-from AccessControl import ClassSecurityInfo
-from AccessControl.Permissions import manage_users
-from Products.Archetypes.public import *
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import manage_users
+from dependencies.dependency import *
 from bika.lims.content.person import Person
-from Products.CMFCore import permissions
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
 from bika.lims.config import PROJECTNAME
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
-from zope.interface import implements
+from dependencies.dependency import implements
 
 schema = Person.schema.copy()
 

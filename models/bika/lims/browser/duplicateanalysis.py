@@ -1,10 +1,10 @@
 # coding=utf-8
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import getToolByName
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.interfaces import IResultOutOfRange
 from bika.lims.utils import to_utf8
-from zope.component import getAdapters
+from dependencies.dependency import getAdapters
 
 
 class ResultOutOfRangeIcons(object):

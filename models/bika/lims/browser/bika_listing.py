@@ -1,16 +1,16 @@
 """ Display lists of items in tables.
 """
-from DateTime import DateTime
-from Acquisition import aq_parent, aq_inner
-from OFS.interfaces import IOrderedContainer
-from Products.AdvancedQuery import And, Or, MatchRegexp, Between, Generic, Eq
-from Products.Archetypes.config import REFERENCE_CATALOG
-from Products.CMFCore.WorkflowCore import WorkflowException
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone import PloneMessageFactory
-from Products.CMFPlone.utils import pretty_title_or_id, isExpired, safe_unicode
+from dependencies.dependency import DateTime
+from dependencies.dependency import aq_parent, aq_inner
+from dependencies.dependency import IOrderedContainer
+from dependencies.dependency import And, Or, MatchRegexp, Between, Generic, Eq
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import getToolByName
+from dependencies.dependency import PloneMessageFactory
+from dependencies.dependency import pretty_title_or_id, isExpired, safe_unicode
 from bika.lims.browser import BrowserView
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from dependencies.dependency import ViewPageTemplateFile
 from bika.lims import PMF
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t, format_supsub
@@ -20,17 +20,17 @@ from bika.lims.subscribers import doActionFor
 from bika.lims.subscribers import skip
 from bika.lims.utils import isActive, getHiddenAttributesForClass
 from bika.lims.utils import to_utf8
-from operator import itemgetter
-from plone.app.content.browser import tableview
-from plone.app.content.browser.foldercontents import FolderContentsView, FolderContentsTable
-from plone.app.content.browser.interfaces import IFolderContentsView
-from plone.i18n.normalizer.interfaces import IIDNormalizer
-from zope.component import getAdapters
-from zope.component import getUtility
-from zope.component._api import getMultiAdapter
-from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
-from zope.interface import Interface
+from dependencies.dependency import itemgetter
+from dependencies.dependency import tableview
+from dependencies.dependency import FolderContentsView, FolderContentsTable
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import IIDNormalizer
+from dependencies.dependency import getAdapters
+from dependencies.dependency import getUtility
+from dependencies.dependency import getMultiAdapter
+from dependencies.dependency import MessageFactory
+from dependencies.dependency import implements
+from dependencies.dependency import Interface
 
 import App
 import json
@@ -41,10 +41,10 @@ import transaction
 import urllib
 
 try:
-    from plone.batching import Batch
+    from dependencies.dependency import Batch
 except:
     # Plone < 4.3
-    from plone.app.content.batching import Batch
+    from dependencies.dependency import Batch
 
 
 class WorkflowAction:

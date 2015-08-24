@@ -1,8 +1,8 @@
-from Acquisition import aq_inner
-from Acquisition import aq_parent
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import aq_inner
+from dependencies.dependency import aq_parent
+from dependencies.dependency import getToolByName
 from bika.lims.permissions import AddMultifile
-from Products.Archetypes.BaseContent import BaseContent
+from dependencies.dependency import BaseContent
 from bika.lims.upgrade import stub
 from bika.lims import logger
 

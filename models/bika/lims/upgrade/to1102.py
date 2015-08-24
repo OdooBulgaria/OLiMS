@@ -1,10 +1,10 @@
-from Acquisition import aq_base
-from Acquisition import aq_inner
-from Acquisition import aq_parent
+from dependencies.dependency import aq_base
+from dependencies.dependency import aq_inner
+from dependencies.dependency import aq_parent
 from bika.lims.permissions import *
-from Products.Archetypes import PloneMessageFactory as _p
-from Products.CMFCore import permissions
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import PloneMessageFactory as _p
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
 
 import logging
 

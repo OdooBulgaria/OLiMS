@@ -2,7 +2,7 @@ from bika.lims.browser.bika_listing import BikaListingView
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import currency_format
 import csv
-from cStringIO import StringIO
+from dependencies.dependency import StringIO
 
 class InvoiceBatchInvoicesView(BikaListingView):
 

@@ -3,12 +3,12 @@
     ARTemplate includes all AR fields, including preset AnalysisProfile
 """
 
-from AccessControl import ClassSecurityInfo
-from Products.Archetypes.public import *
-from Products.Archetypes.references import HoldingReference
-from Products.CMFCore.permissions import View, ModifyPortalContent
-from Products.ATExtensions.field.records import RecordsField
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import View, ModifyPortalContent
+from dependencies.dependency import RecordsField
+from dependencies.dependency import getToolByName
 from bika.lims import PMF, bikaMessageFactory as _
 from bika.lims.interfaces import IARTemplate
 from bika.lims.browser.widgets import RecordsWidget as BikaRecordsWidget
@@ -18,7 +18,7 @@ from bika.lims.browser.widgets import RecordsWidget
 from bika.lims.browser.widgets import ReferenceWidget
 from bika.lims.config import PROJECTNAME
 from bika.lims.content.bikaschema import BikaSchema
-from zope.interface import Interface, implements
+from dependencies.dependency import Interface, implements
 import sys
 
 schema = BikaSchema.copy() + Schema((

@@ -1,8 +1,8 @@
-from Products.Archetypes.Widget import IntegerWidget as _i
-from Products.Archetypes.Registry import registerPropertyType
-from Products.Archetypes.Registry import registerWidget
+from dependencies.dependency import IntegerWidget as _i
+from dependencies.dependency import registerPropertyType
+from dependencies.dependency import registerWidget
 
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 
 _marker = []
 

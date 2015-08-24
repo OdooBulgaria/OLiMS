@@ -2,8 +2,8 @@ from bika.lims.permissions import *
 from bika.lims.utils import to_utf8 as _c
 from bika.lims.utils import to_unicode as _u
 from bika.lims.interfaces import IReferenceWidgetVocabulary
-from Products.CMFCore.utils import getToolByName
-from zope.interface import implements
+from dependencies.dependency import getToolByName
+from dependencies.dependency import implements
 import json
 
 

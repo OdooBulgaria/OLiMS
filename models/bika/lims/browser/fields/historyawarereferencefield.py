@@ -1,16 +1,16 @@
-from AccessControl import ClassSecurityInfo, Unauthorized
-from Products.ATExtensions.Extensions.utils import makeDisplayList
-from Products.ATExtensions.ateapi import RecordField, RecordsField
-from Products.Archetypes.Registry import registerField
-from Products.Archetypes.public import *
-from Products.CMFCore.utils import getToolByName
-from Products.CMFEditions.ArchivistTool import ArchivistRetrieveError
-from Products.validation import validation
-from Products.validation.validators.RegexValidator import RegexValidator
+from dependencies.dependency import ClassSecurityInfo, Unauthorized
+from dependencies.dependency import makeDisplayList
+from dependencies.dependency import RecordField, RecordsField
+from dependencies.dependency import registerField
+from dependencies.dependency import *
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ArchivistRetrieveError
+from dependencies.dependency import validation
+from dependencies.dependency import RegexValidator
 import sys
-from Products.CMFEditions.Permissions import SaveNewVersion
-from Products.CMFEditions.Permissions import AccessPreviousVersions
-from Products.Archetypes.config import REFERENCE_CATALOG
+from dependencies.dependency import SaveNewVersion
+from dependencies.dependency import AccessPreviousVersions
+from dependencies.dependency import REFERENCE_CATALOG
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims import logger

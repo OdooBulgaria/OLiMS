@@ -9,8 +9,8 @@
 ##parameters=
 ##
 
-from Products.Archetypes import PloneMessageFactory as _
-from Products.Archetypes.utils import addStatusMessage
+from dependencies.dependency import PloneMessageFactory as _
+from dependencies.dependency import addStatusMessage
 
 request = context.REQUEST
 errors = {}

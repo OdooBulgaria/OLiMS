@@ -4,10 +4,10 @@ from bika.lims.browser import BrowserView
 from bika.lims.interfaces import IBatch, IAnalysisRequest
 from bika.lims.permissions import *
 from bika.lims.vocabularies import CatalogVocabulary
-from operator import itemgetter
-from Products.CMFPlone.utils import safe_unicode
-from zope.component import adapts
-from zope.interface import implements
+from dependencies.dependency import itemgetter
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import adapts
+from dependencies.dependency import implements
 
 import json
 import plone

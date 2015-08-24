@@ -1,6 +1,6 @@
-from Acquisition import aq_inner
-from Acquisition import aq_parent
-from Products.Archetypes.BaseContent import BaseContent
+from dependencies.dependency import aq_inner
+from dependencies.dependency import aq_parent
+from dependencies.dependency import BaseContent
 from bika.lims.upgrade import stub
 from bika.lims import logger
 

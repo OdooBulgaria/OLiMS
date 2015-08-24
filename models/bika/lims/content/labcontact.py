@@ -1,17 +1,17 @@
 """The lab staff
 """
-from AccessControl import ClassSecurityInfo
-from AccessControl.Permissions import manage_users
-from Products.CMFCore import permissions
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import safe_unicode
-from Products.Archetypes.public import *
-from Products.Archetypes.references import HoldingReference
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import manage_users
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
 from bika.lims.content.person import Person
 from bika.lims.config import PUBLICATION_PREFS, PROJECTNAME
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
-from zope.interface import implements
+from dependencies.dependency import implements
 from bika.lims.interfaces import ILabContact
 import sys
 

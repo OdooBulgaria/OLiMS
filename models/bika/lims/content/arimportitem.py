@@ -3,15 +3,15 @@ from bika.lims.utils import t
 from bika.lims.content.bikaschema import BikaSchema
 from bika.lims.config import PROJECTNAME
 from bika.lims.interfaces import IARImportItem
-from Products.ATContentTypes.content import schemata
-from Products.Archetypes import atapi
-from AccessControl import ClassSecurityInfo
-from Products.CMFCore.permissions import View, \
+from dependencies.dependency import schemata
+from dependencies.dependency import atapi
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import View, \
     ModifyPortalContent
-from Products.Archetypes.public import *
-from Products.Archetypes.references import HoldingReference
-from Products.CMFPlone.utils import safe_unicode
-from zope.interface import implements
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import implements
 
 schema = BikaSchema.copy() + Schema((
     StringField('SampleName',

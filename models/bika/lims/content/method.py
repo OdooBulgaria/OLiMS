@@ -1,9 +1,9 @@
-from AccessControl import ClassSecurityInfo
-from Products.CMFCore.permissions import ModifyPortalContent, View
-from Products.CMFCore.utils import getToolByName
-from Products.Archetypes.public import *
-from Products.Archetypes.references import HoldingReference
-from Products.ATExtensions.ateapi import RecordsField as RecordsField
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import ModifyPortalContent, View
+from dependencies.dependency import getToolByName
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import RecordsField as RecordsField
 from bika.lims.browser.fields import HistoryAwareReferenceField
 from bika.lims.browser.widgets import RecordsWidget
 from bika.lims.content.bikaschema import BikaSchema
@@ -13,7 +13,7 @@ from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.interfaces import IMethod
 from bika.lims.utils import to_utf8
-from zope.interface import implements
+from dependencies.dependency import implements
 
 schema = BikaSchema.copy() + Schema((
     # Method ID should be unique, specified on MethodSchemaModifier

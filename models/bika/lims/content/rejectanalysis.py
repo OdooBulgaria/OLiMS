@@ -1,5 +1,5 @@
 """ RejectAnalysis """
-from Products.Archetypes.public import ReferenceField, Schema, registerType
+from dependencies.dependency import ReferenceField, Schema, registerType
 from bika.lims.content.analysis import Analysis
 from bika.lims.config import PROJECTNAME
 from bika.lims.content.analysis import schema as analysis_schema

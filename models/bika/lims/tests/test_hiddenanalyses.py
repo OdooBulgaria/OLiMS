@@ -3,8 +3,8 @@ from bika.lims.testing import BIKA_FUNCTIONAL_TESTING
 from bika.lims.tests.base import BikaFunctionalTestCase
 from bika.lims.utils.analysisrequest import create_analysisrequest
 from bika.lims.workflow import doActionFor
-from plone.app.testing import login, logout
-from plone.app.testing import TEST_USER_NAME
+from dependencies.dependency import login, logout
+from dependencies.dependency import TEST_USER_NAME
 import unittest
 
 try:

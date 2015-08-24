@@ -1,20 +1,20 @@
 """The request for analysis by a client. It contains analysis instances.
 """
 import logging
-from AccessControl import ClassSecurityInfo
-from DateTime import DateTime
-from Products.ATExtensions.field import RecordsField
-from plone.indexer import indexer
-from Products.Archetypes import atapi
-from Products.Archetypes.config import REFERENCE_CATALOG
-from Products.Archetypes.public import *
-from Products.Archetypes.references import HoldingReference
-from Products.Archetypes.Widget import RichWidget
-from Products.CMFCore import permissions
-from Products.CMFCore.permissions import View
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import safe_unicode
-from Products.CMFPlone.utils import _createObjectByType
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import DateTime
+from dependencies.dependency import RecordsField
+from dependencies.dependency import indexer
+from dependencies.dependency import atapi
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import RichWidget
+from dependencies.dependency import permissions
+from dependencies.dependency import View
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import _createObjectByType
 from bika.lims.browser.fields import ARAnalysesField
 from bika.lims.config import PROJECTNAME
 from bika.lims.permissions import *
@@ -26,8 +26,8 @@ from bika.lims.browser.widgets import ReferenceWidget
 from bika.lims.browser.widgets import SelectionWidget
 from bika.lims.workflow import skip, isBasicTransitionAllowed
 from bika.lims.workflow import doActionFor
-from decimal import Decimal
-from zope.interface import implements
+from dependencies.dependency import Decimal
+from dependencies.dependency import implements
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t, getUsers, dicts_to_dict
 
@@ -37,10 +37,10 @@ from bika.lims.browser.widgets import SelectionWidget as BikaSelectionWidget
 import sys
 
 try:
-    from zope.component.hooks import getSite
+    from dependencies.dependency import getSite
 except:
     # Plone < 4.3
-    from zope.app.component.hooks import getSite
+    from dependencies.dependency import getSite
 
 
 @indexer(IAnalysisRequest)

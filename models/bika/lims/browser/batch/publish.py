@@ -8,12 +8,12 @@ from bika.lims.permissions import *
 from bika.lims.utils import createPdf
 from bika.lims.utils import to_utf8
 from bika.lims.vocabularies import CatalogVocabulary
-from cStringIO import StringIO
-from DateTime import DateTime
-from Products.CMFCore.utils import getToolByName
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from zope.interface import implements
-from Products.CMFPlone.utils import safe_unicode
+from dependencies.dependency import StringIO
+from dependencies.dependency import DateTime
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import implements
+from dependencies.dependency import safe_unicode
 
 import App
 import Globals

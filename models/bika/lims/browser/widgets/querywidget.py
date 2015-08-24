@@ -1,4 +1,4 @@
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from archetypes.querywidget.views import WidgetTraverse as _WidgetTraverse
 from archetypes.querywidget.widget import QueryWidget as _QueryWidget
 from bika.lims.querystring.querybuilder import QueryBuilder
@@ -6,15 +6,15 @@ from bika.lims.querystring.querybuilder import RegistryConfiguration
 from archetypes.querywidget.views import \
     MultiSelectWidget as _MultiSelectWidget
 from bika.lims.querystring.registryreader import QuerystringRegistryReader
-from plone.app.querystring.interfaces import IQuerystringRegistryReader
-from plone.registry.interfaces import IRegistry
-from Products.Archetypes.Registry import registerWidget
-from Products.Archetypes.Widget import TypesWidget
-from Products.CMFCore.permissions import ModifyPortalContent, View
-from zope.component import getMultiAdapter
-from zope.component import getUtility
-from zope.i18nmessageid import MessageFactory
-from zope.interface import implements
+from dependencies.dependency import IQuerystringRegistryReader
+from dependencies.dependency import IRegistry
+from dependencies.dependency import registerWidget
+from dependencies.dependency import TypesWidget
+from dependencies.dependency import ModifyPortalContent, View
+from dependencies.dependency import getMultiAdapter
+from dependencies.dependency import getUtility
+from dependencies.dependency import MessageFactory
+from dependencies.dependency import implements
 
 _p = MessageFactory('plone')
 

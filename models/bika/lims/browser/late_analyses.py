@@ -1,11 +1,11 @@
-from AccessControl import getSecurityManager
-from DateTime import DateTime
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import DateTime
+from dependencies.dependency import getToolByName
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.browser.bika_listing import BikaListingView
 from bika.lims.utils import isActive
-from zope.component import getMultiAdapter
+from dependencies.dependency import getMultiAdapter
 import plone
 
 class LateAnalysesView(BikaListingView):

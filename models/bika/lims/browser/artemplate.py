@@ -1,6 +1,6 @@
 from bika.lims.interfaces import IJSONReadExtender, IARTemplate
-from zope.component import adapts
-from zope.interface import implements
+from dependencies.dependency import adapts
+from dependencies.dependency import implements
 
 
 class JSONReadExtender(object):

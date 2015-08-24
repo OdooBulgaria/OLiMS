@@ -1,17 +1,17 @@
-from AccessControl.SecurityInfo import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.config import PROJECTNAME
 from bika.lims.interfaces import ISubGroups
 from bika.lims import bikaMessageFactory as _b
 from bika.lims.browser.bika_listing import BikaListingView
-from plone.app.content.browser.interfaces import IFolderContentsView
-from plone.app.folder.folder import ATFolderSchema, ATFolder
-from plone.app.layout.globals.interfaces import IViewView
-from Products.Archetypes import atapi
-from Products.ATContentTypes.content import schemata
-from Products.CMFCore.utils import getToolByName
-from zope.interface.declarations import implements
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import ATFolderSchema, ATFolder
+from dependencies.dependency import IViewView
+from dependencies.dependency import atapi
+from dependencies.dependency import schemata
+from dependencies.dependency import getToolByName
+from dependencies.dependency import implements
 
 
 class SubGroupsView(BikaListingView):

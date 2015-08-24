@@ -1,4 +1,4 @@
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims import bikaMessageFactory as _, logger
 from bika.lims.idserver import renameAfterCreation
 from bika.lims.utils import t, tmpID, changeWorkflowState
@@ -10,17 +10,17 @@ from bika.lims.interfaces import IWorksheet
 from bika.lims.permissions import EditWorksheet, ManageWorksheets
 from bika.lims.workflow import doActionFor
 from bika.lims.workflow import skip
-from DateTime import DateTime
-from operator import itemgetter
-from plone.indexer import indexer
-from Products.Archetypes.config import REFERENCE_CATALOG
-from Products.Archetypes.public import *
-from Products.Archetypes.references import HoldingReference
-from Products.ATContentTypes.lib.historyaware import HistoryAwareMixin
-from Products.ATExtensions.ateapi import RecordsField
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import safe_unicode, _createObjectByType
-from zope.interface import implements
+from dependencies.dependency import DateTime
+from dependencies.dependency import itemgetter
+from dependencies.dependency import indexer
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import HistoryAwareMixin
+from dependencies.dependency import RecordsField
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode, _createObjectByType
+from dependencies.dependency import implements
 
 @indexer(IWorksheet)
 def Priority(instance):

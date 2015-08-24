@@ -8,7 +8,7 @@
 ##title=
 ##
 
-from AccessControl import getSecurityManager
+from dependencies.dependency import getSecurityManager
 from bika.lims.permissions import Verify, VerifyOwnResults
 
 workflow = context.portal_workflow

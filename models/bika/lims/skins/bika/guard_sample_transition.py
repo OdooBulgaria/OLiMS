@@ -8,7 +8,7 @@
 ##title=
 ##
 
-from DateTime import DateTime
+from dependencies.dependency import DateTime
 workflow = context.portal_workflow
 
 # False if object is cancelled

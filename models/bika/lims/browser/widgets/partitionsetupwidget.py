@@ -1,7 +1,7 @@
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims.browser.widgets.recordswidget import RecordsWidget
-from Products.Archetypes.Registry import registerWidget
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import registerWidget
+from dependencies.dependency import getToolByName
 
 class PartitionSetupWidget(RecordsWidget):
     security = ClassSecurityInfo()

@@ -1,6 +1,6 @@
-from AccessControl import ClassSecurityInfo
-from Products.Archetypes.public import *
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import *
+from dependencies.dependency import getToolByName
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.content.bikaschema import BikaSchema

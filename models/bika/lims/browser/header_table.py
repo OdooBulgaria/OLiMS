@@ -1,20 +1,20 @@
 """ARs and Samples use HeaderTable to display object fields in their custom
 view and edit screens.
 """
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import getToolByName
 
 from bika.lims.browser import BrowserView
 from bika.lims.interfaces import IHeaderTableFieldRenderer
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.CMFPlone import PloneMessageFactory as _p
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import PloneMessageFactory as _p
 from bika.lims.utils import getHiddenAttributesForClass
 from bika.lims.workflow import doActionFor
 from bika.lims.utils import t
 from bika.lims import bikaMessageFactory as _
-from zope.component import getAdapter
-from AccessControl import getSecurityManager
-from AccessControl.Permissions import view
-from zope.component.interfaces import ComponentLookupError
+from dependencies.dependency import getAdapter
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import view
+from dependencies.dependency import ComponentLookupError
 
 class HeaderTableView(BrowserView):
 

@@ -1,8 +1,8 @@
-from Products.validation import validation as validationService
+from dependencies.dependency import validation as validationService
 from bika.lims.testing import BIKA_FUNCTIONAL_TESTING
 from bika.lims.tests.base import BikaFunctionalTestCase
-from plone.app.testing import login
-from plone.app.testing import TEST_USER_NAME
+from dependencies.dependency import login
+from dependencies.dependency import TEST_USER_NAME
 import unittest
 
 

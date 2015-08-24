@@ -1,29 +1,29 @@
 """Analysis result range specifications for a client
 """
-from AccessControl import ClassSecurityInfo
-from AccessControl.Permissions import delete_objects
-from Products.ATContentTypes.content import schemata
-from Products.ATContentTypes.lib.historyaware import HistoryAwareMixin
-from Products.ATExtensions.field.records import RecordsField
-from Products.Archetypes import atapi
-from Products.Archetypes.config import REFERENCE_CATALOG
-from Products.Archetypes.public import *
-from Products.Archetypes.references import HoldingReference
-from Products.Archetypes.utils import shasattr
-from Products.CMFCore import permissions
-from Products.CMFCore.WorkflowCore import WorkflowException
-from Products.CMFCore.permissions import ListFolderContents, View
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import safe_unicode
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import delete_objects
+from dependencies.dependency import schemata
+from dependencies.dependency import HistoryAwareMixin
+from dependencies.dependency import RecordsField
+from dependencies.dependency import atapi
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import shasattr
+from dependencies.dependency import permissions
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import ListFolderContents, View
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
 from bika.lims import PMF, bikaMessageFactory as _
 from bika.lims.browser.fields import HistoryAwareReferenceField
 from bika.lims.browser.widgets import AnalysisSpecificationWidget
 from bika.lims.config import PROJECTNAME
 from bika.lims.content.bikaschema import BikaSchema
 from bika.lims.interfaces import IAnalysisSpec
-from types import ListType, TupleType
-from zope.interface import implements
-from zope.i18n import translate
+from dependencies.dependency import ListType, TupleType
+from dependencies.dependency import implements
+from dependencies.dependency import translate
 import sys
 import time
 

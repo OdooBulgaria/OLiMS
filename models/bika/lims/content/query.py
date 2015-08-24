@@ -1,25 +1,25 @@
 """Customised Collections for querying catalog
 """
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.browser.widgets import QueryWidget
 from bika.lims.browser.fields import QueryField
 from bika.lims.config import PROJECTNAME
 from bika.lims.interfaces import IQuery
-from plone.app.collection import PloneMessageFactory as _p
-from plone.app.collection.collection import Collection
-from plone.app.collection.collection import CollectionSchema
-from plone.app.collection.interfaces import ICollection
-from Products.Archetypes.atapi import DisplayList
-from plone.app.collection.config import ATCT_TOOLNAME
-from Products.Archetypes import atapi
-from Products.Archetypes.atapi import IntDisplayList
-from Products.ATContentTypes.content import document, schemata
-from Products.CMFCore.permissions import ModifyPortalContent, View
-from Products.CMFCore.utils import getToolByName
-from zope.interface import implements
-from Products.Archetypes.atapi import (BooleanField,
+from dependencies.dependency import PloneMessageFactory as _p
+from dependencies.dependency import Collection
+from dependencies.dependency import CollectionSchema
+from dependencies.dependency import ICollection
+from dependencies.dependency import DisplayList
+from dependencies.dependency import ATCT_TOOLNAME
+from dependencies.dependency import atapi
+from dependencies.dependency import IntDisplayList
+from dependencies.dependency import document, schemata
+from dependencies.dependency import ModifyPortalContent, View
+from dependencies.dependency import getToolByName
+from dependencies.dependency import implements
+from dependencies.dependency import (BooleanField,
                                        BooleanWidget,
                                        IntegerField,
                                        LinesField,

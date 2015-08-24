@@ -1,7 +1,7 @@
-from Acquisition import aq_inner
-from Acquisition import aq_parent
-from Products.CMFCore.utils import getToolByName
-from Products.Archetypes.config import REFERENCE_CATALOG
+from dependencies.dependency import aq_inner
+from dependencies.dependency import aq_parent
+from dependencies.dependency import getToolByName
+from dependencies.dependency import REFERENCE_CATALOG
 from bika.lims.permissions import AddStorageLocation
 
 def upgrade(tool):

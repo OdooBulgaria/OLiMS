@@ -1,12 +1,12 @@
 """Supply Order Folder contains Supply Orders
 """
-from Products.ATContentTypes.content import schemata
-from Products.Archetypes import atapi
+from dependencies.dependency import schemata
+from dependencies.dependency import atapi
 from bika.lims.config import PROJECTNAME
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims.interfaces import ISupplyOrderFolder, IHaveNoBreadCrumbs
-from plone.app.folder import folder
-from zope.interface import implements
+from dependencies.dependency import folder
+from dependencies.dependency import implements
 
 schema = folder.ATFolderSchema.copy()
 

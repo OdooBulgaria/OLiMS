@@ -1,11 +1,11 @@
-from DateTime import DateTime
-from AccessControl import ClassSecurityInfo
-from Products.CMFCore.utils import UniqueObject
-from Products.CMFCore.permissions import ListFolderContents, \
+from dependencies.dependency import DateTime
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import UniqueObject
+from dependencies.dependency import ListFolderContents, \
     ModifyPortalContent, View
-from plone.app import folder
-from Products.Archetypes.public import *
-from Products.CMFPlone.utils import safe_unicode
+from dependencies.dependency import folder
+from dependencies.dependency import *
+from dependencies.dependency import safe_unicode
 from bika.lims.content.organisation import Organisation
 from bika.lims.config import ManageBika, PROJECTNAME
 from bika.lims import PMF, bikaMessageFactory as _

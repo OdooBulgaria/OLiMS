@@ -1,7 +1,7 @@
 # Data from www.geonames.org. See http://download.geonames.org/export/dump/readme.txt
 
 from bika.lims.browser import BrowserView
-from operator import itemgetter
+from dependencies.dependency import itemgetter
 import json
 import plone
 

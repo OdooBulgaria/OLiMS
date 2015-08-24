@@ -1,4 +1,4 @@
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from dependencies.dependency import ViewPageTemplateFile
 from bika.lims.browser import BrowserView
 
 

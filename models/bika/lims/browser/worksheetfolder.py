@@ -1,11 +1,11 @@
-from DateTime import DateTime
-from Products.Archetypes.config import REFERENCE_CATALOG
-from Products.Archetypes.public import DisplayList
-from DocumentTemplate import sequence
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import _createObjectByType
+from dependencies.dependency import DateTime
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import DisplayList
+from dependencies.dependency import sequence
+from dependencies.dependency import getToolByName
+from dependencies.dependency import _createObjectByType
 from bika.lims.browser import BrowserView
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from dependencies.dependency import ViewPageTemplateFile
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims import PMF, logger
@@ -15,9 +15,9 @@ from bika.lims.permissions import EditWorksheet
 from bika.lims.permissions import ManageWorksheets
 from bika.lims.utils import getUsers, tmpID
 from bika.lims.utils import to_utf8 as _c
-from plone.app.content.browser.interfaces import IFolderContentsView
-from plone.app.layout.globals.interfaces import IViewView
-from zope.interface import implements
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import IViewView
+from dependencies.dependency import implements
 import plone
 import json
 import zope

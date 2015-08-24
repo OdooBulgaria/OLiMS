@@ -1,28 +1,28 @@
 import sys
 import inspect
 
-from generic import xml
+from dependencies.dependency import xml
 from agilent.masshunter import quantitative
-from foss.fiastar import fiastar
-from foss.winescan import auto
-from foss.winescan import ft120
-from thermoscientific.gallery import Ts9861x
-from thermoscientific.arena import xt20
-from thermoscientific.multiskan import go
-from panalytical.omnia import axios_xrf
+from dependencies.dependency import fiastar
+from dependencies.dependency import auto
+from dependencies.dependency import ft120
+from dependencies.dependency import Ts9861x
+from dependencies.dependency import xt20
+from dependencies.dependency import go
+from dependencies.dependency import axios_xrf
 from alere.pima import beads, cd4
 from lifetechnologies.qubit import qubit
 from biodrop.ulite import ulite
-from tescan.tima import tima
+from dependencies.dependency import tima
 from sysmex.xs import i500, i1000
 from beckmancoulter.access import model2
-from rochecobas.taqman import model48
+from dependencies.dependency import model48
 from sealanalytical.aq2 import aq2
-from horiba.jobinyvon import icp
+from dependencies.dependency import icp
 from abaxis.vetscan import vs2
 from scilvet.abc import plus
-from eltra.cs import cs2000
-from rigaku.supermini import wxrf
+from dependencies.dependency import cs2000
+from dependencies.dependency import wxrf
 
 __all__ = ['abaxis.vetscan.vs2',
            'agilent.masshunter.quantitative',

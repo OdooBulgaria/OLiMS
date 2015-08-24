@@ -1,9 +1,9 @@
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from smtplib import SMTPServerDisconnected, SMTPRecipientsRefused
-from Products.CMFCore.WorkflowCore import WorkflowException
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-from email.utils import formataddr
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import MIMEMultipart
+from dependencies.dependency import MIMEText
+from dependencies.dependency import formataddr
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.browser import BrowserView
@@ -12,12 +12,12 @@ from bika.lims.interfaces import IInvoiceView
 from bika.lims.permissions import *
 from bika.lims.utils import to_utf8, isAttributeHidden, encode_header
 from bika.lims.workflow import doActionFor
-from DateTime import DateTime
-from Products.Archetypes import PloneMessageFactory as PMF
-from Products.CMFCore.utils import getToolByName
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from zope.interface import implements
-from decimal import Decimal
+from dependencies.dependency import DateTime
+from dependencies.dependency import PloneMessageFactory as PMF
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import implements
+from dependencies.dependency import Decimal
 
 import plone, App
 

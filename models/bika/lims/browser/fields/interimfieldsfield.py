@@ -1,7 +1,7 @@
-from AccessControl import ClassSecurityInfo
-from Products.ATExtensions.ateapi import RecordsField
-from Products.Archetypes.Registry import registerField
-from Products.Archetypes.public import *
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import RecordsField
+from dependencies.dependency import registerField
+from dependencies.dependency import *
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 

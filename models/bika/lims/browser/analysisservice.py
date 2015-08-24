@@ -1,5 +1,5 @@
 from bika.lims.browser import BrowserView
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from dependencies.dependency import ViewPageTemplateFile
 from bika.lims import bikaMessageFactory as _
 from bika.lims.jsonapi import load_field_values, get_include_fields
 from bika.lims.utils import t
@@ -9,10 +9,10 @@ from bika.lims.content.analysisservice import getContainers
 from bika.lims.browser.bika_listing import BikaListingView
 from bika.lims.interfaces import IAnalysisService
 from bika.lims.interfaces import IJSONReadExtender
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import getToolByName
 from magnitude import mg, MagnitudeError
-from zope.component import adapts
-from zope.interface import implements
+from dependencies.dependency import adapts
+from dependencies.dependency import implements
 import json, plone
 import plone.protect
 import re

@@ -1,13 +1,13 @@
-from AccessControl import ClassSecurityInfo
-from App.class_init import InitializeClass
-from Products.CMFCore.permissions import ManagePortal
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.CatalogTool import CatalogTool
-from Products.ZCatalog.ZCatalog import ZCatalog
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import InitializeClass
+from dependencies.dependency import ManagePortal
+from dependencies.dependency import getToolByName
+from dependencies.dependency import CatalogTool
+from dependencies.dependency import ZCatalog
 from bika.lims.interfaces import IBikaCatalog
 from bika.lims.interfaces import IBikaAnalysisCatalog
 from bika.lims.interfaces import IBikaSetupCatalog
-from zope.interface import implements
+from dependencies.dependency import implements
 
 
 def getCatalog(instance, field='UID'):

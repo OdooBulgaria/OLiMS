@@ -1,15 +1,15 @@
 
 from bika.lims.querystring import queryparser
-from plone.app.contentlisting.interfaces import IContentListing
-from plone.app.querystring import querybuilder
-from plone.app.querystring.interfaces import IQuerystringRegistryReader
-from plone.registry.interfaces import IRegistry
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.browser.navtree import getNavigationRoot
-from Products.CMFPlone.PloneBatch import Batch
-from zope.component import getMultiAdapter
-from zope.component import getUtility
-from zope.publisher.browser import BrowserView
+from dependencies.dependency import IContentListing
+from dependencies.dependency import querybuilder
+from dependencies.dependency import IQuerystringRegistryReader
+from dependencies.dependency import IRegistry
+from dependencies.dependency import getToolByName
+from dependencies.dependency import getNavigationRoot
+from dependencies.dependency import Batch
+from dependencies.dependency import getMultiAdapter
+from dependencies.dependency import getUtility
+from dependencies.dependency import BrowserView
 
 import json
 

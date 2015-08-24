@@ -1,4 +1,4 @@
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.config import PROJECTNAME
@@ -7,15 +7,15 @@ from bika.lims.interfaces import IBatch
 from bika.lims.workflow import skip, BatchState, StateFlow, getCurrentState,\
     CancellationState
 from bika.lims.browser.widgets import DateTimeWidget
-from plone.app.folder.folder import ATFolder
-from Products.Archetypes.public import *
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import safe_unicode
-from zope.interface import implements
+from dependencies.dependency import ATFolder
+from dependencies.dependency import *
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import implements
 from bika.lims.permissions import EditBatch
-from plone.indexer import indexer
-from Products.Archetypes.references import HoldingReference
-from Products.ATExtensions.ateapi import RecordsField
+from dependencies.dependency import indexer
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import RecordsField
 from bika.lims.browser.widgets import RecordsWidget as bikaRecordsWidget
 
 from bika.lims.browser.widgets import ReferenceWidget

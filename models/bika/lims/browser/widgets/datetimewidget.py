@@ -1,7 +1,7 @@
-from AccessControl import ClassSecurityInfo
-from Products.Archetypes.Widget import TypesWidget
-from Products.Archetypes.Registry import registerWidget
-from Products.Archetypes.Registry import registerPropertyType
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import TypesWidget
+from dependencies.dependency import registerWidget
+from dependencies.dependency import registerPropertyType
 from bika.lims.browser import ulocalized_time as ut
 
 

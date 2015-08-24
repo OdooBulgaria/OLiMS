@@ -1,12 +1,12 @@
-from AccessControl import ClassSecurityInfo
-from Products.Archetypes.public import *
-from Products.CMFCore.permissions import View, ModifyPortalContent
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import *
+from dependencies.dependency import View, ModifyPortalContent
 from bika.lims.config import PROJECTNAME
 from bika.lims.content.bikaschema import BikaSchema
-from decimal import Decimal
+from dependencies.dependency import Decimal
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
-from zope.interface import implements
+from dependencies.dependency import implements
 
 schema = BikaSchema.copy() + Schema((
     StringField('Volume',

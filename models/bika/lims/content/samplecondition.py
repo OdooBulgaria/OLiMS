@@ -1,9 +1,9 @@
-from AccessControl.SecurityInfo import ClassSecurityInfo
-from Products.Archetypes.public import BaseFolder
-from Products.Archetypes.public import DisplayList
-from Products.Archetypes.public import Schema
-from Products.Archetypes.public import registerType
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import BaseFolder
+from dependencies.dependency import DisplayList
+from dependencies.dependency import Schema
+from dependencies.dependency import registerType
+from dependencies.dependency import getToolByName
 from bika.lims.config import PROJECTNAME
 from bika.lims.content.bikaschema import BikaSchema
 

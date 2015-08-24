@@ -1,5 +1,5 @@
-from Products.CMFCore.utils import _getAuthenticatedUser
-from AccessControl.User import nobody
+from dependencies.dependency import _getAuthenticatedUser
+from dependencies.dependency import nobody
 
 
 def getAuthenticatedMember(self):

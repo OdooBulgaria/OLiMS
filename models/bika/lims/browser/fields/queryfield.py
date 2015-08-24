@@ -3,12 +3,12 @@ additional fields from the registry and catalog_name,
 for selecting a catalog tool.
 """
 
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from archetypes.querywidget.interfaces import IQueryField
-from Products.Archetypes.Field import ObjectField
-from Products.Archetypes.Field import registerField
-from zope.interface import implements
-from zope.site.hooks import getSite
+from dependencies.dependency import ObjectField
+from dependencies.dependency import registerField
+from dependencies.dependency import implements
+from dependencies.dependency import getSite
 
 from archetypes.querywidget.field import QueryField as _QueryField
 from bika.lims.querystring.querybuilder import QueryBuilder

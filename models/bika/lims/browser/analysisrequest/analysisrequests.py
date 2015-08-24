@@ -1,16 +1,16 @@
-from AccessControl import getSecurityManager
-from Products.CMFCore.permissions import ModifyPortalContent
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import ModifyPortalContent
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.browser.bika_listing import BikaListingView
 from bika.lims.utils import getUsers
 from bika.lims.permissions import *
 from bika.lims.utils import to_utf8, getUsers
-from DateTime import DateTime
-from Products.Archetypes import PloneMessageFactory as PMF
-from plone.app.layout.globals.interfaces import IViewView
-from Products.CMFCore.utils import getToolByName
-from zope.interface import implements
+from dependencies.dependency import DateTime
+from dependencies.dependency import PloneMessageFactory as PMF
+from dependencies.dependency import IViewView
+from dependencies.dependency import getToolByName
+from dependencies.dependency import implements
 
 
 class AnalysisRequestsView(BikaListingView):

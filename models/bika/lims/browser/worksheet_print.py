@@ -7,11 +7,11 @@ from bika.lims.interfaces import IResultOutOfRange
 from bika.lims.utils import to_utf8, createPdf
 from bika.lims.utils import formatDecimalMark, format_supsub
 from bika.lims.utils.analysis import format_uncertainty
-from DateTime import DateTime
-from Products.CMFCore.utils import getToolByName
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from plone.resource.utils import iterDirectoriesOfType, queryResourceDirectory
-from zope.component import getAdapters
+from dependencies.dependency import DateTime
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import iterDirectoriesOfType, queryResourceDirectory
+from dependencies.dependency import getAdapters
 import glob, os, sys, traceback
 import App
 import Globals

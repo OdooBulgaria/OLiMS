@@ -1,9 +1,9 @@
 from bika.lims import bikaMessageFactory as _
 from bika.lims.browser import BrowserView
-from plone.app.textfield import RichTextValue
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from Products.CMFPlone import PloneMessageFactory
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import RichTextValue
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import PloneMessageFactory
+from dependencies.dependency import getToolByName
 import plone
 
 

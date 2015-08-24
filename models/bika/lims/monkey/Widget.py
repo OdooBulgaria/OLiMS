@@ -1,8 +1,8 @@
 from bika.lims.interfaces import IATWidgetVisibility
-from types import DictType
+from dependencies.dependency import DictType
 
-from Acquisition import aq_base
-from zope.component import getAdapters
+from dependencies.dependency import aq_base
+from dependencies.dependency import getAdapters
 
 _marker = []
 

@@ -1,7 +1,7 @@
 from bika.lims.browser import BrowserView
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import getToolByName
 import json, plone
 import plone.protect
 

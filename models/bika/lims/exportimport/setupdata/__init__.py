@@ -1,15 +1,15 @@
 from bika.lims.exportimport.dataimport import SetupDataSetList as SDL
 from bika.lims.idserver import renameAfterCreation
 from bika.lims.interfaces import ISetupDataSetList
-from Products.CMFPlone.utils import safe_unicode, _createObjectByType
+from dependencies.dependency import safe_unicode, _createObjectByType
 from bika.lims.utils import tmpID, to_unicode
 from bika.lims.utils import to_utf8
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import getToolByName
 from bika.lims import logger
-from zope.interface import implements
-from pkg_resources import resource_filename
+from dependencies.dependency import implements
+from dependencies.dependency import resource_filename
 import datetime, os.path
 
 import re

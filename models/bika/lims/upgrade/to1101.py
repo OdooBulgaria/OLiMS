@@ -1,13 +1,13 @@
 import logging
 
-from Acquisition import aq_base
-from Acquisition import aq_inner
-from Acquisition import aq_parent
+from dependencies.dependency import aq_base
+from dependencies.dependency import aq_inner
+from dependencies.dependency import aq_parent
 
-from Products.CMFCore import permissions
+from dependencies.dependency import permissions
 from bika.lims.permissions import *
 
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import getToolByName
 
 
 def upgrade(tool):

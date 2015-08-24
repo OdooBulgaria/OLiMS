@@ -1,18 +1,18 @@
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims.browser.fields import DurationField
 from bika.lims.config import PROJECTNAME
 from bika.lims.content.bikaschema import BikaSchema
 from bika.lims.interfaces import ISamplePartition
 from bika.lims.workflow import doActionFor
 from bika.lims.workflow import skip
-from DateTime import DateTime
-from datetime import timedelta
-from Products.Archetypes.public import *
-from Products.ATContentTypes.lib.historyaware import HistoryAwareMixin
-from Products.ATContentTypes.utils import DT2dt, dt2DT
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import safe_unicode
-from zope.interface import implements
+from dependencies.dependency import DateTime
+from dependencies.dependency import timedelta
+from dependencies.dependency import *
+from dependencies.dependency import HistoryAwareMixin
+from dependencies.dependency import DT2dt, dt2DT
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import implements
 
 schema = BikaSchema.copy() + Schema((
     ReferenceField('Container',

@@ -11,15 +11,15 @@ from bika.lims.workflow import get_workflow_actions
 from bika.lims.vocabularies import CatalogVocabulary
 from bika.lims.utils import to_utf8
 from bika.lims.workflow import doActionFor
-from DateTime import DateTime
-from Products.Archetypes import PloneMessageFactory as PMF
-from plone.app.layout.globals.interfaces import IViewView
-from plone.registry.interfaces import IRegistry
-from Products.CMFCore.utils import getToolByName
-from zope.component import adapts
-from zope.component import getAdapters
-from zope.component import queryUtility
-from zope.interface import implements
+from dependencies.dependency import DateTime
+from dependencies.dependency import PloneMessageFactory as PMF
+from dependencies.dependency import IViewView
+from dependencies.dependency import IRegistry
+from dependencies.dependency import getToolByName
+from dependencies.dependency import adapts
+from dependencies.dependency import getAdapters
+from dependencies.dependency import queryUtility
+from dependencies.dependency import implements
 
 import json
 

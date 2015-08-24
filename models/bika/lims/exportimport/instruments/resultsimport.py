@@ -1,14 +1,14 @@
 # coding=utf-8
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import _createObjectByType, safe_unicode
+from dependencies.dependency import getToolByName
+from dependencies.dependency import _createObjectByType, safe_unicode
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.exportimport.instruments.logger import Logger
 from bika.lims.idserver import renameAfterCreation
 from bika.lims.utils import tmpID
-from Products.Archetypes.config import REFERENCE_CATALOG
-from datetime import datetime
-from DateTime import DateTime
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import datetime
+from dependencies.dependency import DateTime
 import os
 
 class InstrumentResultsFileParser(Logger):

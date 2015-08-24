@@ -1,21 +1,21 @@
 # Testing layer to provide some of the features of PloneTestCase
 
 from bika.lims.exportimport.load_setup_data import LoadSetupData
-from plone.app.robotframework.testing import REMOTE_LIBRARY_BUNDLE_FIXTURE
-from plone.app.testing import applyProfile
-from plone.app.testing import FunctionalTesting
-from plone.app.testing import login
-from plone.app.testing import logout
-from plone.app.testing import PLONE_FIXTURE
-from plone.app.testing import PloneSandboxLayer
-from plone.app.testing import SITE_OWNER_NAME
-from plone.testing import z2
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.setuphandlers import setupPortalContent
-from Testing.makerequest import makerequest
-from plone.app.testing import TEST_USER_NAME
-from plone.app.testing import TEST_USER_PASSWORD
-from plone.testing.z2 import Browser
+from dependencies.dependency import REMOTE_LIBRARY_BUNDLE_FIXTURE
+from dependencies.dependency import applyProfile
+from dependencies.dependency import FunctionalTesting
+from dependencies.dependency import login
+from dependencies.dependency import logout
+from dependencies.dependency import PLONE_FIXTURE
+from dependencies.dependency import PloneSandboxLayer
+from dependencies.dependency import SITE_OWNER_NAME
+from dependencies.dependency import z2
+from dependencies.dependency import getToolByName
+from dependencies.dependency import setupPortalContent
+from dependencies.dependency import makerequest
+from dependencies.dependency import TEST_USER_NAME
+from dependencies.dependency import TEST_USER_PASSWORD
+from dependencies.dependency import Browser
 import bika.lims
 import collective.js.jqueryui
 import plone.app.iterate

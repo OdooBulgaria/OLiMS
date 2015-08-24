@@ -2,7 +2,7 @@ from bika.lims.browser.bika_listing import BikaListingView
 from bika.lims.controlpanel.bika_instruments import InstrumentsView
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import getToolByName
 from bika.lims.utils import to_utf8
 
 class SupplierInstrumentsView(InstrumentsView):
@@ -119,8 +119,8 @@ class ReferenceSamplesView(BikaListingView):
             obj = items[x]['obj']
             if workflow.getInfoFor(obj, 'review_state') == 'current':
                 # Check expiry date
-                from Products.ATContentTypes.utils import DT2dt
-                from datetime import datetime
+                from dependencies.dependency import DT2dt
+                from dependencies.dependency import datetime
                 expirydate = DT2dt(obj.getExpiryDate()).replace(tzinfo=None)
                 if (datetime.today() > expirydate):
                     workflow.doActionFor(obj, 'expire')

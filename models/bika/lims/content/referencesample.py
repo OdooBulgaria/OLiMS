@@ -1,16 +1,16 @@
 """ReferenceSample represents a reference sample used for quality control testing
 """
 
-from AccessControl import ClassSecurityInfo
-from DateTime import DateTime
-from Products.Archetypes.config import REFERENCE_CATALOG
-from Products.Archetypes.public import *
-from Products.Archetypes.references import HoldingReference
-from Products.CMFCore import permissions
-from Products.CMFCore.WorkflowCore import WorkflowException
-from Products.CMFCore.permissions import View
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import _createObjectByType
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import DateTime
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import permissions
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import View
+from dependencies.dependency import getToolByName
+from dependencies.dependency import _createObjectByType
 from bika.lims import PMF, bikaMessageFactory as _
 from bika.lims.idserver import renameAfterCreation
 from bika.lims.utils import t
@@ -23,7 +23,7 @@ from bika.lims.interfaces import IReferenceSample
 from bika.lims.utils import sortable_title, tmpID
 from bika.lims.utils import to_unicode as _u
 from bika.lims.utils import to_utf8
-from zope.interface import implements
+from dependencies.dependency import implements
 import sys, time
 
 schema = BikaSchema.copy() + Schema((

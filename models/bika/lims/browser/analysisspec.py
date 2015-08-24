@@ -1,8 +1,8 @@
 from bika.lims.config import POINTS_OF_CAPTURE
 from bika.lims.interfaces import IAnalysisSpec
 from bika.lims.interfaces import IJSONReadExtender
-from zope.component import adapts
-from zope.interface import implements
+from dependencies.dependency import adapts
+from dependencies.dependency import implements
 
 class JSONReadExtender(object):
     """Adds the UID to the ResultsRange dict.  This will go away

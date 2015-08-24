@@ -9,20 +9,20 @@ from bika.lims.utils import to_utf8, encode_header, createPdf, attachPdf
 from bika.lims.utils import to_utf8, formatDecimalMark, format_supsub
 from bika.lims.utils.analysis import format_uncertainty
 from bika.lims.vocabularies import getARReportTemplates
-from DateTime import DateTime
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-from email.Utils import formataddr
-from operator import itemgetter
-from os.path import join
-from plone.registry.interfaces import IRegistry
-from plone.resource.utils import iterDirectoriesOfType, queryResourceDirectory
-from Products.CMFCore.utils import getToolByName
-from Products.CMFCore.WorkflowCore import WorkflowException
-from Products.CMFPlone.utils import safe_unicode, _createObjectByType
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from dependencies.dependency import DateTime
+from dependencies.dependency import MIMEMultipart
+from dependencies.dependency import MIMEText
+from dependencies.dependency import formataddr
+from dependencies.dependency import itemgetter
+from dependencies.dependency import join
+from dependencies.dependency import IRegistry
+from dependencies.dependency import iterDirectoriesOfType, queryResourceDirectory
+from dependencies.dependency import getToolByName
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import safe_unicode, _createObjectByType
+from dependencies.dependency import ViewPageTemplateFile
 from smtplib import SMTPServerDisconnected, SMTPRecipientsRefused
-from zope.component import getAdapters, getUtility
+from dependencies.dependency import getAdapters, getUtility
 
 import App
 import glob, os, sys, traceback

@@ -1,10 +1,10 @@
 
 """ Bika setup handlers. """
 
-from Products.Archetypes.event import ObjectInitializedEvent
-from Products.CMFCore import permissions
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone import PloneMessageFactory
+from dependencies.dependency import ObjectInitializedEvent
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
+from dependencies.dependency import PloneMessageFactory
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims import logger
@@ -12,11 +12,11 @@ from bika.lims.config import *
 from bika.lims.permissions import *
 from bika.lims.interfaces \
         import IHaveNoBreadCrumbs, IARImportFolder, IARPriorities
-from zope.event import notify
-from zope.interface import alsoProvides
-from Products.CMFEditions.Permissions import ApplyVersionControl
-from Products.CMFEditions.Permissions import SaveNewVersion
-from Products.CMFEditions.Permissions import AccessPreviousVersions
+from dependencies.dependency import notify
+from dependencies.dependency import alsoProvides
+from dependencies.dependency import ApplyVersionControl
+from dependencies.dependency import SaveNewVersion
+from dependencies.dependency import AccessPreviousVersions
 
 
 class Empty:
@@ -875,7 +875,7 @@ def setupVarious(context):
     gen.setupPermissions(site)
     gen.setupTopLevelFolders(site)
     try:
-        from Products.CMFEditions.setuphandlers import DEFAULT_POLICIES
+        from dependencies.dependency import DEFAULT_POLICIES
         # we're on plone < 4.1, configure versionable types manually
         gen.setupVersioning(site)
     except ImportError:

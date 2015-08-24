@@ -1,8 +1,8 @@
 from bika.lims.browser.sample import SamplesView as _SV
 from bika.lims.permissions import *
-from Products.CMFCore.utils import getToolByName
-from zope.interface import implements
-from Products.CMFPlone.utils import safe_unicode
+from dependencies.dependency import getToolByName
+from dependencies.dependency import implements
+from dependencies.dependency import safe_unicode
 
 import plone
 

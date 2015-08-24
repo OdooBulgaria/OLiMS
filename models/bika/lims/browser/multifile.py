@@ -1,7 +1,7 @@
-from zope.interface import implements
+from dependencies.dependency import implements
 from bika.lims.browser.bika_listing import BikaListingView
-from plone.app.content.browser.interfaces import IFolderContentsView
-from plone.app.layout.globals.interfaces import IViewView
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import IViewView
 from bika.lims import bikaMessageFactory as _
 
 

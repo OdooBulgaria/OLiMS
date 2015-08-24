@@ -1,7 +1,7 @@
-from Acquisition import aq_parent, aq_inner
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import _createObjectByType
-from zExceptions import BadRequest
+from dependencies.dependency import aq_parent, aq_inner
+from dependencies.dependency import getToolByName
+from dependencies.dependency import _createObjectByType
+from dependencies.dependency import BadRequest
 
 
 def upgrade(tool):

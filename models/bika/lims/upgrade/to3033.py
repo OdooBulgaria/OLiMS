@@ -1,4 +1,4 @@
-from Acquisition import aq_parent, aq_inner
+from dependencies.dependency import aq_parent, aq_inner
 
 
 def upgrade(tool):

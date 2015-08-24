@@ -1,12 +1,12 @@
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import getToolByName
 from bika.lims.browser import BrowserView
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from dependencies.dependency import ViewPageTemplateFile
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t, dicts_to_dict
 from bika.lims.utils \
     import formatDateQuery, formatDateParms, isAttributeHidden
-from plone.app.layout.globals.interfaces import IViewView
-from zope.interface import implements
+from dependencies.dependency import IViewView
+from dependencies.dependency import implements
 
 
 class Report(BrowserView):

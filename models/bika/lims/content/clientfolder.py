@@ -1,16 +1,16 @@
 from bika.lims.utils import isActive
 """ClientFolder is a container for Client instances.
 """
-from Products.ATContentTypes.content import schemata
-from Products.Archetypes import atapi
-from Products.CMFCore import permissions
-from Products.Archetypes.utils import DisplayList
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import schemata
+from dependencies.dependency import atapi
+from dependencies.dependency import permissions
+from dependencies.dependency import DisplayList
+from dependencies.dependency import getToolByName
 from bika.lims.config import PROJECTNAME
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims.interfaces import IClientFolder, IHaveNoBreadCrumbs
-from plone.app.folder import folder
-from zope.interface import implements
+from dependencies.dependency import folder
+from dependencies.dependency import implements
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 

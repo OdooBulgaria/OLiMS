@@ -1,6 +1,6 @@
 """Sysmex XS
 """
-from datetime import datetime
+from dependencies.dependency import datetime
 from bika.lims.exportimport.instruments.resultsimport import \
     AnalysisResultsImporter, InstrumentCSVResultsFileParser
 

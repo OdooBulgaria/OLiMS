@@ -3,12 +3,12 @@ from bika.lims.config import PROJECTNAME
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.interfaces import IARPriorities
-from plone.app.layout.globals.interfaces import IViewView
-from plone.app.content.browser.interfaces import IFolderContentsView
-from plone.app.folder.folder import ATFolder, ATFolderSchema
-from Products.ATContentTypes.content import schemata
-from Products.Archetypes import atapi
-from zope.interface.declarations import implements
+from dependencies.dependency import IViewView
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import ATFolder, ATFolderSchema
+from dependencies.dependency import schemata
+from dependencies.dependency import atapi
+from dependencies.dependency import implements
 
 
 class ARPrioritiesView(BikaListingView):

@@ -1,10 +1,10 @@
 """ Reference Definitions represent standard specifications for
     reference samples used in quality control
 """
-from AccessControl import ClassSecurityInfo
-from DateTime import DateTime
-from Products.Archetypes.public import *
-from Products.CMFCore.permissions import View, ModifyPortalContent
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import DateTime
+from dependencies.dependency import *
+from dependencies.dependency import View, ModifyPortalContent
 from bika.lims.content.bikaschema import BikaSchema
 from bika.lims.browser.fields import ReferenceResultsField
 from bika.lims.browser.widgets import ReferenceResultsWidget
@@ -12,7 +12,7 @@ from bika.lims.config import PROJECTNAME
 import sys
 import time
 from bika.lims import PMF, bikaMessageFactory as _
-from zope.interface import implements
+from dependencies.dependency import implements
 
 schema = BikaSchema.copy() + Schema((
     ReferenceResultsField('ReferenceResults',

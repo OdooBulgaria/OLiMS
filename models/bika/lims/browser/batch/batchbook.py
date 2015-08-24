@@ -1,12 +1,12 @@
-from operator import itemgetter
-from AccessControl import getSecurityManager
-from Products.CMFCore.permissions import ModifyPortalContent
-from Products.CMFPlone import PloneMessageFactory
+from dependencies.dependency import itemgetter
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import ModifyPortalContent
+from dependencies.dependency import PloneMessageFactory
 from bika.lims import bikaMessageFactory as _
 from bika.lims.browser.bika_listing import BikaListingView
 from bika.lims.permissions import EditResults, AddAnalysisRequest, \
     ManageAnalysisRequests
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import getToolByName
 
 import re
 

@@ -1,7 +1,7 @@
 import sys
 import time
 import transaction
-from AccessControl import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t
 from bika.lims.browser.widgets import DateTimeWidget
@@ -14,21 +14,21 @@ from bika.lims.jsonapi import resolve_request_lookup
 from bika.lims.workflow import doActionFor
 from bika.lims.utils import tmpID
 from bika.lims import logger
-from collective.progressbar.events import InitialiseProgressBar
-from collective.progressbar.events import ProgressBar
-from collective.progressbar.events import UpdateProgressEvent
-from collective.progressbar.events import ProgressState
-from DateTime import DateTime
-from Products.Archetypes import atapi
-from Products.Archetypes.event import ObjectInitializedEvent
-from Products.Archetypes.public import *
-from Products.Archetypes.references import HoldingReference
-from Products.ATContentTypes.content import schemata
-from Products.CMFCore import permissions
-from Products.CMFCore.utils import getToolByName
-from Products.CMFPlone.utils import safe_unicode, _createObjectByType
-from zope import event
-from zope.interface import implements
+from dependencies.dependency import InitialiseProgressBar
+from dependencies.dependency import ProgressBar
+from dependencies.dependency import UpdateProgressEvent
+from dependencies.dependency import ProgressState
+from dependencies.dependency import DateTime
+from dependencies.dependency import atapi
+from dependencies.dependency import ObjectInitializedEvent
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import schemata
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode, _createObjectByType
+from dependencies.dependency import event
+from dependencies.dependency import implements
 
 schema = BikaSchema.copy() + Schema((
     StringField('ImportOption',

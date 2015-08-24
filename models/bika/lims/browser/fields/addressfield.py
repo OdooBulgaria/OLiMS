@@ -1,5 +1,5 @@
-from Products.Archetypes.Registry import registerField
-from Products.ATExtensions.ateapi import RecordField
+from dependencies.dependency import registerField
+from dependencies.dependency import RecordField
 
 
 class AddressField(RecordField):

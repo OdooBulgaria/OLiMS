@@ -4,15 +4,15 @@ from bika.lims.browser import BrowserView
 from bika.lims.browser.bika_listing import BikaListingView
 from bika.lims.interfaces import IPricelistFolder
 from bika.lims.permissions import AddPricelist, ManageBika
-from DateTime import DateTime
-from email.Utils import formataddr
-from plone.app.content.browser.interfaces import IFolderContentsView
-from plone.app.layout.globals.interfaces import IViewView
+from dependencies.dependency import DateTime
+from dependencies.dependency import formataddr
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import IViewView
 from bika.lims.utils import sendmail, encode_header
-from Products.CMFCore import permissions
-from Products.CMFCore.utils import getToolByName
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from zope.interface.declarations import implements
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import implements
 
 
 class PricelistsView(BikaListingView):

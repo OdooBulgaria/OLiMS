@@ -3,7 +3,7 @@
 
 """ Alere Pima
 """
-from datetime import datetime
+from dependencies.dependency import datetime
 from bika.lims.utils import to_unicode
 from bika.lims import bikaMessageFactory as _
 from bika.lims.exportimport.instruments.resultsimport import \

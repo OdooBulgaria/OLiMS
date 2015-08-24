@@ -1,9 +1,9 @@
 # coding=utf-8
-from email.utils import formataddr
+from dependencies.dependency import formataddr
 from smtplib import SMTPRecipientsRefused
 from smtplib import SMTPServerDisconnected
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
+from dependencies.dependency import MIMEMultipart
+from dependencies.dependency import MIMEText
 import tempfile
 
 from bika.lims import bikaMessageFactory as _
@@ -11,15 +11,15 @@ from bika.lims.utils import t
 from bika.lims.interfaces import IResultOutOfRange
 from bika.lims.utils import to_utf8
 from bika.lims.browser import BrowserView
-from Products.CMFCore.utils import getToolByName
-from Products.CMFCore.WorkflowCore import WorkflowException
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from dependencies.dependency import getToolByName
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import ViewPageTemplateFile
 from bika.lims.utils import encode_header, createPdf
-from os.path import join
-from Products.CMFPlone.utils import safe_unicode
+from dependencies.dependency import join
+from dependencies.dependency import safe_unicode
 from bika.lims.utils import tmpID
 import Globals
-from zope.component import getAdapters
+from dependencies.dependency import getAdapters
 
 
 class ResultOutOfRangeIcons(object):

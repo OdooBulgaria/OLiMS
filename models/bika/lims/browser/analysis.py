@@ -1,5 +1,5 @@
 # coding=utf-8
-from Products.CMFCore.utils import getToolByName
+from dependencies.dependency import getToolByName
 from bika.lims.jsonapi import get_include_fields
 from bika.lims import bikaMessageFactory as _
 from bika.lims.utils import t, dicts_to_dict
@@ -7,8 +7,8 @@ from bika.lims.interfaces import IAnalysis, IResultOutOfRange, IJSONReadExtender
 from bika.lims.interfaces import IFieldIcons
 from bika.lims.utils import to_utf8
 from bika.lims.utils import dicts_to_dict
-from zope.component import adapts, getAdapters
-from zope.interface import implements
+from dependencies.dependency import adapts, getAdapters
+from dependencies.dependency import implements
 
 
 class ResultOutOfRangeIcons(object):
