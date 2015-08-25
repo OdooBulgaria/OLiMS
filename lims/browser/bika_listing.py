@@ -20,7 +20,7 @@ from OLiMS.lims.subscribers import doActionFor
 from OLiMS.lims.subscribers import skip
 from OLiMS.lims.utils import isActive, getHiddenAttributesForClass
 from OLiMS.lims.utils import to_utf8
-from OLiMS.dependencies.dependency import itemgetter
+from operator import itemgetter
 from OLiMS.dependencies.dependency import tableview
 from OLiMS.dependencies.dependency import FolderContentsView, FolderContentsTable
 from OLiMS.dependencies.dependency import IFolderContentsView
@@ -31,13 +31,11 @@ from OLiMS.dependencies.dependency import getMultiAdapter
 from OLiMS.dependencies.dependency import MessageFactory
 from OLiMS.dependencies.dependency import implements
 from OLiMS.dependencies.dependency import Interface
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
 
-import App
 import json
 import pkg_resources
-import plone
 import re
-import transaction
 import urllib
 
 try:
@@ -151,7 +149,7 @@ class WorkflowAction:
 
     def __call__(self):
         form = self.request.form
-        plone.protect.CheckAuthenticator(form)
+        CheckAuthenticator(form)
         if self.destination_url == "":
             self.destination_url = self.request.get_header("referer",
                                    self.context.absolute_url())

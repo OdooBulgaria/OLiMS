@@ -1,17 +1,14 @@
-from archetypes.schemaextender.interfaces import ISchemaModifier, \
-    IOrderableSchemaExtender
 from OLiMS.lims.browser import BrowserView
 from OLiMS.lims.interfaces import IBatch, IAnalysisRequest
 from OLiMS.lims.permissions import *
 from OLiMS.lims.vocabularies import CatalogVocabulary
-from OLiMS.dependencies.dependency import itemgetter
+from operator import itemgetter
 from OLiMS.dependencies.dependency import safe_unicode
 from OLiMS.dependencies.dependency import adapts
 from OLiMS.dependencies.dependency import implements
-
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
 import json
-import plone
-import plone.protect
+
 
 
 class ClientContactVocabularyFactory(CatalogVocabulary):
@@ -33,7 +30,7 @@ class getAnalysisContainers(BrowserView):
     """
 
     def __call__(self):
-        plone.protect.CheckAuthenticator(self.request)
+        CheckAuthenticator(self.request)
         searchTerm = self.request['searchTerm'].lower()
         page = self.request['page']
         nr_rows = self.request['rows']

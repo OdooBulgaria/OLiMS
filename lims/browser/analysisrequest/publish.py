@@ -10,11 +10,11 @@ from OLiMS.lims.utils import to_utf8, formatDecimalMark, format_supsub
 from OLiMS.lims.utils.analysis import format_uncertainty
 from OLiMS.lims.vocabularies import getARReportTemplates
 from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import MIMEMultipart
-from OLiMS.dependencies.dependency import MIMEText
-from OLiMS.dependencies.dependency import formataddr
-from OLiMS.dependencies.dependency import itemgetter
-from OLiMS.dependencies.dependency import join
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.Utils import formataddr
+from operator import itemgetter
+from os.path import join
 from OLiMS.dependencies.dependency import IRegistry
 from OLiMS.dependencies.dependency import iterDirectoriesOfType, queryResourceDirectory
 from OLiMS.dependencies.dependency import getToolByName
@@ -24,9 +24,7 @@ from OLiMS.dependencies.dependency import ViewPageTemplateFile
 from smtplib import SMTPServerDisconnected, SMTPRecipientsRefused
 from OLiMS.dependencies.dependency import getAdapters, getUtility
 
-import App
 import glob, os, sys, traceback
-import Globals
 import re
 import tempfile
 import urllib2
@@ -688,7 +686,8 @@ class AnalysisRequestPublishView(BrowserView):
                 return []
 
         # HTML written to debug file
-        debug_mode = App.config.getConfiguration().debug_mode
+#         debug_mode = App.config.getConfiguration().debug_mode "Commented by Yasir"
+        debug_mode = True                                  #" Added by Yasir"
         if debug_mode:
             tmp_fn = tempfile.mktemp(suffix=".html")
             logger.debug("Writing HTML for %s to %s" % (ar.Title(), tmp_fn))

@@ -8,17 +8,14 @@ from OLiMS.lims.permissions import *
 from OLiMS.lims.utils import createPdf
 from OLiMS.lims.utils import to_utf8
 from OLiMS.lims.vocabularies import CatalogVocabulary
-from OLiMS.dependencies.dependency import StringIO
+from cStringIO import StringIO
 from OLiMS.dependencies.dependency import DateTime
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import ViewPageTemplateFile
 from OLiMS.dependencies.dependency import implements
 from OLiMS.dependencies.dependency import safe_unicode
 
-import App
-import Globals
 import os
-import plone
 
 
 class PublishView(BrowserView):
@@ -119,7 +116,8 @@ class PublishView(BrowserView):
         fn = self.context.Title() + " " + self.ulocalized_time(self.now)
         report_html = self.template()
 
-        debug_mode = App.config.getConfiguration().debug_mode
+#         debug_mode = App.config.getConfiguration().debug_mode "Commented by Yasir"
+        debug_mode = True                                      #"Added by Yasir"
         if debug_mode:
             tmp_fd, tmp_fn = tempfile.mkstemp(suffix=".html")
             logger.debug("Writing HTML for %s to %s" % (self.context, tmp_fn))

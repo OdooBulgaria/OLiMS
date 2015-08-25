@@ -2,7 +2,7 @@ from OLiMS.lims.browser.bika_listing import BikaListingView
 from OLiMS.lims import bikaMessageFactory as _
 from OLiMS.lims.utils import currency_format
 import csv
-from OLiMS.dependencies.dependency import StringIO
+from cStringIO import StringIO
 
 class InvoiceBatchInvoicesView(BikaListingView):
 

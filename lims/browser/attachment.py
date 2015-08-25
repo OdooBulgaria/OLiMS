@@ -2,8 +2,8 @@ from OLiMS.lims.browser import BrowserView
 from OLiMS.lims import bikaMessageFactory as _
 from OLiMS.lims.utils import t
 from OLiMS.dependencies.dependency import getToolByName
-import json, plone
-import plone.protect
+import json
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
 
 class ajaxDeleteAnalysisAttachment():
     """ Removes an analysis attachment. """
@@ -14,7 +14,7 @@ class ajaxDeleteAnalysisAttachment():
 
     def __call__(self):
         form = self.request.form
-        plone.protect.CheckAuthenticator(self.request.form)
+        CheckAuthenticator(self.request.form)
         attachment_uid = form.get('attachment_uid', None)
         if not attachment_uid:
             return "error"

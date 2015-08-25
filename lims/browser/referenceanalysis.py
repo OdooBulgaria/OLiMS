@@ -1,9 +1,9 @@
 # coding=utf-8
-from OLiMS.dependencies.dependency import formataddr
+from email.utils import formataddr
 from smtplib import SMTPRecipientsRefused
 from smtplib import SMTPServerDisconnected
-from OLiMS.dependencies.dependency import MIMEMultipart
-from OLiMS.dependencies.dependency import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 import tempfile
 
 from OLiMS.lims import bikaMessageFactory as _
@@ -18,7 +18,6 @@ from OLiMS.lims.utils import encode_header, createPdf
 from OLiMS.dependencies.dependency import join
 from OLiMS.dependencies.dependency import safe_unicode
 from OLiMS.lims.utils import tmpID
-import Globals
 from OLiMS.dependencies.dependency import getAdapters
 
 

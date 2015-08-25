@@ -4,13 +4,12 @@ from OLiMS.dependencies.dependency import registerWidget, registerPropertyType
 from OLiMS.dependencies.dependency import TypesWidget
 from OLiMS.dependencies.dependency import shasattr
 from OLiMS.dependencies.dependency import getToolByName
-from archetypes.referencebrowserwidget import utils
 from OLiMS.lims import bikaMessageFactory as _
 from OLiMS.lims.utils import t
 from OLiMS.lims.browser.bika_listing import BikaListingView
 from OLiMS.lims.config import POINTS_OF_CAPTURE
 from OLiMS.lims.permissions import ManageBika
-from OLiMS.dependencies.dependency import StringType
+from types import StringType
 from OLiMS.dependencies.dependency import getSite
 
 class ServicesView(BikaListingView):

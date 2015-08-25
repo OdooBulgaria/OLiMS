@@ -8,14 +8,14 @@ from OLiMS.lims.utils import to_unicode as _u
 from OLiMS.lims.utils import to_utf8 as _c
 from OLiMS.lims import logger
 from OLiMS.dependencies.dependency import aq_base
-from OLiMS.dependencies.dependency import DictType
-from OLiMS.dependencies.dependency import itemgetter
+from types import DictType
+from operator import itemgetter
 from OLiMS.dependencies.dependency import registerWidget
 from OLiMS.dependencies.dependency import StringWidget
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import getAdapters
 import json
-import plone
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
 
 class ReferenceWidget(StringWidget):
     _properties = StringWidget._properties.copy()
@@ -177,7 +177,7 @@ class ajaxReferenceWidgetSearch(BrowserView):
     """
 
     def __call__(self):
-        plone.protect.CheckAuthenticator(self.request)
+        CheckAuthenticator(self.request)
         page = self.request['page']
         nr_rows = self.request['rows']
         sord = self.request['sord']

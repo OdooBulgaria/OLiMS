@@ -5,7 +5,7 @@ from OLiMS.lims.utils import t
 from OLiMS.lims.browser.bika_listing import BikaListingView
 from OLiMS.lims.utils import to_utf8
 from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import itemgetter
+from operator import itemgetter
 from OLiMS.dependencies.dependency import IViewView
 from OLiMS.dependencies.dependency import ContentHistoryView, ContentHistoryViewlet
 from OLiMS.dependencies.dependency import REFERENCE_CATALOG

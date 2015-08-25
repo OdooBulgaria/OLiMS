@@ -1,5 +1,5 @@
 import csv
-import plone
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
 import time
 from OLiMS.dependencies.dependency import InitialiseProgressBar
 from OLiMS.dependencies.dependency import ProgressBar
@@ -222,7 +222,7 @@ class ClientARImportAddView(BrowserView):
         request = self.request
         response = request.response
         form = request.form
-        plone.protect.CheckAuthenticator(form)
+        CheckAuthenticator(form)
         if form.get('submitted'):
             csvfile = form.get('csvfile')
             option = form.get('ImportOption')

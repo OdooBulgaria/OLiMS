@@ -19,8 +19,7 @@ from OLiMS.lims.subscribers import skip
 from OLiMS.lims.utils import to_utf8
 from OLiMS.lims.utils import getUsers, isActive, tmpID
 from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import sequence
-from OLiMS.dependencies.dependency import itemgetter
+from operator import itemgetter
 from OLiMS.dependencies.dependency import IFolderContentsView
 from OLiMS.dependencies.dependency import IViewView
 from OLiMS.dependencies.dependency import REFERENCE_CATALOG
@@ -36,9 +35,9 @@ from OLiMS.lims.browser.referenceanalysis import AnalysesRetractedListReport
 from OLiMS.dependencies.dependency import DateTime
 from OLiMS.dependencies.dependency import ulocalized_time
 from OLiMS.lims.utils import to_utf8 as _c
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
+from OLiMS.dependencies.dependency import postonly as PostOnly
 
-import plone
-import plone.protect
 import json
 
 
@@ -49,7 +48,7 @@ class WorksheetWorkflowAction(WorkflowAction):
     """
     def __call__(self):
         form = self.request.form
-        plone.protect.CheckAuthenticator(form)
+        CheckAuthenticator(form)
         workflow = getToolByName(self.context, 'portal_workflow')
         rc = getToolByName(self.context, REFERENCE_CATALOG)
         bsc = getToolByName(self.context, 'bika_setup_catalog')
@@ -1487,7 +1486,7 @@ class ajaxGetServices(BrowserView):
         function returns a list of services from the selected category.
     """
     def __call__(self):
-        plone.protect.CheckAuthenticator(self.request)
+        CheckAuthenticator(self.request)
         bsc = getToolByName(self.context, 'bika_setup_catalog')
         return json.dumps([c.Title for c in
                 bsc(portal_type = 'AnalysisService',
@@ -1501,7 +1500,7 @@ class ajaxAttachAnalyses(BrowserView):
         Form is handled by the worksheet ManageResults code
     """
     def __call__(self):
-        plone.protect.CheckAuthenticator(self.request)
+        CheckAuthenticator(self.request)
         searchTerm = 'searchTerm' in self.request and self.request['searchTerm'].lower() or ''
         page = self.request['page']
         nr_rows = self.request['rows']
@@ -1574,8 +1573,8 @@ class ajaxSetAnalyst():
     def __call__(self):
         rc = getToolByName(self.context, 'reference_catalog')
         mtool = getToolByName(self, 'portal_membership')
-        plone.protect.CheckAuthenticator(self.request)
-        plone.protect.PostOnly(self.request)
+        CheckAuthenticator(self.request)
+        PostOnly(self.request)
         value = self.request.get('value', '')
         if not value:
             return
@@ -1593,8 +1592,8 @@ class ajaxSetInstrument():
 
     def __call__(self):
         rc = getToolByName(self.context, REFERENCE_CATALOG)
-        plone.protect.CheckAuthenticator(self.request)
-        plone.protect.PostOnly(self.request)
+        CheckAuthenticator(self.request)
+        PostOnly(self.request)
         value = self.request.get('value', '')
         if not value:
             raise Exception("Invalid instrument")

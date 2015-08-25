@@ -1,3 +1,157 @@
+class WebIntelligentToHtmlConverter(object):
+
+    def __init__(self, orig, tab_width=4):
+        pass
+
+    def __call__(self):
+        pass
+
+    @staticmethod
+    def abbreviateUrl(url, max = 60, ellipsis = "[&hellip;]"):
+        """very long urls are abbreviated to allow nicer layout
+        """
+        pass
+
+    @classmethod
+    def replaceURL(cls, match):
+        """Replace hyperlinks with clickable <a> tags
+        """
+        pass
+
+    @staticmethod
+    def replaceEmail(match):
+        """Replace email strings with mailto: links
+        """
+        pass
+
+    def indentWhitespace(self, match):
+        """Make leading whitespace on a line into &nbsp; to preserve indents
+        """
+        pass
+    
+def convertWebIntelligentPlainTextToHtml(orig, tab_width=4):
+    """Converts text/x-web-intelligent to text/html
+    """
+    pass
+
+def convertHtmlToWebIntelligentPlainText(orig):
+    """Converts text/html to text/x-web-intelligent.
+    """
+    @staticmethod
+    def savePres(match):
+        pass
+    @staticmethod
+    def fixTagWhitespace(match):
+        """Make whitespace-tag-whitespace into whitespace-tag.
+        Repeat this in case there are directly nested tags.
+        """
+        # Remove any superfluous whitespace, but preserve one leading space
+        pass
+
+
+class tableview:
+    pass
+
+
+class Table(object):
+    """
+    The table renders a table with sortable columns etc.
+    It is meant to be subclassed to provide methods for getting specific table
+    info.
+    """
+
+    def __init__(self, request, base_url, view_url, items,
+                 show_sort_column=False, buttons=None, pagesize=20,
+                 show_select_column=True, show_size_column=True,
+                 show_modified_column=True, show_status_column=True):
+        pass
+    
+    def msg_select_item(self, item):
+        pass
+
+    def within_batch_size(self):
+        pass
+
+    def set_checked(self, item):
+        pass
+
+    
+    def batch(self):
+        pass
+
+    def batching(self):
+        pass
+
+    def _get_select_currentbatch(self):
+        pass
+
+    def _set_select_currentbatch(self, value):
+        pass
+
+    def _get_select_all(self):
+        pass
+
+    def _set_select_all(self, value):
+        pass
+
+    def show_select_all_items(self):
+        pass
+
+    def get_nosort_class(self):
+        """
+        """
+        pass
+
+    def selectall_url(self):
+        pass
+
+    def selectscreen_url(self):
+        pass
+
+    def selectnone_url(self):
+        pass
+
+    def show_all_url(self):
+        pass
+
+    def selected(self, item):
+        pass
+
+    def viewname(self):
+        return self.view_url.split('?')[0].split('/')[-1]
+
+    def quote_plus(self, string):
+        pass
+    
+    
+class Lazy(object):
+    """Lazy Attributes.
+    """
+
+    def __init__(self, func, name=None):
+        pass
+
+    def __get__(self, inst, class_):
+        pass
+    
+    
+class PropertyMapping:
+
+    def __init__(self):
+        pass
+
+    def register(self, property, type, klass=None):
+        pass
+
+    def getType(self, property, klass):
+        pass
+
+propertyMapping = PropertyMapping()
+registerPropertyType = propertyMapping.register
+
+
+class DateTimeError(Exception):
+    pass
 class PersistentMapping: #(Persistent, PersistentMapping):
     """Legacy persistent mapping class
     This class mixes in ExtensionClass Base if it is present.
@@ -11,7 +165,9 @@ class PersistentMapping: #(Persistent, PersistentMapping):
 def check(request, extra='', name="_authenticator"):
     pass
 
-
+def postonly(request):
+    pass
+        
 class PropertyManager: #(Base):
     """
     https://github.com/zopefoundation/Zope/blob/master/src/OFS/PropertyManager.py
@@ -355,6 +511,190 @@ class InterfaceClass(Element, InterfaceBase, Specification):
 
 
 Interface = InterfaceClass("Interface", __module__ = 'zope.interface')
+
+class IQueryField(Interface):
+    """Query field interface """
+    pass
+
+class IField(Interface):
+    """ Interface for fields """
+
+#     required = Attribute('required', 'Require a value to be present when submitting the field')
+#     default = Attribute('default', 'Default value for a field')
+#     default_method = Attribute('default_method', 'Name of a method on the field ' +
+#                                                  'or an actual function instance to return the default')
+#     vocabulary = Attribute('vocabulary', 'List of suggested values for the field')
+#     vocabulary_factory = Attribute('vocabulary_factory', 'Name of Zope 3 vocabulary factory')
+#     enforceVocabulary = Attribute('enforceVocabulary', \
+#                                   'Restrict the allowed values to the ones in the vocabulary')
+#     multiValued = Attribute('multiValued', 'Allow the field to have multiple values')
+#     searchable = Attribute('searchable', 'Make the field searchable')
+#     isMetadata = Attribute('isMetadata', 'Is this field a metadata field?')
+#     accessor = Attribute('accessor', 'Use this method as the accessor for the field')
+#     mutator = Attribute('mutator', 'Use this method as the mutator for the field')
+#     mode = Attribute('mode', 'Mode of access to this field')
+#     read_permission = Attribute('read_permission', \
+#                                 'Permission to use to protect field reading')
+#     write_permission = Attribute('write_permission', \
+#                                  'Permission to use to protect writing to the field')
+
+#     storage = Attribute('storage', 'Storage class to use for this field')
+#     form_info = Attribute('form_info', 'Form Info (?)')
+#     generateMode = Attribute('generateMode', 'Generate Mode (?)')
+#     force = Attribute('force', 'Force (?)')
+#     type = Attribute('type', 'Type of the field')
+    @staticmethod
+    def Vocabulary(content_instance=None):
+        """
+        returns a DisplayList
+        uses self.vocabulary as source
+        1) Dynamic vocabulary:
+            precondition: a content_instance is given.
+            has to return a:
+                * DisplayList or
+                * list of strings or
+                * list of 2-tuples with strings:
+                    '[("key1","value 1"),("key 2","value 2"),]'
+            the output is postprocessed like a static vocabulary.
+            vocabulary is a string:
+                if a method with the name of the string exists it will be called
+            vocabulary is a class implementing IVocabulary:
+                the "getDisplayList" method of the class will be called.
+        2) Static vocabulary
+            * is already a DisplayList
+            * is a list of 2-tuples with strings (see above)
+            * is a list of strings (in this case a DisplayList with key=value
+              will be created)
+        3) Zope 3 vocabulary factory vocabulary
+            - precondition: a content_instance is given
+            - self.vocabulary_factory is given
+            - a named utility providing zope.schema.interfaces.IVocbularyFactory
+              exists for the name self.vocabulary_factory.
+        """
+        pass
+
+    @staticmethod
+    def copy():
+        """Return a copy of field instance [PRIVATE]
+        Consisting of field name and properties dictionary.
+        """
+        pass
+
+    @staticmethod
+    def validate(value, instance, errors={}, **kwargs):
+        """Validate passed-in value using all field validators.
+        Return None if all validations pass; otherwise, return failed
+        result returned by validator
+        """
+        pass
+
+    @staticmethod
+    def validate_required(instance, value, errors):
+        """Validate the required flag for a field [PRIVATE]
+        Overwrite it in your field for special case handling like empty files
+        """
+        pass
+    
+    @staticmethod
+    def checkPermission(mode, instance):
+        """
+        Check whether the security context allows the given permission on
+        the given object.
+        Arguments:
+        permission -- A permission name
+        instance -- The object being accessed according to the permission
+        """
+        pass
+
+    @staticmethod
+    def checkExternalEditor(instance):
+        """ Checks if the user may edit this field and if
+        external editor is enabled on this instance
+        """
+    @staticmethod
+    def getWidgetName():
+        """Return the widget name that is configured for this field as
+        a string"""
+        pass
+
+    @staticmethod
+    def getName():
+        """Return the name of this field as a string"""
+        pass
+    
+    @staticmethod
+    def getType():
+        """Return the type of this field as a string"""
+        pass
+
+    @staticmethod
+    def getDefault(instance):
+        """Return the default value to be used for initializing this
+        field"""
+        pass
+    
+    @staticmethod
+    def getAccessor(instance):
+        """Return the accessor method for getting data out of this
+        field"""
+        pass
+
+    @staticmethod
+    def getEditAccessor(instance):
+        """Return the accessor method for getting raw data out of this
+        field e.g.: for editing
+        """
+        pass
+
+    @staticmethod
+    def getMutator(instance):
+        """Return the mutator method used for changing the value
+        of this field"""
+        pass
+
+    @staticmethod
+    def toString():
+        """Utility method for converting a Field to a string [PRIVATE]
+        For the purpose of comparing fields.  This comparison is used for
+        determining whether a schema has changed in the auto update
+        function.  Right now it's pretty crude."""
+        pass
+
+    @staticmethod
+    def isLanguageIndependent(instance):
+        """Get the language independed flag for i18n content (used by LinguaPlon)
+        """
+        pass
+    
+    
+class IDateTimeField(IField):
+    """Marker interface for date/time field
+    """
+    pass
+
+
+class LocaleProvider(object):
+    """A locale provider that get's its data from the XML data."""
+
+
+    def __init__(self, locale_dir):
+        pass
+
+    def loadLocale(self, language=None, country=None, variant=None):
+        """See zope.i18n.interfaces.locales.ILocaleProvider"""
+        # Creating the filename
+        pass
+
+    def getLocale(self, language=None, country=None, variant=None):
+        """See zope.i18n.interfaces.locales.ILocaleProvider"""
+        # We want to be liberal in what we accept, but the standard is lower
+        # case language codes, upper case country codes, and upper case
+        # variants, so coerce case here.
+        pass
+    
+LOCALEDIR = "My Local Directory"
+    
+locales = LocaleProvider(LOCALEDIR)
 
 _BLANK = None
 
@@ -762,6 +1102,18 @@ class ObjectField(Field):
         lists/tuples/dicts.
         """
         pass
+ 
+ 
+class QueryField(ObjectField):
+    """QueryField for storing query"""
+
+
+    def get(self, instance, **kwargs):
+        """Get the query dict from the request or from the object"""
+        pass
+
+    def getRaw(self, instance, **kwargs):
+        pass   
     
 
 class BooleanField(ObjectField):
@@ -883,17 +1235,6 @@ class FloatField(ObjectField):
         pass
     
         
-class QueryField(ObjectField):
-    """QueryField for storing query"""
-
-    def get(self, instance, **kwargs):
-        """Get the query dict from the request or from the object"""
-        pass
-    
-    def getRaw(self, instance, **kwargs):
-        pass
-    
-    
 class LinesField(ObjectField):
     """For creating lines objects"""
 
@@ -919,9 +1260,6 @@ class LinesField(ObjectField):
 class Interface:
     pass
 
-class IQueryField(Interface):
-    """Query field interface """
-    pass
 
 def sortable_value(value):
     pass
@@ -5573,83 +5911,6 @@ class TableBatchView: #(BatchView):
         pass
 
 
-class Table(object):
-    """
-    The table renders a table with sortable columns etc.
-
-    It is meant to be subclassed to provide methods for getting specific table
-    info.
-    """
-
-    def __init__(self, request, base_url, view_url, items,
-                 show_sort_column=False, buttons=None, pagesize=20,
-                 show_select_column=True, show_size_column=True,
-                 show_modified_column=True, show_status_column=True):
-        pass
-
-    def msg_select_item(self, item):
-        pass
-
-    
-    def within_batch_size(self):
-        pass
-
-    def set_checked(self, item):
-        pass
-
-    
-    def batch(self):
-        pass
-
-    def batching(self):
-        pass
-
-    def _get_select_currentbatch(self):
-        pass
-
-    def _set_select_currentbatch(self, value):
-        pass
-
-    def _get_select_all(self):
-        pass
-
-    def _set_select_all(self, value):
-        pass
-
-    
-    def show_select_all_items(self):
-        pass
-
-    def get_nosort_class(self):
-        """
-        """
-        pass
-
-    
-    def selectall_url(self):
-        pass
-
-    
-    def selectscreen_url(self):
-        pass
-
-    
-    def selectnone_url(self):
-        pass
-
-    
-    def show_all_url(self):
-        pass
-
-    def selected(self, item):
-        pass
-
-    
-    def viewname(self):
-        pass
-
-    def quote_plus(self, string):
-        pass
 
 
 class TableBrowserView: #(BrowserView):

@@ -11,7 +11,6 @@ from OLiMS.dependencies.dependency import DateTime
 from OLiMS.dependencies.dependency import PloneMessageFactory as PMF
 from OLiMS.dependencies.dependency import getToolByName
 
-import plone
 
 class AnalysisRequestPublishedResults(BikaListingView):
 

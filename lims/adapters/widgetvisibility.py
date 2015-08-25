@@ -4,7 +4,7 @@ from OLiMS.lims.interfaces import IATWidgetVisibility
 from OLiMS.lims.utils import getHiddenAttributesForClass
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import WorkflowException
-from OLiMS.dependencies.dependency import DictType
+from types import DictType
 from OLiMS.dependencies.dependency import implements
 
 _marker = []

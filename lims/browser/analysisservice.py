@@ -13,8 +13,10 @@ from OLiMS.dependencies.dependency import getToolByName
 from magnitude import mg, MagnitudeError
 from OLiMS.dependencies.dependency import adapts
 from OLiMS.dependencies.dependency import implements
-import json, plone
-import plone.protect
+import json
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
+from OLiMS.dependencies.dependency import postonly as PostOnly
+
 import re
 from OLiMS.lims.utils import to_unicode
 
@@ -29,7 +31,7 @@ class ajaxGetContainers(BrowserView):
     - minvol: magnitude (string).
     """
     def __call__(self):
-        plone.protect.CheckAuthenticator(self.request)
+        CheckAuthenticator(self.request)
         uc = getToolByName(self, 'uid_catalog')
 
         allow_blank = self.request.get('allow_blank', False) == 'true'
@@ -61,7 +63,7 @@ class ajaxServicePopup(BrowserView):
         self.icon = self.portal_url + "/++resource++bika.lims.images/analysisservice_big.png"
 
     def __call__(self):
-        plone.protect.CheckAuthenticator(self.request)
+        CheckAuthenticator(self.request)
         bsc = getToolByName(self.context, 'bika_setup_catalog')
         uc = getToolByName(self.context, 'uid_catalog')
 
@@ -137,8 +139,8 @@ class ajaxGetServiceInterimFields:
         self.request = request
 
     def __call__(self):
-        plone.protect.CheckAuthenticator(self.request)
-        plone.protect.PostOnly(self.request)
+        CheckAuthenticator(self.request)
+        PostOnly(self.request)
         bsc = getToolByName(self.context, 'bika_setup_catalog')
         service_url = self.request['service_url']
         service_id = service_url.split('/')[-1]

@@ -18,7 +18,6 @@ from OLiMS.dependencies.dependency import locales
 from OLiMS.dependencies.dependency import implements
 
 import json
-import plone
 
 class AnalysisRequestAnalysesView(BikaListingView):
     implements(IFolderContentsView, IViewView)

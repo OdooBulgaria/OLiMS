@@ -1,7 +1,6 @@
 from OLiMS.dependencies.dependency import DateTime
 from OLiMS.dependencies.dependency import REFERENCE_CATALOG
 from OLiMS.dependencies.dependency import DisplayList
-from OLiMS.dependencies.dependency import sequence
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import _createObjectByType
 from OLiMS.lims.browser import BrowserView
@@ -18,7 +17,7 @@ from OLiMS.lims.utils import to_utf8 as _c
 from OLiMS.dependencies.dependency import IFolderContentsView
 from OLiMS.dependencies.dependency import IViewView
 from OLiMS.dependencies.dependency import implements
-import plone
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
 import json
 import zope
 
@@ -29,7 +28,7 @@ class WorksheetFolderWorkflowAction(WorkflowAction):
     """
     def __call__(self):
         form = self.request.form
-        plone.protect.CheckAuthenticator(form)
+        CheckAuthenticator(form)
         workflow = getToolByName(self.context, 'portal_workflow')
         rc = getToolByName(self.context, REFERENCE_CATALOG)
         action, came_from = WorkflowAction._get_form_workflow_action(self)

@@ -1,5 +1,5 @@
 from OLiMS.dependencies.dependency import getSecurityManager
-from OLiMS.dependencies.dependency import ModifyPortalContent
+from OLiMS.dependencies.dependency.permissions import ModifyPortalContent
 from OLiMS.lims import bikaMessageFactory as _
 from OLiMS.lims.utils import t
 from OLiMS.lims.browser.bika_listing import BikaListingView

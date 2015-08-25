@@ -12,10 +12,10 @@ from OLiMS.lims.utils.analysis import format_numeric_result
 from OLiMS.dependencies.dependency import adapts
 from OLiMS.dependencies.dependency import getAdapters
 from OLiMS.dependencies.dependency import implements
-
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
+from OLiMS.dependencies.dependency import postonly as Postonly
 import json
 import math
-import plone
 
 
 class CalculationResultAlerts(object):
@@ -371,8 +371,8 @@ class ajaxCalculateAnalysisEntry(BrowserView):
 
     def __call__(self):
         self.rc = getToolByName(self.context, REFERENCE_CATALOG)
-        plone.protect.CheckAuthenticator(self.request)
-        plone.protect.PostOnly(self.request)
+        CheckAuthenticator(self.request)
+        PostOnly(self.request)
 
         self.spec = self.request.get('specification', None)
 
@@ -421,7 +421,7 @@ class ajaxGetMethodCalculation(BrowserView):
         uid: unique identifier of the method
     """
     def __call__(self):
-        plone.protect.CheckAuthenticator(self.request)
+        CheckAuthenticator(self.request)
         calcdict = {}
         uc = getToolByName(self, 'uid_catalog')
         method = uc(UID=self.request.get("uid", '0'))

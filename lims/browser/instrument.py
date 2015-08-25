@@ -4,7 +4,7 @@ from OLiMS.lims.utils import t
 from OLiMS.lims.browser.bika_listing import BikaListingView
 from OLiMS.lims.content.instrumentmaintenancetask import InstrumentMaintenanceTaskStatuses as mstatus
 from OLiMS.lims.subscribers import doActionFor, skip
-from OLiMS.dependencies.dependency import itemgetter
+from operator import itemgetter
 from OLiMS.dependencies.dependency import IFolderContentsView
 from OLiMS.dependencies.dependency import IViewView
 from OLiMS.dependencies.dependency import ViewletBase
@@ -13,7 +13,6 @@ from OLiMS.lims.browser.bika_listing import BikaListingView
 from OLiMS.lims.config import QCANALYSIS_TYPES
 from OLiMS.lims.utils import to_utf8
 from OLiMS.lims.permissions import *
-from OLiMS.dependencies.dependency import itemgetter
 from OLiMS.lims.browser import BrowserView
 from OLiMS.lims.browser.analyses import AnalysesView
 from OLiMS.lims.browser.multifile import MultifileView
@@ -22,9 +21,8 @@ from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import safe_unicode
 from OLiMS.dependencies.dependency import ViewPageTemplateFile
 from OLiMS.dependencies.dependency import Forbidden
-from OLiMS.dependencies.dependency import itemgetter
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
 
-import plone
 import json
 
 class InstrumentMaintenanceView(BikaListingView):
@@ -622,7 +620,7 @@ class ajaxGetInstrumentMethod(BrowserView):
     def __call__(self):
         methoddict = {}
         try:
-            plone.protect.CheckAuthenticator(self.request)
+            CheckAuthenticator(self.request)
         except Forbidden:
             return json.dumps(methoddict)
         bsc = getToolByName(self, 'bika_setup_catalog')

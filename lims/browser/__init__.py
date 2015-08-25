@@ -9,7 +9,7 @@ from OLiMS.dependencies.dependency import BrowserView
 from OLiMS.lims import logger
 from OLiMS.dependencies.dependency import Lazy as lazy_property
 from OLiMS.dependencies.dependency import translate
-from OLiMS.dependencies.dependency import strptime as _strptime
+from time import strptime as _strptime
 
 
 def strptime(context, value):

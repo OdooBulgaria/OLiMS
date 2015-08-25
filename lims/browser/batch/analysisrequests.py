@@ -1,4 +1,4 @@
-from OLiMS.dependencies.dependency import itemgetter
+from operator import itemgetter
 from OLiMS.lims import bikaMessageFactory as _
 from OLiMS.lims.utils import t
 from OLiMS.lims.browser.analysisrequest import AnalysisRequestAddView as _ARAV

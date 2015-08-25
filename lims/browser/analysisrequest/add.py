@@ -2,8 +2,8 @@ import json
 from OLiMS.lims.utils.sample import create_sample
 from OLiMS.lims.utils.samplepartition import create_samplepartition
 from OLiMS.lims.workflow import doActionFor
-import plone
-
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
+from OLiMS.dependencies.dependency import postonly as PostOnly
 from OLiMS.lims import bikaMessageFactory as _
 from OLiMS.lims.browser import BrowserView
 from OLiMS.lims.browser.analysisrequest import AnalysisRequestViewView
@@ -353,8 +353,8 @@ class ajaxAnalysisRequestSubmit():
 
     def __call__(self):
         form = self.request.form
-        plone.protect.CheckAuthenticator(self.request.form)
-        plone.protect.PostOnly(self.request.form)
+        CheckAuthenticator(self.request.form)
+        PostOnly(self.request.form)
         uc = getToolByName(self.context, 'uid_catalog')
         bsc = getToolByName(self.context, 'bika_setup_catalog')
         portal_catalog = getToolByName(self.context, 'portal_catalog')

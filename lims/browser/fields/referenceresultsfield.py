@@ -4,7 +4,6 @@ from OLiMS.dependencies.dependency import RecordField, RecordsField
 from OLiMS.dependencies.dependency import registerField
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import validation
 from OLiMS.dependencies.dependency import RegexValidator
 import sys
 from OLiMS.lims import bikaMessageFactory as _

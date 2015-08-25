@@ -7,7 +7,7 @@ from OLiMS.lims.permissions import ManageAnalysisRequests
 from OLiMS.lims.browser.bika_listing import BikaListingView
 from OLiMS.lims import bikaMessageFactory as _
 from OLiMS.lims.utils import t
-from OLiMS.dependencies.dependency import itemgetter
+from operator import itemgetter
 from OLiMS.lims.interfaces import IClientFolder
 from OLiMS.dependencies.dependency import IFolderContentsView
 from OLiMS.lims.browser import BrowserView
@@ -15,7 +15,8 @@ from OLiMS.dependencies.dependency import implements
 from OLiMS.dependencies.dependency import permissions
 from OLiMS.dependencies.dependency import getUtility
 from OLiMS.dependencies.dependency import IRegistry
-import plone,json
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
+import json
 
 
 class ClientFolderContentsView(BikaListingView):
@@ -131,7 +132,7 @@ class ajaxGetClients(BrowserView):
     """ Vocabulary source for jquery combo dropdown box
     """
     def __call__(self):
-        plone.protect.CheckAuthenticator(self.request)
+        CheckAuthenticator(self.request)
         searchTerm = self.request.get('searchTerm', '').lower()
         page = self.request.get('page', 1)
         nr_rows = self.request.get('rows', 20)

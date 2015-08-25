@@ -13,7 +13,7 @@ from OLiMS.lims.utils import isActive
 from OLiMS.lims.utils import getUsers
 from OLiMS.lims.utils import to_utf8
 from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import itemgetter
+from operator import itemgetter
 from OLiMS.dependencies.dependency import REFERENCE_CATALOG
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import WorkflowException

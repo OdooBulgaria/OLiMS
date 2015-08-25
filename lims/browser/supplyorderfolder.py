@@ -1,7 +1,7 @@
 from OLiMS.lims import bikaMessageFactory as _
 from OLiMS.lims.browser.bika_listing import BikaListingView
 from OLiMS.lims.utils import t
-from OLiMS.dependencies.dependency import itemgetter
+from operator import itemgetter
 from OLiMS.dependencies.dependency import IViewView
 from OLiMS.dependencies.dependency import implements
 

@@ -1,6 +1,6 @@
 from OLiMS.lims.browser import BrowserView
 from OLiMS.dependencies.dependency import getToolByName
-import plone
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
 import json
 
 class ajaxGetInstruments(BrowserView):
@@ -17,7 +17,7 @@ class ajaxGetInstruments(BrowserView):
     def __call__(self):
         instruments = []
         try:
-            plone.protect.CheckAuthenticator(self.request)
+            CheckAuthenticator(self.request)
         except Forbidden:
             return json.dumps(instruments)
         bsc = getToolByName(self, 'portal_catalog')
@@ -51,7 +51,7 @@ class ajaxGetMethodServiceInstruments(BrowserView):
     def __call__(self):
         instruments = []
         try:
-            plone.protect.CheckAuthenticator(self.request)
+            CheckAuthenticator(self.request)
         except Forbidden:
             return json.dumps(instruments)
 

@@ -4,13 +4,13 @@ for selecting a catalog tool.
 """
 
 from OLiMS.dependencies.dependency import ClassSecurityInfo
-from archetypes.querywidget.interfaces import IQueryField
+from OLiMS.dependencies.dependency import IQueryField
 from OLiMS.dependencies.dependency import ObjectField
 from OLiMS.dependencies.dependency import registerField
 from OLiMS.dependencies.dependency import implements
 from OLiMS.dependencies.dependency import getSite
 
-from archetypes.querywidget.field import QueryField as _QueryField
+from OLiMS.dependencies.dependency import QueryField as _QueryField
 from OLiMS.lims.querystring.querybuilder import QueryBuilder
 
 

@@ -15,7 +15,6 @@ from OLiMS.dependencies.dependency import IFolderContentsView
 from OLiMS.dependencies.dependency import IViewView
 from OLiMS.dependencies.dependency import implements
 import os
-import plone
 
 
 class Report(BrowserView):

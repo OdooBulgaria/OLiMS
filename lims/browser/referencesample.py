@@ -7,13 +7,12 @@ from OLiMS.lims import bikaMessageFactory as _
 from OLiMS.lims.utils import t
 from OLiMS.lims.browser.bika_listing import BikaListingView
 from OLiMS.lims.utils import isActive
-from OLiMS.dependencies.dependency import itemgetter
+from operator import itemgetter
 from OLiMS.lims.browser.analyses import AnalysesView
 from OLiMS.dependencies.dependency import IViewView
 from OLiMS.dependencies.dependency import getMultiAdapter
 from OLiMS.dependencies.dependency import implements
-import json, plone
-from OLiMS.dependencies.dependency import itemgetter
+import json
 
 class ViewView(BrowserView):
     """ Reference Sample View

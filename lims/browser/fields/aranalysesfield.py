@@ -9,7 +9,7 @@ from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import registerField
 from OLiMS.dependencies.dependency import shasattr
 from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import ListType, TupleType, DictType
+from types import ListType, TupleType, DictType
 
 
 class ARAnalysesField(ObjectField):

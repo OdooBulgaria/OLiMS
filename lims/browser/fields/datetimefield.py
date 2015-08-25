@@ -1,4 +1,4 @@
-from OLiMS.dependencies.dependency import strptime
+from time import strptime
 
 from OLiMS.dependencies.dependency import ClassSecurityInfo
 

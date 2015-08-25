@@ -3,7 +3,7 @@ from OLiMS.dependencies.dependency import event
 
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import itemgetter, methodcaller
+from operator import itemgetter, methodcaller
 
 from OLiMS.lims import bikaMessageFactory as _
 from OLiMS.lims.browser import BrowserView

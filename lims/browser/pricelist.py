@@ -5,7 +5,7 @@ from OLiMS.lims.browser.bika_listing import BikaListingView
 from OLiMS.lims.interfaces import IPricelistFolder
 from OLiMS.lims.permissions import AddPricelist, ManageBika
 from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import formataddr
+from email.Utils import formataddr
 from OLiMS.dependencies.dependency import IFolderContentsView
 from OLiMS.dependencies.dependency import IViewView
 from OLiMS.lims.utils import sendmail, encode_header

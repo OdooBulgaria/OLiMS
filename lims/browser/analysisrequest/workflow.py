@@ -12,17 +12,16 @@ from OLiMS.lims.utils import to_utf8
 from OLiMS.lims.workflow import doActionFor
 from OLiMS.dependencies.dependency import DateTime
 from string import Template
-from OLiMS.dependencies.dependency import MIMEMultipart
-from OLiMS.dependencies.dependency import MIMEText
-from OLiMS.dependencies.dependency import formataddr
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.Utils import formataddr
 from OLiMS.dependencies.dependency import REFERENCE_CATALOG
 from OLiMS.dependencies.dependency import ObjectInitializedEvent
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import safe_unicode, _createObjectByType
-
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
+from OLiMS.dependencies.dependency import notify
 import json
-import plone
-import zope.event
 
 
 class AnalysisRequestWorkflowAction(WorkflowAction):
@@ -37,7 +36,7 @@ class AnalysisRequestWorkflowAction(WorkflowAction):
 
     def __call__(self):
         form = self.request.form
-        plone.protect.CheckAuthenticator(form)
+        CheckAuthenticator(form)
         action, came_from = WorkflowAction._get_form_workflow_action(self)
         if type(action) in (list, tuple):
             action = action[0]
@@ -580,7 +579,7 @@ class AnalysisRequestWorkflowAction(WorkflowAction):
             nan.setInstrument(an.getInstrument())
             nan.setSamplePartition(an.getSamplePartition())
             nan.unmarkCreationFlag()
-            zope.event.notify(ObjectInitializedEvent(nan))
+            notify(ObjectInitializedEvent(nan))
             changeWorkflowState(nan, 'bika_analysis_workflow',
                                 'to_be_verified')
             nan.reindexObject()

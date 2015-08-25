@@ -4,7 +4,6 @@ from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import implements
 from OLiMS.dependencies.dependency import safe_unicode
 
-import plone
 
 
 class SamplesView(_SV):

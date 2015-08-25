@@ -20,7 +20,7 @@ from OLiMS.dependencies.dependency import ViewPageTemplateFile
 from OLiMS.dependencies.dependency import getAdapters
 from OLiMS.dependencies.dependency import implements
 import os
-import plone
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
 
 
 class ProductivityView(BrowserView):
@@ -326,7 +326,7 @@ class SubmitForm(BrowserView):
 
 class ReferenceAnalysisQC_Samples(BrowserView):
     def __call__(self):
-        plone.protect.CheckAuthenticator(self.request)
+        CheckAuthenticator(self.request)
         # get Supplier from request
         supplier = self.request.form.get('SupplierUID', '')
         supplier = self.reference_catalog.lookupObject(supplier)
@@ -350,7 +350,7 @@ class ReferenceAnalysisQC_Samples(BrowserView):
 
 class ReferenceAnalysisQC_Services(BrowserView):
     def __call__(self):
-        plone.protect.CheckAuthenticator(self.request)
+        CheckAuthenticator(self.request)
         # get Sample from request
         sample = self.request.form.get('ReferenceSampleUID', '')
         sample = self.reference_catalog.lookupObject(sample)

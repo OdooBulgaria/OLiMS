@@ -1,16 +1,15 @@
 from OLiMS.dependencies.dependency import ClassSecurityInfo
-from archetypes.querywidget.views import WidgetTraverse as _WidgetTraverse
-from archetypes.querywidget.widget import QueryWidget as _QueryWidget
+from OLiMS.dependencies.dependency import WidgetTraverse as _WidgetTraverse
+from OLiMS.dependencies.dependency import QueryWidget as _QueryWidget
 from OLiMS.lims.querystring.querybuilder import QueryBuilder
 from OLiMS.lims.querystring.querybuilder import RegistryConfiguration
-from archetypes.querywidget.views import \
+from OLiMS.dependencies.dependency import \
     MultiSelectWidget as _MultiSelectWidget
 from OLiMS.lims.querystring.registryreader import QuerystringRegistryReader
 from OLiMS.dependencies.dependency import IQuerystringRegistryReader
 from OLiMS.dependencies.dependency import IRegistry
 from OLiMS.dependencies.dependency import registerWidget
 from OLiMS.dependencies.dependency import TypesWidget
-from OLiMS.dependencies.dependency import ModifyPortalContent, View
 from OLiMS.dependencies.dependency import getMultiAdapter
 from OLiMS.dependencies.dependency import getUtility
 from OLiMS.dependencies.dependency import MessageFactory

@@ -20,15 +20,16 @@ from OLiMS.lims.utils import changeWorkflowState, to_unicode
 from OLiMS.lims.utils import getUsers
 from OLiMS.lims.utils import isActive
 from OLiMS.lims.utils import to_utf8, getHiddenAttributesForClass
-from OLiMS.dependencies.dependency import itemgetter
+from operator import itemgetter
 from OLiMS.lims.workflow import doActionFor
 from OLiMS.dependencies.dependency import IViewView
 from OLiMS.dependencies.dependency import IRegistry
 from OLiMS.dependencies.dependency import queryUtility
 from OLiMS.dependencies.dependency import implements
 from OLiMS.dependencies.dependency import ParseError
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
+
 import json
-import plone
 import urllib
 
 class SamplePartitionsView(BikaListingView):
@@ -757,7 +758,7 @@ class SamplesView(BikaListingView):
 
 class ajaxGetSampleTypeInfo(BrowserView):
     def __call__(self):
-        plone.protect.CheckAuthenticator(self.request)
+        CheckAuthenticator(self.request)
         uid = self.request.get('UID', '')
         title = self.request.get('Title', '')
         ret = {

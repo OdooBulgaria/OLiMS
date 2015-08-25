@@ -3,11 +3,11 @@ from OLiMS.lims.browser.bika_listing import BikaListingView
 from OLiMS.lims import bikaMessageFactory as _
 from OLiMS.lims.config import ManageInvoices
 from OLiMS.lims.utils import t
-from OLiMS.dependencies.dependency import itemgetter
+from operator import itemgetter
 from OLiMS.dependencies.dependency import IFolderContentsView
 from OLiMS.lims.browser import BrowserView
 from OLiMS.dependencies.dependency import implements
-import plone
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
 import json
 
 
@@ -129,7 +129,7 @@ class ajaxGetBatches(BrowserView):
     """
 
     def __call__(self):
-        plone.protect.CheckAuthenticator(self.request)
+        CheckAuthenticator(self.request)
         searchTerm = self.request['searchTerm'].lower()
         page = self.request['page']
         nr_rows = self.request['rows']

@@ -8,7 +8,7 @@ from OLiMS.lims import bikaMessageFactory as _
 from OLiMS.lims.utils import t
 from OLiMS.lims.browser.bika_listing import BikaListingView
 from OLiMS.dependencies.dependency import locales
-from OLiMS.dependencies.dependency import itemgetter
+from operator import itemgetter
 import json
 
 class ARTemplateAnalysesView(BikaListingView):

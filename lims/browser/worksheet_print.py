@@ -13,8 +13,7 @@ from OLiMS.dependencies.dependency import ViewPageTemplateFile
 from OLiMS.dependencies.dependency import iterDirectoriesOfType, queryResourceDirectory
 from OLiMS.dependencies.dependency import getAdapters
 import glob, os, sys, traceback
-import App
-import Globals
+
 
 class WorksheetPrintView(BrowserView):
     """ Print view for a worksheet. This view acts as a placeholder, so

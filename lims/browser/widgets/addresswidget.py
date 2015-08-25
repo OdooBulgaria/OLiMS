@@ -7,7 +7,6 @@ from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.lims.browser import BrowserView
 from OLiMS.lims.locales import COUNTRIES,STATES,DISTRICTS
 import json
-import plone
 
 class AddressWidget(TypesWidget):
     _properties = TypesWidget._properties.copy()

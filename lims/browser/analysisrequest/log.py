@@ -11,7 +11,6 @@ from OLiMS.lims.utils import to_utf8
 from OLiMS.lims.workflow import doActionFor
 from OLiMS.dependencies.dependency import getToolByName
 
-import plone
 
 class AnalysisRequestLog(LogView):
 

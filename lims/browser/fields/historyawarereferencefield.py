@@ -5,11 +5,8 @@ from OLiMS.dependencies.dependency import registerField
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import ArchivistRetrieveError
-from OLiMS.dependencies.dependency import validation
 from OLiMS.dependencies.dependency import RegexValidator
 import sys
-from OLiMS.dependencies.dependency import SaveNewVersion
-from OLiMS.dependencies.dependency import AccessPreviousVersions
 from OLiMS.dependencies.dependency import REFERENCE_CATALOG
 from OLiMS.lims import bikaMessageFactory as _
 from OLiMS.lims.utils import t

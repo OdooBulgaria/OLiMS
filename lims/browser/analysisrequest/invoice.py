@@ -1,9 +1,9 @@
 from OLiMS.dependencies.dependency import ClassSecurityInfo
 from smtplib import SMTPServerDisconnected, SMTPRecipientsRefused
 from OLiMS.dependencies.dependency import WorkflowException
-from OLiMS.dependencies.dependency import MIMEMultipart
-from OLiMS.dependencies.dependency import MIMEText
-from OLiMS.dependencies.dependency import formataddr
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.utils import formataddr
 from OLiMS.lims import bikaMessageFactory as _
 from OLiMS.lims.utils import t
 from OLiMS.lims.browser import BrowserView
@@ -19,7 +19,6 @@ from OLiMS.dependencies.dependency import ViewPageTemplateFile
 from OLiMS.dependencies.dependency import implements
 from OLiMS.dependencies.dependency import Decimal
 
-import plone, App
 
 class InvoiceView(BrowserView):
 
@@ -232,7 +231,7 @@ class InvoiceCreate(InvoiceView):
         """
         ar = self.aq_parent
         # SMTP errors are silently ignored if server is in debug mode
-        debug_mode = App.config.getConfiguration().debug_mode
+#         debug_mode = App.config.getConfiguration().debug_mode "By Yasir"
         # Useful variables
         lab = ar.bika_setup.laboratory
         # Compose and send email.

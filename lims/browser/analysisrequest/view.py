@@ -20,7 +20,6 @@ from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import ViewPageTemplateFile
 from OLiMS.dependencies.dependency import implements
 
-import plone
 
 class AnalysisRequestViewView(BrowserView):
 

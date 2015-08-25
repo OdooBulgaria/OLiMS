@@ -6,7 +6,7 @@ from OLiMS.lims.utils import t
 from OLiMS.lims.browser.bika_listing import BikaListingView
 from OLiMS.lims.utils import isActive
 from OLiMS.dependencies.dependency import getMultiAdapter
-import plone
+
 
 class LateAnalysesView(BikaListingView):
     """ Late analyses (click from portlet_late_analyses More... link)

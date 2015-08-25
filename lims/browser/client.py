@@ -1,9 +1,7 @@
-from OLiMS.dependencies.dependency import ModifyPortalContent
-import plone, json
-import zope.event
+import json
 
 from OLiMS.lims.permissions import *
-
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
 from OLiMS.dependencies.dependency import getSecurityManager
 from OLiMS.dependencies.dependency import aq_parent, aq_inner
 from OLiMS.lims import PMF, logger, bikaMessageFactory as _
@@ -52,7 +50,7 @@ class ClientWorkflowAction(AnalysisRequestWorkflowAction):
 
     def __call__(self):
         form = self.request.form
-        plone.protect.CheckAuthenticator(form)
+        CheckAuthenticator(form)
         self.context = aq_inner(self.context)
         workflow = getToolByName(self.context, 'portal_workflow')
         bc = getToolByName(self.context, 'bika_catalog')
@@ -815,7 +813,7 @@ class ReferenceWidgetVocabulary(DefaultReferenceWidgetVocabulary):
 
 class ajaxGetClientInfo(BrowserView):
     def __call__(self):
-        plone.protect.CheckAuthenticator(self.request)
+        CheckAuthenticator(self.request)
         wf = getToolByName(self.context, 'portal_workflow')
         ret = {'ClientTitle': self.context.Title(),
                'ClientID': self.context.getClientID(),

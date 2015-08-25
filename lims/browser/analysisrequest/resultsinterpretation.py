@@ -4,7 +4,7 @@ from OLiMS.dependencies.dependency import RichTextValue
 from OLiMS.dependencies.dependency import ViewPageTemplateFile
 from OLiMS.dependencies.dependency import PloneMessageFactory
 from OLiMS.dependencies.dependency import getToolByName
-import plone
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
 
 
 class ARResultsInterpretationView(BrowserView):
@@ -43,7 +43,7 @@ class Save:
 
     def __call__(self):
         form = self.request.form
-        plone.protect.CheckAuthenticator(form)
+        CheckAuthenticator(form)
 
         # Save the results interpretation
         res = form.get('ResultsInterpretationDepts',[])
