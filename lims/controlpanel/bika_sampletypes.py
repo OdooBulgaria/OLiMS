@@ -1,6 +1,6 @@
 from OLiMS.dependencies.dependency import ClassSecurityInfo
 from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies.dependency import atapi
+from OLiMS.dependencies import atapi
 from OLiMS.dependencies.dependency import registerType
 from OLiMS.dependencies.dependency import permissions
 from OLiMS.dependencies.dependency import getToolByName
@@ -14,11 +14,12 @@ from OLiMS.dependencies.dependency import IViewView
 from OLiMS.lims.content.bikaschema import BikaFolderSchema
 from OLiMS.lims.interfaces import ISampleTypes
 from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.dependency import ATFolder, ATFolderSchema
+from OLiMS.dependencies.folder import ATFolder, ATFolderSchema
 from OLiMS.dependencies.dependency import implements
 from OLiMS.dependencies.dependency import getToolByName
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
 import json
-import plone
+
 
 class SampleTypesView(BikaListingView):
     implements(IFolderContentsView, IViewView)
@@ -171,7 +172,7 @@ class ajax_SampleTypes(BrowserView):
             If there aren't any, return items that contain them
     """
     def __call__(self):
-        plone.protect.CheckAuthenticator(self.request)
+        CheckAuthenticator(self.request)
         bsc = getToolByName(self.context, 'bika_setup_catalog')
         term = safe_unicode(self.request.get('term', '')).lower()
         items = []

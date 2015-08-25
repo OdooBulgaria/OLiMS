@@ -1,7 +1,7 @@
 from OLiMS.dependencies.dependency import ClassSecurityInfo
 from OLiMS.dependencies.dependency import schemata
 from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import atapi
+from OLiMS.dependencies import atapi
 from OLiMS.dependencies.dependency import registerType
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.lims.browser.bika_listing import BikaListingView
@@ -12,7 +12,7 @@ from OLiMS.lims.content.bikaschema import BikaFolderSchema
 from OLiMS.dependencies.dependency import IViewView
 from OLiMS.lims.interfaces import IAttachmentTypes
 from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.dependency import ATFolder, ATFolderSchema
+from OLiMS.dependencies.folder import ATFolder, ATFolderSchema
 from OLiMS.dependencies.dependency import implements
 
 class AttachmentTypesView(BikaListingView):

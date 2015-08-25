@@ -8,14 +8,14 @@ from OLiMS.lims.interfaces import IAnalysisServices
 from OLiMS.lims.utils import tmpID
 from OLiMS.lims.validators import ServiceKeywordValidator
 from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.dependency import ATFolder, ATFolderSchema
+from OLiMS.dependencies.folder import ATFolder, ATFolderSchema
 from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import atapi
+from OLiMS.dependencies import atapi
 from OLiMS.dependencies.dependency import schemata
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import BrowserView
 from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import savepoint
+from transaction import savepoint
 from OLiMS.dependencies.dependency import implements
 
 

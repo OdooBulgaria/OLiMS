@@ -7,8 +7,8 @@ from OLiMS.lims import bikaMessageFactory as _
 from OLiMS.lims.utils import t
 from OLiMS.lims.interfaces import IIdServer
 from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import sha1
-import App,os,sys,random,time,urllib,hmac
+from hashlib import sha1
+import os,sys,random,time,urllib,hmac
 
 try:
     from OLiMS.dependencies.dependency import getSite

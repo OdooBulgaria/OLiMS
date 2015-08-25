@@ -1,5 +1,5 @@
 from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies.dependency import atapi
+from OLiMS.dependencies import atapi
 from OLiMS.lims.browser.bika_listing import BikaListingView
 from OLiMS.lims.config import PROJECTNAME
 from OLiMS.lims import bikaMessageFactory as _
@@ -7,7 +7,7 @@ from OLiMS.lims.utils import t
 from OLiMS.lims.interfaces import IBatchLabels
 from OLiMS.dependencies.dependency import IViewView
 from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.dependency import ATFolder, ATFolderSchema
+from OLiMS.dependencies.folder import ATFolder, ATFolderSchema
 from OLiMS.dependencies.dependency import implements
 
 class BatchLabelsView(BikaListingView):

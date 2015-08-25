@@ -1,6 +1,6 @@
 from OLiMS.dependencies.dependency import ClassSecurityInfo
 from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies.dependency import atapi
+from OLiMS.dependencies import atapi
 from OLiMS.dependencies.dependency import registerType
 from OLiMS.dependencies.dependency import permissions
 from OLiMS.dependencies.dependency import getToolByName
@@ -15,11 +15,12 @@ from OLiMS.dependencies.dependency import PloneMessageFactory as _p
 from OLiMS.lims.interfaces import IStorageLocations
 from OLiMS.lims.content.bikaschema import BikaFolderSchema
 from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.dependency import ATFolder, ATFolderSchema
+from OLiMS.dependencies.folder import ATFolder, ATFolderSchema
 from OLiMS.dependencies.dependency import implements
 from OLiMS.dependencies.dependency import getToolByName
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
 import json
-import plone
+
 
 class StorageLocationsView(BikaListingView):
     implements(IFolderContentsView, IViewView)
@@ -135,7 +136,7 @@ class ajax_StorageLocations(BrowserView):
         return res
 
     def __call__(self):
-        plone.protect.CheckAuthenticator(self.request)
+        CheckAuthenticator(self.request)
         bsc = getToolByName(self.context, 'bika_setup_catalog')
         term = safe_unicode(self.request.get('term', '')).lower()
         if not term:

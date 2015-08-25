@@ -6,9 +6,9 @@ from OLiMS.lims.interfaces import ISubGroups
 from OLiMS.lims import bikaMessageFactory as _b
 from OLiMS.lims.browser.bika_listing import BikaListingView
 from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.dependency import ATFolderSchema, ATFolder
+from OLiMS.dependencies.folder import ATFolderSchema, ATFolder
 from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import atapi
+from OLiMS.dependencies import atapi
 from OLiMS.dependencies.dependency import schemata
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import implements

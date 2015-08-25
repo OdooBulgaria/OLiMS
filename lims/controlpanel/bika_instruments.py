@@ -1,6 +1,6 @@
 from OLiMS.dependencies.dependency import ClassSecurityInfo
 from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies.dependency import atapi
+from OLiMS.dependencies import atapi
 from OLiMS.dependencies.dependency import registerType
 from OLiMS.dependencies.dependency import permissions
 from OLiMS.dependencies.dependency import getToolByName
@@ -13,9 +13,9 @@ from OLiMS.lims.content.bikaschema import BikaFolderSchema
 from OLiMS.lims.interfaces import IInstruments
 from OLiMS.dependencies.dependency import IViewView
 from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.dependency import ATFolder, ATFolderSchema
+from OLiMS.dependencies.folder import ATFolder, ATFolderSchema
 from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import itemgetter
+from operator import itemgetter
 
 class InstrumentsView(BikaListingView):
     implements(IFolderContentsView, IViewView)
