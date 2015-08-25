@@ -8,7 +8,7 @@ from OLiMS.dependencies.dependency import getUtility
 from OLiMS.lims import bikaMessageFactory as _
 from OLiMS.lims.utils import t
 from . import FOSSFIAStarCSVParser, FOSSFIAStarImporter
-from OLiMS.dependencies.dependency import StringIO
+from cStringIO import StringIO
 import json
 import traceback
 import csv

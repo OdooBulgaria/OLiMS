@@ -4,7 +4,7 @@ from OLiMS.lims import bikaMessageFactory as _
 from OLiMS.lims.utils import t
 from OLiMS.lims.exportimport.instruments.resultsimport import \
     InstrumentCSVResultsFileParser, AnalysisResultsImporter
-from OLiMS.dependencies.dependency import datetime
+from datetime import datetime
 
 class BioDropCSVParser(InstrumentCSVResultsFileParser):
     """

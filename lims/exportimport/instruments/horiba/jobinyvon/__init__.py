@@ -3,7 +3,7 @@
 
 """ HoribaJobinYvon
 """
-from OLiMS.dependencies.dependency import datetime
+from datetime import datetime
 from OLiMS.lims.exportimport.instruments.resultsimport import \
     AnalysisResultsImporter, InstrumentCSVResultsFileParser
 

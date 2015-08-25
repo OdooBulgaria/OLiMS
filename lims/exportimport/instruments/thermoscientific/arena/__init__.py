@@ -1,6 +1,6 @@
 """ Thermo Scientific 'Arena'
 """
-from OLiMS.dependencies.dependency import datetime
+from datetime import datetime
 from OLiMS.lims import logger
 from OLiMS.lims.exportimport.instruments.resultsimport import \
     AnalysisResultsImporter, InstrumentCSVResultsFileParser

@@ -3,7 +3,7 @@
 
 """ Omnia Axios XRF
 """
-from OLiMS.dependencies.dependency import datetime
+from datetime import datetime
 from OLiMS.lims.utils import to_unicode
 from OLiMS.lims import bikaMessageFactory as _
 from OLiMS.lims.exportimport.instruments.resultsimport import \

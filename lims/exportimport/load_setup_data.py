@@ -4,7 +4,7 @@ from OLiMS.lims import PMF
 from OLiMS.lims import logger
 from OLiMS.lims.interfaces import ISetupDataImporter
 from OLiMS.dependencies.dependency import load_workbook
-from OLiMS.dependencies.dependency import resource_filename
+from pkg_resources import resource_filename
 from OLiMS.dependencies.dependency import getAdapters
 import traceback
 

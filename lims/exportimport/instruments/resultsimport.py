@@ -7,7 +7,7 @@ from OLiMS.lims.exportimport.instruments.logger import Logger
 from OLiMS.lims.idserver import renameAfterCreation
 from OLiMS.lims.utils import tmpID
 from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.dependencies.dependency import datetime
+from datetime import datetime
 from OLiMS.dependencies.dependency import DateTime
 import os
 

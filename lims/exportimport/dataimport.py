@@ -12,8 +12,7 @@ from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import implements
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import getAdapters
-
-import plone
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
 
 
 class SetupDataSetList:
@@ -84,7 +83,7 @@ class ImportView(BrowserView):
 class ajaxGetImportTemplate(BrowserView):
 
     def __call__(self):
-        plone.protect.CheckAuthenticator(self.request)
+        CheckAuthenticator(self.request)
         exim = self.request.get('exim').replace(".", "/")
         return ViewPageTemplateFile("instruments/%s_import.pt" % exim)(self)
 

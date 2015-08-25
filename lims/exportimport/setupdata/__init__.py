@@ -9,7 +9,7 @@ from OLiMS.lims.utils import t
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.lims import logger
 from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import resource_filename
+from pkg_resources import resource_filename
 import datetime, os.path
 
 import re

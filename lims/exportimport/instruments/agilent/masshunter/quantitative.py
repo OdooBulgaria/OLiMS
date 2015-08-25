@@ -11,16 +11,13 @@ from OLiMS.lims.browser import BrowserView
 from OLiMS.lims.idserver import renameAfterCreation
 from OLiMS.lims.utils import changeWorkflowState
 from OLiMS.lims.utils import tmpID
-from OLiMS.dependencies.dependency import StringIO
-from OLiMS.dependencies.dependency import datetime
-from OLiMS.dependencies.dependency import itemgetter
+from cStringIO import StringIO
+from datetime import datetime
+from operator import itemgetter
 from OLiMS.dependencies.dependency import IIDNormalizer
 from OLiMS.dependencies.dependency import getUtility
 import csv
 import json
-import plone
-import zope
-import zope.event
 from OLiMS.lims.exportimport.instruments.resultsimport import InstrumentCSVResultsFileParser,\
     AnalysisResultsImporter
 import traceback

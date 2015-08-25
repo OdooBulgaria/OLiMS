@@ -131,7 +131,7 @@ class WinescanFT120CSVParser(WinescanCSVParser):
             try:
                 dtstr = '%s %s' % (values.get('Date')['Date'], values.get('Time')['Time'])
                 # 2/11/2005 13:33 PM
-                from OLiMS.dependencies.dependency import datetime
+                from datetime import datetime
                 dtobj = datetime.strptime(dtstr, '%d/%m/%Y %H:%M %p')
                 values['DateTime'] = {'DateTime': dtobj.strftime("%Y%m%d %H:%M:%S"),
                                       'DefaultValue': 'DateTime'};
