@@ -1,6 +1,5 @@
 from OLiMS.dependencies.dependency import ClassSecurityInfo
 from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import View, ModifyPortalContent
 from OLiMS.lims.config import PROJECTNAME
 from OLiMS.lims.content.bikaschema import BikaSchema
 from OLiMS.dependencies.dependency import Decimal

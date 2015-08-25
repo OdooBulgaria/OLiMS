@@ -1,5 +1,5 @@
 from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import atapi
+from OLiMS.dependencies import atapi
 from OLiMS.dependencies.dependency import BaseContent
 from OLiMS.lims.interfaces import IMultifile
 from OLiMS.lims.content.bikaschema import BikaSchema

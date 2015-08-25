@@ -1,9 +1,8 @@
 from OLiMS.dependencies.dependency import DateTime
 from OLiMS.dependencies.dependency import ClassSecurityInfo
 from OLiMS.dependencies.dependency import UniqueObject
-from OLiMS.dependencies.dependency import ListFolderContents, \
-    ModifyPortalContent, View
-from OLiMS.dependencies.dependency import folder
+from OLiMS.dependencies.dependency import View
+from OLiMS.dependencies import folder
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import safe_unicode
 from OLiMS.lims.content.organisation import Organisation

@@ -2,7 +2,6 @@ from OLiMS.dependencies.dependency import ClassSecurityInfo
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import HoldingReference
 from OLiMS.dependencies.dependency import RecordsField as RecordsField
-from OLiMS.dependencies.dependency import ModifyPortalContent, View
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.lims.browser.widgets import RecordsWidget
 from OLiMS.lims.content.bikaschema import BikaSchema

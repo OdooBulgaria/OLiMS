@@ -1,7 +1,6 @@
 from OLiMS.dependencies.dependency import ClassSecurityInfo
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import HistoryAwareMixin
-from OLiMS.dependencies.dependency import View, ModifyPortalContent
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import safe_unicode
 from OLiMS.lims.browser import BrowserView
@@ -14,7 +13,6 @@ from OLiMS.lims.browser.widgets import DurationWidget
 from OLiMS.lims import PMF, bikaMessageFactory as _
 from OLiMS.dependencies.dependency import implements
 import json
-import plone
 import sys
 
 schema = BikaSchema.copy() + Schema((

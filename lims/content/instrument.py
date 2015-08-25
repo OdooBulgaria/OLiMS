@@ -3,7 +3,6 @@ from OLiMS.dependencies.dependency import schemata
 from OLiMS.dependencies.dependency import RecordsField
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import View, ModifyPortalContent
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import safe_unicode
 from OLiMS.lims import bikaMessageFactory as _

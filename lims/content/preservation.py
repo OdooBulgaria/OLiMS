@@ -6,14 +6,12 @@ from OLiMS.lims.browser.widgets import DurationWidget
 from OLiMS.lims.config import PROJECTNAME, PRESERVATION_CATEGORIES
 from OLiMS.lims.content.bikaschema import BikaSchema
 from OLiMS.lims.vocabularies import CatalogVocabulary
-from OLiMS.dependencies.dependency import Value
-from OLiMS.dependencies.dependency import itemgetter
+from operator import itemgetter
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import getToolByName
 
 import json
-import plone.protect
-
+from OLiMS.dependencies.dependency import  check as CheckAuthenticator
 
 schema = BikaSchema.copy() + Schema((
     StringField('Category',
@@ -64,7 +62,7 @@ class ajaxGetPreservations:
 
     def __call__(self):
 
-        plone.protect.CheckAuthenticator(self.request)
+        CheckAuthenticator(self.request)
         searchTerm = 'searchTerm' in self.request and self.request[
             'searchTerm'].lower() or ''
         page = self.request['page']

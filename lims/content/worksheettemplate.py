@@ -3,7 +3,6 @@ from OLiMS.dependencies.dependency import aq_base, aq_inner
 from OLiMS.dependencies.dependency import RecordsField
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import View, ModifyPortalContent
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.lims.browser.widgets import ServicesWidget
 from OLiMS.lims.browser.widgets import WorksheetTemplateLayoutWidget

@@ -7,7 +7,7 @@ from OLiMS.lims.content.bikaschema import BikaFolderSchema
 from OLiMS.lims.interfaces import IPricelist
 from OLiMS.dependencies.dependency import DateTime
 from OLiMS.dependencies.dependency import PersistentMapping
-from OLiMS.dependencies.dependency import folder
+from OLiMS.dependencies import folder
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import permissions
 from OLiMS.dependencies.dependency import implements

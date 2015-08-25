@@ -11,7 +11,7 @@ from OLiMS.lims.permissions import SampleSample
 from OLiMS.lims.workflow import doActionFor, isBasicTransitionAllowed
 from OLiMS.lims.workflow import skip
 from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import atapi
+from OLiMS.dependencies import atapi
 from OLiMS.dependencies.dependency import REFERENCE_CATALOG
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import DisplayList

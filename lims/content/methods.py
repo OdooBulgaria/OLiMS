@@ -1,6 +1,6 @@
 from OLiMS.dependencies.dependency import ClassSecurityInfo
 from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies.dependency import atapi
+from OLiMS.dependencies import atapi
 from OLiMS.dependencies.dependency import registerType
 from OLiMS.dependencies.dependency import permissions
 from OLiMS.dependencies.dependency import getToolByName
@@ -14,7 +14,7 @@ from OLiMS.lims.utils import t
 from OLiMS.lims.content.bikaschema import BikaFolderSchema
 from OLiMS.lims.permissions import AddMethod, ManageBika
 from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.dependency import ATFolder, ATFolderSchema
+from OLiMS.dependencies.folder import ATFolder, ATFolderSchema
 from OLiMS.dependencies.dependency import implements
 
 class MethodsView(BikaListingView):

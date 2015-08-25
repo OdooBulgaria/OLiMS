@@ -15,9 +15,7 @@ from OLiMS.dependencies.dependency import DisplayList, ReferenceField, \
     IntegerWidget, StringWidget, BaseContent, \
     Schema, registerType, MultiSelectionWidget
 from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import View, ModifyPortalContent
 from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import validation
 from OLiMS.dependencies.dependency import RegexValidator
 from OLiMS.dependencies.dependency import WorkflowException
 from OLiMS.lims import PMF, bikaMessageFactory as _
@@ -33,8 +31,8 @@ from OLiMS.lims.config import ATTACHMENT_OPTIONS, PROJECTNAME, \
     SERVICE_POINT_OF_CAPTURE
 from OLiMS.lims.content.bikaschema import BikaSchema
 from OLiMS.lims.interfaces import IAnalysisService
-from magnitude import mg, MagnitudeError
-from OLiMS.dependencies.dependency import i18n
+from magnitude import mg , MagnitudeError
+# from OLiMS.dependencies.dependency import i18n
 from OLiMS.dependencies.dependency import implements
 import transaction
 import math

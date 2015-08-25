@@ -6,7 +6,6 @@ from OLiMS.lims.content.bikaschema import BikaSchema
 from OLiMS.lims.content.organisation import Organisation
 from OLiMS.lims.interfaces import ISupplier
 from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import View, ModifyPortalContent
 from OLiMS.dependencies.dependency import safe_unicode
 from OLiMS.dependencies.dependency import implements
 

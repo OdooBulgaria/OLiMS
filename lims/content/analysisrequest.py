@@ -5,7 +5,7 @@ from OLiMS.dependencies.dependency import ClassSecurityInfo
 from OLiMS.dependencies.dependency import DateTime
 from OLiMS.dependencies.dependency import RecordsField
 from OLiMS.dependencies.dependency import indexer
-from OLiMS.dependencies.dependency import atapi
+from OLiMS.dependencies.dependency import registerType #atapi
 from OLiMS.dependencies.dependency import REFERENCE_CATALOG
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import HoldingReference
@@ -2374,5 +2374,6 @@ class AnalysisRequest(BaseFolder):
             doActionFor(analysis.getObject(), 'cancel')
 
 
-atapi.registerType(AnalysisRequest, PROJECTNAME)
+# atapi.registerType(AnalysisRequest, PROJECTNAME)
+registerType(AnalysisRequest, PROJECTNAME)
 

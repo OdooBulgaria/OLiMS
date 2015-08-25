@@ -6,7 +6,6 @@
 from OLiMS.dependencies.dependency import ClassSecurityInfo
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import View, ModifyPortalContent
 from OLiMS.dependencies.dependency import RecordsField
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.lims import PMF, bikaMessageFactory as _

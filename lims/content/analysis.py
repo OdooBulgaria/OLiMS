@@ -8,14 +8,12 @@ from OLiMS.dependencies.dependency import DateTime
 from OLiMS.lims import logger
 from OLiMS.lims.utils.analysis import format_numeric_result
 from OLiMS.dependencies.dependency import indexer
-from OLiMS.dependencies.dependency import schemata
 from OLiMS.dependencies.dependency import DateTimeField, DateTimeWidget, RecordsField
-from OLiMS.dependencies.dependency import atapi
+from OLiMS.dependencies import atapi
 from OLiMS.dependencies.dependency import REFERENCE_CATALOG
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import HoldingReference
 from OLiMS.dependencies.dependency import WorkflowException
-from OLiMS.dependencies.dependency import View, ModifyPortalContent
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import safe_unicode, _createObjectByType
 from OLiMS.dependencies.dependency import ArchivistRetrieveError
@@ -1495,4 +1493,5 @@ class Analysis(BaseContent):
 
 
 atapi.registerType(Analysis, PROJECTNAME)
+
 

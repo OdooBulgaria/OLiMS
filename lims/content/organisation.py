@@ -6,7 +6,6 @@ from OLiMS.dependencies.dependency import permissions as CMFCorePermissions
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import safe_unicode
 from OLiMS.lims.content.bikaschema import BikaSchema, BikaFolderSchema
-from archetypes.referencebrowserwidget import ReferenceBrowserWidget
 from OLiMS.dependencies.dependency import ATFolder
 from OLiMS.lims.browser.fields import AddressField
 from OLiMS.lims.browser.widgets import AddressWidget

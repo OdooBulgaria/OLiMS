@@ -6,7 +6,7 @@ from OLiMS.lims.interfaces import ISamplePartition
 from OLiMS.lims.workflow import doActionFor
 from OLiMS.lims.workflow import skip
 from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import timedelta
+from datetime import timedelta
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import HistoryAwareMixin
 from OLiMS.dependencies.dependency import DT2dt, dt2DT

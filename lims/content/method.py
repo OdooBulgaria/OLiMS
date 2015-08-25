@@ -1,5 +1,4 @@
 from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import ModifyPortalContent, View
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import HoldingReference

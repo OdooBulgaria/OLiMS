@@ -4,7 +4,7 @@
 """
 from OLiMS.dependencies.dependency import ClassSecurityInfo
 from OLiMS.dependencies.dependency import RecordsField
-from OLiMS.dependencies.dependency import atapi
+from OLiMS.dependencies import atapi
 from OLiMS.dependencies.dependency import ReferenceField, FileField, \
         StringField, Schema, BaseFolder
 from OLiMS.dependencies.dependency import BlobField

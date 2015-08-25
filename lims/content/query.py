@@ -13,10 +13,10 @@ from OLiMS.dependencies.dependency import CollectionSchema
 from OLiMS.dependencies.dependency import ICollection
 from OLiMS.dependencies.dependency import DisplayList
 from OLiMS.dependencies.dependency import ATCT_TOOLNAME
-from OLiMS.dependencies.dependency import atapi
+from OLiMS.dependencies import atapi
 from OLiMS.dependencies.dependency import IntDisplayList
-from OLiMS.dependencies.dependency import document, schemata
-from OLiMS.dependencies.dependency import ModifyPortalContent, View
+from OLiMS.dependencies.dependency import schemata
+from OLiMS.dependencies.dependency.permissions import ModifyPortalContent, View
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import implements
 from OLiMS.dependencies.dependency import (BooleanField,

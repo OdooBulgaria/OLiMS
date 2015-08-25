@@ -19,7 +19,7 @@ from OLiMS.dependencies.dependency import ProgressBar
 from OLiMS.dependencies.dependency import UpdateProgressEvent
 from OLiMS.dependencies.dependency import ProgressState
 from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import atapi
+from OLiMS.dependencies import atapi
 from OLiMS.dependencies.dependency import ObjectInitializedEvent
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import HoldingReference

@@ -5,14 +5,12 @@ from OLiMS.dependencies.dependency import delete_objects
 from OLiMS.dependencies.dependency import schemata
 from OLiMS.dependencies.dependency import HistoryAwareMixin
 from OLiMS.dependencies.dependency import RecordsField
-from OLiMS.dependencies.dependency import atapi
+from OLiMS.dependencies import atapi
 from OLiMS.dependencies.dependency import REFERENCE_CATALOG
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import HoldingReference
 from OLiMS.dependencies.dependency import shasattr
-from OLiMS.dependencies.dependency import permissions
 from OLiMS.dependencies.dependency import WorkflowException
-from OLiMS.dependencies.dependency import ListFolderContents, View
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import safe_unicode
 from OLiMS.lims import PMF, bikaMessageFactory as _
@@ -21,7 +19,6 @@ from OLiMS.lims.browser.widgets import AnalysisSpecificationWidget
 from OLiMS.lims.config import PROJECTNAME
 from OLiMS.lims.content.bikaschema import BikaSchema
 from OLiMS.lims.interfaces import IAnalysisSpec
-from OLiMS.dependencies.dependency import ListType, TupleType
 from OLiMS.dependencies.dependency import implements
 from OLiMS.dependencies.dependency import translate
 import sys

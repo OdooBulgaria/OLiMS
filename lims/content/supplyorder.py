@@ -13,7 +13,7 @@ from OLiMS.lims.utils import t
 from OLiMS.dependencies.dependency import DateTime
 from OLiMS.dependencies.dependency import PersistentMapping
 from OLiMS.dependencies.dependency import Decimal
-from OLiMS.dependencies.dependency import atapi
+from OLiMS.dependencies import atapi
 from OLiMS.dependencies.dependency import HoldingReference
 from OLiMS.dependencies.dependency import View
 from OLiMS.dependencies.dependency import IConstrainTypes

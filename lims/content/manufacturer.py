@@ -1,6 +1,5 @@
 from OLiMS.dependencies.dependency import ClassSecurityInfo
 from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import View, ModifyPortalContent
 from OLiMS.lims import bikaMessageFactory as _
 from OLiMS.lims.utils import t
 from OLiMS.lims.config import PROJECTNAME

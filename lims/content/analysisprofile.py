@@ -13,7 +13,6 @@ from OLiMS.dependencies.dependency import *
 from OLiMS.lims.interfaces import IAnalysisProfile
 from OLiMS.dependencies.dependency import HoldingReference
 from OLiMS.dependencies.dependency import RecordsField
-from OLiMS.dependencies.dependency import View, ModifyPortalContent
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import Interface, implements
 import sys

@@ -1,3 +1,128 @@
+class PersistentMapping: #(Persistent, PersistentMapping):
+    """Legacy persistent mapping class
+    This class mixes in ExtensionClass Base if it is present.
+    Unless you actually want ExtensionClass semantics, use
+    persistent.mapping.PersistentMapping instead.
+    """
+
+    def __setstate__(self, state):
+        pass
+        
+def check(request, extra='', name="_authenticator"):
+    pass
+
+
+class PropertyManager: #(Base):
+    """
+    https://github.com/zopefoundation/Zope/blob/master/src/OFS/PropertyManager.py
+    """
+    pass
+
+
+class ExtensibleMetadata: #(Persistence.Persistent):
+    """ A DC metadata implementation for Plone Archetypes
+    """
+    """
+    https://github.com/plone/Products.Archetypes/blob/master/Products/Archetypes/ExtensibleMetadata.py
+    """
+    pass
+
+
+class BaseContentMixin: #(CatalogMultiplex,
+#                        BaseObject,
+#                        PortalContent,
+#                        Historical):
+    """A not-so-basic CMF Content implementation that doesn't
+    include Dublin Core Metadata"""
+
+    def manage_afterAdd(self, item, container):
+        pass
+
+    def manage_afterClone(self, item):
+        pass
+
+    def manage_beforeDelete(self, item, container):
+        pass
+
+    def _notifyOfCopyTo(self, container, op=0):
+        """OFS.CopySupport notify
+        """
+        pass
+
+class BaseContent(BaseContentMixin,
+                  ExtensibleMetadata,
+                  PropertyManager):
+    """A not-so-basic CMF Content implementation with Dublin Core
+    Metadata included"""
+
+
+    schema = BaseContentMixin.schema + ExtensibleMetadata.schema
+
+    def __init__(self, oid, **kwargs):
+        BaseContentMixin.__init__(self, oid, **kwargs)
+        ExtensibleMetadata.__init__(self)
+        
+BaseSchema = BaseContent.schema
+
+ATContentTypeSchema = BaseSchema.copy()
+
+ATDocumentSchema = ATContentTypeSchema.copy()
+
+CollectionSchema = ATDocumentSchema.copy()
+
+class permissions:
+    def __init__(self):
+        pass
+    
+    View = 'view'
+    ModifyPortalContent = 'Modify portal content'
+    
+class event:
+    """
+    https://github.com/zopefoundation/zope.event/blob/master/src/zope/event/__init__.py
+    
+    """
+    """ Base event system implementation
+    """
+    
+    #: Applications may register for notification of events by appending a
+    #: callable to the ``subscribers`` list.
+    #: 
+    #: Each subscriber takes a single argument, which is the event object
+    #: being published.
+    #:
+    #: Exceptions raised by subscribers will be propagated.
+    @staticmethod
+    def notify(event):
+        """ Notify all subscribers of ``event``.
+        """
+        pass
+
+def mg(v, unit='', ounit=''):
+    """Builds a Magnitude from a number and a units string"""
+    pass
+
+class schemata:
+    """
+    https://github.com/plone/Products.ATContentTypes/blob/master/Products/ATContentTypes/content/schemata.py
+    
+    """
+    @staticmethod
+    def finalizeATCTSchema(schema, folderish=False, moveDiscussion=True):
+        """Finalizes an ATCT type schema to alter some fields
+        """
+        pass
+    
+    
+class ATFolder: #(ATCTFolderMixin, BaseBTreeFolder):
+    """ a folder suitable for holding a very large number of items """
+    
+    def getNextPreviousParentValue(self):
+        """ If the parent node is also an IATFolder and has next/previous
+            navigation enabled, then let this folder have it enabled by
+            default as well """
+        pass
+    
 class SpecificationBasePy(object):
 
     def providedBy(self, ob):
@@ -230,13 +355,72 @@ class InterfaceClass(Element, InterfaceBase, Specification):
 
 
 Interface = InterfaceClass("Interface", __module__ = 'zope.interface')
+
+_BLANK = None
+
+def getAdapter(object, interface=Interface, name=_BLANK, context=None):
+    pass
+
+
 class _Wrapper:
     pass
+
 
 class ImplicitAcquisitionWrapper(_Wrapper):
     pass
 
 
+class IConstrainTypes(Interface):
+    """
+    Interface for folderish content types supporting restricting addable types
+    on a per-instance basis.
+    """
+    @staticmethod
+    def getConstrainTypesMode():
+        """
+        Find out if add-restrictions are enabled. Returns 0 if they are
+        disabled (the type's default FTI-set allowable types is in effect),
+        1 if they are enabled (only a selected subset if allowed types will be
+        available), and -1 if the allowed types should be acquired from the
+        parent. Note that in this case, if the parent portal type is not the
+        same as the portal type of this object, fall back on the default (same
+        as 0)
+        """
+        pass
+
+    @staticmethod
+    def getLocallyAllowedTypes():
+        """
+        Get the list of FTI ids for the types which should be allowed to be
+        added in this container.
+        """
+        pass
+
+    @staticmethod
+    def getImmediatelyAddableTypes():
+        """
+        Return a subset of the FTI ids from getLocallyAllowedTypes() which
+        should be made most easily available.
+        """
+        pass
+    
+    @staticmethod
+    def getDefaultAddableTypes():
+        """
+        Return a list of FTIs which correspond to the list of FTIs available
+        when the constraint mode = 0 (that is, the types addable without any
+        setLocallyAllowedTypes trickery involved)
+        """
+        pass
+
+    @staticmethod
+    def allowedContentTypes():
+        """
+        Return the list of currently permitted FTIs.
+        """
+        pass
+    
+    
 class IVocabularyFactory(Interface):
     """Can create vocabularies."""
     @staticmethod
@@ -403,6 +587,9 @@ def allow_module(module_name):
     path is given, all modules in the path will be available."""
     pass
 
+ATCT_TOOLNAME = 'portal_atct'
+View = 'view'
+ListFolderContents = 'List folder contents'
 access_contents_information='Access contents information'
 add_database_methods='Add Database Methods'
 add_documents_images_and_files='Add Documents, Images, and Files'
@@ -476,11 +663,48 @@ def newSecurityManager(request, user):
 def InitializeClass(self):
     pass
 
+class DefaultLayerContainer(Base):
 
-class Field:
+    def __init__(self):
+        pass
+
+    
+    def registerLayer(self, name, object):
+        pass
+
+    
+    def registeredLayers(self):
+        pass
+
+    
+    def hasLayer(self, name):
+        pass
+
+    
+    def getLayerImpl(self, name):
+        pass
+
+class Field(DefaultLayerContainer):
     pass
 
 
+class ComputedField(Field):
+    """A field that always returns a computed."""
+    
+    def set(self, *ignored, **kwargs):
+        pass
+
+    def get(self, instance, **kwargs):
+        """Return the computed value."""
+        pass
+
+    def get_size(self, instance):
+        """Get size of the stored data.
+        Used for get_size in BaseObject.
+        """
+        pass
+    
+    
 class ObjectField(Field):
     """Base Class for Field objects that fundamentaly deal with raw
     data. This layer implements the interface to IStorage and other
@@ -538,8 +762,127 @@ class ObjectField(Field):
         lists/tuples/dicts.
         """
         pass
+    
+
+class BooleanField(ObjectField):
+    """A field that stores boolean values."""
+   
+    def get(self, instance, **kwargs):
+        pass
+
+    def getRaw(self, instance, **kwargs):
+        pass
+
+    def set(self, instance, value, **kwargs):
+        """If value is not defined or equal to 0, set field to false;
+        otherwise, set to true."""
+        pass
+    
+    def get_size(self, instance):
+        """Get size of the stored data used for get_size in BaseObject
+        """
+        pass
+    
+    
+class StringField(ObjectField):
+    """A field that stores strings"""
+    
+    def get(self, instance, **kwargs):
+        pass
+
+    def set(self, instance, value, **kwargs):
+        pass
+    
+    
+class FixedPointField(ObjectField):
+    """A field for storing numerical data with fixed points
+    Test for fix for Plone issue #9414: '0' and '0.0' should count as values
+    when validating required fields.  (A return value of None means validation
+    passed.)
+    >>> f = FixedPointField()
+    >>> f.validate_required(None, '0', [])
+    >>> f.validate_required(None, '0.0', [])
+    """
+
+    def _to_tuple(self, instance, value):
+        """Turn the value into a tuple that we will store.
+        We will test some inputs.
+        >>> f = FixedPointField()
+        >>> instance = object()
+        >>> f._to_tuple(instance, '0')
+        (0, 0)
+        >>> f._to_tuple(instance, '1.0')
+        (1, 0)
+        >>> f._to_tuple(instance, '-1.0')
+        (-1, 0)
+        >>> f._to_tuple(instance, '0.5')
+        (0, 50)
+        >>> f._to_tuple(instance, None)
+        Negative numbers between -1 and -0 need to be handled
+        differently as there is no difference between +0 and -0.
+        >>> f._to_tuple(instance, '-0.5')
+        (0, -50)
+        Commas are accepted too:
+        >>> f._to_tuple(instance, '1,23')
+        (1, 23)
+        You can also start with a dot or comma:
+        >>> f._to_tuple(instance, '.23')
+        (0, 23)
+        >>> f._to_tuple(instance, ',23')
+        (0, 23)
+        >>> f._to_tuple(instance, '-.23')
+        (0, -23)
+        Now for some precision:
+        >>> f._to_tuple(instance, '1,2345')
+        (1, 23)
+        >>> g = FixedPointField(precision=4)
+        >>> g._to_tuple(instance, '1,2345')
+        (1, 2345)
+        >>> g._to_tuple(instance, '10')
+        (10, 0)
+        >>> g._to_tuple(instance, '9.0001')
+        (9, 1)
+        """
+        
+        # XXX :-(
+        # Decimal Point is very english. as a first hack
+        # we should allow also the more contintental european comma.
+        # The clean solution is to lookup:
+        # * the locale settings of the zope-server, Plone, logged in user
+        # * maybe the locale of the browser sending the value.
+        # same should happen with the output.
+        pass
+
+    def set(self, instance, value, **kwargs):
+        pass
+
+    def get(self, instance, **kwargs):
+        pass
+    
+
+class IntegerField(ObjectField):
+    """A field that stores an integer"""
+
+   
+    def validate_required(self, instance, value, errors):
+        pass
+
+    def set(self, instance, value, **kwargs):
+        pass
 
 
+class FloatField(ObjectField):
+    """A field that stores floats"""
+
+    def validate_required(self, instance, value, errors):
+        pass
+
+    def set(self, instance, value, **kwargs):
+        """Convert passed-in value to a float. If failure, set value to
+        None."""
+        pass
+    
+        
 class QueryField(ObjectField):
     """QueryField for storing query"""
 
@@ -549,6 +892,29 @@ class QueryField(ObjectField):
     
     def getRaw(self, instance, **kwargs):
         pass
+    
+    
+class LinesField(ObjectField):
+    """For creating lines objects"""
+
+    def set(self, instance, value, **kwargs):
+        """
+        If passed-in value is a string, split at line breaks and
+        remove leading and trailing white space before storing in object
+        with rest of properties.
+        """
+        pass
+
+    def get(self, instance, **kwargs):
+        pass
+
+    def getRaw(self, instance, **kwargs):
+        pass
+
+    def get_size(self, instance):
+        """Get size of the stored data used for get_size in BaseObject
+        """
+        pass    
     
 class Interface:
     pass
@@ -624,7 +990,12 @@ class QueryWidget: #(TypesWidget):
 
 class ReferenceWidget:
     pass
+
+
+class InAndOutWidget(ReferenceWidget):
+    pass
     
+        
 class ReferenceBrowserWidget(ReferenceWidget):
     
     def getStartupDirectory(self, instance, field):
@@ -2643,11 +3014,6 @@ def plot(data, gnuplotpath=None, plotscriptfile=None, plotscript=None, usefifo=T
     """
 
     pass
-
-def mg(v, unit='', ounit=''):
-    """Builds a Magnitude from a number and a units string"""
-    pass
-
 
 class MagnitudeError(Exception):
     pass
@@ -5444,16 +5810,6 @@ class IATUnifiedFolder : #(IATFolder):
     pass
 
 
-class ATFolder: #(ATCTFolderMixin, BaseBTreeFolder):
-    """ a folder suitable for holding a very large number of items """
-
-    def getNextPreviousParentValue(self):
-        """ If the parent node is also an IATFolder and has next/previous
-            navigation enabled, then let this folder have it enabled by
-            default as well """
-        pass
-
-
 class ObsoleteATFolder: #(ATCTOrderedFolder):
     """A folder which can contain other items."""
 
@@ -6620,14 +6976,6 @@ class IntDisplayList(DisplayList):
         """get value"""
         pass
 
-class BaseContent :#(BaseContentMixin,
-#                   ExtensibleMetadata,
-#                   PropertyManager):
-    """A not-so-basic CMF Content implementation with Dublin Core
-    Metadata included"""
-
-    def __init__(self, oid, **kwargs):
-        pass
 
 class InlineValidationView: #(BrowserView):
 
@@ -7139,6 +7487,26 @@ class TypesWidget: #(macrowidget, Base):
         that by overriding render_own_label if they need special styling.
         """
         pass
+    
+class ComputedWidget(TypesWidget):
+    pass
+
+
+class BooleanWidget(TypesWidget):
+    pass
+
+ 
+class MultiSelectionWidget(TypesWidget):
+
+    def process_form(self, instance, field, form, empty_marker=None,
+                     emptyReturnsMarker=False, validating=True):
+        """Basic impl for form processing in a widget"""
+        pass
+
+    def render_own_label(self):
+        pass
+    
+        
 class DecimalWidget(TypesWidget):
     pass
 
@@ -7530,111 +7898,6 @@ class RecordWidget(StringWidget):
 
 def makeDisplayList(values=None,add_select=True):
     pass
-
-
-# class RecordsField(RecordField):
-#     """A field that stores a 'record' (dictionary-like) construct"""
-#     _properties = RecordField._properties.copy()
-# 
-#     def getSize(self, instance):
-#         """number of records to store"""
-#         pass
-# 
-#     def isSizeFixed(self):
-#         """do we need an additional line of entry?"""
-#         pass
-# 
-#     def showMore(self, values):
-#         """
-#         return True if the 'More' button should be shown
-#         False otherwise
-#         """
-#         pass
-# 
-#     def getEditSize(self, instance):
-#         """
-#         number of record entries to offer in the form
-#         at least 'minimalSize' or length of the current
-#         list of records (+1 if 'more' is enabled)
-#         """
-#         pass
-# 
-#     def getSubfieldValue(self, values, idx, subfield, default=None):
-#         """
-#         return values[idx].get(key) if existing
-#         'default' otherwise
-#         """
-#         pass
-# 
-#     def getViewFor(self, instance, idx, subfield, joinWith=', '):
-#         """
-#         formatted value of the subfield for display
-#         """
-#         pass
-# 
-#     # store string type subfield values as unicode
-#     
-#     def _encode_strings(self, value, instance, **kwargs):
-#         pass
-# 
-#     def _decode_strings(self, value, instance, **kwargs):
-#         pass
-# 
-#     # convert the records to persistent dictionaries
-#     def _to_dict(self, value):
-#         pass
-    
-
-# class RecordsField(RecordField):
-#     """A field that stores a 'record' (dictionary-like) construct"""
-# 
-#     def getSize(self, instance):
-#         """number of records to store"""
-#         pass
-# 
-#     def isSizeFixed(self):
-#         """do we need an additional line of entry?"""
-#         pass
-# 
-#     def showMore(self, values):
-#         """
-#         return True if the 'More' button should be shown
-#         False otherwise
-#         """
-#         pass
-# 
-#     def getEditSize(self, instance):
-#         """
-#         number of record entries to offer in the form
-#         at least 'minimalSize' or length of the current
-#         list of records (+1 if 'more' is enabled)
-#         """
-#         pass
-# 
-#     def getSubfieldValue(self, values, idx, subfield, default=None):
-#         """
-#         return values[idx].get(key) if existing
-#         'default' otherwise
-#         """
-#         pass
-# 
-#     def getViewFor(self, instance, idx, subfield, joinWith=', '):
-#         """
-#         formatted value of the subfield for display
-#         """
-#         pass
-#     # store string type subfield values as unicode
-#     
-#     def _encode_strings(self, value, instance, **kwargs):
-#         pass
-# 
-#     def _decode_strings(self, value, instance, **kwargs):
-#         pass
-# 
-#     # convert the records to persistent dictionaries
-#     def _to_dict(self, value):
-#         pass
-
 
 class RecordsWidget(RecordWidget):
     
@@ -9040,6 +9303,8 @@ class MessageFactory(object):
 
     def __call__(self, ustr, default=None, mapping=None):
         pass
+
+PloneMessageFactory = MessageFactory('plone')
 
 
 def negotiate(context):

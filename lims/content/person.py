@@ -6,7 +6,6 @@ from OLiMS.dependencies.dependency import *
 from OLiMS.lims.content.bikaschema import BikaSchema
 from OLiMS.dependencies.dependency import RecordWidget
 from OLiMS.lims.browser.widgets import AddressWidget
-from archetypes.referencebrowserwidget import ReferenceBrowserWidget
 from OLiMS.lims.config import GENDERS, PROJECTNAME
 from OLiMS.lims.browser.fields import AddressField
 from OLiMS.lims import PMF, bikaMessageFactory as _

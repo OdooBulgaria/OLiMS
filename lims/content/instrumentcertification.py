@@ -1,6 +1,6 @@
 from OLiMS.dependencies.dependency import ClassSecurityInfo
 from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies.dependency import atapi
+from OLiMS.dependencies import atapi
 from OLiMS.dependencies.dependency import *
 from OLiMS.lims import bikaMessageFactory as _
 from OLiMS.lims.utils import t

@@ -4,7 +4,7 @@ from OLiMS.lims import bikaMessageFactory as _
 from OLiMS.lims.utils import t
 from OLiMS.lims.config import PROJECTNAME
 from OLiMS.lims.interfaces import IReportFolder, IHaveNoBreadCrumbs
-from OLiMS.dependencies.dependency import ATFolder, ATFolderSchema
+from OLiMS.dependencies.folder import ATFolder, ATFolderSchema
 from OLiMS.dependencies.dependency import implements
 
 schema = ATFolderSchema.copy()

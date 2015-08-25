@@ -12,7 +12,6 @@ from OLiMS.lims.utils import to_utf8
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import HoldingReference
 from OLiMS.dependencies.dependency import HistoryAwareMixin
-from OLiMS.dependencies.dependency import ModifyPortalContent, View
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import WorkflowException
 from OLiMS.dependencies.dependency import Redirect

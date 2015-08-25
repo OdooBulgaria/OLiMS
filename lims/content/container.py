@@ -4,14 +4,15 @@ from OLiMS.lims.utils import t
 from OLiMS.lims.config import PROJECTNAME
 from OLiMS.lims.content.bikaschema import BikaSchema
 from OLiMS.lims.vocabularies import CatalogVocabulary
-from magnitude import mg, MagnitudeError
-from OLiMS.dependencies.dependency import Value
+# from magnitude import mg, MagnitudeError
+from OLiMS.dependencies.dependency import mg
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import HoldingReference
 from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import itemgetter
+# from OLiMS.dependencies.dependency import itemgetter
+from operator import itemgetter
 import json
-import plone.protect
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
 import sys
 
 schema = BikaSchema.copy() + Schema((
@@ -131,7 +132,7 @@ class ajaxGetContainers:
 
     def __call__(self):
 
-        plone.protect.CheckAuthenticator(self.request)
+        CheckAuthenticator(self.request)
         searchTerm = 'searchTerm' in self.request and self.request[
             'searchTerm'].lower() or ''
         page = self.request['page']

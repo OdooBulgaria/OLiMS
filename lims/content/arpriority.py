@@ -5,7 +5,7 @@ from OLiMS.lims.content.bikaschema import BikaSchema
 from OLiMS.lims.config import PROJECTNAME
 from OLiMS.lims.idserver import renameAfterCreation
 from OLiMS.lims.interfaces import IARPriority
-from OLiMS.dependencies.dependency import atapi
+from OLiMS.dependencies import atapi
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import implements
 

@@ -3,7 +3,6 @@ from OLiMS.dependencies.dependency import RecordsField
 from OLiMS.lims.browser.widgets import RecordsWidget
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import View, ModifyPortalContent
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.lims import PMF, bikaMessageFactory as _
 from OLiMS.lims.config import *
@@ -13,7 +12,7 @@ from OLiMS.lims.interfaces import IHaveNoBreadCrumbs
 from OLiMS.lims.browser.widgets import DurationWidget
 from OLiMS.lims.browser.fields import DurationField
 from OLiMS.lims.vocabularies import getStickerTemplates as _getStickerTemplates
-from OLiMS.dependencies.dependency import folder
+from OLiMS.dependencies import folder
 from OLiMS.dependencies.dependency import implements
 from OLiMS.dependencies.dependency import iterDirectoriesOfType, queryResourceDirectory
 import sys

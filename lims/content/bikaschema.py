@@ -1,5 +1,5 @@
 from OLiMS.dependencies.dependency import BaseSchema
-from OLiMS.dependencies.dependency import ATFolderSchema
+from OLiMS.dependencies.folder import ATFolderSchema
 
 BikaSchema = BaseSchema.copy()
 BikaSchema['id'].widget.visible = False

@@ -2,7 +2,7 @@
 """
 from OLiMS.dependencies.dependency import ClassSecurityInfo
 from OLiMS.lims.interfaces import IPricelistFolder
-from OLiMS.dependencies.dependency import folder
+from OLiMS.dependencies import folder
 from OLiMS.lims.content.bikaschema import BikaFolderSchema
 from OLiMS.lims import PROJECTNAME
 from OLiMS.dependencies.dependency import *

@@ -4,7 +4,6 @@
 from OLiMS.dependencies.dependency import ClassSecurityInfo
 from OLiMS.dependencies.dependency import DateTime
 from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import View, ModifyPortalContent
 from OLiMS.lims.content.bikaschema import BikaSchema
 from OLiMS.lims.browser.fields import ReferenceResultsField
 from OLiMS.lims.browser.widgets import ReferenceResultsWidget

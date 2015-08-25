@@ -11,7 +11,7 @@ from OLiMS.lims.permissions import EditWorksheet, ManageWorksheets
 from OLiMS.lims.workflow import doActionFor
 from OLiMS.lims.workflow import skip
 from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import itemgetter
+from operator import itemgetter
 from OLiMS.dependencies.dependency import indexer
 from OLiMS.dependencies.dependency import REFERENCE_CATALOG
 from OLiMS.dependencies.dependency import *
