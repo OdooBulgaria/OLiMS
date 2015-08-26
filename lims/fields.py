@@ -4,7 +4,7 @@ from OLiMS.dependencies.dependency import aq_inner
 from OLiMS.dependencies.dependency import aq_parent
 from OLiMS.dependencies.dependency import Implicit
 from OLiMS.dependencies.dependency import ImplicitAcquisitionWrapper
-from archetypes.schemaextender.interfaces import IExtensionField
+from OLiMS.dependencies.dependency import IExtensionField
 from OLiMS.dependencies.dependency import *
 from OLiMS.dependencies.dependency import DateTimeField
 from OLiMS.dependencies.dependency import RecordField, RecordsField

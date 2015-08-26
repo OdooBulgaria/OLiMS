@@ -1,3 +1,77 @@
+class Service:
+
+    def __init__(self):
+        pass
+
+    def validate(self, name_or_validator, value, *args, **kwargs):
+        pass
+
+    def validatorFor(self, name_or_validator):
+        pass
+
+    def register(self, validator): #XXX
+        pass
+
+    def items(self):
+        pass
+
+    def keys(self):
+        pass
+
+    def values(self):
+        pass
+
+    def unregister(self, name_or_validator):
+        pass
+
+validation = Service()
+
+def providedByFallback(ob):
+
+    # Here we have either a special object, an old-style declaration
+    # or a descriptor
+
+    # Try to get __providedBy__
+    
+        # Not set yet. Fall back to lower-level thing that computes it
+        
+
+    
+        # We might have gotten a descriptor from an instance of a
+        # class (like an ExtensionClass) that doesn't support
+        # descriptors.  We'll make sure we got one by trying to get
+        # the only attribute, which all specs have.
+        
+
+    
+
+        # The object's class doesn't understand descriptors.
+        # Sigh. We need to get an object descriptor, but we have to be
+        # careful.  We want to use the instance's __provides__, if
+        # there is one, but only if it didn't come from the class.
+
+        
+            # No __provides__, so just fall back to implementedBy
+            
+
+        # We need to make sure we got the __provides__ from the
+        # instance. We'll do this by making sure we don't get the same
+        # thing from the class:
+
+        
+            # The ob doesn't have a class or the class has no
+            # provides, assume we're done:
+            
+
+        
+            # Oops, we got the provides from the class. This means
+            # the object doesn't have it's own. We should use implementedBy
+            
+    pass
+
+providedBy = providedByFallback
+
+
 class QuerystringRegistryReader(object):
     """Adapts a registry object to parse the querystring data."""
 
@@ -997,6 +1071,11 @@ def allow_module(module_name):
     path is given, all modules in the path will be available."""
     pass
 
+ApplyVersionControl = 'CMFEditions: Apply version control'
+SaveNewVersion = 'CMFEditions: Save new version'
+AccessPreviousVersions = 'CMFEditions: Access previous versions'
+AddPortalContent = 'Add portal content'
+ManagePortal = 'Manage portal'
 nobody = "Anonymous User"
 ATCT_TOOLNAME = 'portal_atct'
 View = 'view'

@@ -15,7 +15,6 @@ from OLiMS.dependencies.dependency import ParseError
 from OLiMS.dependencies.dependency import MessageFactory
 from OLiMS.dependencies.dependency import Search
 from OLiMS.dependencies.dependency import quote_chars
-import plone
 
 _ = MessageFactory('plone')
 

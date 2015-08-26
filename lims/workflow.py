@@ -2,7 +2,6 @@ from OLiMS.lims import enum
 from OLiMS.lims import PMF
 from OLiMS.lims.interfaces import IJSONReadExtender
 from OLiMS.lims.utils import t
-from OLiMS.dependencies.dependency import IContentish
 from OLiMS.dependencies.dependency import Interface
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import WorkflowException

@@ -13,8 +13,7 @@ from OLiMS.dependencies.dependency import IIDNormalizer
 from OLiMS.dependencies.dependency import getUtility
 from OLiMS.dependencies.dependency import providedBy
 import copy,re,urllib
-import plone.protect
-import transaction
+from OLiMS.dependencies import transaction
 
 class IDServerUnavailable(Exception):
     pass

@@ -5,7 +5,8 @@ from OLiMS.lims.utils import t
 from OLiMS.lims import interfaces
 from OLiMS.lims import logger
 from OLiMS.lims.permissions import EditResults, EditWorksheet
-import plone.protect
+from OLiMS.dependencies.dependency import check as CheckAuthenticator
+from OLiMS.dependencies.dependency import postonly as PostOnly
 
 class barcode_entry(BrowserView):
     """ return redirect url if the item exists
@@ -13,8 +14,8 @@ class barcode_entry(BrowserView):
     """
     def __call__(self):
         try:
-            plone.protect.CheckAuthenticator(self.request)
-            plone.protect.PostOnly(self.request)
+            CheckAuthenticator(self.request)
+            PostOnly(self.request)
         except:
             return ""
 

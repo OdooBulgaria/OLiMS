@@ -7,7 +7,7 @@ from OLiMS.lims.utils import to_utf8
 from OLiMS.dependencies.dependency import DisplayList
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import resource_filename
+from pkg_resources import resource_filename
 from OLiMS.dependencies.dependency import iterDirectoriesOfType
 from OLiMS.dependencies.dependency import IVocabularyFactory
 from OLiMS.dependencies.dependency import SimpleTerm

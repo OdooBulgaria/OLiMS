@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import math
-import zope.event
+from OLiMS.dependencies.dependency import event
 from OLiMS.lims.utils import formatDecimalMark
 from OLiMS.dependencies.dependency import ObjectInitializedEvent
 from OLiMS.dependencies.dependency import WorkflowException
@@ -19,7 +19,8 @@ def create_analysis(context, service, keyword, interim_fields):
     analysis.unmarkCreationFlag()
     analysis.reindexObject()
     # Trigger the intitialization event of the new object
-    zope.event.notify(ObjectInitializedEvent(analysis))
+#     zope.event.notify(ObjectInitializedEvent(analysis))
+    event.notify(ObjectInitializedEvent(analysis))
     # Perform the appropriate workflow action
     try:
         workflow_action =  'sampling_workflow' if workflow_enabled \
