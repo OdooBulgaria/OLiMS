@@ -1,3 +1,37 @@
+class router:
+    """
+    https://github.com/collective/plone.jsonapi.core/blob/master/src/plone/jsonapi/core/browser/router.py
+    
+    """
+    @staticmethod
+    def url_for(endpoint, **options):
+        """ method to retrieve the API URL of an endpoint
+        Example::
+        >>> from plone.jsonapi import router
+        >>> router.url_for("hello", values={"name": "jsonapi"}, force_external=True)
+        """
+        pass
+
+class interface:
+    pass
+
+
+class IRouteProvider(interface.Interface):
+    """ utlitiy which provides an api route
+    """
+    @staticmethod
+    def initialize(context, request):
+        """ get's called by the API Framework
+        """
+        pass
+    
+    @staticmethod
+    def routes(self):
+        """ needs to return a tuple of tuples containing
+            rule, endpoint, view_func and additional options
+        """
+        pass
+
 class WebIntelligentToHtmlConverter(object):
 
     def __init__(self, orig, tab_width=4):

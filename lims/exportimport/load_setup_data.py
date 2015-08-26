@@ -9,7 +9,7 @@ from OLiMS.dependencies.dependency import getAdapters
 import traceback
 
 import tempfile
-import transaction
+from OLiMS.dependencies import transaction
 
 try:
     from OLiMS.dependencies.dependency import getSite

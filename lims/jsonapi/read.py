@@ -11,7 +11,7 @@ from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import interface
 from OLiMS.dependencies.dependency import getAdapters
 import re
-import App
+# import App #Plone/buildout-cache/eggs/Zope2-2.13.22-py2.7.egg/App
 
 
 def read(context, request):
@@ -26,7 +26,7 @@ def read(context, request):
         "objects": [],
         "_authenticator": _authenticator,
     }
-    debug_mode = App.config.getConfiguration().debug_mode
+    debug_mode = True #App.config.getConfiguration().debug_mode "Commented by Yasir"
     catalog_name = request.get("catalog_name", "portal_catalog")
     if not catalog_name:
         raise ValueError("bad or missing catalog_name: " + catalog_name)

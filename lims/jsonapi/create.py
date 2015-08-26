@@ -16,7 +16,7 @@ from OLiMS.dependencies.dependency import event
 from OLiMS.dependencies.dependency import interface
 
 import json
-import transaction
+from OLiMS.dependencies import transaction
 
 class Create(object):
     interface.implements(IRouteProvider)

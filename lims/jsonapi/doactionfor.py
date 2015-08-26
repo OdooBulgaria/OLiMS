@@ -6,7 +6,7 @@ from OLiMS.dependencies.dependency import BadRequest
 from OLiMS.dependencies.dependency import interface
 import json
 
-import transaction
+from OLiMS.dependencies import transaction
 
 
 class doActionFor(object):
