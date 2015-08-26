@@ -10,8 +10,8 @@ from OLiMS.dependencies.dependency import REFERENCE_CATALOG
 from OLiMS.dependencies.dependency import ObjectInitializedEvent
 from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import WorkflowException
-import transaction
-import zope.event
+from OLiMS.dependencies import transaction
+from OLiMS.dependencies.dependency import event
 from OLiMS.dependencies.dependency import alsoProvides
 
 

@@ -7,8 +7,8 @@ from OLiMS.lims.utils import t
 from OLiMS.lims import logger
 from OLiMS.lims.subscribers import skip
 from OLiMS.lims.subscribers import doActionFor
-import App
-import transaction
+# import App Plone/buildout-cache/eggs/Zope2-2.13.22-py2.7.egg/App
+from OLiMS.dependencies import transaction
 
 def AfterTransitionEventHandler(instance, event):
 
@@ -16,7 +16,7 @@ def AfterTransitionEventHandler(instance, event):
     if not event.transition:
         return
 
-    debug_mode = App.config.getConfiguration().debug_mode
+    debug_mode = True #App.config.getConfiguration().debug_mode "Commented by Yasir"
     if not debug_mode:
         return
 
