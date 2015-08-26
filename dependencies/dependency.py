@@ -1,3 +1,59 @@
+class IPloneSiteRoot: # (ISiteRoot, INavigationRoot):
+    """
+    Marker interface for the object which serves as the root of a
+    Plone site.
+    """
+    
+class DirectoryRegistry:
+    
+    ignore=None
+    
+    def __init__(self):
+        pass
+
+    def registerFileExtension(self, ext, klass):
+        pass
+
+    def registerMetaType(self, mt, klass):
+        pass
+
+    def getTypeByExtension(self, ext):
+        pass
+
+    def getTypeByMetaType(self, mt):
+        pass
+    
+    def registerDirectory(self, name, _prefix, subdirs=1, ignore=ignore):
+        # This what is actually called to register a
+        # file system directory to become a FSDV.
+        pass
+
+    def registerDirectoryByKey(self, filepath, reg_key, subdirs=1,
+                               ignore=ignore):
+        pass
+
+    def reloadDirectory(self, reg_key):
+        pass
+
+    def getDirectoryInfo(self, reg_key):
+        # This is called when we need to get hold of the information
+        # for a minimal path. Can return None.
+        pass
+
+    def listDirectories(self):
+        pass
+    
+_dirreg = DirectoryRegistry()
+registerDirectory = _dirreg.registerDirectory
+
+def process_types(types, pkg_name):
+    
+    pass
+
+def listTypes(package=None):
+    
+    pass
+
 class Service:
 
     def __init__(self):
@@ -956,6 +1012,46 @@ class Implicit(_Acquirer):
     pass
 
 
+class ProfileRegistry(Implicit):
+
+    """ Track registered profiles.
+    """
+    BASE = None
+    def __init__(self):
+        pass
+
+    def getProfileInfo(self, profile_id, for_=None):
+        """ See IProfileRegistry.
+        """
+        pass
+
+    def listProfiles(self, for_=None):
+        """ See IProfileRegistry.
+        """
+        pass
+
+    def listProfileInfo(self, for_=None):
+        """ See IProfileRegistry.
+        """
+        pass
+
+    def registerProfile(self, name, title, description, path, product=None,
+                        profile_type=BASE, for_=None):
+        """ See IProfileRegistry.
+        """
+        pass
+
+    def _computeProfileId(self, name, product):
+        pass
+
+    def unregisterProfile(self, name, product=None):
+        pass
+
+    def clear(self):
+        pass
+        
+_profile_registry = ProfileRegistry()
+
 class SecurityInfo(Implicit):
     """Encapsulate security information."""
 
@@ -1071,6 +1167,7 @@ def allow_module(module_name):
     path is given, all modules in the path will be available."""
     pass
 
+EXTENSION = 2 
 ApplyVersionControl = 'CMFEditions: Apply version control'
 SaveNewVersion = 'CMFEditions: Save new version'
 AccessPreviousVersions = 'CMFEditions: Access previous versions'

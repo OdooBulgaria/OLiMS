@@ -12,7 +12,7 @@ from OLiMS.dependencies.dependency import getToolByName
 from OLiMS.dependencies.dependency import WorkflowException
 from OLiMS.dependencies.dependency import implements
 import sys
-import transaction
+from OLiMS.dependencies import transaction
 
 schema = BikaSchema.copy() + Schema((
     TextField('Comments',

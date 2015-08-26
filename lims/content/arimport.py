@@ -1,6 +1,6 @@
 import sys
 import time
-import transaction
+from OLiMS.dependencies import transaction
 from OLiMS.dependencies.dependency import ClassSecurityInfo
 from OLiMS.lims import bikaMessageFactory as _
 from OLiMS.lims.utils import t

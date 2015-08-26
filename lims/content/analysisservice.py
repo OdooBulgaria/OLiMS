@@ -34,7 +34,7 @@ from OLiMS.lims.interfaces import IAnalysisService
 from magnitude import mg , MagnitudeError
 # from OLiMS.dependencies.dependency import i18n
 from OLiMS.dependencies.dependency import implements
-import transaction
+from OLiMS.dependencies import transaction
 import math
 
 

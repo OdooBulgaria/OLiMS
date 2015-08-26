@@ -13,7 +13,7 @@ from pkg_resources import resource_filename
 import datetime, os.path
 
 import re
-import transaction
+from OLiMS.dependencies import transaction
 
 
 def lookup(context, portal_type, **kwargs):

@@ -18,7 +18,7 @@ from OLiMS.dependencies.dependency import Redirect
 from OLiMS.dependencies.dependency import implements
 import sys
 import re
-import transaction
+from OLiMS.dependencies import transaction
 
 
 schema = BikaSchema.copy() + Schema((
