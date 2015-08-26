@@ -1,3 +1,34 @@
+class QuerystringRegistryReader(object):
+    """Adapts a registry object to parse the querystring data."""
+
+    def __init__(self, context, request=None):
+        pass
+
+    def parseRegistry(self):
+        """Make a dictionary structure for the values in the registry"""
+
+        pass
+
+    def getVocabularyValues(self, values):
+        """Get all vocabulary values if a vocabulary is defined"""
+
+        pass
+
+    def mapOperations(self, values):
+        """Get the operations from the registry and put them in the key
+           'operators' with the short name as key
+        """
+        pass
+
+    def mapSortableIndexes(self, values):
+        """Map sortable indexes"""
+        pass
+
+    def __call__(self):
+        """Return the registry configuration in JSON format"""
+
+        pass
+
 def getEmptyTitle(context, translated=True):
     """Returns string to be used for objects with no title or id"""
     # The default is an extra fancy unicode elipsis
@@ -8984,6 +9015,63 @@ class BrowserView: #(Location):
 
     def __setParent(self, parent):
         pass
+    
+class querybuilder:
+    pass
+
+class QueryBuilder(BrowserView):
+    """ This view is used by the javascripts,
+        fetching configuration or results"""
+
+    def __init__(self, context, request):
+        pass
+
+    def __call__(self, query, batch=False, b_start=0, b_size=30,
+                 sort_on=None, sort_order=None, limit=0, brains=False,
+                 custom_query=None):
+        """Create a zope catalog query and return results.
+        :param query: The querystring to be parsed into a zope catalog query.
+        :type query: dictionary
+        :param batch: Return a plone.batching ``Batch`` instead of a zope
+                      catalog result.
+        :type batch: boolean
+        :param b_start: Start item of the batch.
+        :type b_start: integer
+        :param b_size: Size of the batch.
+        :type b_size: integer
+        :param sort_on: Name of the sort index for sorting the results.
+        :type sort_on: string
+        :param sort_order: The order of the result sorting. Either 'ascending'
+                           or 'descending'. 'reverse' is an alias equivalent
+                           to 'descending'.
+        :type sort_order: string
+        :param limit: Limit the results.
+        :type limit: integer
+        :param brains: Return brains or IContentListing objects.
+        :type brains: boolean
+        :param custom_query: A dictionary of index names and their associated
+                             query values. The custom_query updates the parsed
+                             query, thus overriding the query string.
+                             May be None.
+        :type custom_query: dictionary or None
+        """
+        pass
+
+    def html_results(self, query):
+        """html results, used for in the edit screen of a collection,
+           used in the live update results"""
+        pass
+
+    def _makequery(self, query=None, batch=False, b_start=0, b_size=30,
+                   sort_on=None, sort_order=None, limit=0, brains=False,
+                   custom_query=None):
+        """Parse the (form)query and return using multi-adapter"""
+        pass
+
+    def number_of_results(self, query):
+        """Get the number of results"""
+        pass
+
 
 
 class ViewPageTemplateFile: #(TrustedAppPT, PageTemplateFile):
