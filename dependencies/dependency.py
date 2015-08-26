@@ -7748,6 +7748,59 @@ class FileField(ObjectField):
         pass
 
 
+class TextField(FileField):
+    """Base Class for Field objects that rely on some type of
+    transformation"""
+
+    def defaultView(self):
+        pass
+
+    def setContentType(self, instance, value):
+        """Set mimetype in the base unit.
+        """
+        pass
+        
+    def getAllowedContentTypes(self, instance):
+        """ returns the list of allowed content types for this field.
+            If the fields schema doesn't define any, the site's default
+            values are returned.
+        """
+        pass
+
+    def _make_file(self, id, title='', file='', instance=None):
+        pass
+
+    def _process_input(self, value, file=None, default=None,
+                       mimetype=None, instance=None, **kwargs):
+        pass
+
+    def getRaw(self, instance, raw=False, **kwargs):
+        """
+        If raw, return the base unit object, else return encoded raw data
+        """
+        pass
+
+    def get(self, instance, mimetype=None, raw=False, **kwargs):
+        """ If raw, return the base unit object, else return value of
+        object transformed into requested mime type.
+        If no requested type, then return value in default type. If raw
+        format is specified, try to transform data into the default output type
+        or to plain text.
+        If we are unable to transform data, return an empty string. """
+        pass
+
+    def getBaseUnit(self, instance, full=False):
+        """Return the value of the field wrapped in a base unit object
+        """
+        pass
+
+    
+    def get_size(self, instance):
+        """Get size of the stored data used for get_size in BaseObject
+        """
+        pass
+
+
 class Schema: #(BasicSchema, SchemaLayerContainer):
     """
     Schema
@@ -7760,7 +7813,7 @@ class Schema: #(BasicSchema, SchemaLayerContainer):
         
         # Need to be smarter when joining layers
         # and internal props
-       pass
+        pass
 
     
     def copy(self, factory=None):
