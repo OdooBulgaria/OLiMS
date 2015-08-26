@@ -1,3 +1,8 @@
+def getEmptyTitle(context, translated=True):
+    """Returns string to be used for objects with no title or id"""
+    # The default is an extra fancy unicode elipsis
+    pass
+
 class router:
     """
     https://github.com/collective/plone.jsonapi.core/blob/master/src/plone/jsonapi/core/browser/router.py
@@ -961,6 +966,7 @@ def allow_module(module_name):
     path is given, all modules in the path will be available."""
     pass
 
+nobody = "Anonymous User"
 ATCT_TOOLNAME = 'portal_atct'
 View = 'view'
 ListFolderContents = 'List folder contents'

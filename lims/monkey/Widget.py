@@ -1,5 +1,5 @@
 from OLiMS.lims.interfaces import IATWidgetVisibility
-from OLiMS.dependencies.dependency import DictType
+from types import DictType
 
 from OLiMS.dependencies.dependency import aq_base
 from OLiMS.dependencies.dependency import getAdapters
