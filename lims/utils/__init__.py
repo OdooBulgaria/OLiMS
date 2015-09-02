@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from dependencies.dependency import ModuleSecurityInfo, allow_module
+# from dependencies.dependency import ModuleSecurityInfo, allow_module
 from lims import logger
 from lims.browser import BrowserView
 from dependencies.dependency import DateTime
 from email import Encoders
 from email.MIMEBase import MIMEBase
-from dependencies.dependency import ram
+# from dependencies.dependency import ram
 from dependencies.dependency import IRegistry
 from dependencies.dependency import DisplayList
 from dependencies.dependency import getToolByName
@@ -23,8 +23,8 @@ import re
 import tempfile
 import urllib2
 
-ModuleSecurityInfo('email.Utils').declarePublic('formataddr')
-allow_module('csv')
+# ModuleSecurityInfo('email.Utils').declarePublic('formataddr')
+# allow_module('csv')
 
 
 def to_utf8(text):
@@ -47,7 +47,7 @@ def t(i18n_msg):
 
 # Wrapper for PortalTransport's sendmail - don't know why there sendmail
 # method is marked private
-ModuleSecurityInfo('Products.bika.utils').declarePublic('sendmail')
+# ModuleSecurityInfo('Products.bika.utils').declarePublic('sendmail')
 # Protected( Publish, 'sendmail')
 
 
@@ -70,7 +70,7 @@ class js_err(BrowserView):
         """
         self.logger.error(message);
 
-ModuleSecurityInfo('Products.bika.utils').declarePublic('printfile')
+# ModuleSecurityInfo('Products.bika.utils').declarePublic('printfile')
 
 
 def printfile(portal, from_addr, to_addrs, msg):
@@ -196,7 +196,7 @@ def formatDecimalMark(value, decimalmark='.'):
 # encode_header function copied from roundup's rfc2822 package.
 hqre = re.compile(r'^[A-z0-9!"#$%%&\'()*+,-./:;<=>?@\[\]^_`{|}~ ]+$')
 
-ModuleSecurityInfo('Products.bika.utils').declarePublic('encode_header')
+# ModuleSecurityInfo('Products.bika.utils').declarePublic('encode_header')
 
 
 def encode_header(header, charset='utf-8'):
@@ -233,7 +233,7 @@ def zero_fill(matchobj):
 
 num_sort_regex = re.compile('\d+')
 
-ModuleSecurityInfo('Products.bika.utils').declarePublic('sortable_title')
+# ModuleSecurityInfo('Products.bika.utils').declarePublic('sortable_title')
 
 
 def sortable_title(portal, title):

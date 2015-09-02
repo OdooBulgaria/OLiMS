@@ -15,7 +15,7 @@ from lims.validators import *
 from lims.config import *
 from lims.permissions import *
 
-from dependencies.dependency import ModuleSecurityInfo, allow_module
+# from dependencies.dependency import ModuleSecurityInfo, allow_module
 from dependencies.dependency import process_types, listTypes
 from dependencies.dependency import registerDirectory
 from dependencies.dependency import ContentInit, ToolInit, getToolByName
@@ -24,16 +24,16 @@ from dependencies.dependency import IPloneSiteRoot
 from dependencies.dependency import EXTENSION
 # from dependencies.dependency import _profile_registry as profile_registry
 
-allow_module('AccessControl')
-allow_module('bika.lims')
-allow_module('bika.lims.config')
-allow_module('bika.lims.permissions')
-allow_module('bika.lims.utils')
-allow_module('json')
-allow_module('pdb')
-allow_module('zope.i18n.locales')
-allow_module('zope.component')
-allow_module('plone.registry.interfaces')
+# allow_module('AccessControl')
+# allow_module('bika.lims')
+# allow_module('bika.lims.config')
+# allow_module('bika.lims.permissions')
+# allow_module('bika.lims.utils')
+# allow_module('json')
+# allow_module('pdb')
+# allow_module('zope.i18n.locales')
+# allow_module('zope.component')
+# allow_module('plone.registry.interfaces')
 
 def initialize(context):
 

@@ -182,7 +182,7 @@ class interface:
     pass
 
 
-class IRouteProvider(interface.Interface):
+class IRouteProvider():
     """ utlitiy which provides an api route
     """
     @staticmethod
@@ -412,19 +412,19 @@ class BaseContent(BaseContentMixin,
     Metadata included"""
 
 
-    schema = BaseContentMixin.schema + ExtensibleMetadata.schema
+#    schema = BaseContentMixin.schema + ExtensibleMetadata.schema
 
     def __init__(self, oid, **kwargs):
         BaseContentMixin.__init__(self, oid, **kwargs)
         ExtensibleMetadata.__init__(self)
         
-BaseSchema = BaseContent.schema
-
-ATContentTypeSchema = BaseSchema.copy()
-
-ATDocumentSchema = ATContentTypeSchema.copy()
-
-CollectionSchema = ATDocumentSchema.copy()
+# BaseSchema = BaseContent.schema
+# 
+# ATContentTypeSchema = BaseSchema.copy()
+# 
+# ATDocumentSchema = ATContentTypeSchema.copy()
+# 
+# CollectionSchema = ATDocumentSchema.copy()
 
 class permissions:
     def __init__(self):
@@ -990,16 +990,16 @@ class ExtensionClass(type):
     def __setattr__(self, name, value):
         pass
     
-Base = ExtensionClass("Base", (object, ), {
+#Base = ExtensionClass("Base", (object, ), {
 #     '__slots__': (),
 #     '__getattribute__': Base_getattro,
 #     '__getstate__': Base__getstate__,
 #     '__setstate__': Base__setstate__,
 #     '__reduce__': Base__reduce__,
 #     '__new__': Base__new__,
-})    
+#})    
 
-class _Acquirer(ExtensionClass.Base):
+class _Acquirer():#ExtensionClass.Base):
 
     def __getattribute__(self, name):
         pass
@@ -1160,12 +1160,12 @@ def getSecurityManager():
 def ModuleSecurityInfo(module_name=None):
     pass
 
-def allow_module(module_name):
-    """Allow a module and all its contents to be used from a
-    restricted Script. The argument module_name may be a simple
-    or dotted module or package name. Note that if a package
-    path is given, all modules in the path will be available."""
-    pass
+# def allow_module(module_name):
+#     """Allow a module and all its contents to be used from a
+#     restricted Script. The argument module_name may be a simple
+#     or dotted module or package name. Note that if a package
+#     path is given, all modules in the path will be available."""
+#     pass
 
 EXTENSION = 2 
 ApplyVersionControl = 'CMFEditions: Apply version control'
@@ -1250,7 +1250,7 @@ def newSecurityManager(request, user):
 def InitializeClass(self):
     pass
 
-class DefaultLayerContainer(Base):
+class DefaultLayerContainer():
 
     def __init__(self):
         pass
@@ -6685,7 +6685,6 @@ class IViewView(Interface):
     """
     pass
 
-from zope.interface import Interface, Attribute
 
 class INavigationRoot(Interface):
     """A marker interface for signaling the navigation root.
@@ -6720,44 +6719,44 @@ class INavigationQueryBuilder(Interface):
         """
         pass
 
-class INavtreeStrategy(Interface):
-    """An object that is used by buildFolderTree() to determine how to
-    construct a navigation tree.
-    """
-
-    rootPath = Attribute("The path to the root of the navtree (None means use portal root)")
-
-    showAllParents = Attribute("Whether or not to show all parents of the current context always")
-
-    @staticmethod
-    def nodeFilter(node):
-        """Return True or False to determine whether to include the given node
-        in the tree. Nodes are dicts with at least one key - 'item', the
-        catalog brain of the object the node represents.
-        """
-        pass
-        
-    @staticmethod
-    def subtreeFilter(node):
-        """Return True or False to determine whether to expand the given
-        (folderish) node
-        """
-        pass
-
-    @staticmethod
-    def decoratorFactory(node):
-        """Inject any additional keys in the node that are needed and return
-        the new node.
-        """
-        pass
-
-    @staticmethod
-    def showChildrenOf(object):
-        """Given an object (usually the root of the site), determine whether
-        children should be shown or not. Even if this returns True, if
-        showAllParents is True, the path to the current item may be shown.
-        """
-        pass
+# class INavtreeStrategy(Interface):
+#     """An object that is used by buildFolderTree() to determine how to
+#     construct a navigation tree.
+#     """
+# 
+#     rootPath = Attribute("The path to the root of the navtree (None means use portal root)")
+# 
+#     showAllParents = Attribute("Whether or not to show all parents of the current context always")
+# 
+#     @staticmethod
+#     def nodeFilter(node):
+#         """Return True or False to determine whether to include the given node
+#         in the tree. Nodes are dicts with at least one key - 'item', the
+#         catalog brain of the object the node represents.
+#         """
+#         pass
+#         
+#     @staticmethod
+#     def subtreeFilter(node):
+#         """Return True or False to determine whether to expand the given
+#         (folderish) node
+#         """
+#         pass
+# 
+#     @staticmethod
+#     def decoratorFactory(node):
+#         """Inject any additional keys in the node that are needed and return
+#         the new node.
+#         """
+#         pass
+# 
+#     @staticmethod
+#     def showChildrenOf(object):
+#         """Given an object (usually the root of the site), determine whether
+#         children should be shown or not. Even if this returns True, if
+#         showAllParents is True, the path to the current item may be shown.
+#         """
+#         pass
 
 class ViewletBase: #(BrowserView):
     """ Base class with common functions for link viewlets.
@@ -8611,7 +8610,7 @@ class _ViewEmulator(Implicit):
         pass
 
 
-class ImmutableId(Base):
+class ImmutableId():
 
     """ Base class for objects which cannot be renamed.
     """
