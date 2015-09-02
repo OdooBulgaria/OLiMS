@@ -1,5 +1,5 @@
-from OLiMS.lims.utils import tmpID
-from OLiMS.dependencies.dependency import _createObjectByType
+from lims.utils import tmpID
+from dependencies.dependency import _createObjectByType
 from magnitude import mg
 
 

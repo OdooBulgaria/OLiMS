@@ -1,7 +1,7 @@
 # ../../skins/bika/bika_widgets/artemplatepartitionswidget.pt
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import registerWidget
-from OLiMS.lims.browser.widgets import RecordsWidget
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import registerWidget
+from lims.browser.widgets import RecordsWidget
 
 
 class ARTemplatePartitionsWidget(RecordsWidget):

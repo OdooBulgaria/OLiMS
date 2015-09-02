@@ -1,11 +1,11 @@
-from OLiMS.dependencies.dependency import IQuerystringRegistryReader
-from OLiMS.lims.querystring.querybuilder import RegistryConfiguration
-from OLiMS.dependencies.dependency import \
+from dependencies.dependency import IQuerystringRegistryReader
+from lims.querystring.querybuilder import RegistryConfiguration
+from dependencies.dependency import \
     QuerystringRegistryReader as _QuerystringRegistryReader
-from OLiMS.dependencies.dependency import IRegistry
-from OLiMS.dependencies.dependency import getUtility
-from OLiMS.dependencies.dependency import MessageFactory
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import IRegistry
+from dependencies.dependency import getUtility
+from dependencies.dependency import MessageFactory
+from dependencies.dependency import implements
 
 
 _p = MessageFactory('plone')

@@ -1,25 +1,25 @@
-from OLiMS.lims.adapters.referencewidgetvocabulary import DefaultReferenceWidgetVocabulary
-from OLiMS.lims.jsonapi import get_include_fields
-from OLiMS.lims.jsonapi import load_brain_metadata
-from OLiMS.lims.jsonapi import load_field_values
-from OLiMS.lims.utils import dicts_to_dict
-from OLiMS.lims.interfaces import IAnalysisRequest
-from OLiMS.lims.interfaces import IFieldIcons
-from OLiMS.lims.interfaces import IJSONReadExtender
-from OLiMS.lims.permissions import *
-from OLiMS.lims.workflow import get_workflow_actions
-from OLiMS.lims.vocabularies import CatalogVocabulary
-from OLiMS.lims.utils import to_utf8
-from OLiMS.lims.workflow import doActionFor
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import PloneMessageFactory as PMF
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import IRegistry
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import adapts
-from OLiMS.dependencies.dependency import getAdapters
-from OLiMS.dependencies.dependency import queryUtility
-from OLiMS.dependencies.dependency import implements
+from lims.adapters.referencewidgetvocabulary import DefaultReferenceWidgetVocabulary
+from lims.jsonapi import get_include_fields
+from lims.jsonapi import load_brain_metadata
+from lims.jsonapi import load_field_values
+from lims.utils import dicts_to_dict
+from lims.interfaces import IAnalysisRequest
+from lims.interfaces import IFieldIcons
+from lims.interfaces import IJSONReadExtender
+from lims.permissions import *
+from lims.workflow import get_workflow_actions
+from lims.vocabularies import CatalogVocabulary
+from lims.utils import to_utf8
+from lims.workflow import doActionFor
+from dependencies.dependency import DateTime
+from dependencies.dependency import PloneMessageFactory as PMF
+from dependencies.dependency import IViewView
+from dependencies.dependency import IRegistry
+from dependencies.dependency import getToolByName
+from dependencies.dependency import adapts
+from dependencies.dependency import getAdapters
+from dependencies.dependency import queryUtility
+from dependencies.dependency import implements
 
 import json
 

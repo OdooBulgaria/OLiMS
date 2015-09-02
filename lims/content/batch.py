@@ -1,24 +1,24 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaFolderSchema
-from OLiMS.lims.interfaces import IBatch
-from OLiMS.lims.workflow import skip, BatchState, StateFlow, getCurrentState,\
+from dependencies.dependency import ClassSecurityInfo
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.config import PROJECTNAME
+from lims.content.bikaschema import BikaFolderSchema
+from lims.interfaces import IBatch
+from lims.workflow import skip, BatchState, StateFlow, getCurrentState,\
     CancellationState
-from OLiMS.lims.browser.widgets import DateTimeWidget
-from OLiMS.dependencies.dependency import ATFolder
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.dependencies.dependency import implements
-from OLiMS.lims.permissions import EditBatch
-from OLiMS.dependencies.dependency import indexer
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import RecordsField
-from OLiMS.lims.browser.widgets import RecordsWidget as bikaRecordsWidget
+from lims.browser.widgets import DateTimeWidget
+from dependencies.dependency import ATFolder
+from dependencies.dependency import *
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import implements
+from lims.permissions import EditBatch
+from dependencies.dependency import indexer
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import RecordsField
+from lims.browser.widgets import RecordsWidget as bikaRecordsWidget
 
-from OLiMS.lims.browser.widgets import ReferenceWidget
+from lims.browser.widgets import ReferenceWidget
 
 
 class InheritedObjectsUIField(RecordsField):
@@ -208,7 +208,7 @@ class Batch(ATFolder):
     _at_rename_after_creation = True
 
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def Title(self):
@@ -220,7 +220,7 @@ class Batch(ATFolder):
             return safe_unicode(self.id).encode('utf-8')
 
     def _getCatalogTool(self):
-        from OLiMS.lims.catalog import getCatalog
+        from lims.catalog import getCatalog
         return getCatalog(self)
 
     def getClient(self):

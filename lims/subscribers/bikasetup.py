@@ -1,7 +1,7 @@
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import permissions
-from OLiMS.lims.permissions import ManageWorksheets
-from OLiMS.lims.permissions import AddClient, EditClient, ManageClients
+from dependencies.dependency import getToolByName
+from dependencies.dependency import permissions
+from lims.permissions import ManageWorksheets
+from lims.permissions import AddClient, EditClient, ManageClients
 
 def BikaSetupModifiedEventHandler(instance, event):
     """ Event fired when BikaSetup object gets modified.

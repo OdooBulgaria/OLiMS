@@ -1,25 +1,25 @@
 import sys
 
-from OLiMS.dependencies.dependency import *
+from dependencies.dependency import *
 
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.browser.widgets import DateTimeWidget
-from OLiMS.lims.browser.widgets import ReferenceWidget as BikaReferenceWidget
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.interfaces import ISupplyOrder
-from OLiMS.lims.utils import t
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import PersistentMapping
-from OLiMS.dependencies.dependency import Decimal
-from OLiMS.dependencies import atapi
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import View
-from OLiMS.dependencies.dependency import IConstrainTypes
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.dependencies.dependency import getAdapter
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ClassSecurityInfo
+from lims import bikaMessageFactory as _
+from lims.browser.widgets import DateTimeWidget
+from lims.browser.widgets import ReferenceWidget as BikaReferenceWidget
+from lims.config import PROJECTNAME
+from lims.content.bikaschema import BikaSchema
+from lims.interfaces import ISupplyOrder
+from lims.utils import t
+from dependencies.dependency import DateTime
+from dependencies.dependency import PersistentMapping
+from dependencies.dependency import Decimal
+from dependencies import atapi
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import View
+from dependencies.dependency import IConstrainTypes
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import getAdapter
+from dependencies.dependency import implements
 
 
 schema = BikaSchema.copy() + Schema((
@@ -117,7 +117,7 @@ class SupplyOrder(BaseFolder):
     supplyorder_lineitems = []
 
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def getInvoiced(self):

@@ -1,11 +1,11 @@
 # -*- coding:utf-8 -*-
-from OLiMS.lims.interfaces import IAnalysisRequestsFolder, IBatch, IClient
-from OLiMS.lims.interfaces import IATWidgetVisibility
-from OLiMS.lims.utils import getHiddenAttributesForClass
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import WorkflowException
+from lims.interfaces import IAnalysisRequestsFolder, IBatch, IClient
+from lims.interfaces import IATWidgetVisibility
+from lims.utils import getHiddenAttributesForClass
+from dependencies.dependency import getToolByName
+from dependencies.dependency import WorkflowException
 from types import DictType
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import implements
 
 _marker = []
 

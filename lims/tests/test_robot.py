@@ -1,6 +1,6 @@
-from OLiMS.lims.testing import BIKA_ROBOT_TESTING
-from OLiMS.dependencies.dependency import layered
-from OLiMS.dependencies.dependency import resource_listdir
+from lims.testing import BIKA_ROBOT_TESTING
+from dependencies.dependency import layered
+from dependencies.dependency import resource_listdir
 import robotsuite
 import unittest
 

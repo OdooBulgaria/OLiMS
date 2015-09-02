@@ -1,34 +1,34 @@
 """Sample represents a physical sample submitted for testing
 """
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t, getUsers
-from OLiMS.lims.browser.widgets.datetimewidget import DateTimeWidget
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.interfaces import ISample
-from OLiMS.lims.permissions import SampleSample
-from OLiMS.lims.workflow import doActionFor, isBasicTransitionAllowed
-from OLiMS.lims.workflow import skip
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies import atapi
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import DisplayList
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import HistoryAwareMixin
-from OLiMS.dependencies.dependency import DT2dt, dt2DT
-from OLiMS.dependencies.dependency import permissions
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ClassSecurityInfo
+from lims import bikaMessageFactory as _
+from lims.utils import t, getUsers
+from lims.browser.widgets.datetimewidget import DateTimeWidget
+from lims.config import PROJECTNAME
+from lims.content.bikaschema import BikaSchema
+from lims.interfaces import ISample
+from lims.permissions import SampleSample
+from lims.workflow import doActionFor, isBasicTransitionAllowed
+from lims.workflow import skip
+from dependencies.dependency import DateTime
+from dependencies import atapi
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import *
+from dependencies.dependency import DisplayList
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import HistoryAwareMixin
+from dependencies.dependency import DT2dt, dt2DT
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import implements
 
-from OLiMS.lims.browser.fields import DateTimeField
-from OLiMS.lims.browser.widgets import ReferenceWidget
-from OLiMS.lims.browser.widgets import SelectionWidget as BikaSelectionWidget
+from lims.browser.fields import DateTimeField
+from lims.browser.widgets import ReferenceWidget
+from lims.browser.widgets import SelectionWidget as BikaSelectionWidget
 
 import sys
-from OLiMS.lims.utils import to_unicode
+from lims.utils import to_unicode
 
 schema = BikaSchema.copy() + Schema((
     StringField('SampleID',
@@ -507,11 +507,11 @@ class Sample(BaseFolder, HistoryAwareMixin):
     _at_rename_after_creation = True
 
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def _getCatalogTool(self):
-        from OLiMS.lims.catalog import getCatalog
+        from lims.catalog import getCatalog
         return getCatalog(self)
 
     def Title(self):

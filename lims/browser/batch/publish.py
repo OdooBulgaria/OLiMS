@@ -1,19 +1,19 @@
 import tempfile
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims import logger
-from OLiMS.lims.utils import t, formatDecimalMark
-from OLiMS.lims.utils.analysis import format_uncertainty, format_numeric_result
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.permissions import *
-from OLiMS.lims.utils import createPdf
-from OLiMS.lims.utils import to_utf8
-from OLiMS.lims.vocabularies import CatalogVocabulary
+from lims import bikaMessageFactory as _
+from lims import logger
+from lims.utils import t, formatDecimalMark
+from lims.utils.analysis import format_uncertainty, format_numeric_result
+from lims.browser import BrowserView
+from lims.permissions import *
+from lims.utils import createPdf
+from lims.utils import to_utf8
+from lims.vocabularies import CatalogVocabulary
 from cStringIO import StringIO
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import safe_unicode
+from dependencies.dependency import DateTime
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import implements
+from dependencies.dependency import safe_unicode
 
 import os
 

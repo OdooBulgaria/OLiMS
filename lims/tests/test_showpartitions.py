@@ -1,19 +1,19 @@
 import os
-from OLiMS.dependencies.dependency import _createObjectByType
-from OLiMS.lims.browser.stickers import Sticker
-from OLiMS.lims.content.analysis import Analysis
-from OLiMS.lims.testing import BIKA_SIMPLE_TESTING
-from OLiMS.lims.tests.base import BikaSimpleTestCase
-from OLiMS.lims.utils import tmpID
-from OLiMS.lims.utils.analysisrequest import create_analysisrequest
-from OLiMS.lims.vocabularies import getStickerTemplates
-from OLiMS.lims.workflow import doActionFor
-from OLiMS.dependencies.dependency import login, logout
-from OLiMS.dependencies.dependency import TEST_USER_NAME
+from dependencies.dependency import _createObjectByType
+from lims.browser.stickers import Sticker
+from lims.content.analysis import Analysis
+from lims.testing import BIKA_SIMPLE_TESTING
+from lims.tests.base import BikaSimpleTestCase
+from lims.utils import tmpID
+from lims.utils.analysisrequest import create_analysisrequest
+from lims.vocabularies import getStickerTemplates
+from lims.workflow import doActionFor
+from dependencies.dependency import login, logout
+from dependencies.dependency import TEST_USER_NAME
 
 import unittest
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import queryResourceDirectory
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import queryResourceDirectory
 
 
 class TestShowPartitions(BikaSimpleTestCase):

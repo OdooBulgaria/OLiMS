@@ -1,10 +1,10 @@
-from OLiMS.dependencies.dependency import aq_parent, aq_inner, aq_base
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import DisplayList
-from OLiMS.lims import PMF, bikaMessageFactory as _
-from OLiMS.lims.browser import BrowserView
+from dependencies.dependency import aq_parent, aq_inner, aq_base
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import DisplayList
+from lims import PMF, bikaMessageFactory as _
+from lims.browser import BrowserView
 import json
 
 class ContactLoginDetailsView(BrowserView):

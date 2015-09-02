@@ -1,17 +1,17 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo, Unauthorized
-from OLiMS.dependencies.dependency import makeDisplayList
-from OLiMS.dependencies.dependency import RecordField, RecordsField
-from OLiMS.dependencies.dependency import registerField
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import ArchivistRetrieveError
-from OLiMS.dependencies.dependency import RegexValidator
+from dependencies.dependency import ClassSecurityInfo, Unauthorized
+from dependencies.dependency import makeDisplayList
+from dependencies.dependency import RecordField, RecordsField
+from dependencies.dependency import registerField
+from dependencies.dependency import *
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ArchivistRetrieveError
+from dependencies.dependency import RegexValidator
 import sys
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims import logger
-from OLiMS.lims.utils import to_utf8
+from dependencies.dependency import REFERENCE_CATALOG
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims import logger
+from lims.utils import to_utf8
 
 
 class HistoryAwareReferenceField(ReferenceField):

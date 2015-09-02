@@ -1,34 +1,34 @@
 import sys
 import time
-from OLiMS.dependencies import transaction
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser.widgets import DateTimeWidget
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.config import ManageBika, PROJECTNAME, ARIMPORT_OPTIONS
-from OLiMS.lims.idserver import renameAfterCreation
-from OLiMS.lims.interfaces import IARImport
-from OLiMS.lims.permissions import *
-from OLiMS.lims.jsonapi import resolve_request_lookup
-from OLiMS.lims.workflow import doActionFor
-from OLiMS.lims.utils import tmpID
-from OLiMS.lims import logger
-from OLiMS.dependencies.dependency import InitialiseProgressBar
-from OLiMS.dependencies.dependency import ProgressBar
-from OLiMS.dependencies.dependency import UpdateProgressEvent
-from OLiMS.dependencies.dependency import ProgressState
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies import atapi
-from OLiMS.dependencies.dependency import ObjectInitializedEvent
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies.dependency import permissions
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import safe_unicode, _createObjectByType
-from OLiMS.dependencies.dependency import event
-from OLiMS.dependencies.dependency import implements
+from dependencies import transaction
+from dependencies.dependency import ClassSecurityInfo
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser.widgets import DateTimeWidget
+from lims.content.bikaschema import BikaSchema
+from lims.config import ManageBika, PROJECTNAME, ARIMPORT_OPTIONS
+from lims.idserver import renameAfterCreation
+from lims.interfaces import IARImport
+from lims.permissions import *
+from lims.jsonapi import resolve_request_lookup
+from lims.workflow import doActionFor
+from lims.utils import tmpID
+from lims import logger
+from dependencies.dependency import InitialiseProgressBar
+from dependencies.dependency import ProgressBar
+from dependencies.dependency import UpdateProgressEvent
+from dependencies.dependency import ProgressState
+from dependencies.dependency import DateTime
+from dependencies import atapi
+from dependencies.dependency import ObjectInitializedEvent
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import schemata
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode, _createObjectByType
+from dependencies.dependency import event
+from dependencies.dependency import implements
 
 schema = BikaSchema.copy() + Schema((
     StringField('ImportOption',

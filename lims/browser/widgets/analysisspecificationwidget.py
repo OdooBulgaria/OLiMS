@@ -1,15 +1,15 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import registerWidget, registerPropertyType
-from OLiMS.dependencies.dependency import TypesWidget
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.dependencies.dependency import locales
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import registerWidget, registerPropertyType
+from dependencies.dependency import TypesWidget
+from dependencies.dependency import getToolByName
+from lims.browser import BrowserView
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser.bika_listing import BikaListingView
+from dependencies.dependency import locales
 from operator import itemgetter
 import json
-from OLiMS.lims.utils import isnumber
+from lims.utils import isnumber
 
 class AnalysisSpecificationView(BikaListingView):
     """ bika listing to display Analysis Services (AS) table for an

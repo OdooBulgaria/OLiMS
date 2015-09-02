@@ -8,10 +8,10 @@
 ##parameters=
 ##
 
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import CMFEditionsMessageFactory as _
-from OLiMS.dependencies.dependency import isObjectChanged, maybeSaveVersion
-from OLiMS.dependencies.dependency import FileTooLargeToVersionError
+from dependencies.dependency import getToolByName
+from dependencies.dependency import CMFEditionsMessageFactory as _
+from dependencies.dependency import isObjectChanged, maybeSaveVersion
+from dependencies.dependency import FileTooLargeToVersionError
 
 putils = getToolByName(context, 'plone_utils')
 REQUEST = context.REQUEST

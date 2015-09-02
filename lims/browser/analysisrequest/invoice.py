@@ -1,23 +1,23 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 from smtplib import SMTPServerDisconnected, SMTPRecipientsRefused
-from OLiMS.dependencies.dependency import WorkflowException
+from dependencies.dependency import WorkflowException
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.utils import formataddr
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.config import VERIFIED_STATES
-from OLiMS.lims.interfaces import IInvoiceView
-from OLiMS.lims.permissions import *
-from OLiMS.lims.utils import to_utf8, isAttributeHidden, encode_header
-from OLiMS.lims.workflow import doActionFor
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import PloneMessageFactory as PMF
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import Decimal
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser import BrowserView
+from lims.config import VERIFIED_STATES
+from lims.interfaces import IInvoiceView
+from lims.permissions import *
+from lims.utils import to_utf8, isAttributeHidden, encode_header
+from lims.workflow import doActionFor
+from dependencies.dependency import DateTime
+from dependencies.dependency import PloneMessageFactory as PMF
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import implements
+from dependencies.dependency import Decimal
 
 
 class InvoiceView(BrowserView):

@@ -1,19 +1,19 @@
 """The contact person at an organisation.
 """
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import manage_users
-from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies import atapi
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import permissions
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.lims.config import ManageClients, PUBLICATION_PREFS, PROJECTNAME
-from OLiMS.lims.content.person import Person
-from OLiMS.lims import PMF, bikaMessageFactory as _
-from OLiMS.lims.interfaces import IContact
-from OLiMS.dependencies.dependency import implements
-from OLiMS.lims.utils import isActive
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import manage_users
+from dependencies.dependency import schemata
+from dependencies import atapi
+from dependencies.dependency import *
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from lims.config import ManageClients, PUBLICATION_PREFS, PROJECTNAME
+from lims.content.person import Person
+from lims import PMF, bikaMessageFactory as _
+from lims.interfaces import IContact
+from dependencies.dependency import implements
+from lims.utils import isActive
 
 schema = Person.schema.copy() + Schema((
     LinesField('PublicationPreference',
@@ -62,7 +62,7 @@ class Contact(Person):
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def Title(self):

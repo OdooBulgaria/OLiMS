@@ -1,7 +1,7 @@
-from OLiMS.lims.jsonapi import load_field_values
-from OLiMS.lims.interfaces import IJSONReadExtender, IAnalysisProfile
-from OLiMS.dependencies.dependency import adapts
-from OLiMS.dependencies.dependency import implements
+from lims.jsonapi import load_field_values
+from lims.interfaces import IJSONReadExtender, IAnalysisProfile
+from dependencies.dependency import adapts
+from dependencies.dependency import implements
 
 
 class JSONReadExtender(object):

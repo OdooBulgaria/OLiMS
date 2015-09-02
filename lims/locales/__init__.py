@@ -1,9 +1,9 @@
 # Data from www.geonames.org. See http://download.geonames.org/export/dump/readme.txt
 
-from OLiMS.lims.browser import BrowserView
-from OLiMS.dependencies.dependency import itemgetter
+from lims.browser import BrowserView
+from operator import itemgetter
 import json
-import plone
+from dependencies.dependency import check as CheckAuthenticator
 
 COUNTRIES = [
  {'Area(in sq km)': '468',
@@ -40950,7 +40950,7 @@ DISTRICTS = [
 class ajaxGetCountries(BrowserView):
 
     def __call__(self):
-        plone.protect.CheckAuthenticator(self.request)
+        CheckAuthenticator(self.request)
         searchTerm = self.request['searchTerm'].lower()
         page = self.request['page']
         nr_rows = self.request['rows']
@@ -40980,7 +40980,7 @@ class ajaxGetCountries(BrowserView):
 class ajaxGetStates(BrowserView):
 
     def __call__(self):
-        plone.protect.CheckAuthenticator(self.request)
+        CheckAuthenticator(self.request)
         country = self.request.get('country', '')
         items = []
         if not country:
@@ -40994,7 +40994,7 @@ class ajaxGetStates(BrowserView):
 class ajaxGetDistricts(BrowserView):
 
     def __call__(self):
-        plone.protect.CheckAuthenticator(self.request)
+        CheckAuthenticator(self.request)
         country = self.request.get('country', '')
         state = self.request.get('state', '')
         items = []

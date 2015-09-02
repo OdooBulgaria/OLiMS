@@ -1,18 +1,18 @@
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.content.instrument import getDataInterfaces
-from OLiMS.lims.exportimport import instruments
-from OLiMS.lims.exportimport.load_setup_data import LoadSetupData
-from OLiMS.lims.interfaces import ISetupDataSetList
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import DisplayList
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import getAdapters
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
+from dependencies.dependency import ViewPageTemplateFile
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser import BrowserView
+from lims.content.instrument import getDataInterfaces
+from lims.exportimport import instruments
+from lims.exportimport.load_setup_data import LoadSetupData
+from lims.interfaces import ISetupDataSetList
+from dependencies.dependency import IViewView
+from dependencies.dependency import DisplayList
+from dependencies.dependency import getToolByName
+from dependencies.dependency import implements
+from dependencies.dependency import *
+from dependencies.dependency import getAdapters
+from dependencies.dependency import check as CheckAuthenticator
 
 
 class SetupDataSetList:

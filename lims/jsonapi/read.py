@@ -1,15 +1,15 @@
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.lims import logger, to_utf8
-from OLiMS.lims.interfaces import IJSONReadExtender
-from OLiMS.lims.jsonapi import get_include_fields
-from OLiMS.dependencies.dependency import router
-from OLiMS.dependencies.dependency import IRouteProvider
-from OLiMS.dependencies.dependency import AuthenticatorView
-from OLiMS.lims.jsonapi import load_brain_metadata
-from OLiMS.lims.jsonapi import load_field_values
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import interface
-from OLiMS.dependencies.dependency import getAdapters
+from dependencies.dependency import safe_unicode
+from lims import logger, to_utf8
+from lims.interfaces import IJSONReadExtender
+from lims.jsonapi import get_include_fields
+from dependencies.dependency import router
+from dependencies.dependency import IRouteProvider
+from dependencies.dependency import AuthenticatorView
+from lims.jsonapi import load_brain_metadata
+from lims.jsonapi import load_field_values
+from dependencies.dependency import getToolByName
+from dependencies.dependency import interface
+from dependencies.dependency import getAdapters
 import re
 # import App #Plone/buildout-cache/eggs/Zope2-2.13.22-py2.7.egg/App
 

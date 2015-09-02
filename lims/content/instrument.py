@@ -1,24 +1,24 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies.dependency import RecordsField
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser.fields import HistoryAwareReferenceField
-from OLiMS.lims.browser.widgets import DateTimeWidget
-from OLiMS.lims.browser.widgets import RecordsWidget
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaSchema, BikaFolderSchema
-from OLiMS.lims.interfaces import IInstrument
-from OLiMS.lims.utils import to_utf8
-from OLiMS.dependencies.dependency import ATFolder
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import date
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.lims.config import QCANALYSIS_TYPES
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import schemata
+from dependencies.dependency import RecordsField
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser.fields import HistoryAwareReferenceField
+from lims.browser.widgets import DateTimeWidget
+from lims.browser.widgets import RecordsWidget
+from lims.config import PROJECTNAME
+from lims.content.bikaschema import BikaSchema, BikaFolderSchema
+from lims.interfaces import IInstrument
+from lims.utils import to_utf8
+from dependencies.dependency import ATFolder
+from dependencies.dependency import implements
+from dependencies.dependency import date
+from dependencies.dependency import DateTime
+from lims.config import QCANALYSIS_TYPES
 
 schema = BikaFolderSchema.copy() + BikaSchema.copy() + Schema((
 
@@ -247,7 +247,7 @@ schema['description'].schemata = 'default'
 def getDataInterfaces(context):
     """ Return the current list of data interfaces
     """
-    from OLiMS.lims.exportimport import instruments
+    from lims.exportimport import instruments
     exims = []
     for exim_id in instruments.__all__:
         exim = instruments.getExim(exim_id)
@@ -275,7 +275,7 @@ class Instrument(ATFolder):
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def Title(self):

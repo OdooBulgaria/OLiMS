@@ -1,13 +1,13 @@
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import UniqueObject
-from OLiMS.dependencies.dependency import View
-from OLiMS.dependencies import folder
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.lims.content.organisation import Organisation
-from OLiMS.lims.config import ManageBika, PROJECTNAME
-from OLiMS.lims import PMF, bikaMessageFactory as _
+from dependencies.dependency import DateTime
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import UniqueObject
+from dependencies.dependency import View
+from dependencies import folder
+from dependencies.dependency import *
+from dependencies.dependency import safe_unicode
+from lims.content.organisation import Organisation
+from lims.config import ManageBika, PROJECTNAME
+from lims import PMF, bikaMessageFactory as _
 
 schema = Organisation.schema.copy() + Schema((
     StringField('LabURL',

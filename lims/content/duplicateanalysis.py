@@ -1,19 +1,19 @@
 """DuplicateAnalysis uses Analysis as it's base.  Until that's fixed there
 is some confusion.
 """
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser.fields import InterimFieldsField
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.content.analysis import schema, Analysis
-from OLiMS.lims.interfaces import IDuplicateAnalysis
-from OLiMS.lims.subscribers import skip
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ClassSecurityInfo
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser.fields import InterimFieldsField
+from lims.config import PROJECTNAME
+from lims.content.analysis import schema, Analysis
+from lims.interfaces import IDuplicateAnalysis
+from lims.subscribers import skip
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import getToolByName
+from dependencies.dependency import implements
 
 
 schema = schema.copy() + Schema((
@@ -138,7 +138,7 @@ class DuplicateAnalysis(Analysis):
     _at_rename_after_creation = True
 
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def getSample(self):

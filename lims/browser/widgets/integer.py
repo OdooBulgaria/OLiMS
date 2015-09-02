@@ -1,8 +1,8 @@
-from OLiMS.dependencies.dependency import IntegerWidget as _i
-from OLiMS.dependencies.dependency import registerPropertyType
-from OLiMS.dependencies.dependency import registerWidget
+from dependencies.dependency import IntegerWidget as _i
+from dependencies.dependency import registerPropertyType
+from dependencies.dependency import registerWidget
 
-from OLiMS.dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 
 _marker = []
 

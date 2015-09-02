@@ -1,13 +1,13 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.idserver import renameAfterCreation
-from OLiMS.lims.interfaces import IARPriority
-from OLiMS.dependencies import atapi
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ClassSecurityInfo
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.content.bikaschema import BikaSchema
+from lims.config import PROJECTNAME
+from lims.idserver import renameAfterCreation
+from lims.interfaces import IARPriority
+from dependencies import atapi
+from dependencies.dependency import *
+from dependencies.dependency import implements
 
 schema = BikaSchema.copy() + Schema((
     IntegerField('sortKey',

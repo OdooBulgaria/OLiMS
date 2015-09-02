@@ -1,9 +1,9 @@
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.utils import t
+from lims import bikaMessageFactory as _
+from lims.browser.bika_listing import BikaListingView
+from lims.utils import t
 from operator import itemgetter
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import IViewView
+from dependencies.dependency import implements
 
 
 class SupplyOrderFolderView(BikaListingView):

@@ -1,21 +1,21 @@
 # Testing layer to provide some of the features of PloneTestCase
 
-from OLiMS.lims.exportimport.load_setup_data import LoadSetupData
-from OLiMS.dependencies.dependency import REMOTE_LIBRARY_BUNDLE_FIXTURE
-from OLiMS.dependencies.dependency import applyProfile
-from OLiMS.dependencies.dependency import FunctionalTesting
-from OLiMS.dependencies.dependency import login
-from OLiMS.dependencies.dependency import logout
-from OLiMS.dependencies.dependency import PLONE_FIXTURE
-from OLiMS.dependencies.dependency import PloneSandboxLayer
-from OLiMS.dependencies.dependency import SITE_OWNER_NAME
-from OLiMS.dependencies.dependency import z2
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import setupPortalContent
-from OLiMS.dependencies.dependency import makerequest
-from OLiMS.dependencies.dependency import TEST_USER_NAME
-from OLiMS.dependencies.dependency import TEST_USER_PASSWORD
-from OLiMS.dependencies.dependency import Browser
+from lims.exportimport.load_setup_data import LoadSetupData
+from dependencies.dependency import REMOTE_LIBRARY_BUNDLE_FIXTURE
+from dependencies.dependency import applyProfile
+from dependencies.dependency import FunctionalTesting
+from dependencies.dependency import login
+from dependencies.dependency import logout
+from dependencies.dependency import PLONE_FIXTURE
+from dependencies.dependency import PloneSandboxLayer
+from dependencies.dependency import SITE_OWNER_NAME
+from dependencies.dependency import z2
+from dependencies.dependency import getToolByName
+from dependencies.dependency import setupPortalContent
+from dependencies.dependency import makerequest
+from dependencies.dependency import TEST_USER_NAME
+from dependencies.dependency import TEST_USER_PASSWORD
+from dependencies.dependency import Browser
 import bika.lims
 import collective.js.jqueryui
 import plone.app.iterate

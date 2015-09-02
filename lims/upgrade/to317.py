@@ -1,8 +1,8 @@
-from OLiMS.dependencies.dependency import aq_inner
-from OLiMS.dependencies.dependency import aq_parent
-from OLiMS.dependencies.dependency import BaseContent
-from OLiMS.lims.upgrade import stub
-from OLiMS.lims import logger
+from dependencies.dependency import aq_inner
+from dependencies.dependency import aq_parent
+from dependencies.dependency import BaseContent
+from lims.upgrade import stub
+from lims import logger
 
 
 def LIMS1519(portal):

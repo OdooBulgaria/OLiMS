@@ -1,14 +1,14 @@
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.dependencies.dependency import WorkflowException
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims import logger
-from OLiMS.lims.subscribers import skip
-from OLiMS.lims.subscribers import doActionFor
+from dependencies.dependency import DateTime
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import getToolByName
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims import logger
+from lims.subscribers import skip
+from lims.subscribers import doActionFor
 # import App Plone/buildout-cache/eggs/Zope2-2.13.22-py2.7.egg/App
-from OLiMS.dependencies import transaction
+from dependencies import transaction
 
 def AfterTransitionEventHandler(instance, event):
 

@@ -1,11 +1,11 @@
 # encoding=utf-8
 
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.lims.controlpanel.bika_analysisservices import AnalysisServicesView
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import safe_unicode
+from lims.controlpanel.bika_analysisservices import AnalysisServicesView
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import implements
 
 
 class AccreditationView(AnalysisServicesView):

@@ -8,7 +8,7 @@
 ##title=
 ##
 
-from OLiMS.lims.permissions import Retract
+from lims.permissions import Retract
 
 workflow = context.portal_workflow
 checkPermission = context.portal_membership.checkPermission

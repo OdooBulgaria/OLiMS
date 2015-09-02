@@ -1,46 +1,46 @@
 """The request for analysis by a client. It contains analysis instances.
 """
 import logging
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import RecordsField
-from OLiMS.dependencies.dependency import indexer
-from OLiMS.dependencies.dependency import registerType #atapi
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import RichWidget
-from OLiMS.dependencies.dependency import permissions
-from OLiMS.dependencies.dependency import View
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.dependencies.dependency import _createObjectByType
-from OLiMS.lims.browser.fields import ARAnalysesField
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.permissions import *
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.interfaces import IAnalysisRequest
-from OLiMS.lims.browser.fields import HistoryAwareReferenceField
-from OLiMS.lims.browser.widgets import DateTimeWidget, DecimalWidget
-from OLiMS.lims.browser.widgets import ReferenceWidget
-from OLiMS.lims.browser.widgets import SelectionWidget
-from OLiMS.lims.workflow import skip, isBasicTransitionAllowed
-from OLiMS.lims.workflow import doActionFor
-from OLiMS.dependencies.dependency import Decimal
-from OLiMS.dependencies.dependency import implements
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t, getUsers, dicts_to_dict
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import DateTime
+from dependencies.dependency import RecordsField
+from dependencies.dependency import indexer
+from dependencies.dependency import registerType #atapi
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import RichWidget
+from dependencies.dependency import permissions
+from dependencies.dependency import View
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import _createObjectByType
+from lims.browser.fields import ARAnalysesField
+from lims.config import PROJECTNAME
+from lims.permissions import *
+from lims.content.bikaschema import BikaSchema
+from lims.interfaces import IAnalysisRequest
+from lims.browser.fields import HistoryAwareReferenceField
+from lims.browser.widgets import DateTimeWidget, DecimalWidget
+from lims.browser.widgets import ReferenceWidget
+from lims.browser.widgets import SelectionWidget
+from lims.workflow import skip, isBasicTransitionAllowed
+from lims.workflow import doActionFor
+from dependencies.dependency import Decimal
+from dependencies.dependency import implements
+from lims import bikaMessageFactory as _
+from lims.utils import t, getUsers, dicts_to_dict
 
-from OLiMS.lims.browser.fields import DateTimeField
-from OLiMS.lims.browser.widgets import SelectionWidget as BikaSelectionWidget
+from lims.browser.fields import DateTimeField
+from lims.browser.widgets import SelectionWidget as BikaSelectionWidget
 
 import sys
 
 try:
-    from OLiMS.dependencies.dependency import getSite
+    from dependencies.dependency import getSite
 except:
     # Plone < 4.3
-    from OLiMS.dependencies.dependency import getSite
+    from dependencies.dependency import getSite
 
 
 @indexer(IAnalysisRequest)
@@ -1310,11 +1310,11 @@ class AnalysisRequest(BaseFolder):
     _at_rename_after_creation = True
 
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def _getCatalogTool(self):
-        from OLiMS.lims.catalog import getCatalog
+        from lims.catalog import getCatalog
         return getCatalog(self)
 
     def Title(self):

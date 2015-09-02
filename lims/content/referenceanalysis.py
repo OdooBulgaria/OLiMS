@@ -2,27 +2,27 @@
 
 """ReferenceAnalysis
 """
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t, formatDecimalMark
-from OLiMS.lims.utils.analysis import format_numeric_result
-from OLiMS.lims.browser.fields import HistoryAwareReferenceField
-from OLiMS.lims.browser.fields import InterimFieldsField
-from OLiMS.lims.browser.widgets import RecordsWidget as BikaRecordsWidget
-from OLiMS.lims.config import STD_TYPES, PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.interfaces import IReferenceAnalysis
-from OLiMS.lims.subscribers import skip
-from OLiMS.lims.utils.analysis import get_significant_digits
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import BlobField
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import DateTimeField
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ClassSecurityInfo
+from lims import bikaMessageFactory as _
+from lims.utils import t, formatDecimalMark
+from lims.utils.analysis import format_numeric_result
+from lims.browser.fields import HistoryAwareReferenceField
+from lims.browser.fields import InterimFieldsField
+from lims.browser.widgets import RecordsWidget as BikaRecordsWidget
+from lims.config import STD_TYPES, PROJECTNAME
+from lims.content.bikaschema import BikaSchema
+from lims.interfaces import IReferenceAnalysis
+from lims.subscribers import skip
+from lims.utils.analysis import get_significant_digits
+from dependencies.dependency import DateTime
+from dependencies.dependency import BlobField
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import DateTimeField
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import implements
 
 
 schema = BikaSchema.copy() + Schema((
@@ -135,7 +135,7 @@ class ReferenceAnalysis(BaseContent):
     _at_rename_after_creation = True
 
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def Title(self):

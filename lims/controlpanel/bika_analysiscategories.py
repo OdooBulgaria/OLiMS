@@ -1,17 +1,17 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies import atapi
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.interfaces import IAnalysisCategories
-from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.folder import ATFolderSchema, ATFolder
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import alsoProvides
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import schemata
+from dependencies import atapi
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from dependencies.dependency import getToolByName
+from lims.browser.bika_listing import BikaListingView
+from lims.config import PROJECTNAME
+from lims.interfaces import IAnalysisCategories
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import IViewView
+from dependencies.folder import ATFolderSchema, ATFolder
+from dependencies.dependency import implements
+from dependencies.dependency import alsoProvides
 
 class AnalysisCategoriesView(BikaListingView):
     implements(IFolderContentsView, IViewView)

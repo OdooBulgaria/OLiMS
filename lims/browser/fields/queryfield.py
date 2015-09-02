@@ -3,15 +3,15 @@ additional fields from the registry and catalog_name,
 for selecting a catalog tool.
 """
 
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import IQueryField
-from OLiMS.dependencies.dependency import ObjectField
-from OLiMS.dependencies.dependency import registerField
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import getSite
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import IQueryField
+from dependencies.dependency import ObjectField
+from dependencies.dependency import registerField
+from dependencies.dependency import implements
+from dependencies.dependency import getSite
 
-from OLiMS.dependencies.dependency import QueryField as _QueryField
-from OLiMS.lims.querystring.querybuilder import QueryBuilder
+from dependencies.dependency import QueryField as _QueryField
+from lims.querystring.querybuilder import QueryBuilder
 
 
 class QueryField(_QueryField):

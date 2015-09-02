@@ -1,22 +1,22 @@
 
 """ Bika setup handlers. """
 
-from OLiMS.dependencies.dependency import ObjectInitializedEvent
-from OLiMS.dependencies.dependency import permissions
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import PloneMessageFactory
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims import logger
-from OLiMS.lims.config import *
-from OLiMS.lims.permissions import *
+from dependencies.dependency import ObjectInitializedEvent
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
+from dependencies.dependency import PloneMessageFactory
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims import logger
+from lims.config import *
+from lims.permissions import *
 from OLiMS.lims.interfaces \
         import IHaveNoBreadCrumbs, IARImportFolder, IARPriorities
-from OLiMS.dependencies.dependency import notify
-from OLiMS.dependencies.dependency import alsoProvides
-from OLiMS.dependencies.dependency import ApplyVersionControl
-from OLiMS.dependencies.dependency import SaveNewVersion
-from OLiMS.dependencies.dependency import AccessPreviousVersions
+from dependencies.dependency import notify
+from dependencies.dependency import alsoProvides
+from dependencies.dependency import ApplyVersionControl
+from dependencies.dependency import SaveNewVersion
+from dependencies.dependency import AccessPreviousVersions
 
 
 class Empty:
@@ -875,7 +875,7 @@ def setupVarious(context):
     gen.setupPermissions(site)
     gen.setupTopLevelFolders(site)
     try:
-        from OLiMS.dependencies.dependency import DEFAULT_POLICIES
+        from dependencies.dependency import DEFAULT_POLICIES
         # we're on plone < 4.1, configure versionable types manually
         gen.setupVersioning(site)
     except ImportError:

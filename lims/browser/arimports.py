@@ -1,25 +1,25 @@
 import csv
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
+from dependencies.dependency import check as CheckAuthenticator
 import time
-from OLiMS.dependencies.dependency import InitialiseProgressBar
-from OLiMS.dependencies.dependency import ProgressBar
-from OLiMS.dependencies.dependency import UpdateProgressEvent
-from OLiMS.dependencies.dependency import ProgressState
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import transaction_note
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import IStatusMessage
-from OLiMS.dependencies.dependency import _createObjectByType
-from OLiMS.lims import PMF, logger, bikaMessageFactory as _
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.interfaces import IClient
-from OLiMS.lims.permissions import *
-from OLiMS.lims.utils import tmpID
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import notify
+from dependencies.dependency import InitialiseProgressBar
+from dependencies.dependency import ProgressBar
+from dependencies.dependency import UpdateProgressEvent
+from dependencies.dependency import ProgressState
+from dependencies.dependency import DateTime
+from dependencies.dependency import getToolByName
+from dependencies.dependency import transaction_note
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import IStatusMessage
+from dependencies.dependency import _createObjectByType
+from lims import PMF, logger, bikaMessageFactory as _
+from lims.browser import BrowserView
+from lims.browser.bika_listing import BikaListingView
+from lims.interfaces import IClient
+from lims.permissions import *
+from lims.utils import tmpID
+from dependencies.dependency import IViewView
+from dependencies.dependency import implements
+from dependencies.dependency import notify
 
 class ARImportView(BrowserView):
     implements(IViewView)

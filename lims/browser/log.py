@@ -1,20 +1,20 @@
-from OLiMS.dependencies.dependency import newSecurityManager
-from OLiMS.dependencies.dependency import aq_inner, aq_parent
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.utils import to_utf8
-from OLiMS.dependencies.dependency import DateTime
+from dependencies.dependency import newSecurityManager
+from dependencies.dependency import aq_inner, aq_parent
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser.bika_listing import BikaListingView
+from lims.utils import to_utf8
+from dependencies.dependency import DateTime
 from operator import itemgetter
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import ContentHistoryView, ContentHistoryViewlet
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import WorkflowException
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import TestRequest
+from dependencies.dependency import IViewView
+from dependencies.dependency import ContentHistoryView, ContentHistoryViewlet
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import getToolByName
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import implements
+from dependencies.dependency import TestRequest
 import json
 
 

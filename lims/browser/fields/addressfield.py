@@ -1,5 +1,5 @@
-from OLiMS.dependencies.dependency import registerField
-from OLiMS.dependencies.dependency import RecordField
+from dependencies.dependency import registerField
+from dependencies.dependency import RecordField
 
 
 class AddressField(RecordField):

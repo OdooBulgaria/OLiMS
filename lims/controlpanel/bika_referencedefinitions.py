@@ -1,20 +1,20 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies import atapi
-from OLiMS.dependencies.dependency import registerType
-from OLiMS.dependencies.dependency import permissions
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.content.bikaschema import BikaFolderSchema
-from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.folder import ATFolder, ATFolderSchema
-from OLiMS.lims.interfaces import IReferenceDefinitions
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import schemata
+from dependencies import atapi
+from dependencies.dependency import registerType
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
+from lims.browser import BrowserView
+from lims.browser.bika_listing import BikaListingView
+from lims.config import PROJECTNAME
+from dependencies.dependency import IViewView
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.content.bikaschema import BikaFolderSchema
+from dependencies.dependency import IFolderContentsView
+from dependencies.folder import ATFolder, ATFolderSchema
+from lims.interfaces import IReferenceDefinitions
+from dependencies.dependency import implements
 
 class ReferenceDefinitionsView(BikaListingView):
     implements(IFolderContentsView, IViewView)

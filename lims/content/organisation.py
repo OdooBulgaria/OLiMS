@@ -1,15 +1,15 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import RecordWidget
-from OLiMS.dependencies.dependency import *
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.dependencies.dependency import permissions as CMFCorePermissions
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.lims.content.bikaschema import BikaSchema, BikaFolderSchema
-from OLiMS.dependencies.dependency import ATFolder
-from OLiMS.lims.browser.fields import AddressField
-from OLiMS.lims.browser.widgets import AddressWidget
-from OLiMS.lims import PMF, bikaMessageFactory as _
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import RecordWidget
+from dependencies.dependency import *
+from lims.config import PROJECTNAME
+from dependencies.dependency import permissions as CMFCorePermissions
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from lims.content.bikaschema import BikaSchema, BikaFolderSchema
+from dependencies.dependency import ATFolder
+from lims.browser.fields import AddressField
+from lims.browser.widgets import AddressWidget
+from lims import PMF, bikaMessageFactory as _
 
 schema = BikaFolderSchema.copy() + BikaSchema.copy() + ManagedSchema((
     StringField('Name',

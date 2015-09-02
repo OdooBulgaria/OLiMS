@@ -1,7 +1,7 @@
 
-from OLiMS.lims.utils import tmpID
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import _createObjectByType
+from lims.utils import tmpID
+from dependencies.dependency import getToolByName
+from dependencies.dependency import _createObjectByType
 
 
 def create_sample(context, request, values):

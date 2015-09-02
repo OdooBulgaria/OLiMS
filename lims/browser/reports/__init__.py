@@ -1,26 +1,26 @@
 import json
 
-from OLiMS.dependencies.dependency import _createObjectByType
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import isAttributeHidden
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.browser.reports.selection_macros import SelectionMacrosView
-from OLiMS.lims.utils import createPdf
-from OLiMS.lims.utils import getUsers, logged_in_client
-from OLiMS.lims.utils import to_unicode as _u
-from OLiMS.lims.utils import to_utf8 as _c
-from OLiMS.lims.interfaces import IProductivityReport
-from OLiMS.lims.interfaces import IQualityControlReport
-from OLiMS.lims.interfaces import IAdministrationReport
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import getAdapters
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import _createObjectByType
+from lims import bikaMessageFactory as _
+from lims.utils import isAttributeHidden
+from lims.browser import BrowserView
+from lims.browser.bika_listing import BikaListingView
+from lims.browser.reports.selection_macros import SelectionMacrosView
+from lims.utils import createPdf
+from lims.utils import getUsers, logged_in_client
+from lims.utils import to_unicode as _u
+from lims.utils import to_utf8 as _c
+from lims.interfaces import IProductivityReport
+from lims.interfaces import IQualityControlReport
+from lims.interfaces import IAdministrationReport
+from dependencies.dependency import DateTime
+from dependencies.dependency import IViewView
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import getAdapters
+from dependencies.dependency import implements
 import os
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
+from dependencies.dependency import check as CheckAuthenticator
 
 
 class ProductivityView(BrowserView):

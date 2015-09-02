@@ -1,29 +1,29 @@
 import json
-from OLiMS.lims.utils.sample import create_sample
-from OLiMS.lims.utils.samplepartition import create_samplepartition
-from OLiMS.lims.workflow import doActionFor
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
-from OLiMS.dependencies.dependency import postonly as PostOnly
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.browser.analysisrequest import AnalysisRequestViewView
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.content.analysisrequest import schema as AnalysisRequestSchema
-from OLiMS.lims.controlpanel.bika_analysisservices import \
+from lims.utils.sample import create_sample
+from lims.utils.samplepartition import create_samplepartition
+from lims.workflow import doActionFor
+from dependencies.dependency import check as CheckAuthenticator
+from dependencies.dependency import postonly as PostOnly
+from lims import bikaMessageFactory as _
+from lims.browser import BrowserView
+from lims.browser.analysisrequest import AnalysisRequestViewView
+from lims.browser.bika_listing import BikaListingView
+from lims.content.analysisrequest import schema as AnalysisRequestSchema
+from lims.controlpanel.bika_analysisservices import \
     AnalysisServicesView as ASV
-from OLiMS.lims.interfaces import IAnalysisRequestAddView, ISample
-from OLiMS.lims.utils import getHiddenAttributesForClass, dicts_to_dict
-from OLiMS.lims.utils import t
-from OLiMS.lims.utils import tmpID
-from OLiMS.lims.utils.analysisrequest import create_analysisrequest
+from lims.interfaces import IAnalysisRequestAddView, ISample
+from lims.utils import getHiddenAttributesForClass, dicts_to_dict
+from lims.utils import t
+from lims.utils import tmpID
+from lims.utils.analysisrequest import create_analysisrequest
 from magnitude import mg
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import PloneMessageFactory as PMF
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import _createObjectByType, safe_unicode
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import getAdapter
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import IViewView
+from dependencies.dependency import PloneMessageFactory as PMF
+from dependencies.dependency import getToolByName
+from dependencies.dependency import _createObjectByType, safe_unicode
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import getAdapter
+from dependencies.dependency import implements
 
 
 class AnalysisServicesView(ASV):

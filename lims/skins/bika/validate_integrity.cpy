@@ -9,8 +9,8 @@
 ##parameters=
 ##
 
-from OLiMS.dependencies.dependency import PloneMessageFactory as _
-from OLiMS.dependencies.dependency import addStatusMessage
+from dependencies.dependency import PloneMessageFactory as _
+from dependencies.dependency import addStatusMessage
 
 request = context.REQUEST
 errors = {}

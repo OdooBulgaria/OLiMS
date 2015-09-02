@@ -1,27 +1,27 @@
 # coding=utf-8
-from OLiMS.dependencies.dependency import getSecurityManager
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t, dicts_to_dict, format_supsub
-from OLiMS.lims.utils.analysis import format_uncertainty
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.config import QCANALYSIS_TYPES
-from OLiMS.lims.interfaces import IResultOutOfRange
-from OLiMS.lims.permissions import *
-from OLiMS.lims.utils import isActive
-from OLiMS.lims.utils import getUsers
-from OLiMS.lims.utils import to_utf8
-from OLiMS.dependencies.dependency import DateTime
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import safe_unicode
+from lims import bikaMessageFactory as _
+from lims.utils import t, dicts_to_dict, format_supsub
+from lims.utils.analysis import format_uncertainty
+from lims.browser import BrowserView
+from lims.browser.bika_listing import BikaListingView
+from lims.config import QCANALYSIS_TYPES
+from lims.interfaces import IResultOutOfRange
+from lims.permissions import *
+from lims.utils import isActive
+from lims.utils import getUsers
+from lims.utils import to_utf8
+from dependencies.dependency import DateTime
 from operator import itemgetter
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import WorkflowException
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.lims.utils.analysis import format_numeric_result
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import Interface
-from OLiMS.dependencies.dependency import getAdapters
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import getToolByName
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import ViewPageTemplateFile
+from lims.utils.analysis import format_numeric_result
+from dependencies.dependency import implements
+from dependencies.dependency import Interface
+from dependencies.dependency import getAdapters
 
 import json
 

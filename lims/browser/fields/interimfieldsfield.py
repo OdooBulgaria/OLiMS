@@ -1,9 +1,9 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import RecordsField
-from OLiMS.dependencies.dependency import registerField
-from OLiMS.dependencies.dependency import *
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import RecordsField
+from dependencies.dependency import registerField
+from dependencies.dependency import *
+from lims import bikaMessageFactory as _
+from lims.utils import t
 
 
 class InterimFieldsField(RecordsField):

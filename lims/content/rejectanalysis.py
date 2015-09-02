@@ -1,8 +1,8 @@
 """ RejectAnalysis """
-from OLiMS.dependencies.dependency import ReferenceField, Schema, registerType
-from OLiMS.lims.content.analysis import Analysis
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.content.analysis import schema as analysis_schema
+from dependencies.dependency import ReferenceField, Schema, registerType
+from lims.content.analysis import Analysis
+from lims.config import PROJECTNAME
+from lims.content.analysis import schema as analysis_schema
 
 
 schema = analysis_schema + Schema((

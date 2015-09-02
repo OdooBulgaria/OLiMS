@@ -1,18 +1,18 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser.widgets.datetimewidget import DateTimeWidget
-from OLiMS.lims.config import PRICELIST_TYPES, PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaFolderSchema
-from OLiMS.lims.interfaces import IPricelist
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import PersistentMapping
-from OLiMS.dependencies import folder
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import permissions
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import permissions
+from dependencies.dependency import ClassSecurityInfo
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser.widgets.datetimewidget import DateTimeWidget
+from lims.config import PRICELIST_TYPES, PROJECTNAME
+from lims.content.bikaschema import BikaFolderSchema
+from lims.interfaces import IPricelist
+from dependencies.dependency import DateTime
+from dependencies.dependency import PersistentMapping
+from dependencies import folder
+from dependencies.dependency import *
+from dependencies.dependency import permissions
+from dependencies.dependency import implements
+from dependencies.dependency import getToolByName
+from dependencies.dependency import permissions
 
 
 
@@ -95,7 +95,7 @@ class Pricelist(folder.ATFolder):
     _at_rename_after_creation = True
 
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     security.declarePublic('current_date')

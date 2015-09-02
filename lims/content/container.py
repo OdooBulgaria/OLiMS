@@ -1,18 +1,18 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.vocabularies import CatalogVocabulary
+from dependencies.dependency import ClassSecurityInfo
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.config import PROJECTNAME
+from lims.content.bikaschema import BikaSchema
+from lims.vocabularies import CatalogVocabulary
 # from magnitude import mg, MagnitudeError
-from OLiMS.dependencies.dependency import mg
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import getToolByName
+from dependencies.dependency import mg
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import getToolByName
 # from OLiMS.dependencies.dependency import itemgetter
 from operator import itemgetter
 import json
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
+from dependencies.dependency import check as CheckAuthenticator
 import sys
 
 schema = BikaSchema.copy() + Schema((
@@ -73,7 +73,7 @@ class Container(BaseContent):
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def getJSCapacity(self, **kw):

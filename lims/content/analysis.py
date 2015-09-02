@@ -2,42 +2,42 @@
 
 "DuplicateAnalysis uses this as it's base.  This accounts for much confusion."
 
-from OLiMS.dependencies.dependency import getSecurityManager
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.lims import logger
-from OLiMS.lims.utils.analysis import format_numeric_result
-from OLiMS.dependencies.dependency import indexer
-from OLiMS.dependencies.dependency import DateTimeField, DateTimeWidget, RecordsField
-from OLiMS.dependencies import atapi
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import WorkflowException
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import safe_unicode, _createObjectByType
-from OLiMS.dependencies.dependency import ArchivistRetrieveError
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims import logger
-from OLiMS.lims.browser.fields import DurationField
-from OLiMS.lims.browser.fields import HistoryAwareReferenceField
-from OLiMS.lims.browser.fields import InterimFieldsField
-from OLiMS.lims.permissions import *
-from OLiMS.lims.browser.widgets import DurationWidget
-from OLiMS.lims.browser.widgets import RecordsWidget as BikaRecordsWidget
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.interfaces import IAnalysis, IDuplicateAnalysis, IReferenceAnalysis, \
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import DateTime
+from lims import logger
+from lims.utils.analysis import format_numeric_result
+from dependencies.dependency import indexer
+from dependencies.dependency import DateTimeField, DateTimeWidget, RecordsField
+from dependencies import atapi
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode, _createObjectByType
+from dependencies.dependency import ArchivistRetrieveError
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims import logger
+from lims.browser.fields import DurationField
+from lims.browser.fields import HistoryAwareReferenceField
+from lims.browser.fields import InterimFieldsField
+from lims.permissions import *
+from lims.browser.widgets import DurationWidget
+from lims.browser.widgets import RecordsWidget as BikaRecordsWidget
+from lims.config import PROJECTNAME
+from lims.content.bikaschema import BikaSchema
+from lims.interfaces import IAnalysis, IDuplicateAnalysis, IReferenceAnalysis, \
     IRoutineAnalysis
-from OLiMS.lims.interfaces import IReferenceSample
-from OLiMS.lims.utils import changeWorkflowState, formatDecimalMark
-from OLiMS.lims.utils import drop_trailing_zeros_decimal
-from OLiMS.lims.utils.analysis import get_significant_digits
-from OLiMS.lims.workflow import skip
-from OLiMS.lims.workflow import doActionFor
-from OLiMS.dependencies.dependency import Decimal
-from OLiMS.dependencies.dependency import implements
+from lims.interfaces import IReferenceSample
+from lims.utils import changeWorkflowState, formatDecimalMark
+from lims.utils import drop_trailing_zeros_decimal
+from lims.utils.analysis import get_significant_digits
+from lims.workflow import skip
+from lims.workflow import doActionFor
+from dependencies.dependency import Decimal
+from dependencies.dependency import implements
 import datetime
 import math
 
@@ -201,7 +201,7 @@ class Analysis(BaseContent):
     schema = schema
 
     def _getCatalogTool(self):
-        from OLiMS.lims.catalog import getCatalog
+        from lims.catalog import getCatalog
         return getCatalog(self)
 
     def Title(self):

@@ -1,5 +1,5 @@
-from OLiMS.dependencies.dependency import _getAuthenticatedUser
-from OLiMS.dependencies.dependency import nobody
+from dependencies.dependency import _getAuthenticatedUser
+from dependencies.dependency import nobody
 
 
 def getAuthenticatedMember(self):

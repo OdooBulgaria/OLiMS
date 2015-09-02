@@ -1,10 +1,10 @@
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims.interfaces import ISample
-from OLiMS.lims.utils import tmpID
-from OLiMS.lims.utils.sample import create_sample
-from OLiMS.lims.utils.samplepartition import create_samplepartition
-from OLiMS.lims.workflow import doActionFor
-from OLiMS.dependencies.dependency import _createObjectByType
+from dependencies.dependency import getToolByName
+from lims.interfaces import ISample
+from lims.utils import tmpID
+from lims.utils.sample import create_sample
+from lims.utils.samplepartition import create_samplepartition
+from lims.workflow import doActionFor
+from dependencies.dependency import _createObjectByType
 
 
 def create_analysisrequest(

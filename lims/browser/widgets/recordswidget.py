@@ -1,6 +1,6 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import RecordsWidget as ATRecordsWidget
-from OLiMS.dependencies.dependency import registerWidget
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import RecordsWidget as ATRecordsWidget
+from dependencies.dependency import registerWidget
 import json
 
 class RecordsWidget(ATRecordsWidget):

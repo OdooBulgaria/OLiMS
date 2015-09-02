@@ -3,7 +3,7 @@
 
 """ Rigaku Supermini
 """
-from OLiMS.lims.exportimport.instruments.resultsimport import \
+from lims.exportimport.instruments.resultsimport import \
     AnalysisResultsImporter, InstrumentCSVResultsFileParser
 
 

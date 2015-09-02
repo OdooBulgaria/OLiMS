@@ -1,19 +1,19 @@
-from OLiMS.lims.exportimport.dataimport import SetupDataSetList as SDL
-from OLiMS.lims.idserver import renameAfterCreation
-from OLiMS.lims.interfaces import ISetupDataSetList
-from OLiMS.dependencies.dependency import safe_unicode, _createObjectByType
-from OLiMS.lims.utils import tmpID, to_unicode
-from OLiMS.lims.utils import to_utf8
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims import logger
-from OLiMS.dependencies.dependency import implements
+from lims.exportimport.dataimport import SetupDataSetList as SDL
+from lims.idserver import renameAfterCreation
+from lims.interfaces import ISetupDataSetList
+from dependencies.dependency import safe_unicode, _createObjectByType
+from lims.utils import tmpID, to_unicode
+from lims.utils import to_utf8
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from dependencies.dependency import getToolByName
+from lims import logger
+from dependencies.dependency import implements
 from pkg_resources import resource_filename
 import datetime, os.path
 
 import re
-from OLiMS.dependencies import transaction
+from dependencies import transaction
 
 
 def lookup(context, portal_type, **kwargs):

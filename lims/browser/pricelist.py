@@ -1,18 +1,18 @@
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.interfaces import IPricelistFolder
-from OLiMS.lims.permissions import AddPricelist, ManageBika
-from OLiMS.dependencies.dependency import DateTime
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser import BrowserView
+from lims.browser.bika_listing import BikaListingView
+from lims.interfaces import IPricelistFolder
+from lims.permissions import AddPricelist, ManageBika
+from dependencies.dependency import DateTime
 from email.Utils import formataddr
-from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.lims.utils import sendmail, encode_header
-from OLiMS.dependencies.dependency import permissions
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import IViewView
+from lims.utils import sendmail, encode_header
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import implements
 
 
 class PricelistsView(BikaListingView):

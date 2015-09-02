@@ -1,13 +1,13 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies import atapi
-from OLiMS.dependencies.dependency import *
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser.widgets import DateTimeWidget, ReferenceWidget
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.dependencies.dependency import permissions
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import schemata
+from dependencies import atapi
+from dependencies.dependency import *
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser.widgets import DateTimeWidget, ReferenceWidget
+from lims.config import PROJECTNAME
+from lims.content.bikaschema import BikaSchema
+from dependencies.dependency import permissions
 
 schema = BikaSchema.copy() + Schema((
 
@@ -146,7 +146,7 @@ class InstrumentCertification(BaseFolder):
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def getLabContacts(self):

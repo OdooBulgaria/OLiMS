@@ -1,18 +1,18 @@
-from OLiMS.dependencies.dependency import getSecurityManager
-from OLiMS.dependencies.dependency import aq_inner
-from OLiMS.lims import logger
-from OLiMS.lims.interfaces import IRoutineAnalysis
-from OLiMS.lims.subscribers import doActionFor
-from OLiMS.lims.subscribers import skip
-from OLiMS.lims.utils import changeWorkflowState
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.dependencies.dependency import ObjectInitializedEvent
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import WorkflowException
-from OLiMS.dependencies import transaction
-from OLiMS.dependencies.dependency import event
-from OLiMS.dependencies.dependency import alsoProvides
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import aq_inner
+from lims import logger
+from lims.interfaces import IRoutineAnalysis
+from lims.subscribers import doActionFor
+from lims.subscribers import skip
+from lims.utils import changeWorkflowState
+from dependencies.dependency import DateTime
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import ObjectInitializedEvent
+from dependencies.dependency import getToolByName
+from dependencies.dependency import WorkflowException
+from dependencies import transaction
+from dependencies.dependency import event
+from dependencies.dependency import alsoProvides
 
 
 def ObjectInitializedEventHandler(instance, event):

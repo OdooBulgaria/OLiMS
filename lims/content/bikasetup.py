@@ -1,22 +1,22 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import RecordsField
-from OLiMS.lims.browser.widgets import RecordsWidget
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims import PMF, bikaMessageFactory as _
-from OLiMS.lims.config import *
-from OLiMS.lims.content.bikaschema import BikaFolderSchema
-from OLiMS.lims.interfaces import IBikaSetup
-from OLiMS.lims.interfaces import IHaveNoBreadCrumbs
-from OLiMS.lims.browser.widgets import DurationWidget
-from OLiMS.lims.browser.fields import DurationField
-from OLiMS.lims.vocabularies import getStickerTemplates as _getStickerTemplates
-from OLiMS.dependencies import folder
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import iterDirectoriesOfType, queryResourceDirectory
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import RecordsField
+from lims.browser.widgets import RecordsWidget
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import getToolByName
+from lims import PMF, bikaMessageFactory as _
+from lims.config import *
+from lims.content.bikaschema import BikaFolderSchema
+from lims.interfaces import IBikaSetup
+from lims.interfaces import IHaveNoBreadCrumbs
+from lims.browser.widgets import DurationWidget
+from lims.browser.fields import DurationField
+from lims.vocabularies import getStickerTemplates as _getStickerTemplates
+from dependencies import folder
+from dependencies.dependency import implements
+from dependencies.dependency import iterDirectoriesOfType, queryResourceDirectory
 import sys
-from OLiMS.lims.locales import COUNTRIES
+from lims.locales import COUNTRIES
 
 class PrefixesField(RecordsField):
     """a list of prefixes per portal_type"""

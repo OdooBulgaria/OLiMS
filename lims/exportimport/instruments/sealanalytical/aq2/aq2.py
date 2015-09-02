@@ -1,7 +1,7 @@
 """ Seal Analytics AQ2
 """
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
+from lims import bikaMessageFactory as _
+from lims.utils import t
 from . import SealAnalyticsAQ2CSVParser, SealAnalyticsAQ2Importer
 import json
 import traceback

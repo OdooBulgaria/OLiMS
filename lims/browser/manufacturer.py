@@ -1,4 +1,4 @@
-from OLiMS.lims.controlpanel.bika_instruments import InstrumentsView
+from lims.controlpanel.bika_instruments import InstrumentsView
 
 class ManufacturerInstrumentsView(InstrumentsView):
 

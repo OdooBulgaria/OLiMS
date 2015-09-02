@@ -1,14 +1,14 @@
 """Bika's browser views are based on this one, for a nice set of utilities.
 """
-from OLiMS.dependencies.dependency import DateTime, safelocaltime
-from OLiMS.dependencies.dependency import DateTimeError
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import ulocalized_time as _ut
-from OLiMS.dependencies.dependency import BrowserView
-from OLiMS.lims import logger
-from OLiMS.dependencies.dependency import Lazy as lazy_property
-from OLiMS.dependencies.dependency import translate
+from dependencies.dependency import DateTime, safelocaltime
+from dependencies.dependency import DateTimeError
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import ulocalized_time as _ut
+from dependencies.dependency import BrowserView
+from lims import logger
+from dependencies.dependency import Lazy as lazy_property
+from dependencies.dependency import translate
 from time import strptime as _strptime
 
 

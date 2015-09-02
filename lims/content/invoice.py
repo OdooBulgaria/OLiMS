@@ -1,17 +1,17 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.config import ManageInvoices, ManageBika, PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.interfaces import IInvoice
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import Decimal
-from OLiMS.dependencies.dependency import PersistentMapping
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import DateTimeField, DateTimeWidget
-from OLiMS.dependencies.dependency import View
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ClassSecurityInfo
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.config import ManageInvoices, ManageBika, PROJECTNAME
+from lims.content.bikaschema import BikaSchema
+from lims.interfaces import IInvoice
+from dependencies.dependency import DateTime
+from dependencies.dependency import Decimal
+from dependencies.dependency import PersistentMapping
+from dependencies.dependency import *
+from dependencies.dependency import DateTimeField, DateTimeWidget
+from dependencies.dependency import View
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import implements
 import sys
 
 schema = BikaSchema.copy() + Schema((
@@ -99,7 +99,7 @@ class Invoice(BaseFolder):
     _at_rename_after_creation = True
 
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def Title(self):

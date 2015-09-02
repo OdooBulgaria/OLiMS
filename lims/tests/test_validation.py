@@ -1,8 +1,8 @@
-from OLiMS.dependencies.dependency import validation as validationService
-from OLiMS.lims.testing import BIKA_FUNCTIONAL_TESTING
-from OLiMS.lims.tests.base import BikaFunctionalTestCase
-from OLiMS.dependencies.dependency import login
-from OLiMS.dependencies.dependency import TEST_USER_NAME
+from dependencies.dependency import validation as validationService
+from lims.testing import BIKA_FUNCTIONAL_TESTING
+from lims.tests.base import BikaFunctionalTestCase
+from dependencies.dependency import login
+from dependencies.dependency import TEST_USER_NAME
 import unittest
 
 

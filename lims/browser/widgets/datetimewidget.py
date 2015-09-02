@@ -1,8 +1,8 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import TypesWidget
-from OLiMS.dependencies.dependency import registerWidget
-from OLiMS.dependencies.dependency import registerPropertyType
-from OLiMS.lims.browser import ulocalized_time as ut
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import TypesWidget
+from dependencies.dependency import registerWidget
+from dependencies.dependency import registerPropertyType
+from lims.browser import ulocalized_time as ut
 
 
 class DateTimeWidget(TypesWidget):

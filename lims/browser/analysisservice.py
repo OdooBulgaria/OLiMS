@@ -1,24 +1,24 @@
-from OLiMS.lims.browser import BrowserView
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.jsonapi import load_field_values, get_include_fields
-from OLiMS.lims.utils import t
-from OLiMS.lims.config import POINTS_OF_CAPTURE
-from OLiMS.lims.browser.log import LogView
-from OLiMS.lims.content.analysisservice import getContainers
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.interfaces import IAnalysisService
-from OLiMS.lims.interfaces import IJSONReadExtender
-from OLiMS.dependencies.dependency import getToolByName
+from lims.browser import BrowserView
+from dependencies.dependency import ViewPageTemplateFile
+from lims import bikaMessageFactory as _
+from lims.jsonapi import load_field_values, get_include_fields
+from lims.utils import t
+from lims.config import POINTS_OF_CAPTURE
+from lims.browser.log import LogView
+from lims.content.analysisservice import getContainers
+from lims.browser.bika_listing import BikaListingView
+from lims.interfaces import IAnalysisService
+from lims.interfaces import IJSONReadExtender
+from dependencies.dependency import getToolByName
 from magnitude import mg, MagnitudeError
-from OLiMS.dependencies.dependency import adapts
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import adapts
+from dependencies.dependency import implements
 import json
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
-from OLiMS.dependencies.dependency import postonly as PostOnly
+from dependencies.dependency import check as CheckAuthenticator
+from dependencies.dependency import postonly as PostOnly
 
 import re
-from OLiMS.lims.utils import to_unicode
+from lims.utils import to_unicode
 
 ### AJAX methods for AnalysisService context
 

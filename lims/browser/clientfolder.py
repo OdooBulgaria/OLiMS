@@ -1,21 +1,21 @@
-from OLiMS.dependencies.dependency import View
-from OLiMS.dependencies.dependency import getSecurityManager
-from OLiMS.lims.permissions import AddClient
-from OLiMS.lims.permissions import ManageClients
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims.permissions import ManageAnalysisRequests
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
+from dependencies.dependency import View
+from dependencies.dependency import getSecurityManager
+from lims.permissions import AddClient
+from lims.permissions import ManageClients
+from dependencies.dependency import getToolByName
+from lims.permissions import ManageAnalysisRequests
+from lims.browser.bika_listing import BikaListingView
+from lims import bikaMessageFactory as _
+from lims.utils import t
 from operator import itemgetter
-from OLiMS.lims.interfaces import IClientFolder
-from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.lims.browser import BrowserView
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import permissions
-from OLiMS.dependencies.dependency import getUtility
-from OLiMS.dependencies.dependency import IRegistry
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
+from lims.interfaces import IClientFolder
+from dependencies.dependency import IFolderContentsView
+from lims.browser import BrowserView
+from dependencies.dependency import implements
+from dependencies.dependency import permissions
+from dependencies.dependency import getUtility
+from dependencies.dependency import IRegistry
+from dependencies.dependency import check as CheckAuthenticator
 import json
 
 

@@ -1,14 +1,14 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims import logger
-from OLiMS.lims.permissions import ViewRetractedAnalyses
-from OLiMS.lims.utils import t, dicts_to_dict
-from OLiMS.lims.utils.analysis import create_analysis
-from OLiMS.dependencies.dependency import Decimal
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import registerField
-from OLiMS.dependencies.dependency import shasattr
-from OLiMS.dependencies.dependency import getToolByName
+from dependencies.dependency import ClassSecurityInfo
+from lims import bikaMessageFactory as _
+from lims import logger
+from lims.permissions import ViewRetractedAnalyses
+from lims.utils import t, dicts_to_dict
+from lims.utils.analysis import create_analysis
+from dependencies.dependency import Decimal
+from dependencies.dependency import *
+from dependencies.dependency import registerField
+from dependencies.dependency import shasattr
+from dependencies.dependency import getToolByName
 from types import ListType, TupleType, DictType
 
 

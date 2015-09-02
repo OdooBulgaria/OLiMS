@@ -1,10 +1,10 @@
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies import atapi
-from OLiMS.dependencies.dependency import BaseContent
-from OLiMS.lims.interfaces import IMultifile
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims import config
+from dependencies.dependency import implements
+from dependencies import atapi
+from dependencies.dependency import BaseContent
+from lims.interfaces import IMultifile
+from lims.content.bikaschema import BikaSchema
+from lims import bikaMessageFactory as _
+from lims import config
 
 
 schema = BikaSchema.copy() + atapi.Schema((

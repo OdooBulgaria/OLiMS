@@ -10,7 +10,16 @@ class ATContentTypeSchema:
     """
     https://github.com/plone/Products.ATContentTypes/blob/master/Products/ATContentTypes/content/schemata.py
     """
-    def __init__(self):
+    def __init__(self,**kwargs):
         pass
-        
-ATFolderSchema = ATContentTypeSchema.copy()    
+    
+    def copy(self):
+        """Returns a deep copy of this Schemata.
+        """
+        return self
+    
+    def __call__(self):
+        pass
+ 
+ATContentTypeSchema = ATContentTypeSchema()        
+ATFolderSchema = ATContentTypeSchema.copy() 

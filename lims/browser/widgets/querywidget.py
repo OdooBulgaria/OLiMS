@@ -1,19 +1,19 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import WidgetTraverse as _WidgetTraverse
-from OLiMS.dependencies.dependency import QueryWidget as _QueryWidget
-from OLiMS.lims.querystring.querybuilder import QueryBuilder
-from OLiMS.lims.querystring.querybuilder import RegistryConfiguration
-from OLiMS.dependencies.dependency import \
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import WidgetTraverse as _WidgetTraverse
+from dependencies.dependency import QueryWidget as _QueryWidget
+from lims.querystring.querybuilder import QueryBuilder
+from lims.querystring.querybuilder import RegistryConfiguration
+from dependencies.dependency import \
     MultiSelectWidget as _MultiSelectWidget
-from OLiMS.lims.querystring.registryreader import QuerystringRegistryReader
-from OLiMS.dependencies.dependency import IQuerystringRegistryReader
-from OLiMS.dependencies.dependency import IRegistry
-from OLiMS.dependencies.dependency import registerWidget
-from OLiMS.dependencies.dependency import TypesWidget
-from OLiMS.dependencies.dependency import getMultiAdapter
-from OLiMS.dependencies.dependency import getUtility
-from OLiMS.dependencies.dependency import MessageFactory
-from OLiMS.dependencies.dependency import implements
+from lims.querystring.registryreader import QuerystringRegistryReader
+from dependencies.dependency import IQuerystringRegistryReader
+from dependencies.dependency import IRegistry
+from dependencies.dependency import registerWidget
+from dependencies.dependency import TypesWidget
+from dependencies.dependency import getMultiAdapter
+from dependencies.dependency import getUtility
+from dependencies.dependency import MessageFactory
+from dependencies.dependency import implements
 
 _p = MessageFactory('plone')
 

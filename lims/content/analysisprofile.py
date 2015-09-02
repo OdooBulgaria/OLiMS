@@ -3,20 +3,20 @@
     AnalysisProfile is used to save these common configurations (templates).
 """
 
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims import PMF, bikaMessageFactory as _
-from OLiMS.lims.browser.widgets import AnalysisProfileAnalysesWidget
-from OLiMS.lims.browser.widgets import ServicesWidget
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.dependencies.dependency import *
-from OLiMS.lims.interfaces import IAnalysisProfile
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import RecordsField
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import Interface, implements
+from dependencies.dependency import ClassSecurityInfo
+from lims import PMF, bikaMessageFactory as _
+from lims.browser.widgets import AnalysisProfileAnalysesWidget
+from lims.browser.widgets import ServicesWidget
+from lims.config import PROJECTNAME
+from lims.content.bikaschema import BikaSchema
+from dependencies.dependency import *
+from lims.interfaces import IAnalysisProfile
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import RecordsField
+from dependencies.dependency import getToolByName
+from dependencies.dependency import Interface, implements
 import sys
-from OLiMS.lims.interfaces import IAnalysisProfile
+from lims.interfaces import IAnalysisProfile
 
 schema = BikaSchema.copy() + Schema((
     StringField('ProfileKey',
@@ -134,7 +134,7 @@ class AnalysisProfile(BaseContent):
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def getClientUID(self):

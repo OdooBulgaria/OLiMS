@@ -1,10 +1,10 @@
-from OLiMS.lims.content.analysis import Analysis
-from OLiMS.lims.testing import BIKA_FUNCTIONAL_TESTING
-from OLiMS.lims.tests.base import BikaFunctionalTestCase
-from OLiMS.lims.utils.analysisrequest import create_analysisrequest
-from OLiMS.lims.workflow import doActionFor
-from OLiMS.dependencies.dependency import login, logout
-from OLiMS.dependencies.dependency import TEST_USER_NAME
+from lims.content.analysis import Analysis
+from lims.testing import BIKA_FUNCTIONAL_TESTING
+from lims.tests.base import BikaFunctionalTestCase
+from lims.utils.analysisrequest import create_analysisrequest
+from lims.workflow import doActionFor
+from dependencies.dependency import login, logout
+from dependencies.dependency import TEST_USER_NAME
 import unittest
 
 try:

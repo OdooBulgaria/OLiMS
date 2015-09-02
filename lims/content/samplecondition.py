@@ -1,11 +1,11 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import BaseFolder
-from OLiMS.dependencies.dependency import DisplayList
-from OLiMS.dependencies.dependency import Schema
-from OLiMS.dependencies.dependency import registerType
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaSchema
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import BaseFolder
+from dependencies.dependency import DisplayList
+from dependencies.dependency import Schema
+from dependencies.dependency import registerType
+from dependencies.dependency import getToolByName
+from lims.config import PROJECTNAME
+from lims.content.bikaschema import BikaSchema
 
 schema = BikaSchema.copy() + Schema((
 
@@ -23,7 +23,7 @@ class SampleCondition(BaseFolder):
     _at_rename_after_creation = True
 
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
 registerType(SampleCondition, PROJECTNAME)

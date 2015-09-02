@@ -6,19 +6,19 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import tempfile
 
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.interfaces import IResultOutOfRange
-from OLiMS.lims.utils import to_utf8
-from OLiMS.lims.browser import BrowserView
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import WorkflowException
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.lims.utils import encode_header, createPdf
-from OLiMS.dependencies.dependency import join
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.lims.utils import tmpID
-from OLiMS.dependencies.dependency import getAdapters
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.interfaces import IResultOutOfRange
+from lims.utils import to_utf8
+from lims.browser import BrowserView
+from dependencies.dependency import getToolByName
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import ViewPageTemplateFile
+from lims.utils import encode_header, createPdf
+from dependencies.dependency import join
+from dependencies.dependency import safe_unicode
+from lims.utils import tmpID
+from dependencies.dependency import getAdapters
 
 
 class ResultOutOfRangeIcons(object):

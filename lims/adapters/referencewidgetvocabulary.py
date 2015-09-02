@@ -1,9 +1,9 @@
-from OLiMS.lims.permissions import *
-from OLiMS.lims.utils import to_utf8 as _c
-from OLiMS.lims.utils import to_unicode as _u
-from OLiMS.lims.interfaces import IReferenceWidgetVocabulary
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import implements
+from lims.permissions import *
+from lims.utils import to_utf8 as _c
+from lims.utils import to_unicode as _u
+from lims.interfaces import IReferenceWidgetVocabulary
+from dependencies.dependency import getToolByName
+from dependencies.dependency import implements
 import json
 
 
@@ -31,7 +31,7 @@ class DefaultReferenceWidgetVocabulary(object):
         try:
             brains = catalog(contentFilter)
         except:
-            from OLiMS.lims import logger
+            from lims import logger
             logger.info(contentFilter)
             raise
         if brains and searchTerm:

@@ -1,10 +1,10 @@
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.browser import BrowserView
-from OLiMS.dependencies.dependency import RichTextValue
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import PloneMessageFactory
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
+from lims import bikaMessageFactory as _
+from lims.browser import BrowserView
+from dependencies.dependency import RichTextValue
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import PloneMessageFactory
+from dependencies.dependency import getToolByName
+from dependencies.dependency import check as CheckAuthenticator
 
 
 class ARResultsInterpretationView(BrowserView):

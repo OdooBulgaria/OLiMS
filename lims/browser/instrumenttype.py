@@ -1,6 +1,6 @@
-from OLiMS.lims.controlpanel.bika_instruments import InstrumentsView
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
+from lims.controlpanel.bika_instruments import InstrumentsView
+from lims import bikaMessageFactory as _
+from lims.utils import t
 
 class InstrumentTypeInstrumentsView(InstrumentsView):
 

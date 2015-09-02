@@ -2,11 +2,11 @@ import json
 import urllib
 import time
 
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import ViewletBase
-from OLiMS.dependencies.dependency import getMultiAdapter
-from OLiMS.lims import logger
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import ViewletBase
+from dependencies.dependency import getMultiAdapter
+from lims import logger
 
 
 class DocumentActionsViewlet(ViewletBase):

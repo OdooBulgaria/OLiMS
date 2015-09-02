@@ -2,39 +2,39 @@
 
 import sys
 
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import HistoryAwareMixin
-from OLiMS.dependencies.dependency import makeDisplayList
-from OLiMS.dependencies.dependency import RecordField, RecordsField
-from OLiMS.dependencies.dependency import registerField
-from OLiMS.dependencies.dependency import DisplayList, ReferenceField, \
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import DateTime
+from dependencies.dependency import HistoryAwareMixin
+from dependencies.dependency import makeDisplayList
+from dependencies.dependency import RecordField, RecordsField
+from dependencies.dependency import registerField
+from dependencies.dependency import DisplayList, ReferenceField, \
     ComputedField, ComputedWidget, BooleanField, \
     BooleanWidget, StringField, SelectionWidget, \
     FixedPointField, DecimalWidget, IntegerField, \
     IntegerWidget, StringWidget, BaseContent, \
     Schema, registerType, MultiSelectionWidget
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import RegexValidator
-from OLiMS.dependencies.dependency import WorkflowException
-from OLiMS.lims import PMF, bikaMessageFactory as _
-from OLiMS.lims.utils import to_utf8 as _c
-from OLiMS.lims.utils import to_unicode as _u
-from OLiMS.lims.utils.analysis import get_significant_digits
-from OLiMS.lims.browser.widgets.durationwidget import DurationWidget
-from OLiMS.lims.browser.widgets.partitionsetupwidget import PartitionSetupWidget
-from OLiMS.lims.browser.widgets.recordswidget import RecordsWidget
-from OLiMS.lims.browser.widgets.referencewidget import ReferenceWidget
-from OLiMS.lims.browser.fields import *
-from OLiMS.lims.config import ATTACHMENT_OPTIONS, PROJECTNAME, \
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import getToolByName
+from dependencies.dependency import RegexValidator
+from dependencies.dependency import WorkflowException
+from lims import PMF, bikaMessageFactory as _
+from lims.utils import to_utf8 as _c
+from lims.utils import to_unicode as _u
+from lims.utils.analysis import get_significant_digits
+from lims.browser.widgets.durationwidget import DurationWidget
+from lims.browser.widgets.partitionsetupwidget import PartitionSetupWidget
+from lims.browser.widgets.recordswidget import RecordsWidget
+from lims.browser.widgets.referencewidget import ReferenceWidget
+from lims.browser.fields import *
+from lims.config import ATTACHMENT_OPTIONS, PROJECTNAME, \
     SERVICE_POINT_OF_CAPTURE
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.interfaces import IAnalysisService
+from lims.content.bikaschema import BikaSchema
+from lims.interfaces import IAnalysisService
 from magnitude import mg , MagnitudeError
 # from OLiMS.dependencies.dependency import i18n
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies import transaction
+from dependencies.dependency import implements
+from dependencies import transaction
 import math
 
 
@@ -934,7 +934,7 @@ class AnalysisService(BaseContent, HistoryAwareMixin):
     _at_rename_after_creation = True
 
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
 
         return renameAfterCreation(self)
 

@@ -1,7 +1,7 @@
 """ Thermo Scientific 'Arena 20XT' (The file name for importing staff)
 """
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
+from lims import bikaMessageFactory as _
+from lims.utils import t
 from . import ThermoArenaImporter, ThermoArenaRPRCSVParser
 import json
 import traceback

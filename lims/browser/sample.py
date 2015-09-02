@@ -1,33 +1,33 @@
-from OLiMS.dependencies.dependency import getSecurityManager
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.dependencies.dependency import DisplayList
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import _createObjectByType
-from OLiMS.lims.browser import BrowserView
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.lims import EditSample
-from OLiMS.lims import PMF
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser.analyses import AnalysesView
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.browser.header_table import HeaderTableView
-from OLiMS.lims.config import POINTS_OF_CAPTURE
-from OLiMS.lims.permissions import *
-from OLiMS.lims.utils import changeWorkflowState, tmpID
-from OLiMS.lims.utils import changeWorkflowState, to_unicode
-from OLiMS.lims.utils import getUsers
-from OLiMS.lims.utils import isActive
-from OLiMS.lims.utils import to_utf8, getHiddenAttributesForClass
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import DateTime
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import DisplayList
+from dependencies.dependency import getToolByName
+from dependencies.dependency import _createObjectByType
+from lims.browser import BrowserView
+from dependencies.dependency import ViewPageTemplateFile
+from lims import EditSample
+from lims import PMF
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser.analyses import AnalysesView
+from lims.browser.bika_listing import BikaListingView
+from lims.browser.header_table import HeaderTableView
+from lims.config import POINTS_OF_CAPTURE
+from lims.permissions import *
+from lims.utils import changeWorkflowState, tmpID
+from lims.utils import changeWorkflowState, to_unicode
+from lims.utils import getUsers
+from lims.utils import isActive
+from lims.utils import to_utf8, getHiddenAttributesForClass
 from operator import itemgetter
-from OLiMS.lims.workflow import doActionFor
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import IRegistry
-from OLiMS.dependencies.dependency import queryUtility
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import ParseError
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
+from lims.workflow import doActionFor
+from dependencies.dependency import IViewView
+from dependencies.dependency import IRegistry
+from dependencies.dependency import queryUtility
+from dependencies.dependency import implements
+from dependencies.dependency import ParseError
+from dependencies.dependency import check as CheckAuthenticator
 
 import json
 import urllib

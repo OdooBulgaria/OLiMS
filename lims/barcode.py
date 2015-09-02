@@ -1,12 +1,12 @@
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims import interfaces
-from OLiMS.lims import logger
-from OLiMS.lims.permissions import EditResults, EditWorksheet
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
-from OLiMS.dependencies.dependency import postonly as PostOnly
+from dependencies.dependency import getToolByName
+from lims.browser import BrowserView
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims import interfaces
+from lims import logger
+from lims.permissions import EditResults, EditWorksheet
+from dependencies.dependency import check as CheckAuthenticator
+from dependencies.dependency import postonly as PostOnly
 
 class barcode_entry(BrowserView):
     """ return redirect url if the item exists

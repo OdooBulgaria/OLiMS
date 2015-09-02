@@ -1,12 +1,12 @@
 """
 """
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.interfaces import IQueryFolder, IHaveNoBreadCrumbs
-from OLiMS.dependencies import folder
-from OLiMS.dependencies import atapi
-from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ClassSecurityInfo
+from lims.config import PROJECTNAME
+from lims.interfaces import IQueryFolder, IHaveNoBreadCrumbs
+from dependencies import folder
+from dependencies import atapi
+from dependencies.dependency import schemata
+from dependencies.dependency import implements
 
 schema = folder.ATFolderSchema.copy()
 

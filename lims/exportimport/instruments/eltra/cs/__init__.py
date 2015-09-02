@@ -4,9 +4,9 @@
 """ Eltra CS - 2000
 """
 from datetime import datetime
-from OLiMS.lims.exportimport.instruments.resultsimport import \
+from lims.exportimport.instruments.resultsimport import \
     AnalysisResultsImporter, InstrumentCSVResultsFileParser
-from OLiMS.lims import bikaMessageFactory as _
+from lims import bikaMessageFactory as _
 
 
 class EltraCSTSVParser(InstrumentCSVResultsFileParser):

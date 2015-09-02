@@ -1,17 +1,17 @@
 # coding=utf-8
-from OLiMS.lims import bikaMessageFactory as _, t
-from OLiMS.lims import logger
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.config import POINTS_OF_CAPTURE
-from OLiMS.lims.interfaces import IResultOutOfRange
-from OLiMS.lims.utils import to_utf8, createPdf
-from OLiMS.lims.utils import formatDecimalMark, format_supsub
-from OLiMS.lims.utils.analysis import format_uncertainty
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import iterDirectoriesOfType, queryResourceDirectory
-from OLiMS.dependencies.dependency import getAdapters
+from lims import bikaMessageFactory as _, t
+from lims import logger
+from lims.browser import BrowserView
+from lims.config import POINTS_OF_CAPTURE
+from lims.interfaces import IResultOutOfRange
+from lims.utils import to_utf8, createPdf
+from lims.utils import formatDecimalMark, format_supsub
+from lims.utils.analysis import format_uncertainty
+from dependencies.dependency import DateTime
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import iterDirectoriesOfType, queryResourceDirectory
+from dependencies.dependency import getAdapters
 import glob, os, sys, traceback
 
 

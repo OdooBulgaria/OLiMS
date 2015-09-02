@@ -1,12 +1,12 @@
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.browser.reports.selection_macros import SelectionMacrosView
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import implements
-from OLiMS.lims.utils import getUsers
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser import BrowserView
+from lims.browser.reports.selection_macros import SelectionMacrosView
+from dependencies.dependency import IViewView
+from dependencies.dependency import implements
+from lims.utils import getUsers
 
 
 class Report(BrowserView):

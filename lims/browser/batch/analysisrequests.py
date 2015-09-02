@@ -1,13 +1,13 @@
 from operator import itemgetter
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser.analysisrequest import AnalysisRequestAddView as _ARAV
-from OLiMS.lims.browser.analysisrequest import AnalysisRequestsView as _ARV
-from OLiMS.lims.permissions import *
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import implements
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser.analysisrequest import AnalysisRequestAddView as _ARAV
+from lims.browser.analysisrequest import AnalysisRequestsView as _ARV
+from lims.permissions import *
+from dependencies.dependency import IViewView
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import implements
 
 
 class AnalysisRequestsView(_ARV, _ARAV):

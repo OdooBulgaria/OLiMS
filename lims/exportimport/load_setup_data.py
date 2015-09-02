@@ -1,21 +1,21 @@
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims import PMF
-from OLiMS.lims import logger
-from OLiMS.lims.interfaces import ISetupDataImporter
-from OLiMS.dependencies.dependency import load_workbook
+from dependencies.dependency import getToolByName
+from lims.browser import BrowserView
+from lims import PMF
+from lims import logger
+from lims.interfaces import ISetupDataImporter
+from dependencies.dependency import load_workbook
 from pkg_resources import resource_filename
-from OLiMS.dependencies.dependency import getAdapters
+from dependencies.dependency import getAdapters
 import traceback
 
 import tempfile
-from OLiMS.dependencies import transaction
+from dependencies import transaction
 
 try:
-    from OLiMS.dependencies.dependency import getSite
+    from dependencies.dependency import getSite
 except:
     # Plone < 4.3
-    from OLiMS.dependencies.dependency import getSite
+    from dependencies.dependency import getSite
 
 
 class LoadSetupData(BrowserView):

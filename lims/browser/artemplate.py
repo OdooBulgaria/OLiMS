@@ -1,6 +1,6 @@
-from OLiMS.lims.interfaces import IJSONReadExtender, IARTemplate
-from OLiMS.dependencies.dependency import adapts
-from OLiMS.dependencies.dependency import implements
+from lims.interfaces import IJSONReadExtender, IARTemplate
+from dependencies.dependency import adapts
+from dependencies.dependency import implements
 
 
 class JSONReadExtender(object):

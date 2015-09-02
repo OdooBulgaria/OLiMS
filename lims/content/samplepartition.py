@@ -1,18 +1,18 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims.browser.fields import DurationField
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.interfaces import ISamplePartition
-from OLiMS.lims.workflow import doActionFor
-from OLiMS.lims.workflow import skip
-from OLiMS.dependencies.dependency import DateTime
+from dependencies.dependency import ClassSecurityInfo
+from lims.browser.fields import DurationField
+from lims.config import PROJECTNAME
+from lims.content.bikaschema import BikaSchema
+from lims.interfaces import ISamplePartition
+from lims.workflow import doActionFor
+from lims.workflow import skip
+from dependencies.dependency import DateTime
 from datetime import timedelta
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import HistoryAwareMixin
-from OLiMS.dependencies.dependency import DT2dt, dt2DT
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import *
+from dependencies.dependency import HistoryAwareMixin
+from dependencies.dependency import DT2dt, dt2DT
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import implements
 
 schema = BikaSchema.copy() + Schema((
     ReferenceField('Container',
@@ -64,11 +64,11 @@ class SamplePartition(BaseContent, HistoryAwareMixin):
     _at_rename_after_creation = True
 
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def _getCatalogTool(self):
-        from OLiMS.lims.catalog import getCatalog
+        from lims.catalog import getCatalog
         return getCatalog(self)
 
     def Title(self):

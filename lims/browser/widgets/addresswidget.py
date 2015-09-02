@@ -1,11 +1,11 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import DisplayList
-from OLiMS.dependencies.dependency import registerWidget
-from OLiMS.dependencies.dependency import TypesWidget
-from OLiMS.dependencies.dependency import ulocalized_time
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.locales import COUNTRIES,STATES,DISTRICTS
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import DisplayList
+from dependencies.dependency import registerWidget
+from dependencies.dependency import TypesWidget
+from dependencies.dependency import ulocalized_time
+from dependencies.dependency import getToolByName
+from lims.browser import BrowserView
+from lims.locales import COUNTRIES,STATES,DISTRICTS
 import json
 
 class AddressWidget(TypesWidget):

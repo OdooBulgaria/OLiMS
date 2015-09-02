@@ -1,25 +1,25 @@
 """Customised Collections for querying catalog
 """
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser.widgets import QueryWidget
-from OLiMS.lims.browser.fields import QueryField
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.interfaces import IQuery
-from OLiMS.dependencies.dependency import PloneMessageFactory as _p
-from OLiMS.dependencies.dependency import Collection
-from OLiMS.dependencies.dependency import CollectionSchema
-from OLiMS.dependencies.dependency import ICollection
-from OLiMS.dependencies.dependency import DisplayList
-from OLiMS.dependencies.dependency import ATCT_TOOLNAME
-from OLiMS.dependencies import atapi
-from OLiMS.dependencies.dependency import IntDisplayList
-from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies.dependency.permissions import ModifyPortalContent, View
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import (BooleanField,
+from dependencies.dependency import ClassSecurityInfo
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser.widgets import QueryWidget
+from lims.browser.fields import QueryField
+from lims.config import PROJECTNAME
+from lims.interfaces import IQuery
+from dependencies.dependency import PloneMessageFactory as _p
+from dependencies.dependency import Collection
+from dependencies.dependency import CollectionSchema
+from dependencies.dependency import ICollection
+from dependencies.dependency import DisplayList
+from dependencies.dependency import ATCT_TOOLNAME
+from dependencies import atapi
+from dependencies.dependency import IntDisplayList
+from dependencies.dependency import schemata
+from dependencies.dependency.permissions import ModifyPortalContent, View
+from dependencies.dependency import getToolByName
+from dependencies.dependency import implements
+from dependencies.dependency import (BooleanField,
                                        BooleanWidget,
                                        IntegerField,
                                        LinesField,

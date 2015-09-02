@@ -1,7 +1,7 @@
 """ Thermo Scientific 'Gallery 9861x'
 """
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
+from lims import bikaMessageFactory as _
+from lims.utils import t
 from . import ThermoGalleryImporter, ThermoGalleryTSVParser
 import json
 import traceback

@@ -1,12 +1,12 @@
 """ FOSS FIAStar
 """
-from OLiMS.lims.browser import BrowserView
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import IIDNormalizer
-from OLiMS.dependencies.dependency import getUtility
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
+from lims.browser import BrowserView
+from dependencies.dependency import DateTime
+from dependencies.dependency import getToolByName
+from dependencies.dependency import IIDNormalizer
+from dependencies.dependency import getUtility
+from lims import bikaMessageFactory as _
+from lims.utils import t
 from . import FOSSFIAStarCSVParser, FOSSFIAStarImporter
 from cStringIO import StringIO
 import json

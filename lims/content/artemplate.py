@@ -3,21 +3,21 @@
     ARTemplate includes all AR fields, including preset AnalysisProfile
 """
 
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import RecordsField
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims import PMF, bikaMessageFactory as _
-from OLiMS.lims.interfaces import IARTemplate
-from OLiMS.lims.browser.widgets import RecordsWidget as BikaRecordsWidget
-from OLiMS.lims.browser.widgets import ARTemplatePartitionsWidget
-from OLiMS.lims.browser.widgets import ARTemplateAnalysesWidget
-from OLiMS.lims.browser.widgets import RecordsWidget
-from OLiMS.lims.browser.widgets import ReferenceWidget
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.dependencies.dependency import Interface, implements
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import RecordsField
+from dependencies.dependency import getToolByName
+from lims import PMF, bikaMessageFactory as _
+from lims.interfaces import IARTemplate
+from lims.browser.widgets import RecordsWidget as BikaRecordsWidget
+from lims.browser.widgets import ARTemplatePartitionsWidget
+from lims.browser.widgets import ARTemplateAnalysesWidget
+from lims.browser.widgets import RecordsWidget
+from lims.browser.widgets import ReferenceWidget
+from lims.config import PROJECTNAME
+from lims.content.bikaschema import BikaSchema
+from dependencies.dependency import Interface, implements
 import sys
 
 schema = BikaSchema.copy() + Schema((
@@ -198,7 +198,7 @@ class ARTemplate(BaseContent):
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     security.declarePublic('AnalysisProfiles')

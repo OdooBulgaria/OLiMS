@@ -1,24 +1,24 @@
 """ Agilent's 'Masshunter Quant'
 """
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import ObjectInitializedEvent
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims import logger
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.idserver import renameAfterCreation
-from OLiMS.lims.utils import changeWorkflowState
-from OLiMS.lims.utils import tmpID
+from dependencies.dependency import DateTime
+from dependencies.dependency import ObjectInitializedEvent
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims import logger
+from lims.browser import BrowserView
+from lims.idserver import renameAfterCreation
+from lims.utils import changeWorkflowState
+from lims.utils import tmpID
 from cStringIO import StringIO
 from datetime import datetime
 from operator import itemgetter
-from OLiMS.dependencies.dependency import IIDNormalizer
-from OLiMS.dependencies.dependency import getUtility
+from dependencies.dependency import IIDNormalizer
+from dependencies.dependency import getUtility
 import csv
 import json
-from OLiMS.lims.exportimport.instruments.resultsimport import InstrumentCSVResultsFileParser,\
+from lims.exportimport.instruments.resultsimport import InstrumentCSVResultsFileParser,\
     AnalysisResultsImporter
 import traceback
 

@@ -1,17 +1,17 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies.dependency import RecordsField
-from OLiMS.dependencies import atapi
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser.widgets import ScheduleInputWidget
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaSchema
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import DateTime
+from dependencies.dependency import schemata
+from dependencies.dependency import RecordsField
+from dependencies import atapi
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser.widgets import ScheduleInputWidget
+from lims.config import PROJECTNAME
+from lims.content.bikaschema import BikaSchema
 
 schema = BikaSchema.copy() + Schema((
 
@@ -75,7 +75,7 @@ class InstrumentScheduledTask(BaseFolder):
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def getTaskTypes(self):

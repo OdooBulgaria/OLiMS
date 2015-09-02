@@ -1,15 +1,15 @@
 
-from OLiMS.lims.querystring import queryparser
-from OLiMS.dependencies.dependency import IContentListing
-from OLiMS.dependencies.dependency import querybuilder
-from OLiMS.dependencies.dependency import IQuerystringRegistryReader
-from OLiMS.dependencies.dependency import IRegistry
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import getNavigationRoot
-from OLiMS.dependencies.dependency import Batch
-from OLiMS.dependencies.dependency import getMultiAdapter
-from OLiMS.dependencies.dependency import getUtility
-from OLiMS.dependencies.dependency import BrowserView
+from lims.querystring import queryparser
+from dependencies.dependency import IContentListing
+from dependencies.dependency import querybuilder
+from dependencies.dependency import IQuerystringRegistryReader
+from dependencies.dependency import IRegistry
+from dependencies.dependency import getToolByName
+from dependencies.dependency import getNavigationRoot
+from dependencies.dependency import Batch
+from dependencies.dependency import getMultiAdapter
+from dependencies.dependency import getUtility
+from dependencies.dependency import BrowserView
 
 import json
 

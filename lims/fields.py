@@ -1,15 +1,15 @@
 """Generic field extensions
 """
-from OLiMS.dependencies.dependency import aq_inner
-from OLiMS.dependencies.dependency import aq_parent
-from OLiMS.dependencies.dependency import Implicit
-from OLiMS.dependencies.dependency import ImplicitAcquisitionWrapper
-from OLiMS.dependencies.dependency import IExtensionField
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import DateTimeField
-from OLiMS.dependencies.dependency import RecordField, RecordsField
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import getSite
+from dependencies.dependency import aq_inner
+from dependencies.dependency import aq_parent
+from dependencies.dependency import Implicit
+from dependencies.dependency import ImplicitAcquisitionWrapper
+from dependencies.dependency import IExtensionField
+from dependencies.dependency import *
+from dependencies.dependency import DateTimeField
+from dependencies.dependency import RecordField, RecordsField
+from dependencies.dependency import implements
+from dependencies.dependency import getSite
 
 class ExtensionField(object):
 

@@ -2,7 +2,7 @@
 {
     'name': "OLiMS",
 
-    'summary': """Manage trainings""",
+    'summary': """Open Sourse LIMS""",
 
     'description': """
         OLiMS Modules:

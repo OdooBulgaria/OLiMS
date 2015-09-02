@@ -1,15 +1,15 @@
 import tempfile
 
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.interfaces import IResultOutOfRange
-from OLiMS.lims.utils import t, dicts_to_dict
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.browser.reports.selection_macros import SelectionMacrosView
-from OLiMS.dependencies.dependency import plot
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import getAdapters
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ViewPageTemplateFile
+from lims import bikaMessageFactory as _
+from lims.interfaces import IResultOutOfRange
+from lims.utils import t, dicts_to_dict
+from lims.browser import BrowserView
+from lims.browser.reports.selection_macros import SelectionMacrosView
+from dependencies.dependency import plot
+from dependencies.dependency import IViewView
+from dependencies.dependency import getAdapters
+from dependencies.dependency import implements
 import os
 
 class Report(BrowserView):

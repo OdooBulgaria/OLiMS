@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 import math
-from OLiMS.dependencies.dependency import event
-from OLiMS.lims.utils import formatDecimalMark
-from OLiMS.dependencies.dependency import ObjectInitializedEvent
-from OLiMS.dependencies.dependency import WorkflowException
-from OLiMS.dependencies.dependency import _createObjectByType
+from dependencies.dependency import event
+from lims.utils import formatDecimalMark
+from dependencies.dependency import ObjectInitializedEvent
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import _createObjectByType
 
 
 def create_analysis(context, service, keyword, interim_fields):

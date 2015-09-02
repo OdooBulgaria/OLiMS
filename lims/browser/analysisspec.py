@@ -1,8 +1,8 @@
-from OLiMS.lims.config import POINTS_OF_CAPTURE
-from OLiMS.lims.interfaces import IAnalysisSpec
-from OLiMS.lims.interfaces import IJSONReadExtender
-from OLiMS.dependencies.dependency import adapts
-from OLiMS.dependencies.dependency import implements
+from lims.config import POINTS_OF_CAPTURE
+from lims.interfaces import IAnalysisSpec
+from lims.interfaces import IJSONReadExtender
+from dependencies.dependency import adapts
+from dependencies.dependency import implements
 
 class JSONReadExtender(object):
     """Adds the UID to the ResultsRange dict.  This will go away

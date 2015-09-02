@@ -1,12 +1,12 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.interfaces import ISubGroup
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.fields import *
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ClassSecurityInfo
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.config import PROJECTNAME
+from lims.interfaces import ISubGroup
+from lims.content.bikaschema import BikaSchema
+from lims.fields import *
+from dependencies.dependency import *
+from dependencies.dependency import implements
 
 schema = BikaSchema.copy() + Schema((
     ExtStringField(
@@ -30,7 +30,7 @@ class SubGroup(BaseContent):
     _at_rename_after_creation = True
 
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
 registerType(SubGroup, PROJECTNAME)

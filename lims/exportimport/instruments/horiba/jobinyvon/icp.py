@@ -1,7 +1,7 @@
 """ Horiba Jobin-Yvon ICP
 """
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
+from lims import bikaMessageFactory as _
+from lims.utils import t
 from . import HoribaJobinYvonCSVParser, HoribaJobinYvonImporter
 import json
 import traceback

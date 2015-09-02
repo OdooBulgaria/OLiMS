@@ -1,4 +1,4 @@
-from OLiMS.dependencies.dependency import Interface
+from dependencies.dependency import Interface
 
 
 class IBikaLIMS(Interface):

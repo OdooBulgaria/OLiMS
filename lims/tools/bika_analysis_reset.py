@@ -1,12 +1,12 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import InitializeClass
-from OLiMS.dependencies.dependency import SimpleItem
-from OLiMS.dependencies.dependency import permissions
-from OLiMS.dependencies.dependency import UniqueObject, getToolByName
-from OLiMS.lims.config import ManageAnalysisRequests
-from OLiMS.lims.interfaces.tools import Ibika_analysis_reset
-from OLiMS.lims.tools import ToolFolder
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import InitializeClass
+from dependencies.dependency import SimpleItem
+from dependencies.dependency import permissions
+from dependencies.dependency import UniqueObject, getToolByName
+from lims.config import ManageAnalysisRequests
+from lims.interfaces.tools import Ibika_analysis_reset
+from lims.tools import ToolFolder
+from dependencies.dependency import implements
 import csv
 
 class bika_analysis_reset(UniqueObject, SimpleItem):

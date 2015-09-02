@@ -4,7 +4,7 @@ bin/zopectl run blis.py <ploneSiteId>
 """
 
 from sys import argv
-from OLiMS.dependencies import transaction
+from dependencies import transaction
 
 plone = app[argv[1]]
 

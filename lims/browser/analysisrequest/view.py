@@ -1,24 +1,24 @@
-from OLiMS.dependencies.dependency import getSecurityManager
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.browser.analyses import AnalysesView
-from OLiMS.lims.browser.analyses import QCAnalysesView
-from OLiMS.lims.browser.header_table import HeaderTableView
-from OLiMS.lims.browser.sample import SamplePartitionsView
-from OLiMS.lims.content.analysisrequest import schema as AnalysisRequestSchema
-from OLiMS.lims.config import POINTS_OF_CAPTURE
-from OLiMS.lims.permissions import *
-from OLiMS.lims.utils import isActive
-from OLiMS.lims.utils import to_utf8
-from OLiMS.lims.workflow import doActionFor
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.lims.workflow import doActionFor
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import PloneMessageFactory as PMF
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import getSecurityManager
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser import BrowserView
+from lims.browser.analyses import AnalysesView
+from lims.browser.analyses import QCAnalysesView
+from lims.browser.header_table import HeaderTableView
+from lims.browser.sample import SamplePartitionsView
+from lims.content.analysisrequest import schema as AnalysisRequestSchema
+from lims.config import POINTS_OF_CAPTURE
+from lims.permissions import *
+from lims.utils import isActive
+from lims.utils import to_utf8
+from lims.workflow import doActionFor
+from dependencies.dependency import DateTime
+from lims.workflow import doActionFor
+from dependencies.dependency import IViewView
+from dependencies.dependency import PloneMessageFactory as PMF
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import implements
 
 
 class AnalysisRequestViewView(BrowserView):
@@ -106,7 +106,7 @@ class AnalysisRequestViewView(BrowserView):
         self.qctable = qcview.contents_table()
 
         # Create the ResultsInterpretation by department view
-        from OLiMS.dependencies.dependency import ARResultsInterpretationView
+        from dependencies.dependency import ARResultsInterpretationView
         self.riview = ARResultsInterpretationView(ar, self.request)
 
         # If a general retracted is done, rise a waring

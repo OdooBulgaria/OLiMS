@@ -1,19 +1,19 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import HistoryAwareMixin
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.browser.widgets import DurationWidget
-from OLiMS.lims.browser.fields import DurationField
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.interfaces import ISampleType
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import HistoryAwareMixin
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from lims.browser import BrowserView
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.config import PROJECTNAME
+from lims.browser.widgets import DurationWidget
+from lims.browser.fields import DurationField
+from lims.content.bikaschema import BikaSchema
+from lims.interfaces import ISampleType
 from magnitude import mg, MagnitudeError
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import implements
 import json
 import sys
 
@@ -109,7 +109,7 @@ class SampleType(BaseContent, HistoryAwareMixin):
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def Title(self):
@@ -141,7 +141,7 @@ class SampleType(BaseContent, HistoryAwareMixin):
         return settings.getDefaultSampleLifetime()
 
     def SamplePointsVocabulary(self):
-        from OLiMS.lims.content.samplepoint import SamplePoints
+        from lims.content.samplepoint import SamplePoints
         return SamplePoints(self, allow_blank=False)
 
     def setSamplePoints(self, value, **kw):
@@ -176,11 +176,11 @@ class SampleType(BaseContent, HistoryAwareMixin):
         return self.Schema()['SamplePoints'].get(self)
 
     def SampleMatricesVocabulary(self):
-        from OLiMS.lims.content.samplematrix import SampleMatrices
+        from lims.content.samplematrix import SampleMatrices
         return SampleMatrices(self, allow_blank=True)
 
     def ContainerTypesVocabulary(self):
-        from OLiMS.lims.content.containertype import ContainerTypes
+        from lims.content.containertype import ContainerTypes
         return ContainerTypes(self, allow_blank=True)
 
 registerType(SampleType, PROJECTNAME)

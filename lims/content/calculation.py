@@ -1,24 +1,24 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser.fields import HistoryAwareReferenceField
-from OLiMS.lims.browser.fields import InterimFieldsField
-from OLiMS.lims.browser.widgets import RecordsWidget as BikaRecordsWidget
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.interfaces import ICalculation
-from OLiMS.lims.utils import to_utf8
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import HistoryAwareMixin
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import WorkflowException
-from OLiMS.dependencies.dependency import Redirect
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import safe_unicode
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser.fields import HistoryAwareReferenceField
+from lims.browser.fields import InterimFieldsField
+from lims.browser.widgets import RecordsWidget as BikaRecordsWidget
+from lims.config import PROJECTNAME
+from lims.content.bikaschema import BikaSchema
+from lims.interfaces import ICalculation
+from lims.utils import to_utf8
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import HistoryAwareMixin
+from dependencies.dependency import getToolByName
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import Redirect
+from dependencies.dependency import implements
 import sys
 import re
-from OLiMS.dependencies import transaction
+from dependencies import transaction
 
 
 schema = BikaSchema.copy() + Schema((
@@ -88,7 +88,7 @@ class Calculation(BaseFolder, HistoryAwareMixin):
     _at_rename_after_creation = True
 
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def setInterimFields(self, value):

@@ -1,6 +1,6 @@
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import permissions
-from OLiMS.lims.permissions import AddSupplyOrder
+from dependencies.dependency import getToolByName
+from dependencies.dependency import permissions
+from lims.permissions import AddSupplyOrder
 
 def ObjectModifiedEventHandler(obj, event):
     """ Various types need automation on edit.

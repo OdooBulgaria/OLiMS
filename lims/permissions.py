@@ -7,7 +7,7 @@
     both valid.
 
 """
-from OLiMS.dependencies.dependency import AddPortalContent
+from dependencies.dependency import AddPortalContent
 
 # Add Permissions:
 # ----------------

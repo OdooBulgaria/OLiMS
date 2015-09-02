@@ -5,16 +5,16 @@ include objects indexed in catalogs other than portal_catalog
 """
 
 import os
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import IContentListing
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import getNavigationRoot
-from OLiMS.dependencies.dependency import Batch
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import ParseError
-from OLiMS.dependencies.dependency import MessageFactory
-from OLiMS.dependencies.dependency import Search
-from OLiMS.dependencies.dependency import quote_chars
+from dependencies.dependency import DateTime
+from dependencies.dependency import IContentListing
+from dependencies.dependency import getToolByName
+from dependencies.dependency import getNavigationRoot
+from dependencies.dependency import Batch
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import ParseError
+from dependencies.dependency import MessageFactory
+from dependencies.dependency import Search
+from dependencies.dependency import quote_chars
 
 _ = MessageFactory('plone')
 

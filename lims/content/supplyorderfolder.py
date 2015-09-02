@@ -1,12 +1,12 @@
 """Supply Order Folder contains Supply Orders
 """
-from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies import atapi
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims.interfaces import ISupplyOrderFolder, IHaveNoBreadCrumbs
-from OLiMS.dependencies import folder
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import schemata
+from dependencies import atapi
+from lims.config import PROJECTNAME
+from dependencies.dependency import ClassSecurityInfo
+from lims.interfaces import ISupplyOrderFolder, IHaveNoBreadCrumbs
+from dependencies import folder
+from dependencies.dependency import implements
 
 schema = folder.ATFolderSchema.copy()
 

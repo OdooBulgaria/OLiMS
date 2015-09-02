@@ -1,23 +1,23 @@
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.dependencies.dependency import DisplayList
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import _createObjectByType
-from OLiMS.lims.browser import BrowserView
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims import PMF, logger
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.browser.bika_listing import WorkflowAction
-from OLiMS.lims.permissions import EditWorksheet
-from OLiMS.lims.permissions import ManageWorksheets
-from OLiMS.lims.utils import getUsers, tmpID
-from OLiMS.lims.utils import to_utf8 as _c
-from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
+from dependencies.dependency import DateTime
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import DisplayList
+from dependencies.dependency import getToolByName
+from dependencies.dependency import _createObjectByType
+from lims.browser import BrowserView
+from dependencies.dependency import ViewPageTemplateFile
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims import PMF, logger
+from lims.browser.bika_listing import BikaListingView
+from lims.browser.bika_listing import WorkflowAction
+from lims.permissions import EditWorksheet
+from lims.permissions import ManageWorksheets
+from lims.utils import getUsers, tmpID
+from lims.utils import to_utf8 as _c
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import IViewView
+from dependencies.dependency import implements
+from dependencies.dependency import check as CheckAuthenticator
 import json
 import zope
 

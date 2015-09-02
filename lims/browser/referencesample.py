@@ -1,17 +1,17 @@
-from OLiMS.dependencies.dependency import getSecurityManager
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims.browser import BrowserView
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.utils import isActive
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import getToolByName
+from lims.browser import BrowserView
+from dependencies.dependency import ViewPageTemplateFile
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser.bika_listing import BikaListingView
+from lims.utils import isActive
 from operator import itemgetter
-from OLiMS.lims.browser.analyses import AnalysesView
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import getMultiAdapter
-from OLiMS.dependencies.dependency import implements
+from lims.browser.analyses import AnalysesView
+from dependencies.dependency import IViewView
+from dependencies.dependency import getMultiAdapter
+from dependencies.dependency import implements
 import json
 
 class ViewView(BrowserView):
@@ -379,8 +379,8 @@ class ReferenceSamplesView(BikaListingView):
             obj = items[x]['obj']
             if workflow.getInfoFor(obj, 'review_state') == 'current':
                 # Check expiry date
-                from OLiMS.dependencies.dependency import DT2dt
-                from OLiMS.dependencies.dependency import datetime
+                from dependencies.dependency import DT2dt
+                from dependencies.dependency import datetime
                 expirydate = DT2dt(obj.getExpiryDate()).replace(tzinfo=None)
                 if (datetime.today() > expirydate):
                     workflow.doActionFor(obj, 'expire')

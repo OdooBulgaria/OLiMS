@@ -1,15 +1,15 @@
 """The contact person at a reference supplier organisation.
 """
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import manage_users
-from OLiMS.dependencies.dependency import *
-from OLiMS.lims.content.person import Person
-from OLiMS.dependencies.dependency import permissions
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import manage_users
+from dependencies.dependency import *
+from lims.content.person import Person
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
+from lims.config import PROJECTNAME
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from dependencies.dependency import implements
 
 schema = Person.schema.copy()
 
@@ -31,7 +31,7 @@ class SupplierContact(Person):
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
 registerType(SupplierContact, PROJECTNAME)

@@ -4,7 +4,7 @@
 """ FOSS FIAStar
 """
 from datetime import datetime
-from OLiMS.lims.exportimport.instruments.resultsimport import \
+from lims.exportimport.instruments.resultsimport import \
     AnalysisResultsImporter, InstrumentCSVResultsFileParser
 
 

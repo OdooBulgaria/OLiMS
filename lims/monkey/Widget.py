@@ -1,8 +1,8 @@
-from OLiMS.lims.interfaces import IATWidgetVisibility
+from lims.interfaces import IATWidgetVisibility
 from types import DictType
 
-from OLiMS.dependencies.dependency import aq_base
-from OLiMS.dependencies.dependency import getAdapters
+from dependencies.dependency import aq_base
+from dependencies.dependency import getAdapters
 
 _marker = []
 

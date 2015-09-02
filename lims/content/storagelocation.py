@@ -1,17 +1,17 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import HistoryAwareMixin
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.browser.fields import CoordinateField
-from OLiMS.lims.browser.widgets import CoordinateWidget
-from OLiMS.lims.browser.fields import DurationField
-from OLiMS.lims.browser.widgets import DurationWidget
-from OLiMS.lims import PMF, bikaMessageFactory as _
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import *
+from dependencies.dependency import HistoryAwareMixin
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from lims.browser import BrowserView
+from lims.content.bikaschema import BikaSchema
+from lims.config import PROJECTNAME
+from lims.browser.fields import CoordinateField
+from lims.browser.widgets import CoordinateWidget
+from lims.browser.fields import DurationField
+from lims.browser.widgets import DurationWidget
+from lims import PMF, bikaMessageFactory as _
+from dependencies.dependency import implements
 import json
 import sys
 
@@ -87,7 +87,7 @@ class StorageLocation(BaseContent, HistoryAwareMixin):
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def Title(self):

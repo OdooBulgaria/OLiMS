@@ -1,14 +1,14 @@
 # coding=utf-8
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims.jsonapi import get_include_fields
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t, dicts_to_dict
-from OLiMS.lims.interfaces import IAnalysis, IResultOutOfRange, IJSONReadExtender
-from OLiMS.lims.interfaces import IFieldIcons
-from OLiMS.lims.utils import to_utf8
-from OLiMS.lims.utils import dicts_to_dict
-from OLiMS.dependencies.dependency import adapts, getAdapters
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import getToolByName
+from lims.jsonapi import get_include_fields
+from lims import bikaMessageFactory as _
+from lims.utils import t, dicts_to_dict
+from lims.interfaces import IAnalysis, IResultOutOfRange, IJSONReadExtender
+from lims.interfaces import IFieldIcons
+from lims.utils import to_utf8
+from lims.utils import dicts_to_dict
+from dependencies.dependency import adapts, getAdapters
+from dependencies.dependency import implements
 
 
 class ResultOutOfRangeIcons(object):

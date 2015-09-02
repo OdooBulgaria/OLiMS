@@ -1,10 +1,10 @@
 # coding=utf-8
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.interfaces import IResultOutOfRange
-from OLiMS.lims.utils import to_utf8
-from OLiMS.dependencies.dependency import getAdapters
+from dependencies.dependency import getToolByName
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.interfaces import IResultOutOfRange
+from lims.utils import to_utf8
+from dependencies.dependency import getAdapters
 
 
 class ResultOutOfRangeIcons(object):

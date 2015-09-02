@@ -1,13 +1,13 @@
-from OLiMS.lims.permissions import AddBatch
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.config import ManageInvoices
-from OLiMS.lims.utils import t
+from lims.permissions import AddBatch
+from lims.browser.bika_listing import BikaListingView
+from lims import bikaMessageFactory as _
+from lims.config import ManageInvoices
+from lims.utils import t
 from operator import itemgetter
-from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.lims.browser import BrowserView
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
+from dependencies.dependency import IFolderContentsView
+from lims.browser import BrowserView
+from dependencies.dependency import implements
+from dependencies.dependency import check as CheckAuthenticator
 import json
 
 

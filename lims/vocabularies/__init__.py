@@ -1,18 +1,18 @@
 # -*- coding:utf-8 -*-
-from OLiMS.dependencies.dependency import aq_get
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.interfaces import IDisplayListVocabulary
-from OLiMS.lims.utils import to_utf8
-from OLiMS.dependencies.dependency import DisplayList
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import aq_get
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.interfaces import IDisplayListVocabulary
+from lims.utils import to_utf8
+from dependencies.dependency import DisplayList
+from dependencies.dependency import getToolByName
+from dependencies.dependency import implements
 from pkg_resources import resource_filename
-from OLiMS.dependencies.dependency import iterDirectoriesOfType
-from OLiMS.dependencies.dependency import IVocabularyFactory
-from OLiMS.dependencies.dependency import SimpleTerm
-from OLiMS.dependencies.dependency import SimpleVocabulary
-from OLiMS.dependencies.dependency import getSite
+from dependencies.dependency import iterDirectoriesOfType
+from dependencies.dependency import IVocabularyFactory
+from dependencies.dependency import SimpleTerm
+from dependencies.dependency import SimpleVocabulary
+from dependencies.dependency import getSite
 
 import os
 import glob

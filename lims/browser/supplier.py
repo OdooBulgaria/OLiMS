@@ -1,9 +1,9 @@
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.controlpanel.bika_instruments import InstrumentsView
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims.utils import to_utf8
+from lims.browser.bika_listing import BikaListingView
+from lims.controlpanel.bika_instruments import InstrumentsView
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from dependencies.dependency import getToolByName
+from lims.utils import to_utf8
 
 class SupplierInstrumentsView(InstrumentsView):
 
@@ -119,8 +119,8 @@ class ReferenceSamplesView(BikaListingView):
             obj = items[x]['obj']
             if workflow.getInfoFor(obj, 'review_state') == 'current':
                 # Check expiry date
-                from OLiMS.dependencies.dependency import DT2dt
-                from OLiMS.dependencies.dependency import datetime
+                from dependencies.dependency import DT2dt
+                from dependencies.dependency import datetime
                 expirydate = DT2dt(obj.getExpiryDate()).replace(tzinfo=None)
                 if (datetime.today() > expirydate):
                     workflow.doActionFor(obj, 'expire')

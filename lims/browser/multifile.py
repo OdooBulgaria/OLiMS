@@ -1,8 +1,8 @@
-from OLiMS.dependencies.dependency import implements
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.lims import bikaMessageFactory as _
+from dependencies.dependency import implements
+from lims.browser.bika_listing import BikaListingView
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import IViewView
+from lims import bikaMessageFactory as _
 
 
 class MultifileView(BikaListingView):

@@ -1,6 +1,6 @@
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
+from dependencies.dependency import safe_unicode
+from lims import bikaMessageFactory as _
+from lims.utils import t
 
 class Logger:
 

@@ -1,17 +1,17 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser.fields import DurationField
-from OLiMS.lims.browser.widgets import DurationWidget
-from OLiMS.lims.config import PROJECTNAME, PRESERVATION_CATEGORIES
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.vocabularies import CatalogVocabulary
+from dependencies.dependency import ClassSecurityInfo
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser.fields import DurationField
+from lims.browser.widgets import DurationWidget
+from lims.config import PROJECTNAME, PRESERVATION_CATEGORIES
+from lims.content.bikaschema import BikaSchema
+from lims.vocabularies import CatalogVocabulary
 from operator import itemgetter
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import getToolByName
+from dependencies.dependency import *
+from dependencies.dependency import getToolByName
 
 import json
-from OLiMS.dependencies.dependency import  check as CheckAuthenticator
+from dependencies.dependency import  check as CheckAuthenticator
 
 schema = BikaSchema.copy() + Schema((
     StringField('Category',
@@ -44,7 +44,7 @@ class Preservation(BaseContent):
     _at_rename_after_creation = True
 
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
 registerType(Preservation, PROJECTNAME)

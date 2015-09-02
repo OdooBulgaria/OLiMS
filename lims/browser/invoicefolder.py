@@ -1,11 +1,11 @@
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.permissions import AddInvoice
-from OLiMS.lims.permissions import ManageInvoices
-from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import implements
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser.bika_listing import BikaListingView
+from lims.permissions import AddInvoice
+from lims.permissions import ManageInvoices
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import getToolByName
+from dependencies.dependency import implements
 
 
 class InvoiceFolderContentsView(BikaListingView):

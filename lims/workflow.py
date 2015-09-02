@@ -1,13 +1,13 @@
-from OLiMS.lims import enum
-from OLiMS.lims import PMF
-from OLiMS.lims.interfaces import IJSONReadExtender
-from OLiMS.lims.utils import t
-from OLiMS.dependencies.dependency import Interface
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import WorkflowException
-from OLiMS.dependencies.dependency import adapts
-from OLiMS.dependencies.dependency import implements
-from OLiMS.lims.jsonapi import get_include_fields
+from lims import enum
+from lims import PMF
+from lims.interfaces import IJSONReadExtender
+from lims.utils import t
+from dependencies.dependency import Interface
+from dependencies.dependency import getToolByName
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import adapts
+from dependencies.dependency import implements
+from lims.jsonapi import get_include_fields
 
 
 def skip(instance, action, peek=False, unskip=False):

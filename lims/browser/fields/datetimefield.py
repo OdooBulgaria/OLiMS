@@ -1,15 +1,15 @@
 from time import strptime
 
-from OLiMS.dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 
-from OLiMS.dependencies.dependency import DateTime, safelocaltime
-from OLiMS.dependencies.dependency import DateTimeError
-from OLiMS.dependencies.dependency import registerField
-from OLiMS.dependencies.dependency import IDateTimeField
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import DateTimeField as DTF
-from OLiMS.lims import logger
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import DateTime, safelocaltime
+from dependencies.dependency import DateTimeError
+from dependencies.dependency import registerField
+from dependencies.dependency import IDateTimeField
+from dependencies.dependency import *
+from dependencies.dependency import DateTimeField as DTF
+from lims import logger
+from dependencies.dependency import implements
 
 
 class DateTimeField(DTF):

@@ -1,13 +1,13 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import InitializeClass
-from OLiMS.dependencies.dependency import ManagePortal
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import CatalogTool
-from OLiMS.dependencies.dependency import ZCatalog
-from OLiMS.lims.interfaces import IBikaCatalog
-from OLiMS.lims.interfaces import IBikaAnalysisCatalog
-from OLiMS.lims.interfaces import IBikaSetupCatalog
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import InitializeClass
+from dependencies.dependency import ManagePortal
+from dependencies.dependency import getToolByName
+from dependencies.dependency import CatalogTool
+from dependencies.dependency import ZCatalog
+from lims.interfaces import IBikaCatalog
+from lims.interfaces import IBikaAnalysisCatalog
+from lims.interfaces import IBikaSetupCatalog
+from dependencies.dependency import implements
 
 
 def getCatalog(instance, field='UID'):

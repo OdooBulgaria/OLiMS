@@ -1,11 +1,11 @@
-from OLiMS.dependencies.dependency import getSecurityManager
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.utils import isActive
-from OLiMS.dependencies.dependency import getMultiAdapter
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import DateTime
+from dependencies.dependency import getToolByName
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser.bika_listing import BikaListingView
+from lims.utils import isActive
+from dependencies.dependency import getMultiAdapter
 
 
 class LateAnalysesView(BikaListingView):

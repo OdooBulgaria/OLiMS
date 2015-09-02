@@ -1,17 +1,17 @@
 """ Reference Definitions represent standard specifications for
     reference samples used in quality control
 """
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import *
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.browser.fields import ReferenceResultsField
-from OLiMS.lims.browser.widgets import ReferenceResultsWidget
-from OLiMS.lims.config import PROJECTNAME
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import DateTime
+from dependencies.dependency import *
+from lims.content.bikaschema import BikaSchema
+from lims.browser.fields import ReferenceResultsField
+from lims.browser.widgets import ReferenceResultsWidget
+from lims.config import PROJECTNAME
 import sys
 import time
-from OLiMS.lims import PMF, bikaMessageFactory as _
-from OLiMS.dependencies.dependency import implements
+from lims import PMF, bikaMessageFactory as _
+from dependencies.dependency import implements
 
 schema = BikaSchema.copy() + Schema((
     ReferenceResultsField('ReferenceResults',
@@ -66,7 +66,7 @@ class ReferenceDefinition(BaseContent):
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
 registerType(ReferenceDefinition, PROJECTNAME)

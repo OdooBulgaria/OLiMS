@@ -1,42 +1,42 @@
 # coding=utf-8
-from OLiMS.dependencies.dependency import getSecurityManager
-from OLiMS.dependencies.dependency import _createObjectByType
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims import EditResults, EditWorksheet, ManageWorksheets
-from OLiMS.lims import PMF, logger
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.browser.analyses import AnalysesView
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.browser.bika_listing import WorkflowAction
-from OLiMS.lims.browser.referencesample import ReferenceSamplesView
-from OLiMS.lims.exportimport import instruments
-from OLiMS.lims.interfaces import IFieldIcons
-from OLiMS.lims.interfaces import IWorksheet
-from OLiMS.lims.subscribers import doActionFor
-from OLiMS.lims.subscribers import skip
-from OLiMS.lims.utils import to_utf8
-from OLiMS.lims.utils import getUsers, isActive, tmpID
-from OLiMS.dependencies.dependency import DateTime
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import _createObjectByType
+from dependencies.dependency import safe_unicode
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims import EditResults, EditWorksheet, ManageWorksheets
+from lims import PMF, logger
+from lims.browser import BrowserView
+from lims.browser.analyses import AnalysesView
+from lims.browser.bika_listing import BikaListingView
+from lims.browser.bika_listing import WorkflowAction
+from lims.browser.referencesample import ReferenceSamplesView
+from lims.exportimport import instruments
+from lims.interfaces import IFieldIcons
+from lims.interfaces import IWorksheet
+from lims.subscribers import doActionFor
+from lims.subscribers import skip
+from lims.utils import to_utf8
+from lims.utils import getUsers, isActive, tmpID
+from dependencies.dependency import DateTime
 from operator import itemgetter
-from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.dependencies.dependency import DisplayList
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import WorkflowException
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import adapts
-from OLiMS.dependencies.dependency import getAdapters
-from OLiMS.dependencies.dependency import getMultiAdapter
-from OLiMS.dependencies.dependency import implements
-from OLiMS.lims.browser.referenceanalysis import AnalysesRetractedListReport
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import ulocalized_time
-from OLiMS.lims.utils import to_utf8 as _c
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
-from OLiMS.dependencies.dependency import postonly as PostOnly
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import IViewView
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import DisplayList
+from dependencies.dependency import getToolByName
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import adapts
+from dependencies.dependency import getAdapters
+from dependencies.dependency import getMultiAdapter
+from dependencies.dependency import implements
+from lims.browser.referenceanalysis import AnalysesRetractedListReport
+from dependencies.dependency import DateTime
+from dependencies.dependency import ulocalized_time
+from lims.utils import to_utf8 as _c
+from dependencies.dependency import check as CheckAuthenticator
+from dependencies.dependency import postonly as PostOnly
 
 import json
 

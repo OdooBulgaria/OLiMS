@@ -1,8 +1,8 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import BaseContent
-from OLiMS.dependencies.dependency import registerType
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.config import PROJECTNAME
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import BaseContent
+from dependencies.dependency import registerType
+from lims.content.bikaschema import BikaSchema
+from lims.config import PROJECTNAME
 
 schema = BikaSchema.copy()
 schema['description'].widget.visible = False
@@ -15,7 +15,7 @@ class BatchLabel(BaseContent):
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
 registerType(BatchLabel, PROJECTNAME)

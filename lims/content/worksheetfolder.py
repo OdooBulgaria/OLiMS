@@ -1,16 +1,16 @@
 """WorksheetFolder is a container for Worksheet instances.
 """
-from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies import atapi
-from OLiMS.dependencies.dependency import permissions
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.interfaces import IWorksheetFolder, IHaveNoBreadCrumbs
-from OLiMS.dependencies import folder
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import implements
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
+from dependencies.dependency import schemata
+from dependencies import atapi
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
+from lims.config import PROJECTNAME
+from lims.interfaces import IWorksheetFolder, IHaveNoBreadCrumbs
+from dependencies import folder
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import implements
+from lims import bikaMessageFactory as _
+from lims.utils import t
 
 schema = folder.ATFolderSchema.copy()
 schema['id'].widget.visible = {'edit':'hidden', 'view': 'invisible'}

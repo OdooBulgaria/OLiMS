@@ -1,2 +1,2 @@
-from OLiMS.lims.workflow import skip
-from OLiMS.lims.workflow import doActionFor
+from lims.workflow import skip
+from lims.workflow import doActionFor

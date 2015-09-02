@@ -8,7 +8,7 @@
 ##title=
 ##
 
-from OLiMS.lims.permissions import CancelAndReinstate
+from lims.permissions import CancelAndReinstate
 
 checkPermission = context.portal_membership.checkPermission
 

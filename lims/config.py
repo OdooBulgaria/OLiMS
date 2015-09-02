@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from OLiMS.dependencies.dependency import DisplayList
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.permissions import *
-from OLiMS.dependencies.dependency import locales
+from dependencies.dependency import DisplayList
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.permissions import *
+from dependencies.dependency import locales
 
 PROJECTNAME = "bika.lims"
 
@@ -99,13 +99,14 @@ QCANALYSIS_TYPES = DisplayList((
     ('d', _('Duplicate QC analyses'))
 ))
 
-currencies = locales.getLocale('en').numbers.currencies.values()
-currencies.sort(lambda x,y:cmp(x.displayName, y.displayName))
+# currencies = locales.getLocale('en').numbers.currencies.values()
+# currencies.sort(lambda x,y:cmp(x.displayName, y.displayName))
 
-CURRENCIES = DisplayList(
-    [(c.type, "%s (%s)" % (c.displayName, c.symbol))
-     for c in currencies]
-)
+# CURRENCIES = DisplayList(
+#     [(c.type, "%s (%s)" % (c.displayName, c.symbol))
+#      for c in currencies]
+# )
+CURRENCIES = [(u'AIF', u'Affars and Issas Franc (AIF)'), (u'AFN', u'Afghani (Af)'), (u'AFA', u'Afghani (1927-2002) (AFA)'), (u'ALX', u'Albanian Dollar Foreign Exchange Certificates (ALX)'), (u'ALL', u'Albanian Lek (lek)'), (u'ALK', u'Albanian Lek (1946-1961) (ALK)'), (u'ALV', u'Albanian Lek Valute (ALV)'), (u'DZD', u'Algerian Dinar (DA)'), (u'DZG', u'Algerian Franc Germinal (DZG)'), (u'DZF', u'Algerian New Franc (DZF)'), (u'ADD', u'Andorran Diner (ADD)'), (u'ADP', u'Andorran Peseta (ADP)'), (u'AOS', u'Angolan Escudo (AOS)'), (u'AOA', u'Angolan Kwanza (AOA)'), (u'AOK', u'Angolan Kwanza (1977-1990) (AOK)'), (u'AOR', u'Angolan Kwanza Reajustado (1995-1999) (AOR)')]
 
 VERIFIED_STATES = ('verified', 'published')
 

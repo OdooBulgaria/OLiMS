@@ -1,10 +1,10 @@
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims import bikaMessageFactory as _, t
-from OLiMS.lims import logger
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.vocabularies import getStickerTemplates
-from OLiMS.dependencies.dependency import iterDirectoriesOfType, queryResourceDirectory
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import getToolByName
+from lims import bikaMessageFactory as _, t
+from lims import logger
+from lims.browser import BrowserView
+from lims.vocabularies import getStickerTemplates
+from dependencies.dependency import iterDirectoriesOfType, queryResourceDirectory
+from dependencies.dependency import ViewPageTemplateFile
 import glob, os, os.path, sys, traceback
 
 import os

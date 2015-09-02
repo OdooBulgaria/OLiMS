@@ -1,26 +1,26 @@
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims import PMF
-from OLiMS.lims.browser.bika_listing import WorkflowAction
-from OLiMS.lims.idserver import renameAfterCreation
-from OLiMS.lims.permissions import *
-from OLiMS.lims.utils import changeWorkflowState
-from OLiMS.lims.utils import encode_header
-from OLiMS.lims.utils import isActive
-from OLiMS.lims.utils import tmpID
-from OLiMS.lims.utils import to_utf8
-from OLiMS.lims.workflow import doActionFor
-from OLiMS.dependencies.dependency import DateTime
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims import PMF
+from lims.browser.bika_listing import WorkflowAction
+from lims.idserver import renameAfterCreation
+from lims.permissions import *
+from lims.utils import changeWorkflowState
+from lims.utils import encode_header
+from lims.utils import isActive
+from lims.utils import tmpID
+from lims.utils import to_utf8
+from lims.workflow import doActionFor
+from dependencies.dependency import DateTime
 from string import Template
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.Utils import formataddr
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.dependencies.dependency import ObjectInitializedEvent
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import safe_unicode, _createObjectByType
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
-from OLiMS.dependencies.dependency import notify
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import ObjectInitializedEvent
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode, _createObjectByType
+from dependencies.dependency import check as CheckAuthenticator
+from dependencies.dependency import notify
 import json
 
 

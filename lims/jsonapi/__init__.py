@@ -1,8 +1,8 @@
-from OLiMS.dependencies.dependency import TOOL_NAME
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import BadRequest
+from dependencies.dependency import TOOL_NAME
+from dependencies.dependency import getToolByName
+from dependencies.dependency import BadRequest
 import json
-import Missing
+# import Missing
 import sys, traceback
 
 
@@ -10,7 +10,7 @@ def handle_errors(f):
     """ simple JSON error handler
     """
     import traceback
-    from OLiMS.dependencies.dependency import error
+    from dependencies.dependency import error
 
     def decorator(*args, **kwargs):
         try:
@@ -46,12 +46,12 @@ def load_brain_metadata(proxy, include_fields):
         if include_fields and index not in include_fields:
             continue
         val = getattr(proxy, index)
-        if val != Missing.Value:
-            try:
-                json.dumps(val)
-            except:
-                continue
-            ret[index] = val
+#         if val != Missing.Value:
+#             try:
+#                 json.dumps(val)
+#             except:
+#                 continue
+#             ret[index] = val
     return ret
 
 

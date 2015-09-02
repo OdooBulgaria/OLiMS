@@ -1,20 +1,20 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import InitializeClass
-from OLiMS.dependencies.dependency import SimpleItem
-from OLiMS.dependencies.dependency import permissions
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.interfaces import IIdServer
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import InitializeClass
+from dependencies.dependency import SimpleItem
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.interfaces import IIdServer
+from dependencies.dependency import implements
 from hashlib import sha1
 import os,sys,random,time,urllib,hmac
 
 try:
-    from OLiMS.dependencies.dependency import getSite
+    from dependencies.dependency import getSite
 except:
     # Plone < 4.3
-    from OLiMS.dependencies.dependency import getSite
+    from dependencies.dependency import getSite
 
 class IDServerUnavailable(Exception):
     pass

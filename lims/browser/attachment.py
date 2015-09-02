@@ -1,9 +1,9 @@
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.dependencies.dependency import getToolByName
+from lims.browser import BrowserView
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from dependencies.dependency import getToolByName
 import json
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
+from dependencies.dependency import check as CheckAuthenticator
 
 class ajaxDeleteAnalysisAttachment():
     """ Removes an analysis attachment. """

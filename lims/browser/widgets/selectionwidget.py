@@ -1,7 +1,7 @@
-from OLiMS.dependencies.dependency import SelectionWidget as _s
-from OLiMS.dependencies.dependency import registerWidget
+from dependencies.dependency import SelectionWidget as _s
+from dependencies.dependency import registerWidget
 
-from OLiMS.dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import ClassSecurityInfo
 
 class SelectionWidget(_s):
     _properties = _s._properties.copy()

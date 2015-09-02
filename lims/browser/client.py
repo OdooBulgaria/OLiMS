@@ -1,39 +1,39 @@
 import json
 
-from OLiMS.lims.permissions import *
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
-from OLiMS.dependencies.dependency import getSecurityManager
-from OLiMS.dependencies.dependency import aq_parent, aq_inner
-from OLiMS.lims import PMF, logger, bikaMessageFactory as _
-from OLiMS.lims.adapters.referencewidgetvocabulary import DefaultReferenceWidgetVocabulary
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.browser.analysisrequest import AnalysisRequestsView
-from OLiMS.lims.browser.analysisrequest import AnalysisRequestWorkflowAction
-from OLiMS.lims.browser.batchfolder import BatchFolderContentsView
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.browser.sample import SamplesView
-from OLiMS.lims.browser.supplyorderfolder import SupplyOrderFolderView
-from OLiMS.lims.idserver import renameAfterCreation
-from OLiMS.lims.interfaces import IClient
-from OLiMS.lims.interfaces import IContacts
-from OLiMS.lims.interfaces import IDisplayListVocabulary
-from OLiMS.lims.subscribers import doActionFor, skip
-from OLiMS.lims.utils import changeWorkflowState
-from OLiMS.lims.utils import isActive
-from OLiMS.lims.utils import t
-from OLiMS.lims.utils import tmpID
-from OLiMS.lims.utils import to_utf8
-from OLiMS.lims.vocabularies import CatalogVocabulary
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.dependencies.dependency import ObjectInitializedEvent
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import _createObjectByType
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import adapts
-from OLiMS.dependencies.dependency import implements
+from lims.permissions import *
+from dependencies.dependency import check as CheckAuthenticator
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import aq_parent, aq_inner
+from lims import PMF, logger, bikaMessageFactory as _
+from lims.adapters.referencewidgetvocabulary import DefaultReferenceWidgetVocabulary
+from lims.browser import BrowserView
+from lims.browser.analysisrequest import AnalysisRequestsView
+from lims.browser.analysisrequest import AnalysisRequestWorkflowAction
+from lims.browser.batchfolder import BatchFolderContentsView
+from lims.browser.bika_listing import BikaListingView
+from lims.browser.sample import SamplesView
+from lims.browser.supplyorderfolder import SupplyOrderFolderView
+from lims.idserver import renameAfterCreation
+from lims.interfaces import IClient
+from lims.interfaces import IContacts
+from lims.interfaces import IDisplayListVocabulary
+from lims.subscribers import doActionFor, skip
+from lims.utils import changeWorkflowState
+from lims.utils import isActive
+from lims.utils import t
+from lims.utils import tmpID
+from lims.utils import to_utf8
+from lims.vocabularies import CatalogVocabulary
+from dependencies.dependency import DateTime
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import IViewView
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import ObjectInitializedEvent
+from dependencies.dependency import getToolByName
+from dependencies.dependency import _createObjectByType
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import adapts
+from dependencies.dependency import implements
 
 
 class ClientWorkflowAction(AnalysisRequestWorkflowAction):

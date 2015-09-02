@@ -1,22 +1,22 @@
-from OLiMS.dependencies.dependency import _createObjectByType, safe_unicode
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.idserver import renameAfterCreation
-from OLiMS.lims.interfaces import IAnalysisServices
-from OLiMS.lims.utils import tmpID
-from OLiMS.lims.validators import ServiceKeywordValidator
-from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.folder import ATFolder, ATFolderSchema
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies import atapi
-from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import BrowserView
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import _createObjectByType, safe_unicode
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser.bika_listing import BikaListingView
+from lims.config import PROJECTNAME
+from lims.idserver import renameAfterCreation
+from lims.interfaces import IAnalysisServices
+from lims.utils import tmpID
+from lims.validators import ServiceKeywordValidator
+from dependencies.dependency import IFolderContentsView
+from dependencies.folder import ATFolder, ATFolderSchema
+from dependencies.dependency import IViewView
+from dependencies import atapi
+from dependencies.dependency import schemata
+from dependencies.dependency import getToolByName
+from dependencies.dependency import BrowserView
+from dependencies.dependency import ViewPageTemplateFile
 from transaction import savepoint
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import implements
 
 
 class AnalysisServiceCopy(BrowserView):

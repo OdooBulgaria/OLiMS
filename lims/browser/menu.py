@@ -1,13 +1,13 @@
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.utils import to_utf8
-from OLiMS.dependencies.dependency import WorkflowSubMenuItem as _WorkflowSubMenuItem
-from OLiMS.dependencies.dependency import getToolByName
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.utils import to_utf8
+from dependencies.dependency import WorkflowSubMenuItem as _WorkflowSubMenuItem
+from dependencies.dependency import getToolByName
 
 try:
-    from OLiMS.dependencies.dependency import ManageWorkflowPolicies
+    from dependencies.dependency import ManageWorkflowPolicies
 except ImportError:
-    from OLiMS.dependencies.dependency import ManagePortal as ManageWorkflowPolicies
+    from dependencies.dependency import ManagePortal as ManageWorkflowPolicies
 
 
 class WorkflowSubMenuItem(_WorkflowSubMenuItem):

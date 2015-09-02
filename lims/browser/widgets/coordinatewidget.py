@@ -1,6 +1,6 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import RecordWidget
-from OLiMS.dependencies.dependency import registerWidget
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import RecordWidget
+from dependencies.dependency import registerWidget
 import datetime
 
 class CoordinateWidget(RecordWidget):

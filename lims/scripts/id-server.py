@@ -1,6 +1,6 @@
 import os, sys, getopt, cgi
 import BaseHTTPServer
-from OLiMS.dependencies.dependency import Pickler, Unpickler
+from dependencies.dependency import Pickler, Unpickler
 
 class IDRequestHandler(BaseHTTPServer.BaseHTTPRequestHandler):
 

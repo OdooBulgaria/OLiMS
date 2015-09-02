@@ -1,7 +1,7 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims.browser.widgets.recordswidget import RecordsWidget
-from OLiMS.dependencies.dependency import registerWidget
-from OLiMS.dependencies.dependency import getToolByName
+from dependencies.dependency import ClassSecurityInfo
+from lims.browser.widgets.recordswidget import RecordsWidget
+from dependencies.dependency import registerWidget
+from dependencies.dependency import getToolByName
 
 class PartitionSetupWidget(RecordsWidget):
     security = ClassSecurityInfo()

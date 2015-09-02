@@ -1,12 +1,12 @@
 from operator import itemgetter
-from OLiMS.dependencies.dependency import getSecurityManager
-from OLiMS.dependencies.dependency.permissions import ModifyPortalContent
-from OLiMS.dependencies.dependency import PloneMessageFactory
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.permissions import EditResults, AddAnalysisRequest, \
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency.permissions import ModifyPortalContent
+from dependencies.dependency import PloneMessageFactory
+from lims import bikaMessageFactory as _
+from lims.browser.bika_listing import BikaListingView
+from lims.permissions import EditResults, AddAnalysisRequest, \
     ManageAnalysisRequests
-from OLiMS.dependencies.dependency import getToolByName
+from dependencies.dependency import getToolByName
 
 import re
 

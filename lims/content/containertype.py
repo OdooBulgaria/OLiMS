@@ -1,10 +1,10 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.config import PROJECTNAME
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import *
+from dependencies.dependency import getToolByName
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.content.bikaschema import BikaSchema
+from lims.config import PROJECTNAME
 
 schema = BikaSchema.copy() + Schema((
 ))
@@ -18,7 +18,7 @@ class ContainerType(BaseContent):
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def getContainers(self):

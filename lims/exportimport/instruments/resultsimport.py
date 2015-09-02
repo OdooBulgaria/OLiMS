@@ -1,14 +1,14 @@
 # coding=utf-8
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import _createObjectByType, safe_unicode
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.exportimport.instruments.logger import Logger
-from OLiMS.lims.idserver import renameAfterCreation
-from OLiMS.lims.utils import tmpID
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import getToolByName
+from dependencies.dependency import _createObjectByType, safe_unicode
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.exportimport.instruments.logger import Logger
+from lims.idserver import renameAfterCreation
+from lims.utils import tmpID
+from dependencies.dependency import REFERENCE_CATALOG
 from datetime import datetime
-from OLiMS.dependencies.dependency import DateTime
+from dependencies.dependency import DateTime
 import os
 
 class InstrumentResultsFileParser(Logger):

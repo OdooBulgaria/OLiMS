@@ -1,11 +1,11 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import *
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.dependencies.dependency import Decimal
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import *
+from lims.config import PROJECTNAME
+from lims.content.bikaschema import BikaSchema
+from dependencies.dependency import Decimal
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from dependencies.dependency import implements
 
 schema = BikaSchema.copy() + Schema((
     StringField('Volume',
@@ -57,7 +57,7 @@ class LabProduct(BaseContent):
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def getTotalPrice(self):

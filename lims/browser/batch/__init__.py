@@ -1,12 +1,12 @@
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.interfaces import IBatch, IAnalysisRequest
-from OLiMS.lims.permissions import *
-from OLiMS.lims.vocabularies import CatalogVocabulary
+from lims.browser import BrowserView
+from lims.interfaces import IBatch, IAnalysisRequest
+from lims.permissions import *
+from lims.vocabularies import CatalogVocabulary
 from operator import itemgetter
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.dependencies.dependency import adapts
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import adapts
+from dependencies.dependency import implements
+from dependencies.dependency import check as CheckAuthenticator
 import json
 
 

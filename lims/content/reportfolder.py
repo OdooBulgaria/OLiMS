@@ -1,11 +1,11 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import *
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.interfaces import IReportFolder, IHaveNoBreadCrumbs
-from OLiMS.dependencies.folder import ATFolder, ATFolderSchema
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import *
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.config import PROJECTNAME
+from lims.interfaces import IReportFolder, IHaveNoBreadCrumbs
+from dependencies.folder import ATFolder, ATFolderSchema
+from dependencies.dependency import implements
 
 schema = ATFolderSchema.copy()
 

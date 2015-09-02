@@ -1,28 +1,28 @@
 import warnings
 import pkg_resources
-__version__ = pkg_resources.get_distribution("bika.lims").version
+# __version__ = pkg_resources.get_distribution("bika.lims").version
 
 # import this to create messages in the bika domain.
-from OLiMS.dependencies.dependency import MessageFactory
+from dependencies.dependency import MessageFactory
 bikaMessageFactory = MessageFactory('bika')
-from OLiMS.dependencies.dependency import PloneMessageFactory as PMF
+from dependencies.dependency import PloneMessageFactory as PMF
 
 # import this to log messages
 import logging
 logger = logging.getLogger('Bika')
 
-from OLiMS.lims.validators import *
-from OLiMS.lims.config import *
-from OLiMS.lims.permissions import *
+from lims.validators import *
+from lims.config import *
+from lims.permissions import *
 
-from OLiMS.dependencies.dependency import ModuleSecurityInfo, allow_module
-from OLiMS.dependencies.dependency import process_types, listTypes
-from OLiMS.dependencies.dependency import registerDirectory
-from OLiMS.dependencies.dependency import ContentInit, ToolInit, getToolByName
-from OLiMS.dependencies.dependency import PloneMessageFactory
-from OLiMS.dependencies.dependency import IPloneSiteRoot
-from OLiMS.dependencies.dependency import EXTENSION
-from OLiMS.dependencies.dependency import _profile_registry as profile_registry
+from dependencies.dependency import ModuleSecurityInfo, allow_module
+from dependencies.dependency import process_types, listTypes
+from dependencies.dependency import registerDirectory
+from dependencies.dependency import ContentInit, ToolInit, getToolByName
+from dependencies.dependency import PloneMessageFactory
+from dependencies.dependency import IPloneSiteRoot
+from dependencies.dependency import EXTENSION
+# from dependencies.dependency import _profile_registry as profile_registry
 
 allow_module('AccessControl')
 allow_module('bika.lims')

@@ -56,15 +56,21 @@
                   action="analysis_service_list_action"/>
                   
                    
-		!-- Analysis Profile form view -->
-        <record model="ir.ui.view" id="olims_analysis_profile_form_view">
+		<!-- Analysis Profile form view -->
+       <!-- <record model="ir.ui.view" id="olims_analysis_profile_form_view">
             <field name="name">analysis_profile.form</field>
             <field name="model">olims.analysis_profile</field>
             <field name="arch" type="xml">
                 <form string="Analysis Profile Form">
-                	<field name="Profile_Key"></field>
-                	<field name="service"></field>
-                	<field name="field_dummy"></field>
+                	<field name="ProfileKey"></field>
+                	<field name="Service"></field>
+                	<field name="Remarks"></field>
+                	<field name="CommercialID"></field>
+                	<field name="UseAnalysisProfilePrice"></field>
+                	<field name="AnalysisProfilePrice"></field>
+                	<field name="AnalysisProfileVAT"></field>
+                	<field name="VATAmount"></field>
+                	<field name="TotalPrice"></field>
                 </form>
             </field>
         </record>
@@ -74,8 +80,15 @@
             <field name="model">olims.analysis_profile</field>
             <field name="arch" type="xml">
                 <tree string="Analysis Profile">
-                    <field name="Profile_Key"/>
-                    <field name="service"/>
+                    <field name="ProfileKey"></field>
+                	<field name="Service"></field>
+                	<field name="Remarks"></field>
+                	<field name="CommercialID"></field>
+                	<field name="UseAnalysisProfilePrice"></field>
+                	<field name="AnalysisProfilePrice"></field>
+                	<field name="AnalysisProfileVAT"></field>
+                	<field name="VATAmount"></field>
+                	<field name="TotalPrice"></field>
                 </tree>
             </field>
         </record>
@@ -88,6 +101,6 @@
        </record>
 
         <menuitem id="analysis_profile_menu" name="Analysis Profile" parent="olims_menu"
-                  action="analysis_profile_list_action"/>
+                  action="analysis_profile_list_action"/> -->
     </data>
 </openerp>

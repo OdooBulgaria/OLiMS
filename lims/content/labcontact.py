@@ -1,18 +1,18 @@
 """The lab staff
 """
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import manage_users
-from OLiMS.dependencies.dependency import permissions
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.lims.content.person import Person
-from OLiMS.lims.config import PUBLICATION_PREFS, PROJECTNAME
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.dependencies.dependency import implements
-from OLiMS.lims.interfaces import ILabContact
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import manage_users
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from lims.content.person import Person
+from lims.config import PUBLICATION_PREFS, PROJECTNAME
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from dependencies.dependency import implements
+from lims.interfaces import ILabContact
 import sys
 
 schema = Person.schema.copy() + Schema((
@@ -66,7 +66,7 @@ class LabContact(Person):
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def Title(self):

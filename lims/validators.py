@@ -1,11 +1,11 @@
-from OLiMS.dependencies.dependency import aq_parent
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import to_utf8
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import validation
-from OLiMS.dependencies.dependency import IValidator
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import aq_parent
+from dependencies.dependency import safe_unicode
+from lims import bikaMessageFactory as _
+from lims.utils import to_utf8
+from dependencies.dependency import getToolByName
+from dependencies.dependency import validation
+from dependencies.dependency import IValidator
+from dependencies.dependency import implements
 import string
 
 import re

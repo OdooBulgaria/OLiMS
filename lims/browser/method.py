@@ -1,6 +1,6 @@
-from OLiMS.lims.browser import BrowserView
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
+from lims.browser import BrowserView
+from dependencies.dependency import getToolByName
+from dependencies.dependency import check as CheckAuthenticator
 import json
 
 class ajaxGetInstruments(BrowserView):

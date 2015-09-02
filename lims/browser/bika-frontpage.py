@@ -1,5 +1,5 @@
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.lims.browser import BrowserView
+from dependencies.dependency import ViewPageTemplateFile
+from lims.browser import BrowserView
 
 
 class FrontPageView(BrowserView):

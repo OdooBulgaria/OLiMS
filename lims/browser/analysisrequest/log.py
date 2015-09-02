@@ -1,15 +1,15 @@
-from OLiMS.dependencies.dependency import getSecurityManager
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser.log import LogView
-from OLiMS.lims.content.analysisrequest import schema as AnalysisRequestSchema
-from OLiMS.lims.permissions import *
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import PloneMessageFactory as PMF
-from OLiMS.lims.utils import to_utf8
-from OLiMS.lims.workflow import doActionFor
-from OLiMS.dependencies.dependency import getToolByName
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import safe_unicode
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser.log import LogView
+from lims.content.analysisrequest import schema as AnalysisRequestSchema
+from lims.permissions import *
+from dependencies.dependency import DateTime
+from dependencies.dependency import PloneMessageFactory as PMF
+from lims.utils import to_utf8
+from lims.workflow import doActionFor
+from dependencies.dependency import getToolByName
 
 
 class AnalysisRequestLog(LogView):

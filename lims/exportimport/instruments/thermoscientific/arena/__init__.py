@@ -1,8 +1,8 @@
 """ Thermo Scientific 'Arena'
 """
 from datetime import datetime
-from OLiMS.lims import logger
-from OLiMS.lims.exportimport.instruments.resultsimport import \
+from lims import logger
+from lims.exportimport.instruments.resultsimport import \
     AnalysisResultsImporter, InstrumentCSVResultsFileParser
 
 class ThermoArenaRPRCSVParser(InstrumentCSVResultsFileParser):

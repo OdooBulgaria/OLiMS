@@ -1,21 +1,21 @@
-from OLiMS.dependencies.dependency import getSecurityManager
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t, dicts_to_dict
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.browser.sample import SamplePartitionsView
-from OLiMS.lims.content.analysisrequest import schema as AnalysisRequestSchema
-from OLiMS.lims.permissions import *
-from OLiMS.lims.utils import logged_in_client
-from OLiMS.lims.utils import to_utf8
-from OLiMS.lims.workflow import doActionFor
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import PloneMessageFactory as PMF
-from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import locales
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import getSecurityManager
+from lims import bikaMessageFactory as _
+from lims.utils import t, dicts_to_dict
+from lims.browser.bika_listing import BikaListingView
+from lims.browser.sample import SamplePartitionsView
+from lims.content.analysisrequest import schema as AnalysisRequestSchema
+from lims.permissions import *
+from lims.utils import logged_in_client
+from lims.utils import to_utf8
+from lims.workflow import doActionFor
+from dependencies.dependency import DateTime
+from dependencies.dependency import PloneMessageFactory as PMF
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import IViewView
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import locales
+from dependencies.dependency import implements
 
 import json
 
@@ -124,7 +124,7 @@ class AnalysisRequestAnalysesView(BikaListingView):
                                   getKeyword=keyword)[0].UID
                 rr_dict_by_service_uid[service_uid] = r
             except IndexError:
-                from OLiMS.lims import logger
+                from lims import logger
                 error = "No Analysis Service found for Keyword '%s'. "\
                         "Related: LIMS-1614"
                 logger.exception(error, keyword)

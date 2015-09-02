@@ -1,12 +1,12 @@
-from OLiMS.lims.jsonapi.read import read
-from OLiMS.dependencies.dependency import router
-from OLiMS.dependencies.dependency import IRouteProvider
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import BadRequest
-from OLiMS.dependencies.dependency import interface
+from lims.jsonapi.read import read
+from dependencies.dependency import router
+from dependencies.dependency import IRouteProvider
+from dependencies.dependency import getToolByName
+from dependencies.dependency import BadRequest
+from dependencies.dependency import interface
 import json
 
-from OLiMS.dependencies import transaction
+from dependencies import transaction
 
 
 class doActionFor(object):

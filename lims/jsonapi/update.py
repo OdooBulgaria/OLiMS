@@ -1,10 +1,10 @@
-from OLiMS.lims.jsonapi import set_fields_from_request
-from OLiMS.dependencies.dependency import router
-from OLiMS.dependencies.dependency import IRouteProvider
-from OLiMS.dependencies.dependency import BadRequest
-from OLiMS.dependencies.dependency import interface
+from lims.jsonapi import set_fields_from_request
+from dependencies.dependency import router
+from dependencies.dependency import IRouteProvider
+from dependencies.dependency import BadRequest
+from dependencies.dependency import interface
 import json
-from OLiMS.dependencies import transaction
+from dependencies import transaction
 
 
 class Update(object):

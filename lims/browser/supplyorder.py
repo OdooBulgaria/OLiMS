@@ -1,13 +1,13 @@
-from OLiMS.dependencies.dependency import _createObjectByType
-from OLiMS.dependencies.dependency import event
+from dependencies.dependency import _createObjectByType
+from dependencies.dependency import event
 
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
 from operator import itemgetter, methodcaller
 
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.utils import t
+from lims import bikaMessageFactory as _
+from lims.browser import BrowserView
+from lims.utils import t
 
 
 class View(BrowserView):

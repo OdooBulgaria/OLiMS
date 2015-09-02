@@ -1,24 +1,24 @@
 """Client - the main organisational entity in bika.
 """
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies import atapi
-from OLiMS.dependencies.dependency import DisplayList
-from OLiMS.dependencies.dependency import permissions
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.lims import PMF, bikaMessageFactory as _
-from OLiMS.lims import interfaces
-from OLiMS.lims.config import *
-from OLiMS.lims.content.organisation import Organisation
-from OLiMS.lims.interfaces import IClient
-from OLiMS.lims.utils import isActive
-from OLiMS.dependencies.dependency import getUtility
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import alsoProvides
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import schemata
+from dependencies import atapi
+from dependencies.dependency import DisplayList
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from lims import PMF, bikaMessageFactory as _
+from lims import interfaces
+from lims.config import *
+from lims.content.organisation import Organisation
+from lims.interfaces import IClient
+from lims.utils import isActive
+from dependencies.dependency import getUtility
+from dependencies.dependency import implements
+from dependencies.dependency import alsoProvides
 import json
 import sys
-from OLiMS.lims.workflow import getCurrentState, StateFlow, InactiveState
+from lims.workflow import getCurrentState, StateFlow, InactiveState
 
 schema = Organisation.schema.copy() + atapi.Schema((
     atapi.StringField('ClientID',
@@ -126,7 +126,7 @@ class Client(Organisation):
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def Title(self):

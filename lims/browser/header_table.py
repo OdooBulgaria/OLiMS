@@ -1,20 +1,20 @@
 """ARs and Samples use HeaderTable to display object fields in their custom
 view and edit screens.
 """
-from OLiMS.dependencies.dependency import getToolByName
+from dependencies.dependency import getToolByName
 
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.interfaces import IHeaderTableFieldRenderer
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import PloneMessageFactory as _p
-from OLiMS.lims.utils import getHiddenAttributesForClass
-from OLiMS.lims.workflow import doActionFor
-from OLiMS.lims.utils import t
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.dependencies.dependency import getAdapter
-from OLiMS.dependencies.dependency import getSecurityManager
-from OLiMS.dependencies.dependency import view
-from OLiMS.dependencies.dependency import ComponentLookupError
+from lims.browser import BrowserView
+from lims.interfaces import IHeaderTableFieldRenderer
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import PloneMessageFactory as _p
+from lims.utils import getHiddenAttributesForClass
+from lims.workflow import doActionFor
+from lims.utils import t
+from lims import bikaMessageFactory as _
+from dependencies.dependency import getAdapter
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import view
+from dependencies.dependency import ComponentLookupError
 
 class HeaderTableView(BrowserView):
 

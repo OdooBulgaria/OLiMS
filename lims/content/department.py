@@ -1,15 +1,15 @@
 """Department - the department in the laboratory.
 """
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import getToolByName
+from lims.config import PROJECTNAME
+from lims.content.bikaschema import BikaSchema
+from dependencies.dependency import ClassSecurityInfo
 import sys
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.dependencies.dependency import implements
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from dependencies.dependency import implements
 
 schema = BikaSchema.copy() + Schema((
     ReferenceField('Manager',
@@ -56,7 +56,7 @@ class Department(BaseContent):
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
 registerType(Department, PROJECTNAME)

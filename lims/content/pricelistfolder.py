@@ -1,13 +1,13 @@
 """PricelistFolder is a container for Pricelist instances.
 """
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims.interfaces import IPricelistFolder
-from OLiMS.dependencies import folder
-from OLiMS.lims.content.bikaschema import BikaFolderSchema
-from OLiMS.lims import PROJECTNAME
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import implements
-from OLiMS.lims.interfaces import IHaveNoBreadCrumbs
+from dependencies.dependency import ClassSecurityInfo
+from lims.interfaces import IPricelistFolder
+from dependencies import folder
+from lims.content.bikaschema import BikaFolderSchema
+from lims import PROJECTNAME
+from dependencies.dependency import *
+from dependencies.dependency import implements
+from lims.interfaces import IHaveNoBreadCrumbs
 
 schema = BikaFolderSchema.copy()
 IdField = schema['id']

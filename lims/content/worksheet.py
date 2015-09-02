@@ -1,26 +1,26 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims import bikaMessageFactory as _, logger
-from OLiMS.lims.idserver import renameAfterCreation
-from OLiMS.lims.utils import t, tmpID, changeWorkflowState
-from OLiMS.lims.utils import to_utf8 as _c
-from OLiMS.lims.browser.fields import HistoryAwareReferenceField
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.interfaces import IWorksheet
-from OLiMS.lims.permissions import EditWorksheet, ManageWorksheets
-from OLiMS.lims.workflow import doActionFor
-from OLiMS.lims.workflow import skip
-from OLiMS.dependencies.dependency import DateTime
+from dependencies.dependency import ClassSecurityInfo
+from lims import bikaMessageFactory as _, logger
+from lims.idserver import renameAfterCreation
+from lims.utils import t, tmpID, changeWorkflowState
+from lims.utils import to_utf8 as _c
+from lims.browser.fields import HistoryAwareReferenceField
+from lims.config import PROJECTNAME
+from lims.content.bikaschema import BikaSchema
+from lims.interfaces import IWorksheet
+from lims.permissions import EditWorksheet, ManageWorksheets
+from lims.workflow import doActionFor
+from lims.workflow import skip
+from dependencies.dependency import DateTime
 from operator import itemgetter
-from OLiMS.dependencies.dependency import indexer
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import HistoryAwareMixin
-from OLiMS.dependencies.dependency import RecordsField
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import safe_unicode, _createObjectByType
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import indexer
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import HistoryAwareMixin
+from dependencies.dependency import RecordsField
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode, _createObjectByType
+from dependencies.dependency import implements
 
 @indexer(IWorksheet)
 def Priority(instance):
@@ -92,7 +92,7 @@ class Worksheet(BaseFolder, HistoryAwareMixin):
     _at_rename_after_creation = True
 
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def Title(self):

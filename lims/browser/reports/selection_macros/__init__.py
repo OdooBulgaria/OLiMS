@@ -1,10 +1,10 @@
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import translate
-from OLiMS.lims.browser import BrowserView
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.lims.utils import getUsers
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims import PMF
+from dependencies.dependency import getToolByName
+from dependencies.dependency import translate
+from lims.browser import BrowserView
+from dependencies.dependency import ViewPageTemplateFile
+from lims.utils import getUsers
+from lims import bikaMessageFactory as _
+from lims import PMF
 
 class SelectionMacrosView(BrowserView):
     """ Display snippets for the query form, and

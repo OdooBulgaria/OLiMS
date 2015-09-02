@@ -1,5 +1,5 @@
-from OLiMS.lims.interfaces import IFieldIcons
-from OLiMS.dependencies.dependency import implements
+from lims.interfaces import IFieldIcons
+from dependencies.dependency import implements
 
 class PriorityIcons(object):
 

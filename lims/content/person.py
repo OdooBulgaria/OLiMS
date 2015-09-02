@@ -1,14 +1,14 @@
-from OLiMS.dependencies.dependency import rfc1123_date
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import permissions as CMFCorePermissions
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import *
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.dependencies.dependency import RecordWidget
-from OLiMS.lims.browser.widgets import AddressWidget
-from OLiMS.lims.config import GENDERS, PROJECTNAME
-from OLiMS.lims.browser.fields import AddressField
-from OLiMS.lims import PMF, bikaMessageFactory as _
+from dependencies.dependency import rfc1123_date
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import permissions as CMFCorePermissions
+from dependencies.dependency import getToolByName
+from dependencies.dependency import *
+from lims.content.bikaschema import BikaSchema
+from dependencies.dependency import RecordWidget
+from lims.browser.widgets import AddressWidget
+from lims.config import GENDERS, PROJECTNAME
+from lims.browser.fields import AddressField
+from lims import PMF, bikaMessageFactory as _
 
 schema = BikaSchema.copy() + Schema((
     StringField('Salutation',

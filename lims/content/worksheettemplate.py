@@ -1,15 +1,15 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import aq_base, aq_inner
-from OLiMS.dependencies.dependency import RecordsField
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims.browser.widgets import ServicesWidget
-from OLiMS.lims.browser.widgets import WorksheetTemplateLayoutWidget
-from OLiMS.lims.config import ANALYSIS_TYPES, PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims import PMF, bikaMessageFactory as _
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import aq_base, aq_inner
+from dependencies.dependency import RecordsField
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import getToolByName
+from lims.browser.widgets import ServicesWidget
+from lims.browser.widgets import WorksheetTemplateLayoutWidget
+from lims.config import ANALYSIS_TYPES, PROJECTNAME
+from lims.content.bikaschema import BikaSchema
+from lims import PMF, bikaMessageFactory as _
+from dependencies.dependency import implements
 import sys
 
 schema = BikaSchema.copy() + Schema((
@@ -82,7 +82,7 @@ class WorksheetTemplate(BaseContent):
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     security.declarePublic('getAnalysisTypes')

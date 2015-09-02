@@ -1,27 +1,27 @@
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.content.instrumentmaintenancetask import InstrumentMaintenanceTaskStatuses as mstatus
-from OLiMS.lims.subscribers import doActionFor, skip
+from dependencies.dependency import safe_unicode
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser.bika_listing import BikaListingView
+from lims.content.instrumentmaintenancetask import InstrumentMaintenanceTaskStatuses as mstatus
+from lims.subscribers import doActionFor, skip
 from operator import itemgetter
-from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import ViewletBase
-from OLiMS.dependencies.dependency import implements
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims.config import QCANALYSIS_TYPES
-from OLiMS.lims.utils import to_utf8
-from OLiMS.lims.permissions import *
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.browser.analyses import AnalysesView
-from OLiMS.lims.browser.multifile import MultifileView
-from OLiMS.lims.browser.analyses import QCAnalysesView
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import Forbidden
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import IViewView
+from dependencies.dependency import ViewletBase
+from dependencies.dependency import implements
+from lims.browser.bika_listing import BikaListingView
+from lims.config import QCANALYSIS_TYPES
+from lims.utils import to_utf8
+from lims.permissions import *
+from lims.browser import BrowserView
+from lims.browser.analyses import AnalysesView
+from lims.browser.multifile import MultifileView
+from lims.browser.analyses import QCAnalysesView
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import Forbidden
+from dependencies.dependency import check as CheckAuthenticator
 
 import json
 

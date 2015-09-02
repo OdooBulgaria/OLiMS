@@ -1,20 +1,20 @@
 """InvoiceBatch is a container for Invoice instances.
 """
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import _createObjectByType
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.config import ManageInvoices, PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.content.invoice import InvoiceLineItem
-from OLiMS.lims.interfaces import IInvoiceBatch
-from OLiMS.lims.utils import get_invoice_item_description
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import permissions
-from OLiMS.lims.workflow import isBasicTransitionAllowed
-from OLiMS.dependencies.dependency import ContainerModifiedEvent
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import _createObjectByType
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.config import ManageInvoices, PROJECTNAME
+from lims.content.bikaschema import BikaSchema
+from lims.content.invoice import InvoiceLineItem
+from lims.interfaces import IInvoiceBatch
+from lims.utils import get_invoice_item_description
+from dependencies.dependency import DateTime
+from dependencies.dependency import *
+from dependencies.dependency import permissions
+from lims.workflow import isBasicTransitionAllowed
+from dependencies.dependency import ContainerModifiedEvent
+from dependencies.dependency import implements
 
 schema = BikaSchema.copy() + Schema((
     DateTimeField('BatchStartDate',

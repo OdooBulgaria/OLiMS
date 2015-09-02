@@ -1,15 +1,15 @@
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import InitializeClass
-from OLiMS.dependencies.dependency import SimpleItem
-from OLiMS.dependencies.dependency import permissions
-from OLiMS.dependencies.dependency import UniqueObject, getToolByName
-from OLiMS.lims.config import ManageAnalysisRequests
-from OLiMS.lims.tools import ToolFolder
-from OLiMS.dependencies.dependency import StringIO
+from dependencies.dependency import DateTime
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import InitializeClass
+from dependencies.dependency import SimpleItem
+from dependencies.dependency import permissions
+from dependencies.dependency import UniqueObject, getToolByName
+from lims.config import ManageAnalysisRequests
+from lims.tools import ToolFolder
+from dependencies.dependency import StringIO
 import csv
-from OLiMS.lims.interfaces.tools import Ibika_ar_export
-from OLiMS.dependencies.dependency import implements
+from lims.interfaces.tools import Ibika_ar_export
+from dependencies.dependency import implements
 
 class bika_ar_export(UniqueObject, SimpleItem):
     """ ARExportTool """

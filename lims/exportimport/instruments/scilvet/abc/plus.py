@@ -1,6 +1,6 @@
 """ ScilVet abc Plus
 """
-from OLiMS.lims.exportimport.instruments.abaxis.vetscan.vs2 import \
+from lims.exportimport.instruments.abaxis.vetscan.vs2 import \
     AbaxisVetScanCSVVS2Parser, AbaxisVetScanVS2Importer, Import as VS2Import
 
 title = "ScilVet abc - Plus"

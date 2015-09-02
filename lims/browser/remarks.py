@@ -1,13 +1,13 @@
-from OLiMS.lims.browser import BrowserView
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import getSecurityManager
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import TextAreaWidget
-from OLiMS.dependencies.dependency import registerWidget
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
+from lims.browser import BrowserView
+from dependencies.dependency import DateTime
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import getToolByName
+from dependencies.dependency import TextAreaWidget
+from dependencies.dependency import registerWidget
+from dependencies.dependency import check as CheckAuthenticator
 
-from OLiMS.dependencies.dependency import \
+from dependencies.dependency import \
      convertWebIntelligentPlainTextToHtml, \
      convertHtmlToWebIntelligentPlainText
 

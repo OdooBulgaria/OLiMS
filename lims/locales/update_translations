@@ -16,9 +16,9 @@ You know that if you mess up here, you will erase translator's hard work.
 
 
 
-from OLiMS.dependencies.dependency import getoutput
-from OLiMS.dependencies.dependency import glob
-from OLiMS.dependencies.dependency import join as j, exists
+from dependencies.dependency import getoutput
+from dependencies.dependency import glob
+from dependencies.dependency import join as j, exists
 import json
 import os
 import sys

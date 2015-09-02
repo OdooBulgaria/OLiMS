@@ -1,16 +1,16 @@
 """Allow plone.app.querystring/queryparser.py to accept catalog_name
 """
 
-from OLiMS.dependencies.dependency import namedtuple
+from dependencies.dependency import namedtuple
 import logging
 
-from OLiMS.dependencies.dependency import aq_parent
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import INavigationRoot
-from OLiMS.dependencies.dependency import IRegistry
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import getUtility
-from OLiMS.dependencies.dependency import resolve
+from dependencies.dependency import aq_parent
+from dependencies.dependency import DateTime
+from dependencies.dependency import INavigationRoot
+from dependencies.dependency import IRegistry
+from dependencies.dependency import getToolByName
+from dependencies.dependency import getUtility
+from dependencies.dependency import resolve
 
 logger = logging.getLogger('bika.lims.querystring')
 

@@ -1,11 +1,11 @@
-from OLiMS.dependencies.dependency import _createObjectByType
-from OLiMS.lims.utils import tmpID
-from OLiMS.lims.testing import BIKA_FUNCTIONAL_TESTING
-from OLiMS.lims.tests.base import BikaFunctionalTestCase
-from OLiMS.lims.idserver import renameAfterCreation
-from OLiMS.dependencies.dependency import login, logout
-from OLiMS.dependencies.dependency import TEST_USER_NAME
-from OLiMS.dependencies.dependency import date
+from dependencies.dependency import _createObjectByType
+from lims.utils import tmpID
+from lims.testing import BIKA_FUNCTIONAL_TESTING
+from lims.tests.base import BikaFunctionalTestCase
+from lims.idserver import renameAfterCreation
+from dependencies.dependency import login, logout
+from dependencies.dependency import TEST_USER_NAME
+from dependencies.dependency import date
 import unittest
 
 try:

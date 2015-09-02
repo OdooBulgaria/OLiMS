@@ -1,29 +1,29 @@
 """ReferenceSample represents a reference sample used for quality control testing
 """
 
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import permissions
-from OLiMS.dependencies.dependency import WorkflowException
-from OLiMS.dependencies.dependency import View
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import _createObjectByType
-from OLiMS.lims import PMF, bikaMessageFactory as _
-from OLiMS.lims.idserver import renameAfterCreation
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser.fields import ReferenceResultsField
-from OLiMS.lims.browser.widgets import DateTimeWidget as bika_DateTimeWidget
-from OLiMS.lims.browser.widgets import ReferenceResultsWidget
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.interfaces import IReferenceSample
-from OLiMS.lims.utils import sortable_title, tmpID
-from OLiMS.lims.utils import to_unicode as _u
-from OLiMS.lims.utils import to_utf8
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import DateTime
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import permissions
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import View
+from dependencies.dependency import getToolByName
+from dependencies.dependency import _createObjectByType
+from lims import PMF, bikaMessageFactory as _
+from lims.idserver import renameAfterCreation
+from lims.utils import t
+from lims.browser.fields import ReferenceResultsField
+from lims.browser.widgets import DateTimeWidget as bika_DateTimeWidget
+from lims.browser.widgets import ReferenceResultsWidget
+from lims.config import PROJECTNAME
+from lims.content.bikaschema import BikaSchema
+from lims.interfaces import IReferenceSample
+from lims.utils import sortable_title, tmpID
+from lims.utils import to_unicode as _u
+from lims.utils import to_utf8
+from dependencies.dependency import implements
 import sys, time
 
 schema = BikaSchema.copy() + Schema((
@@ -165,7 +165,7 @@ class ReferenceSample(BaseFolder):
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     security.declarePublic('current_date')

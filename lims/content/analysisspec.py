@@ -1,26 +1,26 @@
 """Analysis result range specifications for a client
 """
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import delete_objects
-from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies.dependency import HistoryAwareMixin
-from OLiMS.dependencies.dependency import RecordsField
-from OLiMS.dependencies import atapi
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.dependencies.dependency import shasattr
-from OLiMS.dependencies.dependency import WorkflowException
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.lims import PMF, bikaMessageFactory as _
-from OLiMS.lims.browser.fields import HistoryAwareReferenceField
-from OLiMS.lims.browser.widgets import AnalysisSpecificationWidget
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.interfaces import IAnalysisSpec
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import translate
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import delete_objects
+from dependencies.dependency import schemata
+from dependencies.dependency import HistoryAwareMixin
+from dependencies.dependency import RecordsField
+from dependencies import atapi
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import *
+from dependencies.dependency import HoldingReference
+from dependencies.dependency import shasattr
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from lims import PMF, bikaMessageFactory as _
+from lims.browser.fields import HistoryAwareReferenceField
+from lims.browser.widgets import AnalysisSpecificationWidget
+from lims.config import PROJECTNAME
+from lims.content.bikaschema import BikaSchema
+from lims.interfaces import IAnalysisSpec
+from dependencies.dependency import implements
+from dependencies.dependency import translate
 import sys
 import time
 
@@ -104,7 +104,7 @@ class AnalysisSpec(BaseFolder, HistoryAwareMixin):
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def contextual_title(self):

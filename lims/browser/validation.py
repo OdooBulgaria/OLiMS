@@ -1,6 +1,6 @@
-from OLiMS.dependencies.dependency import InlineValidationView as _IVV
-from OLiMS.dependencies.dependency import aq_inner
-from OLiMS.dependencies.dependency import getToolByName
+from dependencies.dependency import InlineValidationView as _IVV
+from dependencies.dependency import aq_inner
+from dependencies.dependency import getToolByName
 import json
 
 

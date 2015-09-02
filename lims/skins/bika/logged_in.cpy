@@ -9,11 +9,11 @@
 ##title=Initial post-login actions
 ##
 
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import PloneMessageFactory as _
-from OLiMS.lims.utils import logged_in_client
-from OLiMS.dependencies.dependency import getUtility
-from OLiMS.dependencies.dependency import IRegistry
+from dependencies.dependency import getToolByName
+from dependencies.dependency import PloneMessageFactory as _
+from lims.utils import logged_in_client
+from dependencies.dependency import getUtility
+from dependencies.dependency import IRegistry
 REQUEST=context.REQUEST
 
 membership_tool=getToolByName(context, 'portal_membership')

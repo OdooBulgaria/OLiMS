@@ -1,37 +1,37 @@
 """ Display lists of items in tables.
 """
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import aq_parent, aq_inner
-from OLiMS.dependencies.dependency import IOrderedContainer
-from OLiMS.dependencies.dependency import And, Or, MatchRegexp, Between, Generic, Eq
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.dependencies.dependency import WorkflowException
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import PloneMessageFactory
-from OLiMS.dependencies.dependency import pretty_title_or_id, isExpired, safe_unicode
-from OLiMS.lims.browser import BrowserView
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.lims import PMF
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t, format_supsub
-from OLiMS.lims import logger
-from OLiMS.lims.interfaces import IFieldIcons
-from OLiMS.lims.subscribers import doActionFor
-from OLiMS.lims.subscribers import skip
-from OLiMS.lims.utils import isActive, getHiddenAttributesForClass
-from OLiMS.lims.utils import to_utf8
+from dependencies.dependency import DateTime
+from dependencies.dependency import aq_parent, aq_inner
+from dependencies.dependency import IOrderedContainer
+from dependencies.dependency import And, Or, MatchRegexp, Between, Generic, Eq
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import getToolByName
+from dependencies.dependency import PloneMessageFactory
+from dependencies.dependency import pretty_title_or_id, isExpired, safe_unicode
+from lims.browser import BrowserView
+from dependencies.dependency import ViewPageTemplateFile
+from lims import PMF
+from lims import bikaMessageFactory as _
+from lims.utils import t, format_supsub
+from lims import logger
+from lims.interfaces import IFieldIcons
+from lims.subscribers import doActionFor
+from lims.subscribers import skip
+from lims.utils import isActive, getHiddenAttributesForClass
+from lims.utils import to_utf8
 from operator import itemgetter
-from OLiMS.dependencies.dependency import tableview
-from OLiMS.dependencies.dependency import FolderContentsView, FolderContentsTable
-from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.dependency import IIDNormalizer
-from OLiMS.dependencies.dependency import getAdapters
-from OLiMS.dependencies.dependency import getUtility
-from OLiMS.dependencies.dependency import getMultiAdapter
-from OLiMS.dependencies.dependency import MessageFactory
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import Interface
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
+from dependencies import tableview
+from dependencies.dependency import FolderContentsView, FolderContentsTable
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import IIDNormalizer
+from dependencies.dependency import getAdapters
+from dependencies.dependency import getUtility
+from dependencies.dependency import getMultiAdapter
+from dependencies.dependency import MessageFactory
+from dependencies.dependency import implements
+from dependencies.dependency import Interface
+from dependencies.dependency import check as CheckAuthenticator
 
 import json
 import pkg_resources
@@ -39,10 +39,10 @@ import re
 import urllib
 
 try:
-    from OLiMS.dependencies.dependency import Batch
+    from dependencies.dependency import Batch
 except:
     # Plone < 4.3
-    from OLiMS.dependencies.dependency import Batch
+    from dependencies.dependency import Batch
 
 
 class WorkflowAction:

@@ -1,9 +1,9 @@
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.interfaces import IInvoiceView
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import locales
-from OLiMS.dependencies.dependency import implements
+from lims.browser import BrowserView
+from lims.interfaces import IInvoiceView
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import locales
+from dependencies.dependency import implements
 
 
 class InvoiceView(BrowserView):

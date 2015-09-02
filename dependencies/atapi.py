@@ -1,1 +1,1 @@
-from OLiMS.dependencies.dependency import *
+from dependencies.dependency import *

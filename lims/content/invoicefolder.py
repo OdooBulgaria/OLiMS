@@ -1,16 +1,16 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.config import ManageInvoices, PROJECTNAME
-from OLiMS.lims.interfaces import IInvoiceFolder, IHaveNoBreadCrumbs
-from OLiMS.dependencies import atapi
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies import folder
-from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies.dependency import permissions
-from OLiMS.dependencies.dependency import UniqueObject
-from OLiMS.dependencies.dependency import ConflictError
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ClassSecurityInfo
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.config import ManageInvoices, PROJECTNAME
+from lims.interfaces import IInvoiceFolder, IHaveNoBreadCrumbs
+from dependencies import atapi
+from dependencies.dependency import *
+from dependencies import folder
+from dependencies.dependency import schemata
+from dependencies.dependency import permissions
+from dependencies.dependency import UniqueObject
+from dependencies.dependency import ConflictError
+from dependencies.dependency import implements
 
 schema = folder.ATFolderSchema.copy()
 schema['id'].widget.visible = {'edit':'hidden', 'view':'invisible'}

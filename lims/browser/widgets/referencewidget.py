@@ -1,21 +1,21 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.interfaces import IReferenceWidgetVocabulary
-from OLiMS.lims.permissions import *
-from OLiMS.lims.utils import to_unicode as _u
-from OLiMS.lims.utils import to_utf8 as _c
-from OLiMS.lims import logger
-from OLiMS.dependencies.dependency import aq_base
+from dependencies.dependency import ClassSecurityInfo
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser import BrowserView
+from lims.interfaces import IReferenceWidgetVocabulary
+from lims.permissions import *
+from lims.utils import to_unicode as _u
+from lims.utils import to_utf8 as _c
+from lims import logger
+from dependencies.dependency import aq_base
 from types import DictType
 from operator import itemgetter
-from OLiMS.dependencies.dependency import registerWidget
-from OLiMS.dependencies.dependency import StringWidget
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import getAdapters
+from dependencies.dependency import registerWidget
+from dependencies.dependency import StringWidget
+from dependencies.dependency import getToolByName
+from dependencies.dependency import getAdapters
 import json
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
+from dependencies.dependency import check as CheckAuthenticator
 
 class ReferenceWidget(StringWidget):
     _properties = StringWidget._properties.copy()

@@ -1,7 +1,7 @@
 """ FOSS 'Winescan Auto'
 """
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
+from lims import bikaMessageFactory as _
+from lims.utils import t
 from . import WinescanImporter, WinescanCSVParser
 import json
 import traceback

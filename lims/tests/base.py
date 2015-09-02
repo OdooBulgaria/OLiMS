@@ -1,21 +1,21 @@
-from OLiMS.dependencies.dependency import newSecurityManager
-from OLiMS.dependencies.dependency import aq_base
-from OLiMS.lims import logger
-from OLiMS.lims.testing import BIKA_FUNCTIONAL_TESTING, BIKA_SIMPLE_TESTING
-from OLiMS.dependencies.dependency import RemoteLibrary
-from OLiMS.dependencies.dependency import setRoles
-from OLiMS.dependencies.dependency import SITE_OWNER_NAME
-from OLiMS.dependencies.dependency import SITE_OWNER_PASSWORD
-from OLiMS.dependencies.dependency import TEST_USER_ID
-from OLiMS.dependencies.dependency import TEST_USER_NAME
-from OLiMS.dependencies.dependency import TEST_USER_PASSWORD
-from OLiMS.dependencies.dependency import AuthenticatorView
-from OLiMS.dependencies.dependency import Browser
-from OLiMS.dependencies.dependency import MockMailHost as _MMH
-from OLiMS.dependencies.dependency import IMailHost
-from OLiMS.dependencies.dependency import match
-from OLiMS.dependencies.dependency import Functional
-from OLiMS.dependencies.dependency import getSiteManager
+from dependencies.dependency import newSecurityManager
+from dependencies.dependency import aq_base
+from lims import logger
+from lims.testing import BIKA_FUNCTIONAL_TESTING, BIKA_SIMPLE_TESTING
+from dependencies.dependency import RemoteLibrary
+from dependencies.dependency import setRoles
+from dependencies.dependency import SITE_OWNER_NAME
+from dependencies.dependency import SITE_OWNER_PASSWORD
+from dependencies.dependency import TEST_USER_ID
+from dependencies.dependency import TEST_USER_NAME
+from dependencies.dependency import TEST_USER_PASSWORD
+from dependencies.dependency import AuthenticatorView
+from dependencies.dependency import Browser
+from dependencies.dependency import MockMailHost as _MMH
+from dependencies.dependency import IMailHost
+from dependencies.dependency import match
+from dependencies.dependency import Functional
+from dependencies.dependency import getSiteManager
 
 import unittest
 

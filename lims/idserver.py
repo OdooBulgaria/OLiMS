@@ -1,19 +1,19 @@
-from OLiMS.dependencies.dependency import ModuleSecurityInfo, allow_module
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import DisplayList
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import TranslationServiceTool
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims import interfaces
-from OLiMS.lims import logger
-from OLiMS.dependencies.dependency import IFileNameNormalizer
-from OLiMS.dependencies.dependency import IIDNormalizer
-from OLiMS.dependencies.dependency import getUtility
-from OLiMS.dependencies.dependency import providedBy
+from dependencies.dependency import ModuleSecurityInfo, allow_module
+from dependencies.dependency import DateTime
+from dependencies.dependency import DisplayList
+from dependencies.dependency import getToolByName
+from dependencies.dependency import TranslationServiceTool
+from lims.browser import BrowserView
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims import interfaces
+from lims import logger
+from dependencies.dependency import IFileNameNormalizer
+from dependencies.dependency import IIDNormalizer
+from dependencies.dependency import getUtility
+from dependencies.dependency import providedBy
 import copy,re,urllib
-from OLiMS.dependencies import transaction
+from dependencies import transaction
 
 class IDServerUnavailable(Exception):
     pass

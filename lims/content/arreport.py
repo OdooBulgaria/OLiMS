@@ -2,15 +2,15 @@
     format. Also, includes information about the date when was published, from
     who, the report recipients (and their emails) and the publication mode
 """
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import RecordsField
-from OLiMS.dependencies import atapi
-from OLiMS.dependencies.dependency import ReferenceField, FileField, \
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import RecordsField
+from dependencies import atapi
+from dependencies.dependency import ReferenceField, FileField, \
         StringField, Schema, BaseFolder
-from OLiMS.dependencies.dependency import BlobField
-from OLiMS.dependencies.dependency import HoldingReference
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.content.bikaschema import BikaSchema
+from dependencies.dependency import BlobField
+from dependencies.dependency import HoldingReference
+from lims.config import PROJECTNAME
+from lims.content.bikaschema import BikaSchema
 
 schema = BikaSchema.copy() + Schema((
     ReferenceField('AnalysisRequest',
@@ -43,7 +43,7 @@ class ARReport(BaseFolder):
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
 atapi.registerType(ARReport, PROJECTNAME)

@@ -1,10 +1,10 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.dependencies.dependency import registerWidget
-from OLiMS.dependencies.dependency import TypesWidget
-from OLiMS.dependencies.dependency import getToolByName
+from dependencies.dependency import ClassSecurityInfo
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.browser.bika_listing import BikaListingView
+from dependencies.dependency import registerWidget
+from dependencies.dependency import TypesWidget
+from dependencies.dependency import getToolByName
 
 
 class SRTemplateARTemplatesView(BikaListingView):

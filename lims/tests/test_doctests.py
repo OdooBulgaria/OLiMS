@@ -1,7 +1,7 @@
-from OLiMS.lims.testing import BIKA_FUNCTIONAL_TESTING
-from OLiMS.dependencies.dependency import DocFileSuite
-from OLiMS.dependencies.dependency import DocTestSuite
-from OLiMS.dependencies.dependency import layered
+from lims.testing import BIKA_FUNCTIONAL_TESTING
+from dependencies.dependency import DocFileSuite
+from dependencies.dependency import DocTestSuite
+from dependencies.dependency import layered
 import doctest
 import unittest
 

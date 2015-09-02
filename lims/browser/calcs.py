@@ -1,19 +1,19 @@
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.interfaces import IAnalysis
-from OLiMS.lims.interfaces import IFieldIcons
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t, isnumber
-from OLiMS.lims import logger
-from OLiMS.lims.utils import to_utf8
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import html_quote
-from OLiMS.lims.utils.analysis import format_numeric_result
-from OLiMS.dependencies.dependency import adapts
-from OLiMS.dependencies.dependency import getAdapters
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import check as CheckAuthenticator
-from OLiMS.dependencies.dependency import postonly as Postonly
+from lims.browser import BrowserView
+from lims.interfaces import IAnalysis
+from lims.interfaces import IFieldIcons
+from lims import bikaMessageFactory as _
+from lims.utils import t, isnumber
+from lims import logger
+from lims.utils import to_utf8
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import getToolByName
+from dependencies.dependency import html_quote
+from lims.utils.analysis import format_numeric_result
+from dependencies.dependency import adapts
+from dependencies.dependency import getAdapters
+from dependencies.dependency import implements
+from dependencies.dependency import check as CheckAuthenticator
+from dependencies.dependency import postonly as Postonly
 import json
 import math
 

@@ -1,17 +1,17 @@
 """SamplesFolder is a fake folder to live in the nav bar.  It has
 view from browser/samplesfolder.py wired to it.
 """
-from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies import atapi
-from OLiMS.dependencies.dependency import permissions
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims.interfaces import ISamplesFolder, IHaveNoBreadCrumbs
-from OLiMS.dependencies import folder
-from OLiMS.dependencies.dependency import implements
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
+from dependencies.dependency import schemata
+from dependencies import atapi
+from dependencies.dependency import permissions
+from dependencies.dependency import getToolByName
+from lims.config import PROJECTNAME
+from dependencies.dependency import ClassSecurityInfo
+from lims.interfaces import ISamplesFolder, IHaveNoBreadCrumbs
+from dependencies import folder
+from dependencies.dependency import implements
+from lims import bikaMessageFactory as _
+from lims.utils import t
 
 schema = folder.ATFolderSchema.copy()
 

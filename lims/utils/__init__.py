@@ -1,25 +1,23 @@
 # -*- coding: utf-8 -*-
 
-from OLiMS.dependencies.dependency import ModuleSecurityInfo, allow_module
-from OLiMS.lims import logger
-from OLiMS.lims.browser import BrowserView
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import Encoders
-from OLiMS.dependencies.dependency import MIMEBase
-from OLiMS.dependencies.dependency import ram
-from OLiMS.dependencies.dependency import IRegistry
-from OLiMS.dependencies.dependency import DisplayList
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import safe_unicode
+from dependencies.dependency import ModuleSecurityInfo, allow_module
+from lims import logger
+from lims.browser import BrowserView
+from dependencies.dependency import DateTime
+from email import Encoders
+from email.MIMEBase import MIMEBase
+from dependencies.dependency import ram
+from dependencies.dependency import IRegistry
+from dependencies.dependency import DisplayList
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
 from socket import timeout
-from OLiMS.dependencies.dependency import time
-from OLiMS.dependencies.dependency import HTML, CSS
-from OLiMS.dependencies.dependency import queryUtility
-from OLiMS.dependencies.dependency import translate
-from OLiMS.dependencies.dependency import locales
+from time import time
+from weasyprint import HTML, CSS
+from dependencies.dependency import queryUtility
+from dependencies.dependency import translate
+from dependencies.dependency import locales
 
-import App
-import Globals
 import os
 import re
 import tempfile
@@ -89,7 +87,7 @@ def _cache_key_getUsers(method, context, roles=[], allow_empty=True):
     key = time() // (60 * 60), roles, allow_empty
     return key
 
-@ram.cache(_cache_key_getUsers)
+# @ram.cache(_cache_key_getUsers)
 def getUsers(context, roles, allow_empty=True):
     """ Present a DisplayList containing users in the specified
         list of roles

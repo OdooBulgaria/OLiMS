@@ -1,18 +1,18 @@
-from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies import atapi
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import DateTimeField, DateTimeWidget, RecordsField
-from OLiMS.dependencies.dependency import REFERENCE_CATALOG
-from OLiMS.dependencies.dependency import *
-from OLiMS.dependencies.dependency import ListFolderContents, View
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import safe_unicode
-from OLiMS.lims.content.bikaschema import BikaSchema
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import schemata
+from dependencies import atapi
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import DateTime
+from dependencies.dependency import DateTimeField, DateTimeWidget, RecordsField
+from dependencies.dependency import REFERENCE_CATALOG
+from dependencies.dependency import *
+from dependencies.dependency import ListFolderContents, View
+from dependencies.dependency import getToolByName
+from dependencies.dependency import safe_unicode
+from lims.content.bikaschema import BikaSchema
+from lims.config import PROJECTNAME
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from dependencies.dependency import implements
 
 schema = BikaSchema.copy() + Schema((
     ComputedField('RequestID',
@@ -72,7 +72,7 @@ class Attachment(BaseFolder):
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
-        from OLiMS.lims.idserver import renameAfterCreation
+        from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
     def Title(self):

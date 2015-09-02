@@ -1,11 +1,11 @@
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.lims.browser import BrowserView
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.utils import formatDateQuery, formatDateParms, formatDuration
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import getToolByName
+from lims.browser import BrowserView
+from dependencies.dependency import ViewPageTemplateFile
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.utils import formatDateQuery, formatDateParms, formatDuration
+from dependencies.dependency import IViewView
+from dependencies.dependency import implements
 
 
 class Report(BrowserView):

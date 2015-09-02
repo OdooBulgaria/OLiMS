@@ -1,19 +1,19 @@
 import json
 import tempfile
 
-from OLiMS.dependencies.dependency import getSecurityManager
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t, isAttributeHidden
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.browser.reports.selection_macros import SelectionMacrosView
-from OLiMS.dependencies.dependency import plot
-from OLiMS.lims.utils import to_utf8
-from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import DateTime
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from lims import bikaMessageFactory as _
+from lims.utils import t, isAttributeHidden
+from lims.browser import BrowserView
+from lims.browser.reports.selection_macros import SelectionMacrosView
+from dependencies.dependency import plot
+from lims.utils import to_utf8
+from dependencies.dependency import IFolderContentsView
+from dependencies.dependency import IViewView
+from dependencies.dependency import implements
 import os
 
 

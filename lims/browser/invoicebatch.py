@@ -1,6 +1,6 @@
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import currency_format
+from lims.browser.bika_listing import BikaListingView
+from lims import bikaMessageFactory as _
+from lims.utils import currency_format
 import csv
 from cStringIO import StringIO
 

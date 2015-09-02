@@ -1,6 +1,6 @@
-from OLiMS.lims import PMF
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
+from lims import PMF
+from lims import bikaMessageFactory as _
+from lims.utils import t
 
 
 def overview_controlpanel_categories(self):

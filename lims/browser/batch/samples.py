@@ -1,8 +1,8 @@
-from OLiMS.lims.browser.sample import SamplesView as _SV
-from OLiMS.lims.permissions import *
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import implements
-from OLiMS.dependencies.dependency import safe_unicode
+from lims.browser.sample import SamplesView as _SV
+from lims.permissions import *
+from dependencies.dependency import getToolByName
+from dependencies.dependency import implements
+from dependencies.dependency import safe_unicode
 
 
 

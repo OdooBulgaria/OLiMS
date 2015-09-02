@@ -1,17 +1,17 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.config import PROJECTNAME
-from OLiMS.lims.interfaces import ISubGroups
-from OLiMS.lims import bikaMessageFactory as _b
-from OLiMS.lims.browser.bika_listing import BikaListingView
-from OLiMS.dependencies.dependency import IFolderContentsView
-from OLiMS.dependencies.folder import ATFolderSchema, ATFolder
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies import atapi
-from OLiMS.dependencies.dependency import schemata
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import ClassSecurityInfo
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.config import PROJECTNAME
+from lims.interfaces import ISubGroups
+from lims import bikaMessageFactory as _b
+from lims.browser.bika_listing import BikaListingView
+from dependencies.dependency import IFolderContentsView
+from dependencies.folder import ATFolderSchema, ATFolder
+from dependencies.dependency import IViewView
+from dependencies import atapi
+from dependencies.dependency import schemata
+from dependencies.dependency import getToolByName
+from dependencies.dependency import implements
 
 
 class SubGroupsView(BikaListingView):

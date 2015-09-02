@@ -8,8 +8,8 @@
 ##title=
 ##
 
-from OLiMS.dependencies.dependency import getSecurityManager
-from OLiMS.lims.permissions import Verify, VerifyOwnResults
+from dependencies.dependency import getSecurityManager
+from lims.permissions import Verify, VerifyOwnResults
 
 workflow = context.portal_workflow
 checkPermission = context.portal_membership.checkPermission

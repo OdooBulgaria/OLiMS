@@ -1,28 +1,28 @@
-from OLiMS.lims import bikaMessageFactory as _, t
-from OLiMS.lims import logger
-from OLiMS.lims.browser import BrowserView
-from OLiMS.lims.config import POINTS_OF_CAPTURE
-from OLiMS.lims.idserver import renameAfterCreation
-from OLiMS.lims.interfaces import IResultOutOfRange
-from OLiMS.lims.utils import isnumber
-from OLiMS.lims.utils import to_utf8, encode_header, createPdf, attachPdf
-from OLiMS.lims.utils import to_utf8, formatDecimalMark, format_supsub
-from OLiMS.lims.utils.analysis import format_uncertainty
-from OLiMS.lims.vocabularies import getARReportTemplates
-from OLiMS.dependencies.dependency import DateTime
+from lims import bikaMessageFactory as _, t
+from lims import logger
+from lims.browser import BrowserView
+from lims.config import POINTS_OF_CAPTURE
+from lims.idserver import renameAfterCreation
+from lims.interfaces import IResultOutOfRange
+from lims.utils import isnumber
+from lims.utils import to_utf8, encode_header, createPdf, attachPdf
+from lims.utils import to_utf8, formatDecimalMark, format_supsub
+from lims.utils.analysis import format_uncertainty
+from lims.vocabularies import getARReportTemplates
+from dependencies.dependency import DateTime
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.Utils import formataddr
 from operator import itemgetter
 from os.path import join
-from OLiMS.dependencies.dependency import IRegistry
-from OLiMS.dependencies.dependency import iterDirectoriesOfType, queryResourceDirectory
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import WorkflowException
-from OLiMS.dependencies.dependency import safe_unicode, _createObjectByType
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import IRegistry
+from dependencies.dependency import iterDirectoriesOfType, queryResourceDirectory
+from dependencies.dependency import getToolByName
+from dependencies.dependency import WorkflowException
+from dependencies.dependency import safe_unicode, _createObjectByType
+from dependencies.dependency import ViewPageTemplateFile
 from smtplib import SMTPServerDisconnected, SMTPRecipientsRefused
-from OLiMS.dependencies.dependency import getAdapters, getUtility
+from dependencies.dependency import getAdapters, getUtility
 
 import glob, os, sys, traceback
 import re

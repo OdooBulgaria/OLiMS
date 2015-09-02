@@ -1,6 +1,6 @@
-from OLiMS.dependencies.dependency import ClassSecurityInfo
-from OLiMS.dependencies.dependency import registerWidget
-from OLiMS.dependencies.dependency import RecordsWidget
+from dependencies.dependency import ClassSecurityInfo
+from dependencies.dependency import registerWidget
+from dependencies.dependency import RecordsWidget
 
 class WorksheetTemplateLayoutWidget(RecordsWidget):
     security = ClassSecurityInfo()

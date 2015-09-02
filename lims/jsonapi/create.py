@@ -1,22 +1,22 @@
-from OLiMS.dependencies.dependency import getSecurityManager
-from OLiMS.dependencies.dependency import Unauthorized
-from OLiMS.lims.idserver import renameAfterCreation
-from OLiMS.lims.jsonapi import set_fields_from_request
-from OLiMS.lims.jsonapi import resolve_request_lookup
-from OLiMS.lims.permissions import AccessJSONAPI
-from OLiMS.lims.utils import tmpID, dicts_to_dict
-from OLiMS.lims.workflow import doActionFor
-from OLiMS.dependencies.dependency import router
-from OLiMS.dependencies.dependency import IRouteProvider
-from OLiMS.dependencies.dependency import ObjectInitializedEvent
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import _createObjectByType
-from OLiMS.dependencies.dependency import BadRequest
-from OLiMS.dependencies.dependency import event
-from OLiMS.dependencies.dependency import interface
+from dependencies.dependency import getSecurityManager
+from dependencies.dependency import Unauthorized
+from lims.idserver import renameAfterCreation
+from lims.jsonapi import set_fields_from_request
+from lims.jsonapi import resolve_request_lookup
+from lims.permissions import AccessJSONAPI
+from lims.utils import tmpID, dicts_to_dict
+from lims.workflow import doActionFor
+from dependencies.dependency import router
+from dependencies.dependency import IRouteProvider
+from dependencies.dependency import ObjectInitializedEvent
+from dependencies.dependency import getToolByName
+from dependencies.dependency import _createObjectByType
+from dependencies.dependency import BadRequest
+from dependencies.dependency import event
+from dependencies.dependency import interface
 
 import json
-from OLiMS.dependencies import transaction
+from dependencies import transaction
 
 class Create(object):
     interface.implements(IRouteProvider)

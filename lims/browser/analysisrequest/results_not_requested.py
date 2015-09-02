@@ -1,17 +1,17 @@
-from OLiMS.dependencies.dependency import getSecurityManager
-from OLiMS.lims import bikaMessageFactory as _
-from OLiMS.lims.utils import t
-from OLiMS.lims.permissions import *
-from OLiMS.lims.browser.analysisrequest import AnalysisRequestManageResultsView
-from OLiMS.lims.content.analysisrequest import schema as AnalysisRequestSchema
-from OLiMS.lims.utils import to_utf8
-from OLiMS.lims.workflow import doActionFor
-from OLiMS.dependencies.dependency import IViewView
-from OLiMS.dependencies.dependency import DateTime
-from OLiMS.dependencies.dependency import PloneMessageFactory as PMF
-from OLiMS.dependencies.dependency import getToolByName
-from OLiMS.dependencies.dependency import ViewPageTemplateFile
-from OLiMS.dependencies.dependency import implements
+from dependencies.dependency import getSecurityManager
+from lims import bikaMessageFactory as _
+from lims.utils import t
+from lims.permissions import *
+from lims.browser.analysisrequest import AnalysisRequestManageResultsView
+from lims.content.analysisrequest import schema as AnalysisRequestSchema
+from lims.utils import to_utf8
+from lims.workflow import doActionFor
+from dependencies.dependency import IViewView
+from dependencies.dependency import DateTime
+from dependencies.dependency import PloneMessageFactory as PMF
+from dependencies.dependency import getToolByName
+from dependencies.dependency import ViewPageTemplateFile
+from dependencies.dependency import implements
 
 
 class AnalysisRequestResultsNotRequestedView(AnalysisRequestManageResultsView):

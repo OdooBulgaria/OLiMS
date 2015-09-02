@@ -1,7 +1,7 @@
 """ TESCAN TIMA
 """
 from . import TimaCSVParser, TimaImporter
-from OLiMS.lims.exportimport.instruments.resultsimport import \
+from lims.exportimport.instruments.resultsimport import \
     AnalysisResultsImporter
 import json
 import traceback
