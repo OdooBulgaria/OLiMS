@@ -2,7 +2,7 @@
 {
     'name': "OLiMS",
 
-    'summary': """Open Sourse LIMS""",
+    'summary': """Open Source LIMS""",
 
     'description': """
         OLiMS Modules:
