@@ -22,8 +22,8 @@
             <field name="model">olims.analysis_service</field>
             <field name="arch" type="xml">
                 <form string="Analysis Profile Form">
-                	<field name="Title"></field>
-                	<field name="ShortTitle"></field>
+                	<!-- <field name="Title"></field>
+                	<field name="ShortTitle"></field> -->
                 	<field name="Description"></field>
                 	<field name="ScientificName"></field>
                 	<field name="Unit"></field>
@@ -36,8 +36,8 @@
             <field name="model">olims.analysis_service</field>
             <field name="arch" type="xml">
                 <tree string="Analysis Profile">
-                    <field name="Title"></field>
-                	<field name="ShortTitle"></field>
+                    <!-- <field name="Title"></field>
+                	<field name="ShortTitle"></field> -->
                 	<field name="Description"></field>
                 	<field name="ScientificName"></field>
                 	<field name="Unit"></field>
@@ -55,52 +55,41 @@
         <menuitem id="analysis_service_menu" name="Analysis Service" parent="olims_menu"
                   action="analysis_service_list_action"/>
                   
-                   
-		<!-- Analysis Profile form view -->
-       <!-- <record model="ir.ui.view" id="olims_analysis_profile_form_view">
-            <field name="name">analysis_profile.form</field>
-            <field name="model">olims.analysis_profile</field>
+        
+        <!-- My Modelform view -->         
+          <record model="ir.ui.view" id="mymodel_my_model_form_view">
+            <field name="name">my_model.form</field>
+            <field name="model">mymodel.my_model</field>
             <field name="arch" type="xml">
-                <form string="Analysis Profile Form">
-                	<field name="ProfileKey"></field>
-                	<field name="Service"></field>
-                	<field name="Remarks"></field>
+                <form string="My Model Form">
+                	<label for="CommercialID" string="CommercialID"/>
                 	<field name="CommercialID"></field>
-                	<field name="UseAnalysisProfilePrice"></field>
-                	<field name="AnalysisProfilePrice"></field>
-                	<field name="AnalysisProfileVAT"></field>
-                	<field name="VATAmount"></field>
-                	<field name="TotalPrice"></field>
+                	<field name="MyTestField"></field>
+                	<field name="NewField"></field>
                 </form>
             </field>
         </record>
         
-        <record model="ir.ui.view" id="olims_analysis_profile_tree_view">
-            <field name="name">analysis_profile.tree</field>
-            <field name="model">olims.analysis_profile</field>
+        <record model="ir.ui.view" id="mymodel_my_model_tree_view">
+            <field name="name">my_model.tree</field>
+            <field name="model">mymodel.my_model</field>
             <field name="arch" type="xml">
-                <tree string="Analysis Profile">
-                    <field name="ProfileKey"></field>
-                	<field name="Service"></field>
-                	<field name="Remarks"></field>
+                <tree string="My Model">
                 	<field name="CommercialID"></field>
-                	<field name="UseAnalysisProfilePrice"></field>
-                	<field name="AnalysisProfilePrice"></field>
-                	<field name="AnalysisProfileVAT"></field>
-                	<field name="VATAmount"></field>
-                	<field name="TotalPrice"></field>
+                	<field name="MyTestField"></field>
+                	<field name="NewField"></field>
                 </tree>
             </field>
         </record>
                     
-	   <record model="ir.actions.act_window" id="analysis_profile_list_action">
-            <field name="name">Analysis Profile</field>
-            <field name="res_model">olims.analysis_profile</field>
+	   <record model="ir.actions.act_window" id="mymodel_my_model_list_action">
+            <field name="name">My Model</field>
+            <field name="res_model">mymodel.my_model</field>
             <field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
        </record>
 
-        <menuitem id="analysis_profile_menu" name="Analysis Profile" parent="olims_menu"
-                  action="analysis_profile_list_action"/> -->
+        <menuitem id="my_model" name="My Model" parent="olims_menu"
+                  action="mymodel_my_model_list_action"/>                                                                
     </data>
 </openerp>
