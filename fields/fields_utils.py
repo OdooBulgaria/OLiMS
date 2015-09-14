@@ -4,7 +4,7 @@ import logging
 _logger = logging.getLogger(__name__)
 
 
-def boolean_value_base_mapper(obj, srcName, srcValue, dstName=None, dstValueTrue=True, \
+def boolean_value_based_mapper(obj, srcName, srcValue, dstName=None, dstValueTrue=True, \
                    dstValueFalse=False, deleteSrc=True):
     if dstName == None: dstName = srcName 
     
@@ -30,4 +30,9 @@ def direct_mapper(obj, srcName, dstName):
         _logger.warning('***** obj.help is now:%s' % obj.help)
     except AttributeError:
         setattr(obj, dstName, '')
+
+     
+            
+        
+    
 

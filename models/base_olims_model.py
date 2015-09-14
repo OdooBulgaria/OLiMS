@@ -1,16 +1,15 @@
+import copy
+
 def add_a_field(cls, field):
     setattr(cls, field.string, field)
     pass
 
-def add_a_getter(cls, fieldname):
-    def getterTemplate(cls):
-        field = getattr(cls, fieldname)
-        return field.__repr__()
-        pass
-    
-    getterTemplate.__doc__ = "get%s - method to get value of field: %s" % (fieldname,fieldname)
-    getterTemplate.__name__ = "get%s" % fieldname
-    setattr(cls, getterTemplate.__name__, classmethod(getterTemplate))
+def add_a_getter(cls, field):
+    fieldname = field.string
+    getter_template = copy.deepcopy(field.get_getterTemplate())
+    getter_template.__doc__ = "get%s - method to get value of field: %s" % (fieldname,fieldname)
+    getter_template.__name__ = "get%s" % fieldname
+    setattr(cls, getter_template.__name__, classmethod(getter_template))
     pass
 
 class BaseOLiMSModel(object):
@@ -30,7 +29,7 @@ class BaseOLiMSModel(object):
         # 2. make getter methods for each model variable defined in step 1
         for field in schema:
             add_a_field(cls, field)
-            add_a_getter(cls, field.string)
+            add_a_getter(cls, field)
             pass
         pass       
     pass

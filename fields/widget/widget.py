@@ -125,3 +125,39 @@ class MultiSelectionWidget(Widget):
         self.__dict__.update(kwargs)
     def __len__(self):
         return 0
+    
+class DateTimeWidget(Widget):
+    _properties = Widget._properties.copy()
+    
+    def __init__(self, *args, **kwargs):
+        self._process_args(**kwargs)
+
+    def _process_args(self, **kwargs):
+        self.__dict__.update(self._properties)
+        self.__dict__.update(kwargs)
+    def __len__(self):
+        return 0
+ 
+class IntegerWidget(Widget):
+    _properties = Widget._properties.copy()
+    
+    def __init__(self, *args, **kwargs):
+        self._process_args(**kwargs)
+
+    def _process_args(self, **kwargs):
+        self.__dict__.update(self._properties)
+        self.__dict__.update(kwargs)
+    def __len__(self):
+        return 0
+    
+class RichWidget(Widget):
+    _properties = Widget._properties.copy()
+    
+    def __init__(self, *args, **kwargs):
+        self._process_args(**kwargs)
+
+    def _process_args(self, **kwargs):
+        self.__dict__.update(self._properties)
+        self.__dict__.update(kwargs)
+    def __len__(self):
+        return 0
