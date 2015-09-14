@@ -55,7 +55,307 @@
         <menuitem id="analysis_service_menu" name="Analysis Service" parent="olims_menu"
                   action="analysis_service_list_action"/>
                   
+                   
+		<!-- Analysis Profile form view -->
+        <record model="ir.ui.view" id="olims_analysis_profile_form_view">
+            <field name="name">analysis_profile.form</field>
+            <field name="model">olims.analysis_profile</field>
+            <field name="arch" type="xml">
+                <form string="Analysis Profile Form">
+                	<label for="Title" string="Title"/>
+                	<field name="Title"></field>
+                	<label for="Description" string="Description"/>
+                	<field name="Description"></field>
+                	<label for="ProfileKey" string="Profile Keyword"/>
+                	<field name="ProfileKey"></field>
+                	<!-- <label for="Service" string="Profile Analyses"/>
+                	<field name="Service"></field> -->
+                	<label for="Remarks" string="Remarks"/>
+                	<field name="Remarks"></field>
+                	<label for="CommercialID" string="Commercial ID"/>
+                	<field name="CommercialID"></field>
+                	<label for="UseAnalysisProfilePrice" string="Use Analysis Profile Price"/>
+                	<field name="UseAnalysisProfilePrice"></field>
+                	<label for="AnalysisProfilePrice" string="Price (excluding VAT)"/>
+                	<field name="AnalysisProfilePrice"></field>
+                	<label for="AnalysisProfileVAT" string="VAT %"/>
+                	<field name="AnalysisProfileVAT"></field>
+                </form>
+            </field>
+        </record>
         
+        <record model="ir.ui.view" id="olims_analysis_profile_tree_view">
+            <field name="name">analysis_profile.tree</field>
+            <field name="model">olims.analysis_profile</field>
+            <field name="arch" type="xml">
+                <tree string="Analysis Profile">
+                    <field name="Title"></field>
+                	<field name="Description"></field>
+                	<field name="ProfileKey"></field>
+                	<!-- <field name="Service"></field> -->
+                	<field name="Remarks"></field>
+                	<field name="CommercialID"></field>
+                	<field name="UseAnalysisProfilePrice"></field>
+                	<field name="AnalysisProfilePrice"></field>
+                	<field name="AnalysisProfileVAT"></field>
+                </tree>
+            </field>
+        </record>
+                    
+	   <record model="ir.actions.act_window" id="analysis_profile_list_action">
+            <field name="name">Analysis Profile</field>
+            <field name="res_model">olims.analysis_profile</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="analysis_profile_menu" name="Analysis Profile" parent="olims_menu"
+                  action="analysis_profile_list_action"/>
+                  
+         <!-- Method form view -->         
+          <record model="ir.ui.view" id="olims_methode_form_view">
+            <field name="name">method.form</field>
+            <field name="model">olims.method</field>
+            <field name="arch" type="xml">
+                <form string="Method Form">
+                	<label for="Title" string="Title"/>
+                	<field name="Title"></field>
+                	<label for="Description" string="Description"/>
+                	<field name="Description"></field>
+                	<label for="MethodID" string="Method ID"/>
+                	<field name="MethodID"></field>
+                	<label for="Instructions" string="Method Instructions"/>
+                	<field name="Instructions"></field>
+                	<label for="MethodDocument" string="Method Document"/>
+                	<field name="MethodDocument"></field>
+                	<!-- <label for="Instruments" string="Instruments"/>
+                	<field name="Instruments"></field> -->
+                	<label for="ManualEntryOfResults" string="Manual entry of results"/>
+                	<field name="ManualEntryOfResults"></field>
+                	<!-- <label for="ManualEntryOfResultsViewField" string="Manual entry of results"/>
+                	<field name="ManualEntryOfResultsViewField"></field>
+                	<label for="Calculation" string="Calculation"/>
+                	<field name="Calculation"></field> -->
+                	<label for="Accredited" string="Accredited"/>
+                	<field name="Accredited"></field>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="olims_method_tree_view">
+            <field name="name">method.tree</field>
+            <field name="model">olims.method</field>
+            <field name="arch" type="xml">
+                <tree string="Method">
+                	<field name="Title"></field>
+                	<field name="Description"></field>
+                	<field name="MethodID"></field>
+                	<field name="Instructions"></field>
+                	<field name="MethodDocument"></field>
+                	<!-- <field name="Instruments"></field> -->
+                	<field name="ManualEntryOfResults"></field>
+                	<!-- <field name="ManualEntryOfResultsViewField"></field>
+                	 <field name="Calculation"></field> -->
+                	<field name="Accredited"></field>
+                </tree>
+            </field>
+        </record>
+                    
+	   <record model="ir.actions.act_window" id="method_list_action">
+            <field name="name">Method</field>
+            <field name="res_model">olims.method</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="method_menu" name="Method" parent="olims_menu"
+                  action="method_list_action"/>  
+                  
+        <!-- Instrument Type form view -->         
+          <record model="ir.ui.view" id="olims_instrument_type_form_view">
+            <field name="name">instrument_type.form</field>
+            <field name="model">olims.instrument_type</field>
+            <field name="arch" type="xml">
+                <form string="Instrument Type Form">
+                	<label for="Title" string="Title"/>
+                	<field name="Title"></field>
+                	<label for="Description" string="Description"/>
+                	<field name="Description"></field>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="olims_instrument_type_tree_view">
+            <field name="name">instrument_type.tree</field>
+            <field name="model">olims.instrument_type</field>
+            <field name="arch" type="xml">
+                <tree string="Instrument Type">
+                	<field name="Title"></field>
+                	<field name="Description"></field>
+                </tree>
+            </field>
+        </record>
+                    
+	   <record model="ir.actions.act_window" id="instrument_type_list_action">
+            <field name="name">Instrument Type</field>
+            <field name="res_model">olims.instrument_type</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="instrument_type" name="Instrument Type" parent="olims_menu"
+                  action="instrument_type_list_action"/>
+                  
+        <!--  Calculation form view -->         
+          <record model="ir.ui.view" id="olims_calculation_form_view">
+            <field name="name">instrument_type.form</field>
+            <field name="model">olims.calculation</field>
+            <field name="arch" type="xml">
+                <form string="Calculation Form">
+                	<label for="Title" string="Title"/>
+                	<field name="Title"></field>
+                	<label for="Description" string="Description"/>
+                	<field name="Description"></field>
+                	<label for="Formula" string="Calculation Formula"/>
+                	<field name="Formula"></field>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="olims_calculation_tree_view">
+            <field name="name">calculation.tree</field>
+            <field name="model">olims.calculation</field>
+            <field name="arch" type="xml">
+                <tree string="Calculation">
+                	<field name="Title"></field>
+                	<field name="Description"></field>
+                	<field name="Formula"></field>
+                </tree>
+            </field>
+        </record>
+                    
+	   <record model="ir.actions.act_window" id="calculation_list_action">
+            <field name="name">Calculation</field>
+            <field name="res_model">olims.calculation</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="calculation" name="Calculation" parent="olims_menu"
+                  action="calculation_list_action"/>
+                  
+        <!-- Manufacture form view -->         
+          <record model="ir.ui.view" id="olims_manufacturer_form_view">
+            <field name="name">manufacturer.form</field>
+            <field name="model">olims.manufacturer</field>
+            <field name="arch" type="xml">
+                <form string="Manufacturer Form">
+                	<label for="Title" string="Title"/>
+                	<field name="Title"></field>
+                	<label for="Description" string="Description"/>
+                	<field name="Description"></field>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="olims_manufacturer_tree_view">
+            <field name="name">manufacturer.tree</field>
+            <field name="model">olims.manufacturer</field>
+            <field name="arch" type="xml">
+                <tree string="Manufacturer">
+                	<field name="Title"></field>
+                	<field name="Description"></field>
+                </tree>
+            </field>
+        </record>
+                    
+	   <record model="ir.actions.act_window" id="manufacturer_list_action">
+            <field name="name">Manufacturer</field>
+            <field name="res_model">olims.manufacturer</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="manufacturer" name="Manufacturer" parent="olims_menu"
+                  action="manufacturer_list_action"/>
+                  
+        <!-- Analysis Category form view -->         
+          <record model="ir.ui.view" id="olims_analysis_category_form_view">
+            <field name="name">analysis_category.form</field>
+            <field name="model">olims.analysis_category</field>
+            <field name="arch" type="xml">
+                <form string="Analysis Category Form">
+                	<label for="Title" string="Title"/>
+                	<field name="Title"></field>
+                	<label for="Description" string="Description"/>
+                	<field name="Description"></field>
+                	<label for="Comments" string="Comments"/>
+                	<field name="Comments"></field>
+                	<label for="Department" string="Department"/>
+                	<field name="Department"></field>
+                	
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="olims_analysis_category_tree_view">
+            <field name="name">analysis_category.tree</field>
+            <field name="model">olims.analysis_category</field>
+            <field name="arch" type="xml">
+                <tree string="Analysis Category">
+                	<field name="Title"></field>
+                	<field name="Description"></field>
+                	<field name="Comments"></field>
+                	<field name="Department"></field>
+                </tree>
+            </field>
+        </record>
+                    
+	   <record model="ir.actions.act_window" id="analysis_category_list_action">
+            <field name="name">Analysis Category</field>
+            <field name="res_model">olims.analysis_category</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="analysis_category" name="Analysis Category" parent="olims_menu"
+                  action="analysis_category_list_action"/>
+                  
+        <!-- Department view -->         
+          <record model="ir.ui.view" id="olims_department_form_view">
+            <field name="name">department.form</field>
+            <field name="model">olims.department</field>
+            <field name="arch" type="xml">
+                <form string="Department">
+                	<label for="Title" string="Title"/>
+                	<field name="Title"></field>
+                	<label for="Description" string="Description"/>
+                	<field name="Description"></field>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="olims_department_tree_view">
+            <field name="name">department.tree</field>
+            <field name="model">olims.department</field>
+            <field name="arch" type="xml">
+                <tree string="Department">
+                	<field name="Title"></field>
+                	<field name="Description"></field>
+                </tree>
+            </field>
+        </record>
+                    
+	   <record model="ir.actions.act_window" id="olims_department_list_action">
+            <field name="name">Department</field>
+            <field name="res_model">olims.department</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="department" name="Department" parent="olims_menu"
+                  action="olims_department_list_action"/>            
+                  
         <!-- My Modelform view -->         
           <record model="ir.ui.view" id="mymodel_my_model_form_view">
             <field name="name">my_model.form</field>
@@ -64,8 +364,12 @@
                 <form string="My Model Form">
                 	<label for="CommercialID" string="CommercialID"/>
                 	<field name="CommercialID"></field>
+                	<label for="MyTestField" string="MyTestField"/>
                 	<field name="MyTestField"></field>
+                	<label for="NewField" string="NewField"/>
                 	<field name="NewField"></field>
+                	<label for="AnalysisProfilePrice" string="AnalysisProfilePrice"/>
+                	<field name="AnalysisProfilePrice"></field>
                 </form>
             </field>
         </record>
@@ -78,6 +382,7 @@
                 	<field name="CommercialID"></field>
                 	<field name="MyTestField"></field>
                 	<field name="NewField"></field>
+                	<field name="AnalysisProfilePrice"></field>
                 </tree>
             </field>
         </record>
