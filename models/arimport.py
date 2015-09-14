@@ -1,43 +1,61 @@
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# from dependencies.dependency import ClassSecurityInfo
+# from lims.utils import t
+# from lims.browser.widgets import DateTimeWidget
+# from lims.content.bikaschema import BikaSchema
+# from lims.interfaces import IARImport
+# from dependencies import atapi
+# from lims.permissions import *
+# from dependencies.dependency import *
+# from dependencies.dependency import schemata
+# from dependencies.dependency import implements
+# from lims import _logger
+
+import logging
+from openerp import models
+
+_logger = logging.getLogger(__name__)
+
 import sys
 import time
 from dependencies import transaction
-from dependencies.dependency import ClassSecurityInfo
 from lims import bikaMessageFactory as _
-from lims.utils import t
-from lims.browser.widgets import DateTimeWidget
-from lims.content.bikaschema import BikaSchema
 from lims.config import ManageBika, PROJECTNAME, ARIMPORT_OPTIONS
-from lims.idserver import renameAfterCreation
-from lims.interfaces import IARImport
-from lims.permissions import *
+# from lims.idserver import renameAfterCreation
 from lims.jsonapi import resolve_request_lookup
 from lims.workflow import doActionFor
 from lims.utils import tmpID
-from lims import logger
 from dependencies.dependency import InitialiseProgressBar
 from dependencies.dependency import ProgressBar
 from dependencies.dependency import UpdateProgressEvent
 from dependencies.dependency import ProgressState
 from dependencies.dependency import DateTime
-from dependencies import atapi
 from dependencies.dependency import ObjectInitializedEvent
-from dependencies.dependency import *
 from dependencies.dependency import HoldingReference
-from dependencies.dependency import schemata
 from dependencies.dependency import permissions
 from dependencies.dependency import getToolByName
 from dependencies.dependency import safe_unicode, _createObjectByType
 from dependencies.dependency import event
-from dependencies.dependency import implements
-
-schema = BikaSchema.copy() + Schema((
-    StringField('ImportOption',
-        widget = SelectionWidget(
-            label = _("Import Option"),
-            format='select',
-        ),
-        vocabulary = ARIMPORT_OPTIONS,
-    ),
+from models.base_olims_model import BaseOLiMSModel
+from fields.string_field import StringField
+from fields.boolean_field import BooleanField
+from fields.file_field import FileField
+from fields.date_time_field import DateTimeField
+from fields.integer_field import IntegerField
+from fields.widget.widget import StringWidget, DateTimeWidget, \
+                                FileWidget, IntegerWidget
+                                
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# schema = BikaSchema.copy() + Schema(
+schema = (
+# ~~~~~~~ To be implemented ~~~~~~~
+#     StringField('ImportOption',
+#         widget = SelectionWidget(
+#             label = _("Import Option"),
+#             format='select',
+#         ),
+#         vocabulary = ARIMPORT_OPTIONS,
+#     ),
     StringField('FileName',
         searchable = True,
         widget = StringWidget(
@@ -94,25 +112,26 @@ schema = BikaSchema.copy() + Schema((
             label = _("Contact Name"),
         ),
     ),
-    ReferenceField('Contact',
-        allowed_types = ('Contact',),
-        relationship = 'ARImportContact',
-        default_method = 'getContactUIDForUser',
-        referenceClass = HoldingReference,
-        vocabulary_display_path_bound = sys.maxint,
-        widget=ReferenceWidget(
-            label=_("Contact"),
-            size=12,
-            helper_js=("bika_widgets/referencewidget.js", "++resource++bika.lims.js/contact.js"),
-            visible={'edit': 'visible', 'view': 'visible', 'add': 'visible'},
-            base_query={'inactive_state': 'active'},
-            showOn=True,
-            popup_width='300px',
-            colModel=[{'columnName': 'UID', 'hidden': True},
-                      {'columnName': 'Fullname', 'width': '100', 'label': _('Name')},
-                     ],
-        ),
-    ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField('Contact',
+#         allowed_types = ('Contact',),
+#         relationship = 'ARImportContact',
+#         default_method = 'getContactUIDForUser',
+#         referenceClass = HoldingReference,
+#         vocabulary_display_path_bound = sys.maxint,
+#         widget=ReferenceWidget(
+#             label=_("Contact"),
+#             size=12,
+#             helper_js=("bika_widgets/referencewidget.js", "++resource++bika.lims.js/contact.js"),
+#             visible={'edit': 'visible', 'view': 'visible', 'add': 'visible'},
+#             base_query={'inactive_state': 'active'},
+#             showOn=True,
+#             popup_width='300px',
+#             colModel=[{'columnName': 'UID', 'hidden': True},
+#                       {'columnName': 'Fullname', 'width': '100', 'label': _('Name')},
+#                      ],
+#         ),
+#     ),
     StringField('ClientEmail',
         widget = StringWidget(
             label = _("Client Email"),
@@ -123,25 +142,26 @@ schema = BikaSchema.copy() + Schema((
             label = _("CC Contact ID"),
         ),
     ),
-    ReferenceField('CCContact',
-        allowed_types = ('Contact',),
-        relationship = 'ARImportCCContact',
-        default_method = 'getCCContactUIDForUser',
-        referenceClass = HoldingReference,
-        vocabulary_display_path_bound = sys.maxint,
-        widget=ReferenceWidget(
-            label=_("CCContact"),
-            size=12,
-            helper_js=("bika_widgets/referencewidget.js", "++resource++bika.lims.js/contact.js"),
-            visible={'edit': 'visible', 'view': 'visible', 'add': 'visible'},
-            base_query={'inactive_state': 'active'},
-            showOn=True,
-            popup_width='300px',
-            colModel=[{'columnName': 'UID', 'hidden': True},
-                      {'columnName': 'Fullname', 'width': '100', 'label': _('Name')},
-                     ],
-        ),
-    ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField('CCContact',
+#         allowed_types = ('Contact',),
+#         relationship = 'ARImportCCContact',
+#         default_method = 'getCCContactUIDForUser',
+#         referenceClass = HoldingReference,
+#         vocabulary_display_path_bound = sys.maxint,
+#         widget=ReferenceWidget(
+#             label=_("CCContact"),
+#             size=12,
+#             helper_js=("bika_widgets/referencewidget.js", "++resource++bika.lims.js/contact.js"),
+#             visible={'edit': 'visible', 'view': 'visible', 'add': 'visible'},
+#             base_query={'inactive_state': 'active'},
+#             showOn=True,
+#             popup_width='300px',
+#             colModel=[{'columnName': 'UID', 'hidden': True},
+#                       {'columnName': 'Fullname', 'width': '100', 'label': _('Name')},
+#                      ],
+#         ),
+#     ),
     StringField('CCNamesReport',
         widget = StringWidget(
             label = _("Report Contact Names"),
@@ -208,92 +228,99 @@ schema = BikaSchema.copy() + Schema((
             label = _("Status"),
         ),
     ),
-    LinesField('Remarks',
-        widget = LinesWidget(
-            label = _("Remarks"),
-        )
-    ),
-    LinesField('Analyses',
-        widget = LinesWidget(
-            label = _("Analyses"),
-        )
-    ),
-    ComputedField('ClientUID',
-        expression = 'here.aq_parent.UID()',
-        widget = ComputedWidget(
-            visible = False,
-        ),
-    ),
-    ReferenceField(
-        'Priority',
-        allowed_types=('ARPriority',),
-        referenceClass=HoldingReference,
-        relationship='AnalysisRequestPriority',
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=ManageARPriority,
-        widget=ReferenceWidget(
-            label=_("Priority"),
-            size=10,
-            render_own_label=True,
-            visible={'edit': 'visible',
-                     'view': 'visible',
-                     'add': 'visible',
-                     'secondary': 'invisible'},
-            catalog_name='bika_setup_catalog',
-            base_query={'review_state': 'published'},
-            showOn=True,
-        ),
-    ),
-),
-)
+# ~~~~~~~ To be implemented ~~~~~~~
+#     LinesField('Remarks',
+#         widget = LinesWidget(
+#             label = _("Remarks"),
+#         )
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     LinesField('Analyses',
+#         widget = LinesWidget(
+#             label = _("Analyses"),
+#         )
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField('ClientUID',
+#         expression = 'here.aq_parent.UID()',
+#         widget = ComputedWidget(
+#             visible = False,
+#         ),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField(
+#         'Priority',
+#         allowed_types=('ARPriority',),
+#         referenceClass=HoldingReference,
+#         relationship='AnalysisRequestPriority',
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=ManageARPriority,
+#         widget=ReferenceWidget(
+#             label=_("Priority"),
+#             size=10,
+#             render_own_label=True,
+#             visible={'edit': 'visible',
+#                      'view': 'visible',
+#                      'add': 'visible',
+#                      'secondary': 'invisible'},
+#             catalog_name='bika_setup_catalog',
+#             base_query={'review_state': 'published'},
+#             showOn=True,
+#         ),
+#     ),
+)#,
+# )
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# schema['title'].required = False
 
-schema['title'].required = False
-
-class ARImport(BaseFolder):
-    security = ClassSecurityInfo()
-    schema = schema
-    displayContentsTab = False
-    implements (IARImport)
+class ARImport(models.Model, BaseOLiMSModel):#(BaseFolder):
+    _name = 'olims.ar_import'
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security = ClassSecurityInfo()
+#     schema = schema
+#     displayContentsTab = False
+#     implements (IARImport)
     _at_rename_after_creation = True
 
     #def Title(self):
     #    """ Return the id as title """
     #    return safe_unicode(self.getId()).encode('utf-8')
-
-    security.declarePublic('current_date')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('current_date')
     def current_date(self):
         """ return current date """
         return DateTime()
 
     def _renameAfterCreation(self, check_auto_id=False):
-        renameAfterCreation(self)
+        pass
+#         renameAfterCreation(self)
 
 
     # workflow methods
     #
-    def workflow_script_submit(self):
-        """ submit arimport batch """
-        if self.getImportOption() == 'p':
-            self._submit_arimport_p()
-        else:
-            self._submit_arimport_c()
-        transaction.commit()
-        #TODO time.sleep(2)
-        self.REQUEST.response.write(
-            '<script>document.location.href="%s"</script>' % (
-                self.absolute_url()))
-
+#     def workflow_script_submit(self):
+#         """ submit arimport batch """
+#         if self.getImportOption() == 'p':
+#             self._submit_arimport_p()
+#         else:
+#             self._submit_arimport_c()
+#         transaction.commit()
+#         #TODO time.sleep(2)
+#         self.REQUEST.response.write(
+#             '<script>document.location.href="%s"</script>' % (
+#                 self.absolute_url()))
+# 
     def _submit_arimport_c(self):
         """ load the classic import layout """
-
+ 
         ars = []
         samples = []
         valid_batch = True
         client = self.aq_parent
         contact_obj = None
         cc_contact_obj = None
-
+ 
         # validate contact
         for contact in client.objectValues('Contact'):
             if contact.getUsername() == self.getContactID():
@@ -306,10 +333,10 @@ class ARImport(BaseFolder):
                     cc_contact_obj = contact
                     if contact_obj != None:
                         break
-
+ 
         if contact_obj == None:
             valid_batch = False
-
+ 
         # get Keyword to ServiceId Map
         services = {}
         for service in self.bika_setup_catalog(
@@ -318,20 +345,20 @@ class ARImport(BaseFolder):
             keyword = obj.getKeyword()
             if keyword:
                 services[keyword] = '%s:%s' % (obj.UID(), obj.getPrice())
-
+ 
         samplepoints = self.bika_setup_catalog(
             portal_type = 'SamplePoint',
             Title = self.getSamplePoint())
         if not samplepoints:
             valid_batch = False
-
+ 
         aritems = self.objectValues('ARImportItem')
         request = self.REQUEST
         title = 'Submitting AR Import'
         bar = ProgressBar(
                 self, request, title, description='')
         event.notify(InitialiseProgressBar(bar))
-
+ 
         SamplingWorkflowEnabled = \
             self.bika_setup.getSamplingWorkflowEnabled()
         row_count = 0
@@ -346,7 +373,7 @@ class ARImport(BaseFolder):
                     analyses.append(services[analysis])
                 else:
                     valid_batch = False
-
+ 
             sampletypes = self.portal_catalog(
                 portal_type = 'SampleType',
                 sortable_title = aritem.getSampleType().lower(),
@@ -361,7 +388,7 @@ class ARImport(BaseFolder):
                     int(date_items[2]), int(date_items[1]), int(date_items[0]))
             else:
                 sample_date = None
-
+ 
             sample_id = '%s-%s' % (prefix, tmpID())
             sample = _createObjectByType("Sample", client, sample_id)
             sample.unmarkCreationFlag()
@@ -385,15 +412,15 @@ class ARImport(BaseFolder):
             sample_uid = sample.UID()
             samples.append(sample_id)
             aritem.setSample(sample_uid)
-
+ 
             priorities = self.bika_setup_catalog(
                 portal_type = 'ARPriority',
                 sortable_title = aritem.Priority.lower(),
                 )
             if len(priorities) < 1:
-                logger.warning(
+                _logger.warning(
                     'Invalid Priority: validation should have prevented this')
-
+ 
             #Create AR
             ar_id = tmpID()
             ar = _createObjectByType("AnalysisRequest", client, ar_id)
@@ -419,9 +446,9 @@ class ARImport(BaseFolder):
             aritem.setAnalysisRequest(ar_uid)
             ars.append(ar_id)
             ar._renameAfterCreation()
-
+ 
             self._add_services_to_ar(ar, analyses)
-
+ 
             progress_index = float(row_count)/float(item_count)*100.0
             progress = ProgressState(request, progress_index)
             event.notify(UpdateProgressEvent(progress))
@@ -430,204 +457,204 @@ class ARImport(BaseFolder):
         self.setDateApplied(DateTime())
         self.reindexObject()
 
-    def _submit_arimport_p(self):
-        """ load the profiles import layout """
-
-        ars = []
-        samples = []
-        valid_batch = False
-        client = self.aq_parent
-        contact_obj = None
-        cc_contact_obj = None
-
-        # validate contact
-        for contact in client.objectValues('Contact'):
-            if contact.getUsername() == self.getContactID():
-                contact_obj = contact
-            if self.getCCContactID() == None:
-                if contact_obj != None:
-                    break
-            else:
-                if contact.getUsername() == self.getCCContactID():
-                    cc_contact_obj = contact
-                    if contact_obj != None:
-                        break
-
-        if contact_obj == None:
-            valid_batch = False
-
-        # get Keyword to ServiceId Map
-        services = {}
-        service_uids = {}
-
-        for service in self.bika_setup_catalog(
-                portal_type = 'AnalysisService'):
-            obj = service.getObject()
-            keyword = obj.getKeyword()
-            if keyword:
-                services[keyword] = '%s:%s' % (obj.UID(), obj.getPrice())
-            service_uids[obj.UID()] = '%s:%s' % (obj.UID(), obj.getPrice())
-
-        samplepoints = self.bika_setup_catalog(
-            portal_type = 'SamplePoint',
-            Title = self.getSamplePoint())
-        if not samplepoints:
-            valid_batch = False
-
-        profiles = {}
-        aritems = self.objectValues('ARImportItem')
-
-        request = self.REQUEST
-        title = 'Submitting AR Import'
-        bar = ProgressBar(
-                self, request, title, description='')
-        event.notify(InitialiseProgressBar(bar))
-
-        row_count = 0
-        item_count = len(aritems)
-        prefix = 'Sample'
-        for aritem in aritems:
-            # set up analyses
-            ar_profile = None
-            analyses = []
-            row_count += 1
-
-            for profilekey in aritem.getAnalysisProfile():
-                this_profile = None
-                if not profiles.has_key(profilekey):
-                    profiles[profilekey] = []
-                    # there is no profilekey index
-                    l_prox = self._findProfileKey(profilekey)
-                    if l_prox:
-                        profiles[profilekey] = \
-                                [s.UID() for s in l_prox.getService()]
-                        this_profile = l_prox
-                    else:
-                        #TODO This will not find it!!
-                        # there is no profilekey index
-                        c_prox = self.bika_setup_catalog(
-                                    portal_type = 'AnalysisProfile',
-                                    getClientUID = client.UID(),
-                                    getProfileKey = profilekey)
-                        if c_prox:
-                            obj = c_prox[0].getObject()
-                            profiles[profilekey] = \
-                                    [s.UID() for s in obj.getService()]
-                            this_profile = obj
-
-                if ar_profile is None:
-                    ar_profile = obj
-                else:
-                    ar_profile = None
-                profile = profiles[profilekey]
-                for analysis in profile:
-                    if not service_uids.has_key(analysis):
-                        service = tool.lookupObject(analysis)
-                        keyword = service.getKeyword()
-                        service_uids[obj.UID()] = '%s:%s' % (obj.UID(), obj.getPrice())
-                        if keyword:
-                            services[keyword] = '%s:%s' % (obj.UID(), obj.getPrice())
-
-                    if service_uids.has_key(analysis):
-                        if not service_uids[analysis] in analyses:
-                            analyses.append(service_uids[analysis])
-                    else:
-                        valid_batch = False
-
-            for analysis in aritem.getAnalyses(full_objects=True):
-                if not services.has_key(analysis):
-                    for service in self.bika_setup_catalog(
-                            portal_type = 'AnalysisService',
-                            getKeyword = analysis):
-                        obj = service.getObject()
-                        services[analysis] = '%s:%s' % (obj.UID(), obj.getPrice())
-                        service_uids[obj.UID()] = '%s:%s' % (obj.UID(), obj.getPrice())
-
-                if services.has_key(analysis):
-                    analyses.append(services[analysis])
-                else:
-                    valid_batch = False
-
-            sampletypes = self.portal_catalog(
-                portal_type = 'SampleType',
-                sortable_title = aritem.getSampleType().lower(),
-                )
-            if not sampletypes:
-                valid_batch = False
-                return
-            sampletypeuid = sampletypes[0].getObject().UID()
-
-            if aritem.getSampleDate():
-                date_items = aritem.getSampleDate().split('/')
-                sample_date = DateTime(
-                    int(date_items[2]), int(date_items[0]), int(date_items[1]))
-            else:
-                sample_date = None
-
-            sample_id = '%s-%s' % (prefix, tmpID())
-            sample = _createObjectByType("Sample", client, sample_id)
-            sample.unmarkCreationFlag()
-            sample.edit(
-                SampleID = sample_id,
-                ClientReference = aritem.getClientRef(),
-                ClientSampleID = aritem.getClientSid(),
-                SampleType = aritem.getSampleType(),
-                DateSampled = sample_date,
-                SamplingDate = sample_date,
-                DateReceived = DateTime(),
-                Remarks = aritem.getClientRemarks(),
-                )
-            sample._renameAfterCreation()
-            sample.setSamplePoint(self.getSamplePoint())
-            sample.setSampleID(sample.getId())
-            event.notify(ObjectInitializedEvent(sample))
-            sample.at_post_create_script()
-            sample_uid = sample.UID()
-            samples.append(sample_id)
-            aritem.setSample(sample_uid)
-
-            priorities = self.bika_setup_catalog(
-                portal_type = 'ARPriority',
-                sortable_title = aritem.Priority.lower(),
-                )
-            if len(priorities) < 1:
-                logger.warning(
-                    'Invalid Priority: validation should have prevented this')
-                priority = ''
-            else:
-                priority = priorities[0].getObject()
-
-            ar_id = tmpID()
-            ar = _createObjectByType("AnalysisRequest", client, ar_id)
-            report_dry_matter = False
-
-            ar.unmarkCreationFlag()
-            ar.edit(
-                RequestID = ar_id,
-                Contact = self.getContact(),
-                CCContact = self.getCCContact(),
-                CCEmails = self.getCCEmailsInvoice(),
-                ClientOrderNumber = self.getOrderID(),
-                ReportDryMatter = report_dry_matter,
-                Profile = ar_profile,
-                Analyses = analyses,
-                Remarks = aritem.getClientRemarks(),
-                Priority = priority,
-                )
-            ar.setSample(sample_uid)
-            sample = ar.getSample()
-            ar.setSampleType(sampletypeuid)
-            ar_uid = ar.UID()
-            aritem.setAnalysisRequest(ar_uid)
-            ars.append(ar_id)
-            ar._renameAfterCreation()
-            progress_index = float(row_count)/float(item_count)*100.0
-            progress = ProgressState(request, progress_index)
-            event.notify(UpdateProgressEvent(progress))
-            self._add_services_to_ar(ar, analyses)
-
-        self.setDateApplied(DateTime())
-        self.reindexObject()
+#     def _submit_arimport_p(self):
+#         """ load the profiles import layout """
+# 
+#         ars = []
+#         samples = []
+#         valid_batch = False
+#         client = self.aq_parent
+#         contact_obj = None
+#         cc_contact_obj = None
+# 
+#         # validate contact
+#         for contact in client.objectValues('Contact'):
+#             if contact.getUsername() == self.getContactID():
+#                 contact_obj = contact
+#             if self.getCCContactID() == None:
+#                 if contact_obj != None:
+#                     break
+#             else:
+#                 if contact.getUsername() == self.getCCContactID():
+#                     cc_contact_obj = contact
+#                     if contact_obj != None:
+#                         break
+# 
+#         if contact_obj == None:
+#             valid_batch = False
+# 
+#         # get Keyword to ServiceId Map
+#         services = {}
+#         service_uids = {}
+# 
+#         for service in self.bika_setup_catalog(
+#                 portal_type = 'AnalysisService'):
+#             obj = service.getObject()
+#             keyword = obj.getKeyword()
+#             if keyword:
+#                 services[keyword] = '%s:%s' % (obj.UID(), obj.getPrice())
+#             service_uids[obj.UID()] = '%s:%s' % (obj.UID(), obj.getPrice())
+# 
+#         samplepoints = self.bika_setup_catalog(
+#             portal_type = 'SamplePoint',
+#             Title = self.getSamplePoint())
+#         if not samplepoints:
+#             valid_batch = False
+# 
+#         profiles = {}
+#         aritems = self.objectValues('ARImportItem')
+# 
+#         request = self.REQUEST
+#         title = 'Submitting AR Import'
+#         bar = ProgressBar(
+#                 self, request, title, description='')
+#         event.notify(InitialiseProgressBar(bar))
+# 
+#         row_count = 0
+#         item_count = len(aritems)
+#         prefix = 'Sample'
+#         for aritem in aritems:
+#             # set up analyses
+#             ar_profile = None
+#             analyses = []
+#             row_count += 1
+# 
+#             for profilekey in aritem.getAnalysisProfile():
+#                 this_profile = None
+#                 if not profiles.has_key(profilekey):
+#                     profiles[profilekey] = []
+#                     # there is no profilekey index
+#                     l_prox = self._findProfileKey(profilekey)
+#                     if l_prox:
+#                         profiles[profilekey] = \
+#                                 [s.UID() for s in l_prox.getService()]
+#                         this_profile = l_prox
+#                     else:
+#                         #TODO This will not find it!!
+#                         # there is no profilekey index
+#                         c_prox = self.bika_setup_catalog(
+#                                     portal_type = 'AnalysisProfile',
+#                                     getClientUID = client.UID(),
+#                                     getProfileKey = profilekey)
+#                         if c_prox:
+#                             obj = c_prox[0].getObject()
+#                             profiles[profilekey] = \
+#                                     [s.UID() for s in obj.getService()]
+#                             this_profile = obj
+# 
+#                 if ar_profile is None:
+#                     ar_profile = obj
+#                 else:
+#                     ar_profile = None
+#                 profile = profiles[profilekey]
+#                 for analysis in profile:
+#                     if not service_uids.has_key(analysis):
+#                         service = tool.lookupObject(analysis)
+#                         keyword = service.getKeyword()
+#                         service_uids[obj.UID()] = '%s:%s' % (obj.UID(), obj.getPrice())
+#                         if keyword:
+#                             services[keyword] = '%s:%s' % (obj.UID(), obj.getPrice())
+# 
+#                     if service_uids.has_key(analysis):
+#                         if not service_uids[analysis] in analyses:
+#                             analyses.append(service_uids[analysis])
+#                     else:
+#                         valid_batch = False
+# 
+#             for analysis in aritem.getAnalyses(full_objects=True):
+#                 if not services.has_key(analysis):
+#                     for service in self.bika_setup_catalog(
+#                             portal_type = 'AnalysisService',
+#                             getKeyword = analysis):
+#                         obj = service.getObject()
+#                         services[analysis] = '%s:%s' % (obj.UID(), obj.getPrice())
+#                         service_uids[obj.UID()] = '%s:%s' % (obj.UID(), obj.getPrice())
+# 
+#                 if services.has_key(analysis):
+#                     analyses.append(services[analysis])
+#                 else:
+#                     valid_batch = False
+# 
+#             sampletypes = self.portal_catalog(
+#                 portal_type = 'SampleType',
+#                 sortable_title = aritem.getSampleType().lower(),
+#                 )
+#             if not sampletypes:
+#                 valid_batch = False
+#                 return
+#             sampletypeuid = sampletypes[0].getObject().UID()
+# 
+#             if aritem.getSampleDate():
+#                 date_items = aritem.getSampleDate().split('/')
+#                 sample_date = DateTime(
+#                     int(date_items[2]), int(date_items[0]), int(date_items[1]))
+#             else:
+#                 sample_date = None
+# 
+#             sample_id = '%s-%s' % (prefix, tmpID())
+#             sample = _createObjectByType("Sample", client, sample_id)
+#             sample.unmarkCreationFlag()
+#             sample.edit(
+#                 SampleID = sample_id,
+#                 ClientReference = aritem.getClientRef(),
+#                 ClientSampleID = aritem.getClientSid(),
+#                 SampleType = aritem.getSampleType(),
+#                 DateSampled = sample_date,
+#                 SamplingDate = sample_date,
+#                 DateReceived = DateTime(),
+#                 Remarks = aritem.getClientRemarks(),
+#                 )
+#             sample._renameAfterCreation()
+#             sample.setSamplePoint(self.getSamplePoint())
+#             sample.setSampleID(sample.getId())
+#             event.notify(ObjectInitializedEvent(sample))
+#             sample.at_post_create_script()
+#             sample_uid = sample.UID()
+#             samples.append(sample_id)
+#             aritem.setSample(sample_uid)
+# 
+#             priorities = self.bika_setup_catalog(
+#                 portal_type = 'ARPriority',
+#                 sortable_title = aritem.Priority.lower(),
+#                 )
+#             if len(priorities) < 1:
+#                 _logger.warning(
+#                     'Invalid Priority: validation should have prevented this')
+#                 priority = ''
+#             else:
+#                 priority = priorities[0].getObject()
+# 
+#             ar_id = tmpID()
+#             ar = _createObjectByType("AnalysisRequest", client, ar_id)
+#             report_dry_matter = False
+# 
+#             ar.unmarkCreationFlag()
+#             ar.edit(
+#                 RequestID = ar_id,
+#                 Contact = self.getContact(),
+#                 CCContact = self.getCCContact(),
+#                 CCEmails = self.getCCEmailsInvoice(),
+#                 ClientOrderNumber = self.getOrderID(),
+#                 ReportDryMatter = report_dry_matter,
+#                 Profile = ar_profile,
+#                 Analyses = analyses,
+#                 Remarks = aritem.getClientRemarks(),
+#                 Priority = priority,
+#                 )
+#             ar.setSample(sample_uid)
+#             sample = ar.getSample()
+#             ar.setSampleType(sampletypeuid)
+#             ar_uid = ar.UID()
+#             aritem.setAnalysisRequest(ar_uid)
+#             ars.append(ar_id)
+#             ar._renameAfterCreation()
+#             progress_index = float(row_count)/float(item_count)*100.0
+#             progress = ProgressState(request, progress_index)
+#             event.notify(UpdateProgressEvent(progress))
+#             self._add_services_to_ar(ar, analyses)
+# 
+#         self.setDateApplied(DateTime())
+#         self.reindexObject()
 
 
     def _add_services_to_ar(self, ar, analyses):
@@ -727,8 +754,8 @@ class ARImport(BaseFolder):
         #        doActionFor(analysis, 'sample_due')
         #        if sample_state not in not_receive:
         #            doActionFor(analysis, 'receive')
-
-    security.declarePublic('getContactUIDForUser')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('getContactUIDForUser')
     def getContactUIDForUser(self):
         """ get the UID of the contact associated with the authenticated
             user
@@ -741,8 +768,8 @@ class ARImport(BaseFolder):
         )
         if len(r) == 1:
             return r[0].UID
-
-    security.declarePublic('getCCContactUIDForUser')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('getCCContactUIDForUser')
     def getCCContactUIDForUser(self):
         """ get the UID of the cc contact associated with the authenticated
             user
@@ -980,5 +1007,6 @@ class ARImport(BaseFolder):
         for brain in profiles:
             if brain.getObject().getProfileKey() == key:
                 return brain.getObject()
-
-atapi.registerType(ARImport, PROJECTNAME)
+ARImport.initialze(schema)
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# atapi.registerType(ARImport, PROJECTNAME)
