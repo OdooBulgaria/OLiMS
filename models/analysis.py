@@ -2,16 +2,29 @@
 
 "DuplicateAnalysis uses this as it's base.  This accounts for much confusion."
 
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# from dependencies.dependency import ClassSecurityInfo
+# from dependencies.dependency import DateTimeField, DateTimeWidget, RecordsField
+# from dependencies import atapi
+# from dependencies.dependency import *
+# from lims.config import PROJECTNAME
+# from lims.content.bikaschema import BikaSchema
+# from lims.interfaces import IAnalysis, IDuplicateAnalysis, IReferenceAnalysis, \
+#     IRoutineAnalysis
+# from lims.interfaces import IReferenceSample
+# from dependencies.dependency import implements
+# from lims.browser.fields import DurationField
+# from lims.browser.fields import HistoryAwareReferenceField
+# from lims.browser.fields import InterimFieldsField
+# from lims.browser.widgets import DurationWidget
+# from lims.browser.widgets import RecordsWidget as BikaRecordsWidget
+
 from dependencies.dependency import getSecurityManager
-from dependencies.dependency import ClassSecurityInfo
 from dependencies.dependency import DateTime
 from lims import logger
 from lims.utils.analysis import format_numeric_result
 from dependencies.dependency import indexer
-from dependencies.dependency import DateTimeField, DateTimeWidget, RecordsField
-from dependencies import atapi
 from dependencies.dependency import REFERENCE_CATALOG
-from dependencies.dependency import *
 from dependencies.dependency import HoldingReference
 from dependencies.dependency import WorkflowException
 from dependencies.dependency import getToolByName
@@ -19,60 +32,69 @@ from dependencies.dependency import safe_unicode, _createObjectByType
 from dependencies.dependency import ArchivistRetrieveError
 from lims import bikaMessageFactory as _
 from lims.utils import t
-from lims import logger
-from lims.browser.fields import DurationField
-from lims.browser.fields import HistoryAwareReferenceField
-from lims.browser.fields import InterimFieldsField
 from lims.permissions import *
-from lims.browser.widgets import DurationWidget
-from lims.browser.widgets import RecordsWidget as BikaRecordsWidget
-from lims.config import PROJECTNAME
-from lims.content.bikaschema import BikaSchema
-from lims.interfaces import IAnalysis, IDuplicateAnalysis, IReferenceAnalysis, \
-    IRoutineAnalysis
-from lims.interfaces import IReferenceSample
 from lims.utils import changeWorkflowState, formatDecimalMark
 from lims.utils import drop_trailing_zeros_decimal
 from lims.utils.analysis import get_significant_digits
 from lims.workflow import skip
 from lims.workflow import doActionFor
 from dependencies.dependency import Decimal
-from dependencies.dependency import implements
 import datetime
 import math
+import logging
+from openerp import models
 
-@indexer(IAnalysis)
+_logger = logging.getLogger(__name__)
+
+from fields.string_field import StringField
+from fields.boolean_field import BooleanField
+from fields.fixed_point_field import FixedPointField
+from fields.text_field import TextField
+from fields.date_time_field import DateTimeField
+from fields.integer_field import IntegerField
+from fields.widget.widget import ComputedWidget, DateTimeWidget, \
+                                IntegerWidget, DecimalWidget
+from models.base_olims_model import BaseOLiMSModel
+
+
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# @indexer(IAnalysis)
 def Priority(instance):
     priority = instance.getPriority()
     if priority:
         return priority.getSortKey()
-
-schema = BikaSchema.copy() + Schema((
-    HistoryAwareReferenceField('Service',
-        required=1,
-        allowed_types=('AnalysisService',),
-        relationship='AnalysisAnalysisService',
-        referenceClass=HoldingReference,
-        widget=ReferenceWidget(
-            label = _("Analysis Service"),
-        )
-    ),
-    HistoryAwareReferenceField('Calculation',
-        allowed_types=('Calculation',),
-        relationship='AnalysisCalculation',
-        referenceClass=HoldingReference,
-    ),
-    ReferenceField('Attachment',
-        multiValued=1,
-        allowed_types=('Attachment',),
-        referenceClass = HoldingReference,
-        relationship = 'AnalysisAttachment',
-    ),
-    InterimFieldsField('InterimFields',
-        widget = BikaRecordsWidget(
-            label = _("Calculation Interim Fields"),
-        )
-    ),
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# schema = BikaSchema.copy() + Schema((
+schema = (
+# ~~~~~~~ To be implemented ~~~~~~~
+#         HistoryAwareReferenceField('Service',
+#         required=1,
+#         allowed_types=('AnalysisService',),
+#         relationship='AnalysisAnalysisService',
+#         referenceClass=HoldingReference,
+#         widget=ReferenceWidget(
+#             label = _("Analysis Service"),
+#         )
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     HistoryAwareReferenceField('Calculation',
+#         allowed_types=('Calculation',),
+#         relationship='AnalysisCalculation',
+#         referenceClass=HoldingReference,
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField('Attachment',
+#         multiValued=1,
+#         allowed_types=('Attachment',),
+#         referenceClass = HoldingReference,
+#         relationship = 'AnalysisAttachment',
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     InterimFieldsField('InterimFields',
+#         widget = BikaRecordsWidget(
+#             label = _("Calculation Interim Fields"),
+#         )
+#     ),
     StringField('Result',
     ),
     DateTimeField('ResultCaptureDate',
@@ -85,13 +107,14 @@ schema = BikaSchema.copy() + Schema((
     BooleanField('Retested',
         default = False,
     ),
-    DurationField('MaxTimeAllowed',
-        widget = DurationWidget(
-            label = _("Maximum turn-around time"),
-            description=_("Maximum time allowed for completion of the analysis. "
-                            "A late analysis alert is raised when this period elapses"),
-        ),
-    ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     DurationField('MaxTimeAllowed',
+#         widget = DurationWidget(
+#             label = _("Maximum turn-around time"),
+#             description=_("Maximum time allowed for completion of the analysis. "
+#                             "A late analysis alert is raised when this period elapses"),
+#         ),
+#     ),
     DateTimeField('DateAnalysisPublished',
         widget = DateTimeWidget(
             label = _("Date Published"),
@@ -119,69 +142,85 @@ schema = BikaSchema.copy() + Schema((
     ),
     TextField('Remarks',
     ),
-    ReferenceField('Instrument',
-        required = 0,
-        allowed_types = ('Instrument',),
-        relationship = 'AnalysisInstrument',
-        referenceClass = HoldingReference,
-    ),
-    ReferenceField('Method',
-        required = 0,
-        allowed_types = ('Method',),
-        relationship = 'AnalysisMethod',
-        referenceClass = HoldingReference,
-    ),
-    ReferenceField('SamplePartition',
-        required = 0,
-        allowed_types = ('SamplePartition',),
-        relationship = 'AnalysisSamplePartition',
-        referenceClass = HoldingReference,
-    ),
-    ComputedField('ClientUID',
-        expression = 'context.aq_parent.aq_parent.UID()',
-    ),
-    ComputedField('ClientTitle',
-        expression = 'context.aq_parent.aq_parent.Title()',
-    ),
-    ComputedField('RequestID',
-        expression = 'context.aq_parent.getRequestID()',
-    ),
-    ComputedField('ClientOrderNumber',
-        expression = 'context.aq_parent.getClientOrderNumber()',
-    ),
-    ComputedField('Keyword',
-        expression = 'context.getService().getKeyword()',
-    ),
-    ComputedField('ServiceTitle',
-        expression = 'context.getService().Title()',
-    ),
-    ComputedField('ServiceUID',
-        expression = 'context.getService().UID()',
-    ),
-    ComputedField('SampleTypeUID',
-        expression = 'context.aq_parent.getSample().getSampleType().UID()',
-    ),
-    ComputedField('SamplePointUID',
-        expression = 'context.aq_parent.getSample().getSamplePoint().UID() if context.aq_parent.getSample().getSamplePoint() else None',
-    ),
-    ComputedField('CategoryUID',
-        expression = 'context.getService().getCategoryUID()',
-    ),
-    ComputedField('CategoryTitle',
-        expression = 'context.getService().getCategoryTitle()',
-    ),
-    ComputedField('PointOfCapture',
-        expression = 'context.getService().getPointOfCapture()',
-    ),
-    ComputedField('DateReceived',
-        expression = 'context.aq_parent.getDateReceived()',
-    ),
-    ComputedField('DateSampled',
-        expression = 'context.aq_parent.getSample().getDateSampled()',
-    ),
-    ComputedField('InstrumentValid',
-        expression = 'context.isInstrumentValid()'
-    ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField('Instrument',
+#         required = 0,
+#         allowed_types = ('Instrument',),
+#         relationship = 'AnalysisInstrument',
+#         referenceClass = HoldingReference,
+#     ),
+#     ReferenceField('Method',
+#         required = 0,
+#         allowed_types = ('Method',),
+#         relationship = 'AnalysisMethod',
+#         referenceClass = HoldingReference,
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField('SamplePartition',
+#         required = 0,
+#         allowed_types = ('SamplePartition',),
+#         relationship = 'AnalysisSamplePartition',
+#         referenceClass = HoldingReference,
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField('ClientUID',
+#         expression = 'context.aq_parent.aq_parent.UID()',
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField('ClientTitle',
+#         expression = 'context.aq_parent.aq_parent.Title()',
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField('RequestID',
+#         expression = 'context.aq_parent.getRequestID()',
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField('ClientOrderNumber',
+#         expression = 'context.aq_parent.getClientOrderNumber()',
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField('Keyword',
+#         expression = 'context.getService().getKeyword()',
+#     ),
+#     ComputedField('ServiceTitle',
+#         expression = 'context.getService().Title()',
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField('ServiceUID',
+#         expression = 'context.getService().UID()',
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField('SampleTypeUID',
+#         expression = 'context.aq_parent.getSample().getSampleType().UID()',
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField('SamplePointUID',
+#         expression = 'context.aq_parent.getSample().getSamplePoint().UID() if context.aq_parent.getSample().getSamplePoint() else None',
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField('CategoryUID',
+#         expression = 'context.getService().getCategoryUID()',
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField('CategoryTitle',
+#         expression = 'context.getService().getCategoryTitle()',
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField('PointOfCapture',
+#         expression = 'context.getService().getPointOfCapture()',
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField('DateReceived',
+#         expression = 'context.aq_parent.getDateReceived()',
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField('DateSampled',
+#         expression = 'context.aq_parent.getSample().getDateSampled()',
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField('InstrumentValid',
+#         expression = 'context.isInstrumentValid()'
+#     ),
     FixedPointField('Uncertainty',
         widget=DecimalWidget(
             label = _("Uncertainty"),
@@ -190,15 +229,17 @@ schema = BikaSchema.copy() + Schema((
     StringField('DetectionLimitOperand',
     ),
 
-),
-)
+)#,
+# )
 
 
-class Analysis(BaseContent):
-    implements(IAnalysis)
-    security = ClassSecurityInfo()
-    displayContentsTab = False
-    schema = schema
+class Analysis(models.Model, BaseOLiMSModel): #(BaseContent):
+    _name = 'olims.analysis'
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     implements(IAnalysis)
+#     security = ClassSecurityInfo()
+#     displayContentsTab = False
+#     schema = schema
 
     def _getCatalogTool(self):
         from lims.catalog import getCatalog
@@ -501,15 +542,16 @@ class Analysis(BaseContent):
             self.Schema().getField('Uncertainty').set(self, None)
         else:
             self.Schema().getField('Uncertainty').set(self, unc)
-
-    def getSample(self):
-        # ReferenceSample cannot provide a 'getSample'
-        if IReferenceAnalysis.providedBy(self):
-            return None
-        if IDuplicateAnalysis.providedBy(self) \
-                or self.portal_type == 'RejectAnalysis':
-            return self.getAnalysis().aq_parent.getSample()
-        return self.aq_parent.getSample()
+            
+# ~~~~~~~ To be implemented ~~~~~~~
+#     def getSample(self):
+#         # ReferenceSample cannot provide a 'getSample'
+#         if IReferenceAnalysis.providedBy(self):
+#             return None
+#         if IDuplicateAnalysis.providedBy(self) \
+#                 or self.portal_type == 'RejectAnalysis':
+#             return self.getAnalysis().aq_parent.getSample()
+#         return self.aq_parent.getSample()
 
     def getResultsRange(self, specification=None):
         """ Returns the valid results range for this analysis, a
@@ -542,49 +584,50 @@ class Analysis(BaseContent):
             rr['uid'] = self.UID()
         return rr
 
-    def getAnalysisSpecs(self, specification=None):
-        """ Retrieves the analysis specs to be applied to this analysis.
-            Allowed values for specification= 'client', 'lab', None
-            If specification is None, client specification gets priority from
-            lab specification.
-            If no specification available for this analysis, returns None
-        """
-
-        sample = self.getSample()
-
-        # No specifications available for ReferenceSamples
-        if IReferenceSample.providedBy(sample):
-            return None
-
-        sampletype = sample.getSampleType()
-        sampletype_uid = sampletype and sampletype.UID() or ''
-        bsc = getToolByName(self, 'bika_setup_catalog')
-
-        # retrieves the desired specs if None specs defined
-        if not specification:
-            proxies = bsc(portal_type='AnalysisSpec',
-                          getClientUID=self.getClientUID(),
-                          getSampleTypeUID=sampletype_uid)
-
-            if len(proxies) == 0:
-                # No client specs available, retrieve lab specs
-                labspecsuid = self.bika_setup.bika_analysisspecs.UID()
-                proxies = bsc(portal_type = 'AnalysisSpec',
-                          getSampleTypeUID = sampletype_uid)
-        else:
-            specuid = specification == "client" and self.getClientUID() or \
-                    self.bika_setup.bika_analysisspecs.UID()
-            proxies = bsc(portal_type='AnalysisSpec',
-                              getSampleTypeUID=sampletype_uid,
-                              getClientUID=specuid)
-
-        outspecs = None
-        for spec in (p.getObject() for p in proxies):
-            if self.getKeyword() in spec.getResultsRangeDict():
-                outspecs = spec
-                break
-
-        return outspecs
+# ~~~~~~~ To be implemented ~~~~~~~
+#     def getAnalysisSpecs(self, specification=None):
+#         """ Retrieves the analysis specs to be applied to this analysis.
+#             Allowed values for specification= 'client', 'lab', None
+#             If specification is None, client specification gets priority from
+#             lab specification.
+#             If no specification available for this analysis, returns None
+#         """
+# 
+#         sample = self.getSample()
+# 
+#         # No specifications available for ReferenceSamples
+#         if IReferenceSample.providedBy(sample):
+#             return None
+# 
+#         sampletype = sample.getSampleType()
+#         sampletype_uid = sampletype and sampletype.UID() or ''
+#         bsc = getToolByName(self, 'bika_setup_catalog')
+# 
+#         # retrieves the desired specs if None specs defined
+#         if not specification:
+#             proxies = bsc(portal_type='AnalysisSpec',
+#                           getClientUID=self.getClientUID(),
+#                           getSampleTypeUID=sampletype_uid)
+# 
+#             if len(proxies) == 0:
+#                 # No client specs available, retrieve lab specs
+#                 labspecsuid = self.bika_setup.bika_analysisspecs.UID()
+#                 proxies = bsc(portal_type = 'AnalysisSpec',
+#                           getSampleTypeUID = sampletype_uid)
+#         else:
+#             specuid = specification == "client" and self.getClientUID() or \
+#                     self.bika_setup.bika_analysisspecs.UID()
+#             proxies = bsc(portal_type='AnalysisSpec',
+#                               getSampleTypeUID=sampletype_uid,
+#                               getClientUID=specuid)
+# 
+#         outspecs = None
+#         for spec in (p.getObject() for p in proxies):
+#             if self.getKeyword() in spec.getResultsRangeDict():
+#                 outspecs = spec
+#                 break
+# 
+#         return outspecs
 
     def calculateResult(self, override=False, cascade=False):
         """ Calculates the result for the current analysis if it depends of
@@ -1490,8 +1533,9 @@ class Analysis(BaseContent):
             if workflow.getInfoFor(ws, "review_state") != "open":
                 workflow.doActionFor(ws, "retract")
                 skip(ws, "retract", unskip=True)
-
-
-atapi.registerType(Analysis, PROJECTNAME)
+                
+Analysis.initialze(schema)
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# atapi.registerType(Analysis, PROJECTNAME)
 
 
