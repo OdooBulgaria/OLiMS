@@ -1,4 +1,4 @@
-from dependencies.dependency import ModuleSecurityInfo, allow_module
+from dependencies.dependency import ModuleSecurityInfo#, #allow_module
 from dependencies.dependency import DateTime
 from dependencies.dependency import DisplayList
 from dependencies.dependency import getToolByName
