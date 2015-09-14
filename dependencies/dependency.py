@@ -9919,7 +9919,7 @@ class MessageFactory(object):
         pass
 
     def __call__(self, ustr, default=None, mapping=None):
-        pass
+        return ustr
 
 PloneMessageFactory = MessageFactory('plone')
 
