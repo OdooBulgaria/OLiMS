@@ -1,62 +1,75 @@
 """The request for analysis by a client. It contains analysis instances.
 """
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# from dependencies.dependency import ClassSecurityInfo
+# from dependencies.dependency import RecordsField
+# from dependencies.dependency import indexer
+# from dependencies.dependency import registerType #atapi
+# from dependencies.dependency import *
+# from dependencies.dependency import HoldingReference
+# from dependencies.dependency import RichWidget
+# from lims.content.bikaschema import BikaSchema
+# from lims.interfaces import IAnalysisRequest
+# from lims.browser.fields import HistoryAwareReferenceField
+# from lims.browser.widgets import DateTimeWidget, DecimalWidget
+# from lims.browser.widgets import ReferenceWidget
+# from lims.browser.widgets import SelectionWidget
+# from dependencies.dependency import implements
+# from lims.browser.fields import DateTimeField
+# from lims.browser.widgets import SelectionWidget as BikaSelectionWidget
+# from lims.browser.fields import ARAnalysesField
+# from lims.config import PROJECTNAME
+
 import logging
-from dependencies.dependency import ClassSecurityInfo
+from openerp import models
+
+_logger = logging.getLogger(__name__)
+
 from dependencies.dependency import DateTime
-from dependencies.dependency import RecordsField
-from dependencies.dependency import indexer
-from dependencies.dependency import registerType #atapi
 from dependencies.dependency import REFERENCE_CATALOG
-from dependencies.dependency import *
-from dependencies.dependency import HoldingReference
-from dependencies.dependency import RichWidget
 from dependencies.dependency import permissions
 from dependencies.dependency import View
 from dependencies.dependency import getToolByName
 from dependencies.dependency import safe_unicode
 from dependencies.dependency import _createObjectByType
-from lims.browser.fields import ARAnalysesField
-from lims.config import PROJECTNAME
 from lims.permissions import *
-from lims.content.bikaschema import BikaSchema
-from lims.interfaces import IAnalysisRequest
-from lims.browser.fields import HistoryAwareReferenceField
-from lims.browser.widgets import DateTimeWidget, DecimalWidget
-from lims.browser.widgets import ReferenceWidget
-from lims.browser.widgets import SelectionWidget
 from lims.workflow import skip, isBasicTransitionAllowed
 from lims.workflow import doActionFor
 from dependencies.dependency import Decimal
-from dependencies.dependency import implements
 from lims import bikaMessageFactory as _
 from lims.utils import t, getUsers, dicts_to_dict
-
-from lims.browser.fields import DateTimeField
-from lims.browser.widgets import SelectionWidget as BikaSelectionWidget
-
+from models.base_olims_model import BaseOLiMSModel
+from fields.string_field import StringField
+from fields.text_field import TextField
+from fields.boolean_field import BooleanField
+from fields.date_time_field import DateTimeField
+from fields.fixed_point_field import FixedPointField
+from fields.widget.widget import StringWidget, TextAreaWidget, \
+                                BooleanWidget, DateTimeWidget, \
+                                DecimalWidget, RichWidget
 import sys
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# try:
+#     from dependencies.dependency import getSite
+# except:
+#     # Plone < 4.3
+#     from dependencies.dependency import getSite
 
-try:
-    from dependencies.dependency import getSite
-except:
-    # Plone < 4.3
-    from dependencies.dependency import getSite
-
-
-@indexer(IAnalysisRequest)
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# @indexer(IAnalysisRequest)
 def Priority(instance):
     priority = instance.getPriority()
     if priority:
         return priority.getSortKey()
-
-@indexer(IAnalysisRequest)
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# @indexer(IAnalysisRequest)
 def BatchUID(instance):
     batch = instance.getBatch()
     if batch:
         return batch.UID()
 
-schema = BikaSchema.copy() + Schema((
-    StringField(
+# schema = BikaSchema.copy() + Schema(
+schema = (StringField(
         'RequestID',
         searchable=True,
         mode="rw",
@@ -69,86 +82,88 @@ schema = BikaSchema.copy() + Schema((
                      'edit': 'invisible'},
         ),
     ),
-    ReferenceField(
-        'Contact',
-        required=1,
-        default_method='getContactUIDForUser',
-        vocabulary_display_path_bound=sys.maxsize,
-        allowed_types=('Contact',),
-        referenceClass=HoldingReference,
-        relationship='AnalysisRequestContact',
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=EditARContact,
-        widget=ReferenceWidget(
-            label = _("Contact"),
-            render_own_label=True,
-            size=20,
-            helper_js=("bika_widgets/referencewidget.js", "++resource++bika.lims.js/contact.js"),
-            visible={'edit': 'visible',
-                     'view': 'visible',
-                     'add': 'edit',
-                     'header_table': 'prominent',
-                     'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
-                     'to_be_sampled':     {'view': 'visible', 'edit': 'visible'},
-                     'sampled':           {'view': 'visible', 'edit': 'visible'},
-                     'to_be_preserved':   {'view': 'visible', 'edit': 'visible'},
-                     'sample_due':        {'view': 'visible', 'edit': 'visible'},
-                     'sample_received':   {'view': 'visible', 'edit': 'visible'},
-                     'attachment_due':    {'view': 'visible', 'edit': 'visible'},
-                     'to_be_verified':    {'view': 'visible', 'edit': 'visible'},
-                     'verified':          {'view': 'visible', 'edit': 'invisible'},
-                     'published':         {'view': 'visible', 'edit': 'invisible'},
-                     'invalid':           {'view': 'visible', 'edit': 'invisible'},
-                     },
-            base_query={'inactive_state': 'active'},
-            showOn=True,
-            popup_width='400px',
-            colModel=[{'columnName': 'UID', 'hidden': True},
-                      {'columnName': 'Fullname', 'width': '50', 'label': _('Name')},
-                      {'columnName': 'EmailAddress', 'width': '50', 'label': _('Email Address')},
-                     ],
-        ),
-    ),
-    ReferenceField(
-        'CCContact',
-        multiValued=1,
-        vocabulary_display_path_bound=sys.maxsize,
-        allowed_types=('Contact',),
-        referenceClass=HoldingReference,
-        relationship='AnalysisRequestCCContact',
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=EditARContact,
-        widget=ReferenceWidget(
-            label = _("CC Contacts"),
-            render_own_label=True,
-            size=20,
-            visible={'edit': 'visible',
-                     'view': 'visible',
-                     'add': 'edit',
-                     'header_table': 'prominent',
-                     'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
-                     'to_be_sampled':     {'view': 'visible', 'edit': 'visible'},
-                     'sampled':           {'view': 'visible', 'edit': 'visible'},
-                     'to_be_preserved':   {'view': 'visible', 'edit': 'visible'},
-                     'sample_due':        {'view': 'visible', 'edit': 'visible'},
-                     'sample_received':   {'view': 'visible', 'edit': 'visible'},
-                     'attachment_due':    {'view': 'visible', 'edit': 'visible'},
-                     'to_be_verified':    {'view': 'visible', 'edit': 'visible'},
-                     'verified':          {'view': 'visible', 'edit': 'invisible'},
-                     'published':         {'view': 'visible', 'edit': 'invisible'},
-                     'invalid':           {'view': 'visible', 'edit': 'invisible'},
-                     },
-            base_query={'inactive_state': 'active'},
-            showOn=True,
-            popup_width='400px',
-            colModel=[{'columnName': 'UID', 'hidden': True},
-                      {'columnName': 'Fullname', 'width': '50', 'label': _('Name')},
-                      {'columnName': 'EmailAddress', 'width': '50', 'label': _('Email Address')},
-                     ],
-        ),
-    ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField(
+#         'Contact',
+#         required=1,
+#         default_method='getContactUIDForUser',
+#         vocabulary_display_path_bound=sys.maxsize,
+#         allowed_types=('Contact',),
+#         referenceClass=HoldingReference,
+#         relationship='AnalysisRequestContact',
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=EditARContact,
+#         widget=ReferenceWidget(
+#             label = _("Contact"),
+#             render_own_label=True,
+#             size=20,
+#             helper_js=("bika_widgets/referencewidget.js", "++resource++bika.lims.js/contact.js"),
+#             visible={'edit': 'visible',
+#                      'view': 'visible',
+#                      'add': 'edit',
+#                      'header_table': 'prominent',
+#                      'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
+#                      'to_be_sampled':     {'view': 'visible', 'edit': 'visible'},
+#                      'sampled':           {'view': 'visible', 'edit': 'visible'},
+#                      'to_be_preserved':   {'view': 'visible', 'edit': 'visible'},
+#                      'sample_due':        {'view': 'visible', 'edit': 'visible'},
+#                      'sample_received':   {'view': 'visible', 'edit': 'visible'},
+#                      'attachment_due':    {'view': 'visible', 'edit': 'visible'},
+#                      'to_be_verified':    {'view': 'visible', 'edit': 'visible'},
+#                      'verified':          {'view': 'visible', 'edit': 'invisible'},
+#                      'published':         {'view': 'visible', 'edit': 'invisible'},
+#                      'invalid':           {'view': 'visible', 'edit': 'invisible'},
+#                      },
+#             base_query={'inactive_state': 'active'},
+#             showOn=True,
+#             popup_width='400px',
+#             colModel=[{'columnName': 'UID', 'hidden': True},
+#                       {'columnName': 'Fullname', 'width': '50', 'label': _('Name')},
+#                       {'columnName': 'EmailAddress', 'width': '50', 'label': _('Email Address')},
+#                      ],
+#         ),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField(
+#         'CCContact',
+#         multiValued=1,
+#         vocabulary_display_path_bound=sys.maxsize,
+#         allowed_types=('Contact',),
+#         referenceClass=HoldingReference,
+#         relationship='AnalysisRequestCCContact',
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=EditARContact,
+#         widget=ReferenceWidget(
+#             label = _("CC Contacts"),
+#             render_own_label=True,
+#             size=20,
+#             visible={'edit': 'visible',
+#                      'view': 'visible',
+#                      'add': 'edit',
+#                      'header_table': 'prominent',
+#                      'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
+#                      'to_be_sampled':     {'view': 'visible', 'edit': 'visible'},
+#                      'sampled':           {'view': 'visible', 'edit': 'visible'},
+#                      'to_be_preserved':   {'view': 'visible', 'edit': 'visible'},
+#                      'sample_due':        {'view': 'visible', 'edit': 'visible'},
+#                      'sample_received':   {'view': 'visible', 'edit': 'visible'},
+#                      'attachment_due':    {'view': 'visible', 'edit': 'visible'},
+#                      'to_be_verified':    {'view': 'visible', 'edit': 'visible'},
+#                      'verified':          {'view': 'visible', 'edit': 'invisible'},
+#                      'published':         {'view': 'visible', 'edit': 'invisible'},
+#                      'invalid':           {'view': 'visible', 'edit': 'invisible'},
+#                      },
+#             base_query={'inactive_state': 'active'},
+#             showOn=True,
+#             popup_width='400px',
+#             colModel=[{'columnName': 'UID', 'hidden': True},
+#                       {'columnName': 'Fullname', 'width': '50', 'label': _('Name')},
+#                       {'columnName': 'EmailAddress', 'width': '50', 'label': _('Email Address')},
+#                      ],
+#         ),
+#     ),
     StringField(
         'CCEmails',
         mode="rw",
@@ -175,237 +190,243 @@ schema = BikaSchema.copy() + Schema((
             size=20,
         ),
     ),
-    ReferenceField(
-        'Client',
-        required=1,
-        allowed_types=('Client',),
-        relationship='AnalysisRequestClient',
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=permissions.ModifyPortalContent,
-        widget=ReferenceWidget(
-            label = _("Client"),
-            description = _("You must assign this request to a client"),
-            size=20,
-            render_own_label=True,
-            visible={'edit': 'visible',
-                     'view': 'visible',
-                     'add': 'edit',
-                     'header_table': 'visible',
-                     'sample_registered': {'view': 'invisible', 'edit': 'visible', 'add': 'edit'},
-                     'to_be_sampled':     {'view': 'invisible', 'edit': 'invisible'},
-                     'sampled':           {'view': 'invisible', 'edit': 'invisible'},
-                     'to_be_preserved':   {'view': 'invisible', 'edit': 'invisible'},
-                     'sample_received':   {'view': 'invisible', 'edit': 'invisible'},
-                     'attachment_due':    {'view': 'invisible', 'edit': 'invisible'},
-                     'to_be_verified':    {'view': 'invisible', 'edit': 'invisible'},
-                     'verified':          {'view': 'invisible', 'edit': 'invisible'},
-                     'published':         {'view': 'invisible', 'edit': 'invisible'},
-                     'invalid':           {'view': 'invisible', 'edit': 'invisible'},
-                     },
-            base_query={'inactive_state': 'active'},
-            showOn=True,
-        ),
-    ),
-    ReferenceField(
-        'Sample',
-        vocabulary_display_path_bound=sys.maxsize,
-        allowed_types=('Sample',),
-        referenceClass=HoldingReference,
-        relationship='AnalysisRequestSample',
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=permissions.ModifyPortalContent,
-        widget=ReferenceWidget(
-            label = _("Sample"),
-            description = _("Select a sample to create a secondary AR"),
-            size=20,
-            render_own_label=True,
-            visible={'edit': 'visible',
-                     'view': 'visible',
-                     'add': 'edit',
-                     'header_table': 'visible',
-                     'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
-                     'to_be_sampled':     {'view': 'visible', 'edit': 'invisible'},
-                     'sampled':           {'view': 'visible', 'edit': 'invisible'},
-                     'to_be_preserved':   {'view': 'visible', 'edit': 'invisible'},
-                     'sample_due':        {'view': 'visible', 'edit': 'invisible'},
-                     'sample_received':   {'view': 'visible', 'edit': 'invisible'},
-                     'attachment_due':    {'view': 'visible', 'edit': 'invisible'},
-                     'to_be_verified':    {'view': 'visible', 'edit': 'invisible'},
-                     'verified':          {'view': 'visible', 'edit': 'invisible'},
-                     'published':         {'view': 'visible', 'edit': 'invisible'},
-                     'invalid':           {'view': 'visible', 'edit': 'invisible'},
-                     },
-            catalog_name='bika_catalog',
-            base_query={'cancellation_state': 'active',
-                        'review_state': ['sample_due', 'sample_received', ]},
-            showOn=True,
-        ),
-    ),
-    ReferenceField(
-        'Batch',
-        allowed_types=('Batch',),
-        relationship='AnalysisRequestBatch',
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=permissions.ModifyPortalContent,
-        widget=ReferenceWidget(
-            label = _("Batch"),
-            size=20,
-            render_own_label=True,
-            visible={'edit': 'visible',
-                     'view': 'visible',
-                     'add': 'edit',
-                     'header_table': 'visible',
-                     'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
-                     'to_be_sampled':     {'view': 'visible', 'edit': 'visible'},
-                     'sampled':           {'view': 'visible', 'edit': 'visible'},
-                     'to_be_preserved':   {'view': 'visible', 'edit': 'visible'},
-                     'sample_due':        {'view': 'visible', 'edit': 'visible'},
-                     'sample_received':   {'view': 'visible', 'edit': 'visible'},
-                     'attachment_due':    {'view': 'visible', 'edit': 'visible'},
-                     'to_be_verified':    {'view': 'visible', 'edit': 'visible'},
-                     'verified':          {'view': 'visible', 'edit': 'visible'},
-                     'published':         {'view': 'visible', 'edit': 'invisible'},
-                     'invalid':           {'view': 'visible', 'edit': 'invisible'},
-                     },
-            catalog_name='bika_catalog',
-            base_query={'review_state': 'open',
-                        'cancellation_state': 'active'},
-            showOn=True,
-        ),
-    ),
-    ReferenceField(
-        'SubGroup',
-        required=False,
-        allowed_types=('SubGroup',),
-        referenceClass = HoldingReference,
-        relationship = 'AnalysisRequestSubGroup',
-        widget=ReferenceWidget(
-            label = _("Sub-group"),
-            size=20,
-            render_own_label=True,
-            visible={'edit': 'visible',
-                     'view': 'visible',
-                     'add': 'edit',
-                     'header_table': 'visible',
-                     'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
-                     'to_be_sampled':     {'view': 'visible', 'edit': 'visible'},
-                     'sampled':           {'view': 'visible', 'edit': 'visible'},
-                     'to_be_preserved':   {'view': 'visible', 'edit': 'visible'},
-                     'sample_due':        {'view': 'visible', 'edit': 'visible'},
-                     'sample_received':   {'view': 'visible', 'edit': 'visible'},
-                     'attachment_due':    {'view': 'visible', 'edit': 'visible'},
-                     'to_be_verified':    {'view': 'visible', 'edit': 'visible'},
-                     'verified':          {'view': 'visible', 'edit': 'visible'},
-                     'published':         {'view': 'visible', 'edit': 'invisible'},
-                     'invalid':           {'view': 'visible', 'edit': 'invisible'},
-                     },
-            catalog_name='bika_setup_catalog',
-            colModel=[
-                {'columnName': 'Title', 'width': '30',
-                 'label': _('Title'), 'align': 'left'},
-                {'columnName': 'Description', 'width': '70',
-                 'label': _('Description'), 'align': 'left'},
-                {'columnName': 'SortKey', 'hidden': True},
-                {'columnName': 'UID', 'hidden': True},
-            ],
-            base_query={'inactive_state': 'active'},
-            sidx='SortKey',
-            sord='asc',
-            showOn=True,
-        ),
-    ),
-    ReferenceField(
-        'Template',
-        allowed_types=('ARTemplate',),
-        referenceClass=HoldingReference,
-        relationship='AnalysisRequestARTemplate',
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=permissions.ModifyPortalContent,
-        widget=ReferenceWidget(
-            label = _("Template"),
-            size=20,
-            render_own_label=True,
-            visible={'edit': 'visible',
-                     'view': 'visible',
-                     'add': 'edit',
-                     'secondary': 'disabled',
-                     'header_table': 'visible',
-                     'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
-                     'to_be_sampled':     {'view': 'visible', 'edit': 'invisible'},
-                     'sampled':           {'view': 'visible', 'edit': 'invisible'},
-                     'to_be_preserved':   {'view': 'visible', 'edit': 'invisible'},
-                     'sample_due':        {'view': 'visible', 'edit': 'invisible'},
-                     'sample_received':   {'view': 'visible', 'edit': 'invisible'},
-                     'attachment_due':    {'view': 'visible', 'edit': 'invisible'},
-                     'to_be_verified':    {'view': 'visible', 'edit': 'invisible'},
-                     'verified':          {'view': 'visible', 'edit': 'invisible'},
-                     'published':         {'view': 'visible', 'edit': 'invisible'},
-                     'invalid':           {'view': 'visible', 'edit': 'invisible'},
-                     },
-            catalog_name='bika_setup_catalog',
-            base_query={'inactive_state': 'active'},
-            showOn=True,
-        ),
-    ),
-    # TODO: Profile'll be delated
-    ReferenceField(
-        'Profile',
-        allowed_types=('AnalysisProfile',),
-        referenceClass=HoldingReference,
-        relationship='AnalysisRequestAnalysisProfile',
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=permissions.ModifyPortalContent,
-        widget=ReferenceWidget(
-            label = _("Analysis Profile"),
-            size=20,
-            render_own_label=True,
-            visible=False,
-            catalog_name='bika_setup_catalog',
-            base_query={'inactive_state': 'active'},
-            showOn=False,
-        ),
-    ),
-
-    ReferenceField(
-        'Profiles',
-        multiValued=1,
-        allowed_types=('AnalysisProfile',),
-        referenceClass=HoldingReference,
-        vocabulary_display_path_bound=sys.maxsize,
-        relationship='AnalysisRequestAnalysisProfiles',
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=permissions.ModifyPortalContent,
-        widget=ReferenceWidget(
-            label = _("Analysis Profiles"),
-            size=20,
-            render_own_label=True,
-            visible={'edit': 'visible',
-                     'view': 'visible',
-                     'add': 'edit',
-                     'header_table': 'visible',
-                     'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
-                     'to_be_sampled':     {'view': 'visible', 'edit': 'invisible'},
-                     'sampled':           {'view': 'visible', 'edit': 'invisible'},
-                     'to_be_preserved':   {'view': 'visible', 'edit': 'invisible'},
-                     'sample_due':        {'view': 'visible', 'edit': 'invisible'},
-                     'sample_received':   {'view': 'visible', 'edit': 'invisible'},
-                     'attachment_due':    {'view': 'visible', 'edit': 'invisible'},
-                     'to_be_verified':    {'view': 'visible', 'edit': 'invisible'},
-                     'verified':          {'view': 'visible', 'edit': 'invisible'},
-                     'published':         {'view': 'visible', 'edit': 'invisible'},
-                     'invalid':           {'view': 'visible', 'edit': 'invisible'},
-                     },
-            catalog_name='bika_setup_catalog',
-            base_query={'inactive_state': 'active'},
-            showOn=True,
-        ),
-    ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField(
+#         'Client',
+#         required=1,
+#         allowed_types=('Client',),
+#         relationship='AnalysisRequestClient',
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=permissions.ModifyPortalContent,
+#         widget=ReferenceWidget(
+#             label = _("Client"),
+#             description = _("You must assign this request to a client"),
+#             size=20,
+#             render_own_label=True,
+#             visible={'edit': 'visible',
+#                      'view': 'visible',
+#                      'add': 'edit',
+#                      'header_table': 'visible',
+#                      'sample_registered': {'view': 'invisible', 'edit': 'visible', 'add': 'edit'},
+#                      'to_be_sampled':     {'view': 'invisible', 'edit': 'invisible'},
+#                      'sampled':           {'view': 'invisible', 'edit': 'invisible'},
+#                      'to_be_preserved':   {'view': 'invisible', 'edit': 'invisible'},
+#                      'sample_received':   {'view': 'invisible', 'edit': 'invisible'},
+#                      'attachment_due':    {'view': 'invisible', 'edit': 'invisible'},
+#                      'to_be_verified':    {'view': 'invisible', 'edit': 'invisible'},
+#                      'verified':          {'view': 'invisible', 'edit': 'invisible'},
+#                      'published':         {'view': 'invisible', 'edit': 'invisible'},
+#                      'invalid':           {'view': 'invisible', 'edit': 'invisible'},
+#                      },
+#             base_query={'inactive_state': 'active'},
+#             showOn=True,
+#         ),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField(
+#         'Sample',
+#         vocabulary_display_path_bound=sys.maxsize,
+#         allowed_types=('Sample',),
+#         referenceClass=HoldingReference,
+#         relationship='AnalysisRequestSample',
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=permissions.ModifyPortalContent,
+#         widget=ReferenceWidget(
+#             label = _("Sample"),
+#             description = _("Select a sample to create a secondary AR"),
+#             size=20,
+#             render_own_label=True,
+#             visible={'edit': 'visible',
+#                      'view': 'visible',
+#                      'add': 'edit',
+#                      'header_table': 'visible',
+#                      'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
+#                      'to_be_sampled':     {'view': 'visible', 'edit': 'invisible'},
+#                      'sampled':           {'view': 'visible', 'edit': 'invisible'},
+#                      'to_be_preserved':   {'view': 'visible', 'edit': 'invisible'},
+#                      'sample_due':        {'view': 'visible', 'edit': 'invisible'},
+#                      'sample_received':   {'view': 'visible', 'edit': 'invisible'},
+#                      'attachment_due':    {'view': 'visible', 'edit': 'invisible'},
+#                      'to_be_verified':    {'view': 'visible', 'edit': 'invisible'},
+#                      'verified':          {'view': 'visible', 'edit': 'invisible'},
+#                      'published':         {'view': 'visible', 'edit': 'invisible'},
+#                      'invalid':           {'view': 'visible', 'edit': 'invisible'},
+#                      },
+#             catalog_name='bika_catalog',
+#             base_query={'cancellation_state': 'active',
+#                         'review_state': ['sample_due', 'sample_received', ]},
+#             showOn=True,
+#         ),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField(
+#         'Batch',
+#         allowed_types=('Batch',),
+#         relationship='AnalysisRequestBatch',
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=permissions.ModifyPortalContent,
+#         widget=ReferenceWidget(
+#             label = _("Batch"),
+#             size=20,
+#             render_own_label=True,
+#             visible={'edit': 'visible',
+#                      'view': 'visible',
+#                      'add': 'edit',
+#                      'header_table': 'visible',
+#                      'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
+#                      'to_be_sampled':     {'view': 'visible', 'edit': 'visible'},
+#                      'sampled':           {'view': 'visible', 'edit': 'visible'},
+#                      'to_be_preserved':   {'view': 'visible', 'edit': 'visible'},
+#                      'sample_due':        {'view': 'visible', 'edit': 'visible'},
+#                      'sample_received':   {'view': 'visible', 'edit': 'visible'},
+#                      'attachment_due':    {'view': 'visible', 'edit': 'visible'},
+#                      'to_be_verified':    {'view': 'visible', 'edit': 'visible'},
+#                      'verified':          {'view': 'visible', 'edit': 'visible'},
+#                      'published':         {'view': 'visible', 'edit': 'invisible'},
+#                      'invalid':           {'view': 'visible', 'edit': 'invisible'},
+#                      },
+#             catalog_name='bika_catalog',
+#             base_query={'review_state': 'open',
+#                         'cancellation_state': 'active'},
+#             showOn=True,
+#         ),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField(
+#         'SubGroup',
+#         required=False,
+#         allowed_types=('SubGroup',),
+#         referenceClass = HoldingReference,
+#         relationship = 'AnalysisRequestSubGroup',
+#         widget=ReferenceWidget(
+#             label = _("Sub-group"),
+#             size=20,
+#             render_own_label=True,
+#             visible={'edit': 'visible',
+#                      'view': 'visible',
+#                      'add': 'edit',
+#                      'header_table': 'visible',
+#                      'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
+#                      'to_be_sampled':     {'view': 'visible', 'edit': 'visible'},
+#                      'sampled':           {'view': 'visible', 'edit': 'visible'},
+#                      'to_be_preserved':   {'view': 'visible', 'edit': 'visible'},
+#                      'sample_due':        {'view': 'visible', 'edit': 'visible'},
+#                      'sample_received':   {'view': 'visible', 'edit': 'visible'},
+#                      'attachment_due':    {'view': 'visible', 'edit': 'visible'},
+#                      'to_be_verified':    {'view': 'visible', 'edit': 'visible'},
+#                      'verified':          {'view': 'visible', 'edit': 'visible'},
+#                      'published':         {'view': 'visible', 'edit': 'invisible'},
+#                      'invalid':           {'view': 'visible', 'edit': 'invisible'},
+#                      },
+#             catalog_name='bika_setup_catalog',
+#             colModel=[
+#                 {'columnName': 'Title', 'width': '30',
+#                  'label': _('Title'), 'align': 'left'},
+#                 {'columnName': 'Description', 'width': '70',
+#                  'label': _('Description'), 'align': 'left'},
+#                 {'columnName': 'SortKey', 'hidden': True},
+#                 {'columnName': 'UID', 'hidden': True},
+#             ],
+#             base_query={'inactive_state': 'active'},
+#             sidx='SortKey',
+#             sord='asc',
+#             showOn=True,
+#         ),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField(
+#         'Template',
+#         allowed_types=('ARTemplate',),
+#         referenceClass=HoldingReference,
+#         relationship='AnalysisRequestARTemplate',
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=permissions.ModifyPortalContent,
+#         widget=ReferenceWidget(
+#             label = _("Template"),
+#             size=20,
+#             render_own_label=True,
+#             visible={'edit': 'visible',
+#                      'view': 'visible',
+#                      'add': 'edit',
+#                      'secondary': 'disabled',
+#                      'header_table': 'visible',
+#                      'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
+#                      'to_be_sampled':     {'view': 'visible', 'edit': 'invisible'},
+#                      'sampled':           {'view': 'visible', 'edit': 'invisible'},
+#                      'to_be_preserved':   {'view': 'visible', 'edit': 'invisible'},
+#                      'sample_due':        {'view': 'visible', 'edit': 'invisible'},
+#                      'sample_received':   {'view': 'visible', 'edit': 'invisible'},
+#                      'attachment_due':    {'view': 'visible', 'edit': 'invisible'},
+#                      'to_be_verified':    {'view': 'visible', 'edit': 'invisible'},
+#                      'verified':          {'view': 'visible', 'edit': 'invisible'},
+#                      'published':         {'view': 'visible', 'edit': 'invisible'},
+#                      'invalid':           {'view': 'visible', 'edit': 'invisible'},
+#                      },
+#             catalog_name='bika_setup_catalog',
+#             base_query={'inactive_state': 'active'},
+#             showOn=True,
+#         ),
+#     ),
+#     # TODO: Profile'll be delated
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField(
+#         'Profile',
+#         allowed_types=('AnalysisProfile',),
+#         referenceClass=HoldingReference,
+#         relationship='AnalysisRequestAnalysisProfile',
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=permissions.ModifyPortalContent,
+#         widget=ReferenceWidget(
+#             label = _("Analysis Profile"),
+#             size=20,
+#             render_own_label=True,
+#             visible=False,
+#             catalog_name='bika_setup_catalog',
+#             base_query={'inactive_state': 'active'},
+#             showOn=False,
+#         ),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField(
+#         'Profiles',
+#         multiValued=1,
+#         allowed_types=('AnalysisProfile',),
+#         referenceClass=HoldingReference,
+#         vocabulary_display_path_bound=sys.maxsize,
+#         relationship='AnalysisRequestAnalysisProfiles',
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=permissions.ModifyPortalContent,
+#         widget=ReferenceWidget(
+#             label = _("Analysis Profiles"),
+#             size=20,
+#             render_own_label=True,
+#             visible={'edit': 'visible',
+#                      'view': 'visible',
+#                      'add': 'edit',
+#                      'header_table': 'visible',
+#                      'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
+#                      'to_be_sampled':     {'view': 'visible', 'edit': 'invisible'},
+#                      'sampled':           {'view': 'visible', 'edit': 'invisible'},
+#                      'to_be_preserved':   {'view': 'visible', 'edit': 'invisible'},
+#                      'sample_due':        {'view': 'visible', 'edit': 'invisible'},
+#                      'sample_received':   {'view': 'visible', 'edit': 'invisible'},
+#                      'attachment_due':    {'view': 'visible', 'edit': 'invisible'},
+#                      'to_be_verified':    {'view': 'visible', 'edit': 'invisible'},
+#                      'verified':          {'view': 'visible', 'edit': 'invisible'},
+#                      'published':         {'view': 'visible', 'edit': 'invisible'},
+#                      'invalid':           {'view': 'visible', 'edit': 'invisible'},
+#                      },
+#             catalog_name='bika_setup_catalog',
+#             base_query={'inactive_state': 'active'},
+#             showOn=True,
+#         ),
+#     ),
     # Sample field
     DateTimeField('DateSampled',
         mode="rw",
@@ -434,33 +455,34 @@ schema = BikaSchema.copy() + Schema((
         ),
     ),
     # Sample field
-    StringField('Sampler',
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=SampleSample,
-        vocabulary='getSamplers',
-        widget=BikaSelectionWidget(
-            format='select',
-            label = _("Sampler"),
-            # see SamplingWOrkflowWidgetVisibility
-            visible={'edit': 'visible',
-                     'view': 'visible',
-                     'header_table': 'prominent',
-                     'sample_registered': {'view': 'invisible', 'edit': 'invisible'},
-                     'to_be_sampled':     {'view': 'invisible', 'edit': 'visible'},
-                     'sampled':           {'view': 'visible', 'edit': 'invisible'},
-                     'to_be_preserved':   {'view': 'visible', 'edit': 'invisible'},
-                     'sample_due':        {'view': 'visible', 'edit': 'invisible'},
-                     'sample_received':   {'view': 'visible', 'edit': 'invisible'},
-                     'attachment_due':    {'view': 'visible', 'edit': 'invisible'},
-                     'to_be_verified':    {'view': 'visible', 'edit': 'invisible'},
-                     'verified':          {'view': 'visible', 'edit': 'invisible'},
-                     'published':         {'view': 'visible', 'edit': 'invisible'},
-                     'invalid':           {'view': 'visible', 'edit': 'invisible'},
-                     },
-            render_own_label=True,
-        ),
-    ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     StringField('Sampler',
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=SampleSample,
+#         vocabulary='getSamplers',
+#         widget=BikaSelectionWidget(
+#             format='select',
+#             label = _("Sampler"),
+#             # see SamplingWOrkflowWidgetVisibility
+#             visible={'edit': 'visible',
+#                      'view': 'visible',
+#                      'header_table': 'prominent',
+#                      'sample_registered': {'view': 'invisible', 'edit': 'invisible'},
+#                      'to_be_sampled':     {'view': 'invisible', 'edit': 'visible'},
+#                      'sampled':           {'view': 'visible', 'edit': 'invisible'},
+#                      'to_be_preserved':   {'view': 'visible', 'edit': 'invisible'},
+#                      'sample_due':        {'view': 'visible', 'edit': 'invisible'},
+#                      'sample_received':   {'view': 'visible', 'edit': 'invisible'},
+#                      'attachment_due':    {'view': 'visible', 'edit': 'invisible'},
+#                      'to_be_verified':    {'view': 'visible', 'edit': 'invisible'},
+#                      'verified':          {'view': 'visible', 'edit': 'invisible'},
+#                      'published':         {'view': 'visible', 'edit': 'invisible'},
+#                      'invalid':           {'view': 'visible', 'edit': 'invisible'},
+#                      },
+#             render_own_label=True,
+#         ),
+#     ),
     DateTimeField(
         'SamplingDate',
         required=1,
@@ -490,194 +512,200 @@ schema = BikaSchema.copy() + Schema((
                      },
         ),
     ),
-    ReferenceField(
-        'SampleType',
-        required=1,
-        allowed_types='SampleType',
-        relationship='AnalysisRequestSampleType',
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=permissions.ModifyPortalContent,
-        widget=ReferenceWidget(
-            label = _("Sample Type"),
-            description = _("Create a new sample of this type"),
-            size=20,
-            render_own_label=True,
-            visible={'edit': 'visible',
-                     'view': 'visible',
-                     'add': 'edit',
-                     'secondary': 'disabled',
-                     'header_table': 'visible',
-                     'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
-                     'to_be_sampled':     {'view': 'visible', 'edit': 'invisible'},
-                     'sampled':           {'view': 'visible', 'edit': 'invisible'},
-                     'to_be_preserved':   {'view': 'visible', 'edit': 'invisible'},
-                     'sample_due':        {'view': 'visible', 'edit': 'invisible'},
-                     'sample_received':   {'view': 'visible', 'edit': 'invisible'},
-                     'attachment_due':    {'view': 'visible', 'edit': 'invisible'},
-                     'to_be_verified':    {'view': 'visible', 'edit': 'invisible'},
-                     'verified':          {'view': 'visible', 'edit': 'invisible'},
-                     'published':         {'view': 'visible', 'edit': 'invisible'},
-                     'invalid':           {'view': 'visible', 'edit': 'invisible'},
-                     },
-            catalog_name='bika_setup_catalog',
-            base_query={'inactive_state': 'active'},
-            showOn=True,
-        ),
-    ),
-    ReferenceField(
-        'Specification',
-        required=0,
-        allowed_types='AnalysisSpec',
-        relationship='AnalysisRequestAnalysisSpec',
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=permissions.ModifyPortalContent,
-        widget=ReferenceWidget(
-            label = _("Analysis Specification"),
-            description = _("Choose default AR specification values"),
-            size=20,
-            render_own_label=True,
-            visible={'edit': 'visible',
-                     'view': 'visible',
-                     'add': 'edit',
-                     'header_table': 'visible',
-                     'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
-                     'to_be_sampled':     {'view': 'visible', 'edit': 'visible'},
-                     'sampled':           {'view': 'visible', 'edit': 'visible'},
-                     'to_be_preserved':   {'view': 'visible', 'edit': 'visible'},
-                     'sample_due':        {'view': 'visible', 'edit': 'visible'},
-                     'sample_received':   {'view': 'visible', 'edit': 'visible'},
-                     'attachment_due':    {'view': 'visible', 'edit': 'visible'},
-                     'to_be_verified':    {'view': 'visible', 'edit': 'invisible'},
-                     'verified':          {'view': 'visible', 'edit': 'invisible'},
-                     'published':         {'view': 'visible', 'edit': 'invisible'},
-                     'invalid':           {'view': 'visible', 'edit': 'invisible'},
-                     },
-            catalog_name='bika_setup_catalog',
-            colModel=[
-                {'columnName': 'contextual_title',
-                 'width': '30',
-                 'label': _('Title'),
-                 'align': 'left'},
-                {'columnName': 'SampleTypeTitle',
-                 'width': '70',
-                 'label': _('SampleType'),
-                 'align': 'left'},
-                # UID is required in colModel
-                {'columnName': 'UID', 'hidden': True},
-            ],
-            showOn=True,
-        ),
-    ),
-    # see setResultsRange below.
-    RecordsField('ResultsRange',
-         required=0,
-         type='analysisspec',
-         subfields=('keyword', 'min', 'max', 'error', 'hidemin', 'hidemax', 'rangecomment'),
-         widget=ComputedWidget(visible=False),
-    ),
-    ReferenceField(
-        'PublicationSpecification',
-        required=0,
-        allowed_types='AnalysisSpec',
-        relationship='AnalysisRequestPublicationSpec',
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=permissions.View,
-        widget=ReferenceWidget(
-            label = _("Publication Specification"),
-            description = _("Set the specification to be used before publishing an AR."),
-            size=20,
-            render_own_label=True,
-            visible={'edit': 'visible',
-                     'view': 'visible',
-                     'header_table': 'visible',
-                     'sample_registered': {'view': 'invisible', 'edit': 'invisible'},
-                     'to_be_sampled':     {'view': 'invisible', 'edit': 'invisible'},
-                     'sampled':           {'view': 'invisible', 'edit': 'invisible'},
-                     'to_be_preserved':   {'view': 'invisible', 'edit': 'invisible'},
-                     'sample_due':        {'view': 'invisible', 'edit': 'invisible'},
-                     'sample_received':   {'view': 'invisible', 'edit': 'invisible'},
-                     'attachment_due':    {'view': 'invisible', 'edit': 'invisible'},
-                     'to_be_verified':    {'view': 'invisible', 'edit': 'invisible'},
-                     'verified':          {'view': 'visible', 'edit': 'visible'},
-                     'published':         {'view': 'visible', 'edit': 'visible'},
-                     'invalid':           {'view': 'visible', 'edit': 'invisible'},
-                     },
-            catalog_name='bika_setup_catalog',
-            base_query={'inactive_state': 'active'},
-            showOn=True,
-        ),
-    ),
-    ReferenceField(
-        'SamplePoint',
-        allowed_types='SamplePoint',
-        relationship='AnalysisRequestSamplePoint',
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=permissions.ModifyPortalContent,
-        widget=ReferenceWidget(
-            label = _("Sample Point"),
-            description = _("Location where sample was taken"),
-            size=20,
-            render_own_label=True,
-            visible={'edit': 'visible',
-                     'view': 'visible',
-                     'add': 'edit',
-                     'secondary': 'disabled',
-                     'header_table': 'visible',
-                     'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
-                     'to_be_sampled':     {'view': 'visible', 'edit': 'visible'}, # LIMS-1159
-                     'sampled':           {'view': 'visible', 'edit': 'visible'},
-                     'to_be_preserved':   {'view': 'visible', 'edit': 'visible'},
-                     'sample_due':        {'view': 'visible', 'edit': 'visible'},
-                     'sample_received':   {'view': 'visible', 'edit': 'visible'},
-                     'attachment_due':    {'view': 'visible', 'edit': 'visible'},
-                     'to_be_verified':    {'view': 'visible', 'edit': 'visible'},
-                     'verified':          {'view': 'visible', 'edit': 'invisible'},
-                     'published':         {'view': 'visible', 'edit': 'invisible'},
-                     'invalid':           {'view': 'visible', 'edit': 'invisible'},
-                     },
-            catalog_name='bika_setup_catalog',
-            base_query={'inactive_state': 'active'},
-            showOn=True,
-        ),
-    ),
-    ReferenceField(
-        'StorageLocation',
-        allowed_types='StorageLocation',
-        relationship='AnalysisRequestStorageLocation',
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=permissions.ModifyPortalContent,
-        widget=ReferenceWidget(
-            label = _("Storage Location"),
-            description = _("Location where sample is kept"),
-            size=20,
-            render_own_label=True,
-            visible={'edit': 'visible',
-                     'view': 'visible',
-                     'add': 'edit',
-                     'secondary': 'disabled',
-                     'header_table': 'visible',
-                     'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
-                     'to_be_sampled':     {'view': 'visible', 'edit': 'visible'},
-                     'sampled':           {'view': 'visible', 'edit': 'visible'},
-                     'to_be_preserved':   {'view': 'visible', 'edit': 'visible'},
-                     'sample_due':        {'view': 'visible', 'edit': 'visible'},
-                     'sample_received':   {'view': 'visible', 'edit': 'visible'},
-                     'attachment_due':    {'view': 'visible', 'edit': 'visible'},
-                     'to_be_verified':    {'view': 'visible', 'edit': 'visible'},
-                     'verified':          {'view': 'visible', 'edit': 'visible'},
-                     'published':         {'view': 'visible', 'edit': 'invisible'},
-                     'invalid':           {'view': 'visible', 'edit': 'invisible'},
-                     },
-            catalog_name='bika_setup_catalog',
-            base_query={'inactive_state': 'active'},
-            showOn=True,
-        ),
-    ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField(
+#         'SampleType',
+#         required=1,
+#         allowed_types='SampleType',
+#         relationship='AnalysisRequestSampleType',
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=permissions.ModifyPortalContent,
+#         widget=ReferenceWidget(
+#             label = _("Sample Type"),
+#             description = _("Create a new sample of this type"),
+#             size=20,
+#             render_own_label=True,
+#             visible={'edit': 'visible',
+#                      'view': 'visible',
+#                      'add': 'edit',
+#                      'secondary': 'disabled',
+#                      'header_table': 'visible',
+#                      'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
+#                      'to_be_sampled':     {'view': 'visible', 'edit': 'invisible'},
+#                      'sampled':           {'view': 'visible', 'edit': 'invisible'},
+#                      'to_be_preserved':   {'view': 'visible', 'edit': 'invisible'},
+#                      'sample_due':        {'view': 'visible', 'edit': 'invisible'},
+#                      'sample_received':   {'view': 'visible', 'edit': 'invisible'},
+#                      'attachment_due':    {'view': 'visible', 'edit': 'invisible'},
+#                      'to_be_verified':    {'view': 'visible', 'edit': 'invisible'},
+#                      'verified':          {'view': 'visible', 'edit': 'invisible'},
+#                      'published':         {'view': 'visible', 'edit': 'invisible'},
+#                      'invalid':           {'view': 'visible', 'edit': 'invisible'},
+#                      },
+#             catalog_name='bika_setup_catalog',
+#             base_query={'inactive_state': 'active'},
+#             showOn=True,
+#         ),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField(
+#         'Specification',
+#         required=0,
+#         allowed_types='AnalysisSpec',
+#         relationship='AnalysisRequestAnalysisSpec',
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=permissions.ModifyPortalContent,
+#         widget=ReferenceWidget(
+#             label = _("Analysis Specification"),
+#             description = _("Choose default AR specification values"),
+#             size=20,
+#             render_own_label=True,
+#             visible={'edit': 'visible',
+#                      'view': 'visible',
+#                      'add': 'edit',
+#                      'header_table': 'visible',
+#                      'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
+#                      'to_be_sampled':     {'view': 'visible', 'edit': 'visible'},
+#                      'sampled':           {'view': 'visible', 'edit': 'visible'},
+#                      'to_be_preserved':   {'view': 'visible', 'edit': 'visible'},
+#                      'sample_due':        {'view': 'visible', 'edit': 'visible'},
+#                      'sample_received':   {'view': 'visible', 'edit': 'visible'},
+#                      'attachment_due':    {'view': 'visible', 'edit': 'visible'},
+#                      'to_be_verified':    {'view': 'visible', 'edit': 'invisible'},
+#                      'verified':          {'view': 'visible', 'edit': 'invisible'},
+#                      'published':         {'view': 'visible', 'edit': 'invisible'},
+#                      'invalid':           {'view': 'visible', 'edit': 'invisible'},
+#                      },
+#             catalog_name='bika_setup_catalog',
+#             colModel=[
+#                 {'columnName': 'contextual_title',
+#                  'width': '30',
+#                  'label': _('Title'),
+#                  'align': 'left'},
+#                 {'columnName': 'SampleTypeTitle',
+#                  'width': '70',
+#                  'label': _('SampleType'),
+#                  'align': 'left'},
+#                 # UID is required in colModel
+#                 {'columnName': 'UID', 'hidden': True},
+#             ],
+#             showOn=True,
+#         ),
+#     ),
+#     # see setResultsRange below.
+# ~~~~~~~ To be implemented ~~~~~~~
+#     RecordsField('ResultsRange',
+#          required=0,
+#          type='analysisspec',
+#          subfields=('keyword', 'min', 'max', 'error', 'hidemin', 'hidemax', 'rangecomment'),
+#          widget=ComputedWidget(visible=False),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField(
+#         'PublicationSpecification',
+#         required=0,
+#         allowed_types='AnalysisSpec',
+#         relationship='AnalysisRequestPublicationSpec',
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=permissions.View,
+#         widget=ReferenceWidget(
+#             label = _("Publication Specification"),
+#             description = _("Set the specification to be used before publishing an AR."),
+#             size=20,
+#             render_own_label=True,
+#             visible={'edit': 'visible',
+#                      'view': 'visible',
+#                      'header_table': 'visible',
+#                      'sample_registered': {'view': 'invisible', 'edit': 'invisible'},
+#                      'to_be_sampled':     {'view': 'invisible', 'edit': 'invisible'},
+#                      'sampled':           {'view': 'invisible', 'edit': 'invisible'},
+#                      'to_be_preserved':   {'view': 'invisible', 'edit': 'invisible'},
+#                      'sample_due':        {'view': 'invisible', 'edit': 'invisible'},
+#                      'sample_received':   {'view': 'invisible', 'edit': 'invisible'},
+#                      'attachment_due':    {'view': 'invisible', 'edit': 'invisible'},
+#                      'to_be_verified':    {'view': 'invisible', 'edit': 'invisible'},
+#                      'verified':          {'view': 'visible', 'edit': 'visible'},
+#                      'published':         {'view': 'visible', 'edit': 'visible'},
+#                      'invalid':           {'view': 'visible', 'edit': 'invisible'},
+#                      },
+#             catalog_name='bika_setup_catalog',
+#             base_query={'inactive_state': 'active'},
+#             showOn=True,
+#         ),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField(
+#         'SamplePoint',
+#         allowed_types='SamplePoint',
+#         relationship='AnalysisRequestSamplePoint',
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=permissions.ModifyPortalContent,
+#         widget=ReferenceWidget(
+#             label = _("Sample Point"),
+#             description = _("Location where sample was taken"),
+#             size=20,
+#             render_own_label=True,
+#             visible={'edit': 'visible',
+#                      'view': 'visible',
+#                      'add': 'edit',
+#                      'secondary': 'disabled',
+#                      'header_table': 'visible',
+#                      'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
+#                      'to_be_sampled':     {'view': 'visible', 'edit': 'visible'}, # LIMS-1159
+#                      'sampled':           {'view': 'visible', 'edit': 'visible'},
+#                      'to_be_preserved':   {'view': 'visible', 'edit': 'visible'},
+#                      'sample_due':        {'view': 'visible', 'edit': 'visible'},
+#                      'sample_received':   {'view': 'visible', 'edit': 'visible'},
+#                      'attachment_due':    {'view': 'visible', 'edit': 'visible'},
+#                      'to_be_verified':    {'view': 'visible', 'edit': 'visible'},
+#                      'verified':          {'view': 'visible', 'edit': 'invisible'},
+#                      'published':         {'view': 'visible', 'edit': 'invisible'},
+#                      'invalid':           {'view': 'visible', 'edit': 'invisible'},
+#                      },
+#             catalog_name='bika_setup_catalog',
+#             base_query={'inactive_state': 'active'},
+#             showOn=True,
+#         ),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField(
+#         'StorageLocation',
+#         allowed_types='StorageLocation',
+#         relationship='AnalysisRequestStorageLocation',
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=permissions.ModifyPortalContent,
+#         widget=ReferenceWidget(
+#             label = _("Storage Location"),
+#             description = _("Location where sample is kept"),
+#             size=20,
+#             render_own_label=True,
+#             visible={'edit': 'visible',
+#                      'view': 'visible',
+#                      'add': 'edit',
+#                      'secondary': 'disabled',
+#                      'header_table': 'visible',
+#                      'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
+#                      'to_be_sampled':     {'view': 'visible', 'edit': 'visible'},
+#                      'sampled':           {'view': 'visible', 'edit': 'visible'},
+#                      'to_be_preserved':   {'view': 'visible', 'edit': 'visible'},
+#                      'sample_due':        {'view': 'visible', 'edit': 'visible'},
+#                      'sample_received':   {'view': 'visible', 'edit': 'visible'},
+#                      'attachment_due':    {'view': 'visible', 'edit': 'visible'},
+#                      'to_be_verified':    {'view': 'visible', 'edit': 'visible'},
+#                      'verified':          {'view': 'visible', 'edit': 'visible'},
+#                      'published':         {'view': 'visible', 'edit': 'invisible'},
+#                      'invalid':           {'view': 'visible', 'edit': 'invisible'},
+#                      },
+#             catalog_name='bika_setup_catalog',
+#             base_query={'inactive_state': 'active'},
+#             showOn=True,
+#         ),
+#     ),
     StringField(
         'ClientOrderNumber',
         searchable=True,
@@ -767,109 +795,112 @@ schema = BikaSchema.copy() + Schema((
         ),
     ),
     # Sample field
-    ReferenceField('SamplingDeviation',
-        allowed_types = ('SamplingDeviation',),
-        relationship = 'AnalysisRequestSamplingDeviation',
-        referenceClass = HoldingReference,
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=permissions.ModifyPortalContent,
-        widget=ReferenceWidget(
-            label = _("Sampling Deviation"),
-            size=20,
-            render_own_label=True,
-            visible={'edit': 'visible',
-                     'view': 'visible',
-                     'add': 'edit',
-                     'secondary': 'disabled',
-                     'header_table': 'visible',
-                     'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
-                     'to_be_sampled':     {'view': 'visible', 'edit': 'visible'},
-                     'sampled':           {'view': 'visible', 'edit': 'visible'},
-                     'to_be_preserved':   {'view': 'visible', 'edit': 'visible'},
-                     'sample_due':        {'view': 'visible', 'edit': 'visible'},
-                     'sample_received':   {'view': 'visible', 'edit': 'invisible'},
-                     'attachment_due':    {'view': 'visible', 'edit': 'invisible'},
-                     'to_be_verified':    {'view': 'visible', 'edit': 'invisible'},
-                     'verified':          {'view': 'visible', 'edit': 'invisible'},
-                     'published':         {'view': 'visible', 'edit': 'invisible'},
-                     'invalid':           {'view': 'visible', 'edit': 'invisible'},
-                     },
-            catalog_name='bika_setup_catalog',
-            base_query={'inactive_state': 'active'},
-            showOn=True,
-        ),
-    ),
-    # Sample field
-    ReferenceField(
-        'SampleCondition',
-        allowed_types = ('SampleCondition',),
-        relationship = 'AnalysisRequestSampleCondition',
-        referenceClass = HoldingReference,
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=permissions.ModifyPortalContent,
-        widget=ReferenceWidget(
-            label = _("Sample condition"),
-            size=20,
-            render_own_label=True,
-            visible={'edit': 'visible',
-                     'view': 'visible',
-                     'add': 'edit',
-                     'secondary': 'disabled',
-                     'header_table': 'visible',
-                     'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
-                     'to_be_sampled':     {'view': 'visible', 'edit': 'visible'},
-                     'sampled':           {'view': 'visible', 'edit': 'visible'},
-                     'to_be_preserved':   {'view': 'visible', 'edit': 'visible'},
-                     'sample_due':        {'view': 'visible', 'edit': 'visible'},
-                     'sample_received':   {'view': 'visible', 'edit': 'invisible'},
-                     'attachment_due':    {'view': 'visible', 'edit': 'invisible'},
-                     'to_be_verified':    {'view': 'visible', 'edit': 'invisible'},
-                     'verified':          {'view': 'visible', 'edit': 'invisible'},
-                     'published':         {'view': 'visible', 'edit': 'invisible'},
-                     'invalid':           {'view': 'visible', 'edit': 'invisible'},
-                     },
-            catalog_name='bika_setup_catalog',
-            base_query={'inactive_state': 'active'},
-            showOn=True,
-        ),
-    ),
-    ReferenceField(
-        'DefaultContainerType',
-        allowed_types = ('ContainerType',),
-        relationship = 'AnalysisRequestContainerType',
-        referenceClass = HoldingReference,
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=permissions.ModifyPortalContent,
-        widget=ReferenceWidget(
-            label = _("Default Container"),
-            description = _("Default container for new sample partitions"),
-            size=20,
-            render_own_label=True,
-            visible={'edit': 'visible',
-                     'view': 'visible',
-                     'add': 'edit',
-                     'secondary': 'disabled',
-                     'header_table': 'visible',
-                     'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
-                     'to_be_sampled':     {'view': 'visible', 'edit': 'invisible'},
-                     'sampled':           {'view': 'visible', 'edit': 'invisible'},
-                     'to_be_preserved':   {'view': 'visible', 'edit': 'invisible'},
-                     'sample_due':        {'view': 'visible', 'edit': 'invisible'},
-                     'sample_received':   {'view': 'visible', 'edit': 'invisible'},
-                     'attachment_due':    {'view': 'visible', 'edit': 'invisible'},
-                     'to_be_verified':    {'view': 'visible', 'edit': 'invisible'},
-                     'verified':          {'view': 'visible', 'edit': 'invisible'},
-                     'published':         {'view': 'visible', 'edit': 'invisible'},
-                     'invalid':           {'view': 'visible', 'edit': 'invisible'},
-                     },
-            catalog_name='bika_setup_catalog',
-            base_query={'inactive_state': 'active'},
-            showOn=True,
-        ),
-    ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField('SamplingDeviation',
+#         allowed_types = ('SamplingDeviation',),
+#         relationship = 'AnalysisRequestSamplingDeviation',
+#         referenceClass = HoldingReference,
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=permissions.ModifyPortalContent,
+#         widget=ReferenceWidget(
+#             label = _("Sampling Deviation"),
+#             size=20,
+#             render_own_label=True,
+#             visible={'edit': 'visible',
+#                      'view': 'visible',
+#                      'add': 'edit',
+#                      'secondary': 'disabled',
+#                      'header_table': 'visible',
+#                      'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
+#                      'to_be_sampled':     {'view': 'visible', 'edit': 'visible'},
+#                      'sampled':           {'view': 'visible', 'edit': 'visible'},
+#                      'to_be_preserved':   {'view': 'visible', 'edit': 'visible'},
+#                      'sample_due':        {'view': 'visible', 'edit': 'visible'},
+#                      'sample_received':   {'view': 'visible', 'edit': 'invisible'},
+#                      'attachment_due':    {'view': 'visible', 'edit': 'invisible'},
+#                      'to_be_verified':    {'view': 'visible', 'edit': 'invisible'},
+#                      'verified':          {'view': 'visible', 'edit': 'invisible'},
+#                      'published':         {'view': 'visible', 'edit': 'invisible'},
+#                      'invalid':           {'view': 'visible', 'edit': 'invisible'},
+#                      },
+#             catalog_name='bika_setup_catalog',
+#             base_query={'inactive_state': 'active'},
+#             showOn=True,
+#         ),
+#     ),
+#     # Sample field
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField(
+#         'SampleCondition',
+#         allowed_types = ('SampleCondition',),
+#         relationship = 'AnalysisRequestSampleCondition',
+#         referenceClass = HoldingReference,
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=permissions.ModifyPortalContent,
+#         widget=ReferenceWidget(
+#             label = _("Sample condition"),
+#             size=20,
+#             render_own_label=True,
+#             visible={'edit': 'visible',
+#                      'view': 'visible',
+#                      'add': 'edit',
+#                      'secondary': 'disabled',
+#                      'header_table': 'visible',
+#                      'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
+#                      'to_be_sampled':     {'view': 'visible', 'edit': 'visible'},
+#                      'sampled':           {'view': 'visible', 'edit': 'visible'},
+#                      'to_be_preserved':   {'view': 'visible', 'edit': 'visible'},
+#                      'sample_due':        {'view': 'visible', 'edit': 'visible'},
+#                      'sample_received':   {'view': 'visible', 'edit': 'invisible'},
+#                      'attachment_due':    {'view': 'visible', 'edit': 'invisible'},
+#                      'to_be_verified':    {'view': 'visible', 'edit': 'invisible'},
+#                      'verified':          {'view': 'visible', 'edit': 'invisible'},
+#                      'published':         {'view': 'visible', 'edit': 'invisible'},
+#                      'invalid':           {'view': 'visible', 'edit': 'invisible'},
+#                      },
+#             catalog_name='bika_setup_catalog',
+#             base_query={'inactive_state': 'active'},
+#             showOn=True,
+#         ),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField(
+#         'DefaultContainerType',
+#         allowed_types = ('ContainerType',),
+#         relationship = 'AnalysisRequestContainerType',
+#         referenceClass = HoldingReference,
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=permissions.ModifyPortalContent,
+#         widget=ReferenceWidget(
+#             label = _("Default Container"),
+#             description = _("Default container for new sample partitions"),
+#             size=20,
+#             render_own_label=True,
+#             visible={'edit': 'visible',
+#                      'view': 'visible',
+#                      'add': 'edit',
+#                      'secondary': 'disabled',
+#                      'header_table': 'visible',
+#                      'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
+#                      'to_be_sampled':     {'view': 'visible', 'edit': 'invisible'},
+#                      'sampled':           {'view': 'visible', 'edit': 'invisible'},
+#                      'to_be_preserved':   {'view': 'visible', 'edit': 'invisible'},
+#                      'sample_due':        {'view': 'visible', 'edit': 'invisible'},
+#                      'sample_received':   {'view': 'visible', 'edit': 'invisible'},
+#                      'attachment_due':    {'view': 'visible', 'edit': 'invisible'},
+#                      'to_be_verified':    {'view': 'visible', 'edit': 'invisible'},
+#                      'verified':          {'view': 'visible', 'edit': 'invisible'},
+#                      'published':         {'view': 'visible', 'edit': 'invisible'},
+#                      'invalid':           {'view': 'visible', 'edit': 'invisible'},
+#                      },
+#             catalog_name='bika_setup_catalog',
+#             base_query={'inactive_state': 'active'},
+#             showOn=True,
+#         ),
+#     ),
     # Sample field
     BooleanField(
         'AdHoc',
@@ -984,49 +1015,52 @@ schema = BikaSchema.copy() + Schema((
                      },
         ),
     ),
-    ARAnalysesField(
-        'Analyses',
-        required=1,
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=permissions.ModifyPortalContent,
-        widget=ComputedWidget(
-            visible={'edit': 'invisible',
-                     'view': 'invisible',
-                     'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'invisible'},
-                     }
-        ),
-    ),
-    ReferenceField(
-        'Attachment',
-        multiValued=1,
-        allowed_types=('Attachment',),
-        referenceClass=HoldingReference,
-        relationship='AnalysisRequestAttachment',
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=permissions.ModifyPortalContent,
-        widget=ComputedWidget(
-            visible={'edit': 'invisible',
-                     'view': 'invisible',
-                     },
-        )
-    ),
-    ReferenceField(
-        'Invoice',
-        vocabulary_display_path_bound=sys.maxsize,
-        allowed_types=('Invoice',),
-        referenceClass=HoldingReference,
-        relationship='AnalysisRequestInvoice',
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=permissions.ModifyPortalContent,
-        widget=ComputedWidget(
-            visible={'edit': 'invisible',
-                     'view': 'invisible',
-                     },
-        )
-    ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ARAnalysesField(
+#         'Analyses',
+#         required=1,
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=permissions.ModifyPortalContent,
+#         widget=ComputedWidget(
+#             visible={'edit': 'invisible',
+#                      'view': 'invisible',
+#                      'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'invisible'},
+#                      }
+#         ),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField(
+#         'Attachment',
+#         multiValued=1,
+#         allowed_types=('Attachment',),
+#         referenceClass=HoldingReference,
+#         relationship='AnalysisRequestAttachment',
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=permissions.ModifyPortalContent,
+#         widget=ComputedWidget(
+#             visible={'edit': 'invisible',
+#                      'view': 'invisible',
+#                      },
+#         )
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField(
+#         'Invoice',
+#         vocabulary_display_path_bound=sys.maxsize,
+#         allowed_types=('Invoice',),
+#         referenceClass=HoldingReference,
+#         relationship='AnalysisRequestInvoice',
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=permissions.ModifyPortalContent,
+#         widget=ComputedWidget(
+#             visible={'edit': 'invisible',
+#                      'view': 'invisible',
+#                      },
+#         )
+#     ),
     DateTimeField(
         'DateReceived',
         mode="rw",
@@ -1114,134 +1148,145 @@ schema = BikaSchema.copy() + Schema((
                      },
         ),
     ),
-    ComputedField(
-        'ClientUID',
-        searchable=True,
-        expression='here.aq_parent.UID()',
-        widget=ComputedWidget(
-            visible=False,
-        ),
-    ),
-    ComputedField(
-        'SampleTypeTitle',
-        searchable=True,
-        expression="here.getSampleType().Title() if here.getSampleType() else ''",
-        widget=ComputedWidget(
-            visible=False,
-        ),
-    ),
-    ComputedField(
-        'SamplePointTitle',
-        searchable=True,
-        expression="here.getSamplePoint().Title() if here.getSamplePoint() else ''",
-        widget=ComputedWidget(
-            visible=False,
-        ),
-    ),
-    ComputedField(
-        'SampleUID',
-        expression="here.getSample() and here.getSample().UID() or ''",
-        widget=ComputedWidget(
-            visible=False,
-        ),
-    ),
-    ComputedField(
-        'SampleID',
-        expression="here.getSample() and here.getSample().getId() or ''",
-        widget=ComputedWidget(
-            visible=False,
-        ),
-    ),
-    ComputedField(
-        'ContactUID',
-        expression="here.getContact() and here.getContact().UID() or ''",
-        widget=ComputedWidget(
-            visible=False,
-        ),
-    ),
-    ComputedField(
-        'ProfilesUID',
-        expression="here.getProfiles() and [profile.UID() for profile in here.getProfiles()] or []",
-        widget=ComputedWidget(
-            visible=False,
-        ),
-    ),
-    ComputedField(
-        'Invoiced',
-        expression='here.getInvoice() and True or False',
-        default=False,
-        widget=ComputedWidget(
-            visible=False,
-        ),
-    ),
-    ReferenceField(
-        'ChildAnalysisRequest',
-        allowed_types = ('AnalysisRequest',),
-        relationship = 'AnalysisRequestChildAnalysisRequest',
-        referenceClass = HoldingReference,
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=permissions.ModifyPortalContent,
-        widget=ReferenceWidget(
-            visible=False,
-        ),
-    ),
-    ReferenceField(
-        'ParentAnalysisRequest',
-        allowed_types = ('AnalysisRequest',),
-        relationship = 'AnalysisRequestParentAnalysisRequest',
-        referenceClass = HoldingReference,
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=permissions.ModifyPortalContent,
-        widget=ReferenceWidget(
-            visible=False,
-        ),
-    ),
-    HistoryAwareReferenceField(
-        'Priority',
-        allowed_types=('ARPriority',),
-        referenceClass=HoldingReference,
-        relationship='AnalysisRequestPriority',
-        mode="rw",
-        read_permission=permissions.View,
-        write_permission=permissions.ModifyPortalContent,
-        widget=ReferenceWidget(
-            label = _("Priority"),
-            size=10,
-            render_own_label=True,
-            visible={'edit': 'visible',
-                     'view': 'visible',
-                     'add': 'edit',
-                     'header_table': 'visible',
-                     'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
-                     'to_be_sampled':     {'view': 'visible', 'edit': 'visible'},
-                     'sampled':           {'view': 'visible', 'edit': 'visible'},
-                     'to_be_preserved':   {'view': 'visible', 'edit': 'visible'},
-                     'sample_due':        {'view': 'visible', 'edit': 'visible'},
-                     'sample_received':   {'view': 'visible', 'edit': 'visible'},
-                     'attachment_due':    {'view': 'visible', 'edit': 'visible'},
-                     'to_be_verified':    {'view': 'visible', 'edit': 'visible'},
-                     'verified':          {'view': 'visible', 'edit': 'visible'},
-                     'published':         {'view': 'visible', 'edit': 'invisible'},
-                     'invalid':           {'view': 'visible', 'edit': 'invisible'},
-                     },
-            catalog_name='bika_setup_catalog',
-            base_query={'inactive_state': 'active'},
-            colModel=[
-                {'columnName': 'Title', 'width': '30',
-                 'label': _('Title'), 'align': 'left'},
-                {'columnName': 'Description', 'width': '70',
-                 'label': _('Description'), 'align': 'left'},
-                {'columnName': 'sortKey', 'hidden': True},
-                {'columnName': 'UID', 'hidden': True},
-            ],
-            sidx='sortKey',
-            sord='asc',
-            showOn=True,
-        ),
-    ),
-
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField(
+#         'ClientUID',
+#         searchable=True,
+#         expression='here.aq_parent.UID()',
+#         widget=ComputedWidget(
+#             visible=False,
+#         ),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField(
+#         'SampleTypeTitle',
+#         searchable=True,
+#         expression="here.getSampleType().Title() if here.getSampleType() else ''",
+#         widget=ComputedWidget(
+#             visible=False,
+#         ),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField(
+#         'SamplePointTitle',
+#         searchable=True,
+#         expression="here.getSamplePoint().Title() if here.getSamplePoint() else ''",
+#         widget=ComputedWidget(
+#             visible=False,
+#         ),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField(
+#         'SampleUID',
+#         expression="here.getSample() and here.getSample().UID() or ''",
+#         widget=ComputedWidget(
+#             visible=False,
+#         ),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField(
+#         'SampleID',
+#         expression="here.getSample() and here.getSample().getId() or ''",
+#         widget=ComputedWidget(
+#             visible=False,
+#         ),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField(
+#         'ContactUID',
+#         expression="here.getContact() and here.getContact().UID() or ''",
+#         widget=ComputedWidget(
+#             visible=False,
+#         ),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField(
+#         'ProfilesUID',
+#         expression="here.getProfiles() and [profile.UID() for profile in here.getProfiles()] or []",
+#         widget=ComputedWidget(
+#             visible=False,
+#         ),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField(
+#         'Invoiced',
+#         expression='here.getInvoice() and True or False',
+#         default=False,
+#         widget=ComputedWidget(
+#             visible=False,
+#         ),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField(
+#         'ChildAnalysisRequest',
+#         allowed_types = ('AnalysisRequest',),
+#         relationship = 'AnalysisRequestChildAnalysisRequest',
+#         referenceClass = HoldingReference,
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=permissions.ModifyPortalContent,
+#         widget=ReferenceWidget(
+#             visible=False,
+#         ),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField(
+#         'ParentAnalysisRequest',
+#         allowed_types = ('AnalysisRequest',),
+#         relationship = 'AnalysisRequestParentAnalysisRequest',
+#         referenceClass = HoldingReference,
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=permissions.ModifyPortalContent,
+#         widget=ReferenceWidget(
+#             visible=False,
+#         ),
+#     ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     HistoryAwareReferenceField(
+#         'Priority',
+#         allowed_types=('ARPriority',),
+#         referenceClass=HoldingReference,
+#         relationship='AnalysisRequestPriority',
+#         mode="rw",
+#         read_permission=permissions.View,
+#         write_permission=permissions.ModifyPortalContent,
+#         widget=ReferenceWidget(
+#             label = _("Priority"),
+#             size=10,
+#             render_own_label=True,
+#             visible={'edit': 'visible',
+#                      'view': 'visible',
+#                      'add': 'edit',
+#                      'header_table': 'visible',
+#                      'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
+#                      'to_be_sampled':     {'view': 'visible', 'edit': 'visible'},
+#                      'sampled':           {'view': 'visible', 'edit': 'visible'},
+#                      'to_be_preserved':   {'view': 'visible', 'edit': 'visible'},
+#                      'sample_due':        {'view': 'visible', 'edit': 'visible'},
+#                      'sample_received':   {'view': 'visible', 'edit': 'visible'},
+#                      'attachment_due':    {'view': 'visible', 'edit': 'visible'},
+#                      'to_be_verified':    {'view': 'visible', 'edit': 'visible'},
+#                      'verified':          {'view': 'visible', 'edit': 'visible'},
+#                      'published':         {'view': 'visible', 'edit': 'invisible'},
+#                      'invalid':           {'view': 'visible', 'edit': 'invisible'},
+#                      },
+#             catalog_name='bika_setup_catalog',
+#             base_query={'inactive_state': 'active'},
+#             colModel=[
+#                 {'columnName': 'Title', 'width': '30',
+#                  'label': _('Title'), 'align': 'left'},
+#                 {'columnName': 'Description', 'width': '70',
+#                  'label': _('Description'), 'align': 'left'},
+#                 {'columnName': 'sortKey', 'hidden': True},
+#                 {'columnName': 'UID', 'hidden': True},
+#             ],
+#             sidx='sortKey',
+#             sord='asc',
+#             showOn=True,
+#         ),
+#     ),
+# 
     # For comments or results interpretation
     # Old one, to be removed because of the incorporation of
     # ResultsInterpretationDepts (due to LIMS-1628)
@@ -1264,48 +1309,52 @@ schema = BikaSchema.copy() + Schema((
             rows=3,
             visible=False),
     ),
-    RecordsField('ResultsInterpretationDepts',
-        subfields = ('uid',
-                     'richtext'),
-        subfield_labels = {'uid': _('Department'),
-                           'richtext': _('Results Interpreation'),},
-        widget = RichWidget(visible=False),
-    ),
-    # Custom settings for the assigned analysis services
-    # https://jira.bikalabs.com/browse/LIMS-1324
-    # Fields:
-    #   - uid: Analysis Service UID
-    #   - hidden: True/False. Hide/Display in results reports
-    RecordsField('AnalysisServicesSettings',
-         required=0,
-         subfields=('uid', 'hidden',),
-         widget=ComputedWidget(visible=False),
-    ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     RecordsField('ResultsInterpretationDepts',
+#         subfields = ('uid',
+#                      'richtext'),
+#         subfield_labels = {'uid': _('Department'),
+#                            'richtext': _('Results Interpreation'),},
+#         widget = RichWidget(visible=False),
+#     ),
+#     # Custom settings for the assigned analysis services
+#     # https://jira.bikalabs.com/browse/LIMS-1324
+#     # Fields:
+#     #   - uid: Analysis Service UID
+#     #   - hidden: True/False. Hide/Display in results reports
+# ~~~~~~~ To be implemented ~~~~~~~
+#     RecordsField('AnalysisServicesSettings',
+#          required=0,
+#          subfields=('uid', 'hidden',),
+#          widget=ComputedWidget(visible=False),
+#     ),
 )
-)
+# )
 
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# schema['title'].required = False
+# 
+# schema['id'].widget.visible = {
+#     'edit': 'invisible',
+#     'view': 'invisible',
+# }
+# 
+# schema['title'].widget.visible = {
+#     'edit': 'invisible',
+#     'view': 'invisible',
+# }
+# 
+# schema.moveField('Client', before='Contact')
+# schema.moveField('ResultsInterpretation', pos='bottom')
+# schema.moveField('ResultsInterpretationDepts', pos='bottom')
 
-schema['title'].required = False
-
-schema['id'].widget.visible = {
-    'edit': 'invisible',
-    'view': 'invisible',
-}
-
-schema['title'].widget.visible = {
-    'edit': 'invisible',
-    'view': 'invisible',
-}
-
-schema.moveField('Client', before='Contact')
-schema.moveField('ResultsInterpretation', pos='bottom')
-schema.moveField('ResultsInterpretationDepts', pos='bottom')
-
-class AnalysisRequest(BaseFolder):
-    implements(IAnalysisRequest)
-    security = ClassSecurityInfo()
-    displayContentsTab = False
-    schema = schema
+class AnalysisRequest(models.Model, BaseOLiMSModel): #(BaseFolder):
+    _name = 'olims.analysis_request'
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     implements(IAnalysisRequest)
+#     security = ClassSecurityInfo()
+#     displayContentsTab = False
+#     schema = schema
 
     _at_rename_after_creation = True
 
@@ -1390,9 +1439,11 @@ class AnalysisRequest(BaseFolder):
         """ compute default member discount if it applies """
         if hasattr(self, 'getMemberDiscountApplies'):
             if self.getMemberDiscountApplies():
-                plone = getSite()
-                settings = plone.bika_setup
-                return settings.getMemberDiscount()
+                pass
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#                 plone = getSite()
+#                 settings = plone.bika_setup
+#                 return settings.getMemberDiscount()
             else:
                 return "0.00"
 
@@ -1411,8 +1462,8 @@ class AnalysisRequest(BaseFolder):
         # priority is not a required field.  No default means...
         logging.info('Priority: no default priority found')
         return
-
-    security.declareProtected(View, 'getResponsible')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declareProtected(View, 'getResponsible')
 
     def getAnalysesNum(self):
         """ Return the amount of analyses verified/total in the current AR """
@@ -1465,8 +1516,8 @@ class AnalysisRequest(BaseFolder):
         mngr_info['dict'] = managers
 
         return mngr_info
-
-    security.declareProtected(View, 'getResponsible')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declareProtected(View, 'getResponsible')
 
     def getManagers(self):
         """ Return all managers of responsible departments """
@@ -1490,8 +1541,8 @@ class AnalysisRequest(BaseFolder):
                 manager_list.append(manager)
 
         return manager_list
-
-    security.declareProtected(View, 'getLate')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declareProtected(View, 'getLate')
 
     def getLate(self):
         """ return True if any analyses are late """
@@ -1514,8 +1565,8 @@ class AnalysisRequest(BaseFolder):
                     or (not resultdate and DateTime() > duedate):
                     return True
         return False
-
-    security.declareProtected(View, 'getBillableItems')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declareProtected(View, 'getBillableItems')
 
     def getBillableItems(self):
         """
@@ -1587,8 +1638,8 @@ class AnalysisRequest(BaseFolder):
                         analyses.remove(analysis)
                         profile_analyses.append(analysis)
         return analyses, analysis_profiles, profile_analyses
-
-    security.declareProtected(View, 'getSubtotal')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declareProtected(View, 'getSubtotal')
 
     def getSubtotal(self):
         """ Compute Subtotal (without member discount and without vat)
@@ -1598,8 +1649,8 @@ class AnalysisRequest(BaseFolder):
             [Decimal(obj.getPrice()) for obj in analyses] +
             [Decimal(obj.getAnalysisProfilePrice()) for obj in a_profiles]
         )
-
-    security.declareProtected(View, 'getSubtotalVATAmount')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declareProtected(View, 'getSubtotalVATAmount')
 
     def getSubtotalVATAmount(self):
         """ Compute VAT amount without member discount"""
@@ -1610,14 +1661,14 @@ class AnalysisRequest(BaseFolder):
                 [Decimal(o.getVATAmount()) for o in a_profiles]
             )
         return 0
-
-    security.declareProtected(View, 'getSubtotalTotalPrice')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declareProtected(View, 'getSubtotalTotalPrice')
 
     def getSubtotalTotalPrice(self):
         """ Compute the price with VAT but no member discount"""
         return self.getSubtotal() + self.getSubtotalVATAmount()
-
-    security.declareProtected(View, 'getDiscountAmount')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declareProtected(View, 'getDiscountAmount')
 
     def getDiscountAmount(self):
         """
@@ -1643,8 +1694,8 @@ class AnalysisRequest(BaseFolder):
             return Decimal((1 - discount/100) * VATAmount)
         else:
             return VATAmount
-
-    security.declareProtected(View, 'getTotalPrice')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declareProtected(View, 'getTotalPrice')
 
     def getTotalPrice(self):
         """
@@ -1654,8 +1705,8 @@ class AnalysisRequest(BaseFolder):
         """
         return self.getSubtotal() - self.getDiscountAmount() + self.getVATAmount()
     getTotal = getTotalPrice
-
-    security.declareProtected(ManageInvoices, 'issueInvoice')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declareProtected(ManageInvoices, 'issueInvoice')
 
     def issueInvoice(self, REQUEST=None, RESPONSE=None):
         """ issue invoice
@@ -1692,8 +1743,8 @@ class AnalysisRequest(BaseFolder):
         invoice.setAnalysisRequest(self)
         # Set the created invoice in the schema
         self.Schema()['Invoice'].set(self, invoice)
-
-    security.declarePublic('printInvoice')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('printInvoice')
     def printInvoice(self, REQUEST=None, RESPONSE=None):
         """ print invoice
         """
@@ -1765,11 +1816,12 @@ class AnalysisRequest(BaseFolder):
         parent.setAttachment(attachments)
         client = attachment.aq_parent
         ids = [attachment.getId(), ]
-        BaseFolder.manage_delObjects(client, ids, REQUEST)
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#         BaseFolder.manage_delObjects(client, ids, REQUEST)
 
         RESPONSE.redirect(self.REQUEST.get_header('referer'))
-
-    security.declarePublic('getVerifier')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('getVerifier')
 
     def getVerifier(self):
         wtool = getToolByName(self, 'portal_workflow')
@@ -1793,8 +1845,8 @@ class AnalysisRequest(BaseFolder):
             if verifier is None or verifier == '':
                 verifier = actor
         return verifier
-
-    security.declarePublic('getContactUIDForUser')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('getContactUIDForUser')
 
     def getContactUIDForUser(self):
         """ get the UID of the contact associated with the authenticated
@@ -1807,8 +1859,8 @@ class AnalysisRequest(BaseFolder):
                getUsername=user_id)
         if len(r) == 1:
             return r[0].UID
-
-    security.declarePublic('current_date')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('current_date')
 
     def current_date(self):
         """ return current date """
@@ -1945,190 +1997,190 @@ class AnalysisRequest(BaseFolder):
 
     # Then a string of fields which are defined on the AR, but need to be set
     # and read from the sample
-
-    security.declarePublic('setSamplingDate')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('setSamplingDate')
 
     def setSamplingDate(self, value):
         sample = self.getSample()
         if sample and value:
             sample.setSamplingDate(value)
-
-    security.declarePublic('getSamplingDate')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('getSamplingDate')
 
     def getSamplingDate(self):
         sample = self.getSample()
         if sample:
             return sample.getSamplingDate()
-
-    security.declarePublic('setSampler')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('setSampler')
 
     def setSampler(self, value):
         sample = self.getSample()
         if sample and value:
             sample.setSampler(value)
         self.Schema()['Sampler'].set(self, value)
-
-    security.declarePublic('getSampler')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('getSampler')
 
     def getSampler(self):
         sample = self.getSample()
         if sample:
             return sample.getSampler()
         return self.Schema().getField('Sampler').get(self)
-
-    security.declarePublic('setDateSampled')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('setDateSampled')
 
     def setDateSampled(self, value):
         sample = self.getSample()
         if sample and value:
             sample.setDateSampled(value)
         self.Schema()['DateSampled'].set(self, value)
-
-    security.declarePublic('getDateSampled')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('getDateSampled')
 
     def getDateSampled(self):
         sample = self.getSample()
         if sample:
             return sample.getDateSampled()
         return self.Schema().getField('DateSampled').get(self)
-
-    security.declarePublic('setSamplePoint')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('setSamplePoint')
 
     def setSamplePoint(self, value):
         sample = self.getSample()
         if sample and value:
             sample.setSamplePoint(value)
         self.Schema()['SamplePoint'].set(self, value)
-
-    security.declarePublic('getSamplepoint')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('getSamplepoint')
 
     def getSamplePoint(self):
         sample = self.getSample()
         if sample:
             return sample.getSamplePoint()
         return self.Schema().getField('SamplePoint').get(self)
-
-    security.declarePublic('setSampleType')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('setSampleType')
 
     def setSampleType(self, value):
         sample = self.getSample()
         if sample and value:
             sample.setSampleType(value)
         self.Schema()['SampleType'].set(self, value)
-
-    security.declarePublic('getSampleType')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('getSampleType')
 
     def getSampleType(self):
         sample = self.getSample()
         if sample:
             return sample.getSampleType()
         return self.Schema().getField('SampleType').get(self)
-
-    security.declarePublic('setClientReference')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('setClientReference')
 
     def setClientReference(self, value):
         sample = self.getSample()
         if sample and value:
             sample.setClientReference(value)
         self.Schema()['ClientReference'].set(self, value)
-
-    security.declarePublic('getClientReference')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('getClientReference')
 
     def getClientReference(self):
         sample = self.getSample()
         if sample:
             return sample.getClientReference()
         return self.Schema().getField('ClientReference').get(self)
-
-    security.declarePublic('setClientSampleID')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('setClientSampleID')
 
     def setClientSampleID(self, value):
         sample = self.getSample()
         if sample and value:
             sample.setClientSampleID(value)
         self.Schema()['ClientSampleID'].set(self, value)
-
-    security.declarePublic('getClientSampleID')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('getClientSampleID')
 
     def getClientSampleID(self):
         sample = self.getSample()
         if sample:
             return sample.getClientSampleID()
         return self.Schema().getField('ClientSampleID').get(self)
-
-    security.declarePublic('setSamplingDeviation')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('setSamplingDeviation')
 
     def setSamplingDeviation(self, value):
         sample = self.getSample()
         if sample and value:
             sample.setSamplingDeviation(value)
         self.Schema()['SamplingDeviation'].set(self, value)
-
-    security.declarePublic('getSamplingDeviation')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('getSamplingDeviation')
 
     def getSamplingDeviation(self):
         sample = self.getSample()
         if sample:
             return sample.getSamplingDeviation()
         return self.Schema().getField('SamplingDeviation').get(self)
-
-    security.declarePublic('setSampleCondition')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('setSampleCondition')
 
     def setSampleCondition(self, value):
         sample = self.getSample()
         if sample and value:
             sample.setSampleCondition(value)
         self.Schema()['SampleCondition'].set(self, value)
-
-    security.declarePublic('getSampleCondition')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('getSampleCondition')
 
     def getSampleCondition(self):
         sample = self.getSample()
         if sample:
             return sample.getSampleCondition()
         return self.Schema().getField('SampleCondition').get(self)
-
-    security.declarePublic('setComposite')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('setComposite')
 
     def setComposite(self, value):
         sample = self.getSample()
         if sample and value:
             sample.setComposite(value)
         self.Schema()['Composite'].set(self, value)
-
-    security.declarePublic('getComposite')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('getComposite')
 
     def getComposite(self):
         sample = self.getSample()
         if sample:
             return sample.getComposite()
         return self.Schema().getField('Composite').get(self)
-
-    security.declarePublic('setStorageLocation')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('setStorageLocation')
 
     def setStorageLocation(self, value):
         sample = self.getSample()
         if sample and value:
             sample.setStorageLocation(value)
         self.Schema()['StorageLocation'].set(self, value)
-
-    security.declarePublic('getStorageLocation')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('getStorageLocation')
 
     def getStorageLocation(self):
         sample = self.getSample()
         if sample:
             return sample.getStorageLocation()
         return self.Schema().getField('StorageLocation').get(self)
-
-    security.declarePublic('setAdHoc')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('setAdHoc')
 
     def setAdHoc(self, value):
         sample = self.getSample()
         if sample and value:
             sample.setAdHoc(value)
         self.Schema()['AdHoc'].set(self, value)
-
-    security.declarePublic('getAdHoc')
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+#     security.declarePublic('getAdHoc')
 
     def getAdHoc(self):
         sample = self.getSample()
@@ -2373,7 +2425,8 @@ class AnalysisRequest(BaseFolder):
         for analysis in analyses:
             doActionFor(analysis.getObject(), 'cancel')
 
-
+AnalysisRequest.initialze(schema)
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
 # atapi.registerType(AnalysisRequest, PROJECTNAME)
-registerType(AnalysisRequest, PROJECTNAME)
+# registerType(AnalysisRequest, PROJECTNAME)
 
