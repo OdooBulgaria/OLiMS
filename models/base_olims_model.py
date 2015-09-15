@@ -29,7 +29,7 @@ class BaseOLiMSModel(object):
         # 2. make getter methods for each model variable defined in step 1
         for field in schema:
             add_a_field(cls, field)
-            add_a_getter(cls, field)
+#             add_a_getter(cls, field)
             pass
         pass       
     pass
