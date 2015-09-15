@@ -1,62 +1,111 @@
-from dependencies.dependency import ClassSecurityInfo
-from dependencies.dependency import schemata
-from dependencies.dependency import RecordsField
-from dependencies.dependency import *
-from dependencies.dependency import HoldingReference
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+
+#from dependencies.dependency import ClassSecurityInfo
+#from dependencies.dependency import schemata
+#from dependencies.dependency import RecordsField
+#from dependencies.dependency import *
+#from dependencies.dependency import HoldingReference
+#from lims.browser.fields import HistoryAwareReferenceField
+#from lims.browser.widgets import DateTimeWidget
+#from lims.browser.widgets import RecordsWidget
+#from lims.config import PROJECTNAME
+#from lims.content.bikaschema import BikaSchema, BikaFolderSchema
+#from lims.interfaces import IInstrument
+#from dependencies.dependency import ATFolder
+#from dependencies.dependency import implements
+#from dependencies.dependency import DateTime
+
 from dependencies.dependency import getToolByName
 from dependencies.dependency import safe_unicode
 from lims import bikaMessageFactory as _
 from lims.utils import t
-from lims.browser.fields import HistoryAwareReferenceField
-from lims.browser.widgets import DateTimeWidget
-from lims.browser.widgets import RecordsWidget
-from lims.config import PROJECTNAME
-from lims.content.bikaschema import BikaSchema, BikaFolderSchema
-from lims.interfaces import IInstrument
 from lims.utils import to_utf8
-from dependencies.dependency import ATFolder
-from dependencies.dependency import implements
-from dependencies.dependency import date
-from dependencies.dependency import DateTime
+
+
+from datetime import date
+from dependencies.dependency import DisplayList
+
 from lims.config import QCANALYSIS_TYPES
 
-schema = BikaFolderSchema.copy() + BikaSchema.copy() + Schema((
 
-    ReferenceField('InstrumentType',
-        vocabulary='getInstrumentTypes',
-        allowed_types=('InstrumentType',),
-        relationship='InstrumentInstrumentType',
+
+from openerp import fields, models
+from models.base_olims_model import BaseOLiMSModel
+from models.manufacturer import Manufacturer
+
+from fields.string_field import StringField
+from fields.text_field import TextField
+from fields.boolean_field import BooleanField
+from fields.date_time_field import DateTimeField
+from fields.file_field import FileField
+from fields.reference_field import ReferenceField
+from fields.widget.widget import StringWidget, TextAreaWidget, BooleanWidget, FileWidget, DateTimeWidget
+
+import logging
+_logger = logging.getLogger(__name__)
+
+#schema = BikaFolderSchema.copy() + BikaSchema.copy() + Schema((
+schema = (
+
+    StringField('Title',
         required=1,
-        widget=SelectionWidget(
-            format='select',
-            label=_("Instrument type"),
-            visible={'view': 'invisible', 'edit': 'visible'}
+        widget=StringWidget(
+            label=_('Title'),
+            description=_('Title is required.'),
+        ),
+    ),
+    TextField('Description',
+        widget=TextAreaWidget(
+            label=_('Description'),
+            description=_('Used in item listings and search results.'),
         ),
     ),
 
-    ReferenceField('Manufacturer',
-        vocabulary='getManufacturers',
-        allowed_types=('Manufacturer',),
-        relationship='InstrumentManufacturer',
-        required=1,
-        widget=SelectionWidget(
-            format='select',
-            label=_("Manufacturer"),
-            visible={'view': 'invisible', 'edit': 'visible'}
-        ),
+    ReferenceField(string='InstrumentType',
+           selection=[('olims.instrument_type', 'Instrument Type')],
+           required=1,
+
+      #     vocabulary='getInstrumentTypes',
+       # allowed_types=('InstrumentType',),
+       # relationship='InstrumentInstrumentType',
+        #required=1,
+        # widget=SelectionWidget(
+        #     format='select',
+        #     label=_("Instrument type"),
+        #     visible={'view': 'invisible', 'edit': 'visible'}
+        # ),
     ),
 
-    ReferenceField('Supplier',
-        vocabulary='getSuppliers',
-        allowed_types=('Supplier',),
-        relationship='InstrumentSupplier',
-        required=1,
-        widget=SelectionWidget(
-            format='select',
-            label=_("Supplier"),
-            visible={'view': 'invisible', 'edit': 'visible'}
-        ),
+
+    ReferenceField(string='Manufacturer',
+           selection=[('olims.manufacturer', 'Manufacturer')],
+           required=1,
+        # vocabulary='getManufacturers',
+        # allowed_types=('Manufacturer',),
+        # relationship='InstrumentManufacturer',
+        # required=1,
+        # widget=SelectionWidget(
+        #     format='select',
+        #     label=_("Manufacturer"),
+        #     visible={'view': 'invisible', 'edit': 'visible'}
+        # ),
     ),
+                #-------  to be implemented, required "InstrumentSupplier"
+
+    # ReferenceField('Supplier',
+    #                [('olims.InstrumentSupplier', 'Instrument Supplier')],
+    #                required=1,
+
+        # vocabulary='getSuppliers',
+        # allowed_types=('Supplier',),
+        # relationship='InstrumentSupplier',
+        # required=1,
+        # widget=SelectionWidget(
+        #     format='select',
+        #     label=_("Supplier"),
+        #     visible={'view': 'invisible', 'edit': 'visible'}
+        # ),
+#    ),
 
     StringField('Model',
         widget = StringWidget(
@@ -72,22 +121,22 @@ schema = BikaFolderSchema.copy() + BikaSchema.copy() + Schema((
         )
     ),
 
-    HistoryAwareReferenceField('Method',
-        vocabulary='_getAvailableMethods',
-        allowed_types=('Method',),
-        relationship='InstrumentMethod',
-        required=0,
-        widget=SelectionWidget(
-            format='select',
-            label=_("Method"),
-        ),
-    ),
+    # HistoryAwareReferenceField('Method',
+    #     vocabulary='_getAvailableMethods',
+    #     allowed_types=('Method',),
+    #     relationship='InstrumentMethod',
+    #     required=0,
+    #     widget=SelectionWidget(
+    #         format='select',
+    #         label=_("Method"),
+    #     ),
+    # ),
 
     BooleanField('DisposeUntilNextCalibrationTest',
         default = False,
         widget = BooleanWidget(
             label=_("De-activate until next calibration test"),
-            description=_("If checked, the instrument will be unavailable until the next valid "
+            description=_("If checked, the instrument will be unavailable until the next valid "+
                           "calibration was performed. This checkbox will automatically be unchecked."),
         ),
     ),
@@ -113,87 +162,93 @@ schema = BikaFolderSchema.copy() + BikaSchema.copy() + Schema((
             description=_("Instructions for regular preventive and maintenance routines intended for analysts"),
         ),
     ),
+    #
+    # #TODO: To be removed?
+    # StringField('DataInterface',
+    #     vocabulary = "getDataInterfacesList",
+    #     widget = ReferenceWidget(
+    #         checkbox_bound = 0,
+    #         label=_("Data Interface"),
+    #         description=_("Select an Import/Export interface for this instrument."),
+    #         visible = False,
+    #     ),
+    # ),
+    #~~~~~~~~~~~~~~~~~~~~~~ to be implemented
+    # #TODO: To be removed?
+    # RecordsField('DataInterfaceOptions',
+    #     type = 'interfaceoptions',
+    #     subfields = ('Key','Value'),
+    #     required_subfields = ('Key','Value'),
+    #     subfield_labels = {'OptionValue': _('Key'),
+    #                        'OptionText': _('Value'),},
+    #     widget = RecordsWidget(
+    #         label=_("Data Interface Options"),
+    #         description=_("Use this field to pass arbitrary parameters to the export/import modules."),
+    #         visible = False,
+    #     ),
+    # ),
 
-    #TODO: To be removed?
-    StringField('DataInterface',
-        vocabulary = "getDataInterfacesList",
-        widget = ReferenceWidget(
-            checkbox_bound = 0,
-            label=_("Data Interface"),
-            description=_("Select an Import/Export interface for this instrument."),
-            visible = False,
-        ),
-    ),
-
-    #TODO: To be removed?
-    RecordsField('DataInterfaceOptions',
-        type = 'interfaceoptions',
-        subfields = ('Key','Value'),
-        required_subfields = ('Key','Value'),
-        subfield_labels = {'OptionValue': _('Key'),
-                           'OptionText': _('Value'),},
-        widget = RecordsWidget(
-            label=_("Data Interface Options"),
-            description=_("Use this field to pass arbitrary parameters to the export/import modules."),
-            visible = False,
-        ),
-    ),
-
+#~~~~~~~~~~~~~~~~~~~~~~ to be implemented, required ReferenceAnalysis', 'DuplicateAnalysis' and 'Analysis'
     # References to all analyses performed with this instrument.
     # Includes regular analyses, QC analyes and Calibration tests.
-    ReferenceField('Analyses',
-        required = 0,
-        multiValued = 1,
-        allowed_types = ('ReferenceAnalysis', 'DuplicateAnalysis',
-                         'Analysis'),
-        relationship = 'InstrumentAnalyses',
-        widget = ReferenceWidget(
-            visible = False,
-        ),
-    ),
+    # ReferenceField('Analyses',
+    #     required = 0,
+    #     multiValued = 1,
+    #     allowed_types = ('ReferenceAnalysis', 'DuplicateAnalysis',
+    #                      'Analysis'),
+    #     relationship = 'InstrumentAnalyses',
+    #     widget = ReferenceWidget(
+    #         visible = False,
+    #     ),
+    # ),
 
+
+#~~~~~~~~~~~~~~~~~~~~~~ to be implemented, required ReferenceAnalysis
     # Private method. Use getLatestReferenceAnalyses() instead.
-    # See getLatestReferenceAnalyses() method for further info.
-    ReferenceField('_LatestReferenceAnalyses',
-        required = 0,
-        multiValued = 1,
-        allowed_types = ('ReferenceAnalysis'),
-        relationship = 'InstrumentLatestReferenceAnalyses',
-        widget = ReferenceWidget(
-            visible = False,
-        ),
-    ),
+    # # See getLatestReferenceAnalyses() method for further info.
+    # ReferenceField('_LatestReferenceAnalyses',
+    #     required = 0,
+    #     multiValued = 1,
+    #     allowed_types = ('ReferenceAnalysis'),
+    #     relationship = 'InstrumentLatestReferenceAnalyses',
+    #     widget = ReferenceWidget(
+    #         visible = False,
+    #     ),
+    # ),
 
-    ComputedField('Valid',
-        expression = "'1' if context.isValid() else '0'",
-        widget = ComputedWidget(
-            visible = False,
-        ),
-    ),
+    # ComputedField('Valid',
+    #     expression = "'1' if context.isValid() else '0'",
+    #     widget = ComputedWidget(
+    #         visible = False,
+    #     ),
+    # ),
+
     #Needed since InstrumentType is sorted by its own object, not by its name.
-    ComputedField('InstrumentTypeName',
-        expression = 'here.getInstrumentType().Title() if here.getInstrumentType() else ""',
-        widget = ComputedWidget(
-            label=_('Instrument Type'),
-            visible=True,
-         ),
-    ),
 
-    ComputedField('ManufacturerName',
-        expression = 'here.getManufacturer().Title() if here.getManufacturer() else ""',
-        widget = ComputedWidget(
-        label=_('Manufacturer'),
-            visible=True,
-         ),
-    ),
 
-    ComputedField('SupplierName',
-        expression = 'here.getSupplier().Title() if here.getSupplier() else ""',
-        widget = ComputedWidget(
-        label=_('Supplier'),
-            visible=True,
-         ),
-    ),
+    # ComputedField('InstrumentTypeName',
+    #     # expression = 'here.getInstrumentType().Title() if here.getInstrumentType() else ""',
+    #     # widget = ComputedWidget(
+    #     #     label=_('Instrument Type'),
+    #     #     visible=True,
+    #     #  ),
+    # ),
+    #
+    # ComputedField('ManufacturerName',
+    #     expression = 'here.getManufacturer().Title() if here.getManufacturer() else ""',
+    #     widget = ComputedWidget(
+    #     label=_('Manufacturer'),
+    #         visible=True,
+    #      ),
+    # ),
+    #
+    # ComputedField('SupplierName',
+    #     expression = 'here.getSupplier().Title() if here.getSupplier() else ""',
+    #     widget = ComputedWidget(
+    #     label=_('Supplier'),
+    #         visible=True,
+    #      ),
+    # ),
 
     StringField('AssetNumber',
         widget = StringWidget(
@@ -210,13 +265,13 @@ schema = BikaFolderSchema.copy() + BikaSchema.copy() + Schema((
         )
     ),
 
-    ImageField('Photo',
-        schemata='Additional info.',
-        widget=ImageWidget(
-            label=_("Photo image file"),
-            description=_("Photo of the instrument"),
-        ),
-    ),
+    # ImageField('Photo',
+    #     schemata='Additional info.',
+    #     widget=ImageWidget(
+    #         label=_("Photo image file"),
+    #         description=_("Photo of the instrument"),
+    #     ),
+    # ),
 
     DateTimeField('InstallationDate',
     schemata = 'Additional info.',
@@ -234,15 +289,15 @@ schema = BikaFolderSchema.copy() + BikaSchema.copy() + Schema((
         )
     ),
 
-))
+) #)
 
-schema.moveField('AssetNumber', before='description')
-schema.moveField('SupplierName', before='Model')
-schema.moveField('ManufacturerName', before='SupplierName')
-schema.moveField('InstrumentTypeName', before='ManufacturerName')
-
-schema['description'].widget.visible = True
-schema['description'].schemata = 'default'
+# schema.moveField('AssetNumber', before='description')
+# schema.moveField('SupplierName', before='Model')
+# schema.moveField('ManufacturerName', before='SupplierName')
+# schema.moveField('InstrumentTypeName', before='ManufacturerName')
+#
+# schema['description'].widget.visible = True
+# schema['description'].schemata = 'default'
 
 def getDataInterfaces(context):
     """ Return the current list of data interfaces
@@ -267,11 +322,13 @@ def getCalibrationAgents(context):
              ('maintainer', 'Maintainer')]
     return DisplayList(agents);
 
-class Instrument(ATFolder):
-    implements(IInstrument)
-    security = ClassSecurityInfo()
-    displayContentsTab = False
-    schema = schema
+#class Instrument(ATFolder):
+class Instrument(models.Model, BaseOLiMSModel):
+    _name = 'olims.instrument'
+    # implements(IInstrument)
+    # security = ClassSecurityInfo()
+    # displayContentsTab = False
+    # schema = schema
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
@@ -681,6 +738,8 @@ class Instrument(ATFolder):
 
         return addedanalyses
 
+
+
     def getAnalysesToRetract(self, allanalyses=True, outofdate=False):
         """ If the instrument is not valid due to fail on latest QC
             Tests or a Calibration Test, returns the validation-pending
@@ -705,7 +764,14 @@ class Instrument(ATFolder):
         ans = [p.getObject() for p in prox]
         return [a for a in ans if a.getRawInstrument() == self.UID()]
 
+    # def compute_field(self,cr,uid,id,context=None):
+    #     my_record = self.pool.get('olims.manufacturer')
+    #     my_title = my_record.manufacturer_get(cr,uid,'Title')
+    #     _logger.warning(' in Instrument get_manufacturer %s' % my_title)
 
-schemata.finalizeATCTSchema(schema, folderish = True, moveDiscussion = False)
 
-registerType(Instrument, PROJECTNAME)
+Instrument.initialze(schema)
+
+# schemata.finalizeATCTSchema(schema, folderish = True, moveDiscussion = False)
+#
+# registerType(Instrument, PROJECTNAME)
