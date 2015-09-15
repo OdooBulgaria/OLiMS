@@ -2,23 +2,51 @@
     AnalysisRequests often use the same configurations.
     AnalysisProfile is used to save these common configurations (templates).
 """
+import logging
+
+from openerp import fields, models,osv
+
+_logger = logging.getLogger(__name__)
+
+
 
 from dependencies.dependency import ClassSecurityInfo
 from lims import PMF, bikaMessageFactory as _
-from lims.browser.widgets import AnalysisProfileAnalysesWidget
-from lims.browser.widgets import ServicesWidget
-from lims.config import PROJECTNAME
-from lims.content.bikaschema import BikaSchema
-from dependencies.dependency import *
-from lims.interfaces import IAnalysisProfile
-from dependencies.dependency import HoldingReference
-from dependencies.dependency import RecordsField
-from dependencies.dependency import getToolByName
-from dependencies.dependency import Interface, implements
-import sys
-from lims.interfaces import IAnalysisProfile
 
-schema = BikaSchema.copy() + Schema((
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# from lims.browser.widgets import AnalysisProfileAnalysesWidget
+# from lims.browser.widgets import ServicesWidget
+# from lims.content.bikaschema import BikaSchema
+# from lims.interfaces import IAnalysisProfile
+# from dependencies.dependency import Interface, implements
+# from dependencies.dependency import *
+# from dependencies.dependency import RecordsField
+# from lims.config import PROJECTNAME
+# from dependencies.dependency import HoldingReference
+
+
+from dependencies.dependency import getToolByName
+from models.base_olims_model import BaseOLiMSModel
+from fields.string_field import StringField
+from fields.text_field import TextField
+from fields.boolean_field import BooleanField
+from fields.fixed_point_field import FixedPointField
+from fields.widget.widget import StringWidget, AnalysisProfileAnalysesWidget, \
+                                 TextAreaWidget, ComputedWidget, \
+                                 BooleanWidget, DecimalWidget
+
+# ~~~~~ Useful code that need to be converted in Odoo style ~~~~~~ 
+# schema = BikaSchema.copy() + Schema(
+
+schema = (StringField('Title',
+              required=1,        
+    ),
+    TextField('Description',
+        widget = TextAreaWidget(
+            label=_('Description'),
+            description=_('Used in item listings and search results.'),
+        ),
+    ),                 
     StringField('ProfileKey',
         widget = StringWidget(
             label = _("Profile Keyword"),
@@ -27,17 +55,18 @@ schema = BikaSchema.copy() + Schema((
                           "not be the same as any Calculation Interim field ID."),
         ),
     ),
-    ReferenceField('Service',
-        schemata = 'Analyses',
-        required = 1,
-        multiValued = 1,
-        allowed_types = ('AnalysisService',),
-        relationship = 'AnalysisProfileAnalysisService',
-        widget = AnalysisProfileAnalysesWidget(
-            label = _("Profile Analyses"),
-            description = _("The analyses included in this profile, grouped per category"),
-        )
-    ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ReferenceField('Service',
+#         schemata = 'Analyses',
+#         required = 1,
+#         multiValued = 1,
+#         allowed_types = ('AnalysisService',),
+#         relationship = 'AnalysisProfileAnalysisService',
+#         widget = AnalysisProfileAnalysesWidget(
+#             label = _("Profile Analyses"),
+#             description = _("The analyses included in this profile, grouped per category"),
+#         )
+#     ),
     TextField('Remarks',
         searchable = True,
         default_content_type = 'text/plain',
@@ -54,11 +83,15 @@ schema = BikaSchema.copy() + Schema((
     # Fields:
     #   - uid: Analysis Service UID
     #   - hidden: True/False. Hide/Display in results reports
-    RecordsField('AnalysisServicesSettings',
-         required=0,
-         subfields=('uid', 'hidden',),
-         widget=ComputedWidget(visible=False),
-    ),
+    
+# ~~~~~~~ To be implemented ~~~~~~~
+    
+#     RecordsField('AnalysisServicesSettings',
+#          required=0,
+#          subfields=('uid', 'hidden',),
+#          widget=ComputedWidget(visible=False),
+#     ),
+
     StringField('CommercialID',
         searchable=1,
         required=0,
@@ -104,33 +137,41 @@ schema = BikaSchema.copy() + Schema((
         )
     ),
     # This VAT amount is computed using the AnalysisProfileVAT instead of systems VAT
-    ComputedField('VATAmount',
-        schemata="Accounting",
-        expression='context.getVATAmount()',
-        widget=ComputedWidget(
-            label = _("VAT"),
-            visible={'view': 'visible', 'edit': 'invisible'},
-            ),
-    ),
-    ComputedField('TotalPrice',
-          schemata="Accounting",
-          expression='context.getTotalPrice()',
-          widget=ComputedWidget(
-              label = _("Total price"),
-              visible={'edit': 'hidden', }
-          ),
-    ),
+# ~~~~~~~ To be implemented ~~~~~~~
+#     ComputedField('VATAmount',
+#         coumpute='getVATAmount',       
+#         schemata="Accounting",
+#         expression='context.getVATAmount()',
+#         widget=ComputedWidget(
+#             label = _("VAT"),
+#             visible={'view': 'visible', 'edit': 'invisible'},
+#             ),
+#     ),
+#     ComputedField('TotalPrice',
+#           schemata="Accounting",
+#           coumpute='getTotalPrice',
+#           expression='context.getTotalPrice()',
+#           widget=ComputedWidget(
+#               label = _("Total price"),
+#               visible={'edit': 'hidden', }
+#           ),
+#     ),
 )
-)
-schema['title'].widget.visible = True
-schema['description'].widget.visible = True
-IdField = schema['id']
+#)
 
-class AnalysisProfile(BaseContent):
-    security = ClassSecurityInfo()
-    schema = schema
-    displayContentsTab = False
-    implements(IAnalysisProfile)
+# ~~~~~~~~~~  Irrelevant code for Odoo ~~~~~~~~~~~
+# schema['title'].widget.visible = True
+# schema['description'].widget.visible = True
+# IdField = schema['id']
+
+class AnalysisProfile(models.Model, BaseOLiMSModel):
+    _name = "olims.analysis_profile"
+    
+# ~~~~~~~~~~  Irrelevant code for Odoo ~~~~~~~~~~~
+#     security = ClassSecurityInfo()
+#     schema = schema
+#     displayContentsTab = False
+#     implements(IAnalysisProfile)
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
@@ -184,5 +225,8 @@ class AnalysisProfile(BaseContent):
         """
         price, vat = self.getAnalysisProfilePrice(), self.getVATAmount()
         return float(price) + float(vat)
+    
+# ~~~~~~~~~~  Irrelevant code for Odoo ~~~~~~~~~~~
+# registerType(AnalysisProfile, PROJECTNAME)
 
-registerType(AnalysisProfile, PROJECTNAME)
+AnalysisProfile.initialze(schema)
