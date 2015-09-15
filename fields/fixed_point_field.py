@@ -1,7 +1,7 @@
 from openerp import fields
 import logging
 
-from fields_utils import direct_mapper, string_to_float_mapper
+from fields_utils import direct_mapper
 
 
 _logger = logging.getLogger(__name__)
