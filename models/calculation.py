@@ -1,53 +1,79 @@
-from dependencies.dependency import ClassSecurityInfo
+import logging
+
+from openerp import fields, models,osv
+
+_logger = logging.getLogger(__name__)
+
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# from dependencies.dependency import ClassSecurityInfo
+# from lims.utils import t
+# from lims.browser.fields import HistoryAwareReferenceField
+# from lims.browser.fields import InterimFieldsField
+# from lims.browser.widgets import RecordsWidget as BikaRecordsWidget
+# from lims.content.bikaschema import BikaSchema
+# from lims.interfaces import ICalculation
+# from lims.utils import to_utf8
+# from dependencies.dependency import HoldingReference
+# from dependencies.dependency import HistoryAwareMixin
+# from dependencies.dependency import implements
+# from dependencies.dependency import *
+# from lims.config import PROJECTNAME
+
 from dependencies.dependency import safe_unicode
 from lims import bikaMessageFactory as _
-from lims.utils import t
-from lims.browser.fields import HistoryAwareReferenceField
-from lims.browser.fields import InterimFieldsField
-from lims.browser.widgets import RecordsWidget as BikaRecordsWidget
-from lims.config import PROJECTNAME
-from lims.content.bikaschema import BikaSchema
-from lims.interfaces import ICalculation
-from lims.utils import to_utf8
-from dependencies.dependency import *
-from dependencies.dependency import HoldingReference
-from dependencies.dependency import HistoryAwareMixin
 from dependencies.dependency import getToolByName
 from dependencies.dependency import WorkflowException
-from dependencies.dependency import Redirect
-from dependencies.dependency import implements
-import sys
+from fields.widget.widget import TextAreaWidget, StringWidget
+from fields.string_field import StringField
+from fields.text_field import TextField
 import re
 from dependencies import transaction
+from models.base_olims_model import BaseOLiMSModel
 
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# schema = BikaSchema.copy() + Schema((
 
-schema = BikaSchema.copy() + Schema((
-    InterimFieldsField('InterimFields',
-        schemata='Calculation',
-        widget=BikaRecordsWidget(
-            label=_("Calculation Interim Fields"),
-            description=_(
-                "Define interim fields such as vessel mass, dilution factors, "
-                "should your calculation require them. The field title specified "
-                "here will be used as column headers and field descriptors where "
-                "the interim fields are displayed. If 'Apply wide' is enabled "
-                "the field ill be shown in a selection box on the top of the "
-                "worksheet, allowing to apply a specific value to all the "
-                "corresponding fields on the sheet."),
-        )
-    ),
-    HistoryAwareReferenceField('DependentServices',
-        schemata='Calculation',
+# ~~~~~~~ To be implemented ~~~~~~~
+#     InterimFieldsField('InterimFields',
+#         schemata='Calculation',
+#         widget=BikaRecordsWidget(
+#             label=_("Calculation Interim Fields"),
+#             description=_(
+#                 "Define interim fields such as vessel mass, dilution factors, "
+#                 "should your calculation require them. The field title specified "
+#                 "here will be used as column headers and field descriptors where "
+#                 "the interim fields are displayed. If 'Apply wide' is enabled "
+#                 "the field ill be shown in a selection box on the top of the "
+#                 "worksheet, allowing to apply a specific value to all the "
+#                 "corresponding fields on the sheet."),
+#         )
+#     ),
+
+# ~~~~~~~ To be implemented ~~~~~~~
+#     HistoryAwareReferenceField('DependentServices',
+#         schemata='Calculation',
+#         required=1,
+#         multiValued=1,
+#         vocabulary_display_path_bound=sys.maxsize,
+#         allowed_types=('AnalysisService',),
+#         relationship='CalculationAnalysisService',
+#         referenceClass=HoldingReference,
+#         widget=ReferenceWidget(
+#             checkbox_bound=0,
+#             visible=False,
+#             label=_("Dependent Analyses"),
+#         ),
+#     ),
+
+schema = (StringField('Title',
         required=1,
-        multiValued=1,
-        vocabulary_display_path_bound=sys.maxsize,
-        allowed_types=('AnalysisService',),
-        relationship='CalculationAnalysisService',
-        referenceClass=HoldingReference,
-        widget=ReferenceWidget(
-            checkbox_bound=0,
-            visible=False,
-            label=_("Dependent Analyses"),
+        schemata='Description',
+    ),
+    StringField('Description',
+        schemata='Description',
+        widget=StringWidget(
+            label=_('Description'),
+            description=_("Used in item listings and search results."),
         ),
     ),
     TextField('Formula',
@@ -71,19 +97,22 @@ schema = BikaSchema.copy() + Schema((
                 "two Analysis Services.</p>"),
             )
     ),
-))
+)#)
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# schema['title'].widget.visible = True
+# schema['title'].schemata = 'Description'
+# schema['description'].widget.visible = True
+# schema['description'].schemata = 'Description'
 
-schema['title'].widget.visible = True
-schema['title'].schemata = 'Description'
-schema['description'].widget.visible = True
-schema['description'].schemata = 'Description'
 
-
-class Calculation(BaseFolder, HistoryAwareMixin):
-    security = ClassSecurityInfo()
-    displayContentsTab = False
-    schema = schema
-    implements(ICalculation)
+class Calculation(models.Model, BaseOLiMSModel): #:(BaseFolder, HistoryAwareMixin):
+    _name = 'olims.calculation'
+    
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~    
+#     security = ClassSecurityInfo()
+#     displayContentsTab = False
+#     schema = schema
+#     implements(ICalculation)
 
     _at_rename_after_creation = True
 
@@ -202,5 +231,7 @@ class Calculation(BaseFolder, HistoryAwareMixin):
             pu.addPortalMessage(msg, 'error')
             transaction.get().abort()
             raise WorkflowException
-
-registerType(Calculation, PROJECTNAME)
+        
+Calculation.initialze(schema)        
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# registerType(Calculation, PROJECTNAME)
