@@ -22,7 +22,8 @@ from lims import bikaMessageFactory as _
 
 # ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
 # schema = BikaSchema.copy()
-schema = (StringField(string='Title',
+schema = (StringField('name'),
+    StringField(string='Title',
               required=1,        
     ),
     TextField(string='Description',
