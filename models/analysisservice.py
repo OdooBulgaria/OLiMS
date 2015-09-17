@@ -250,7 +250,7 @@ schema = (StringField('name',
                 widget=StringWidget(
                     label = _("Unit"),
                     description=_(
-                        "The measurement units for this analysis service' results, "
+                        "The measurement units for this analysis service' results, " + \
                         "e.g. mg/l, ppm, dB, mV, etc."),
                 ),
     ),
@@ -385,9 +385,9 @@ schema = (StringField('name',
                 widget=StringWidget(
                     label = _("Analysis Keyword"),
                     description=_(
-                        "The unique keyword used to identify the analysis service in "
-                        "import files of bulk AR requests and results imports from instruments. "
-                        "It is also used to identify dependent analysis services in user "
+                        "The unique keyword used to identify the analysis service in " + \
+                        "import files of bulk AR requests and results imports from instruments. " + \
+                        "It is also used to identify dependent analysis services in user " + \
                         "defined results calculations"),
                 ),
     ),
@@ -401,7 +401,7 @@ schema = (StringField('name',
                  default=True,
                  widget=BooleanWidget(
                      label = _("Allow manual entry of results"),
-                     description=_("Select if the results for this Analysis "
+                     description=_("Select if the results for this Analysis " + \
                                    "Service can be set manually."),
                  )
     ),
@@ -620,8 +620,8 @@ schema = (StringField('name',
                    comodel_name='olims.calculation',
 #                    schemata="Method",
                    required=False,
-                   help="If required, select a calculation for the analysis here. "
-                            "Calculations can be configured under the calculations item "
+                   help="If required, select a calculation for the analysis here. " + \
+                            "Calculations can be configured under the calculations item " + \
                             "in the LIMS set-up",
 #                    vocabulary_display_path_bound=sys.maxint,
 #                    vocabulary='_getAvailableCalculationsDisplayList',
@@ -679,8 +679,8 @@ schema = (StringField('name',
                     widget=DecimalWidget(
                         label = _("Duplicate Variation %"),
                         description=_(
-                            "When the results of duplicate analyses on worksheets, "
-                            "carried out on the same sample, differ with more than "
+                            "When the results of duplicate analyses on worksheets, " + \
+                            "carried out on the same sample, differ with more than " + \
                             "this percentage, an alert is raised"),
                     ),
     ),
@@ -690,7 +690,7 @@ schema = (StringField('name',
                  widget=BooleanWidget(
                      label = _("Accredited"),
                      description=_(
-                         "Check this box if the analysis service is included in the "
+                         "Check this box if the analysis service is included in the " + \
                          "laboratory's schedule of accredited analyses"),
                  ),
     ),
@@ -700,9 +700,9 @@ schema = (StringField('name',
 #                 schemata="Description",
                 required=1,
                 default='lab',
-                help="The results of field analyses are captured during sampling "
-                        "at the sample point, e.g. the temperature of a water sample "
-                        "in the river where it is sampled. Lab analyses are done in "
+                help="The results of field analyses are captured during sampling " + \
+                        "at the sample point, e.g. the temperature of a water sample " + \
+                        "in the river where it is sampled. Lab analyses are done in " + \
                         "the laboratory",
 #                 vocabulary=SERVICE_POINT_OF_CAPTURE,
 #                 widget=SelectionWidget(
@@ -862,18 +862,18 @@ schema = (StringField('name',
                  default=False,
                  widget=BooleanWidget(
                      label = _("Calculate Precision from Uncertainties"),
-                     description=_("Precision as the number of significant "
-                                   "digits according to the uncertainty. "
-                                   "The decimal position will be given by "
-                                   "the first number different from zero in "
-                                   "the uncertainty, at that position the "
-                                   "system will round up the uncertainty "
-                                   "and results. "
-                                   "For example, with a result of 5.243 and "
-                                   "an uncertainty of 0.22, the system "
-                                   "will display correctly as 5.2+-0.2. "
-                                   "If no uncertainty range is set for the "
-                                   "result, the system will use the "
+                     description=_("Precision as the number of significant " + \
+                                   "digits according to the uncertainty. " + \
+                                   "The decimal position will be given by " + \
+                                   "the first number different from zero in " + \
+                                   "the uncertainty, at that position the " + \
+                                   "system will round up the uncertainty " + \
+                                   "and results. " + \
+                                   "For example, with a result of 5.243 and " + \
+                                   "an uncertainty of 0.22, the system " + \
+                                   "will display correctly as 5.2+-0.2. " + \
+                                   "If no uncertainty range is set for the " + \
+                                   "result, the system will use the " + \
                                    "fixed precision set."),
                  ),
     ),
@@ -887,8 +887,8 @@ schema = (StringField('name',
                  default=False,
                  widget=BooleanWidget(
                     label = _("Allow manual uncertainty value input"),
-                    description = _("Allow the analyst to manually "
-                                    "replace the default uncertainty "
+                    description = _("Allow the analyst to manually " + \
+                                    "replace the default uncertainty " + \
                                     "value."),
                 ),
     ),
@@ -951,10 +951,10 @@ schema = (StringField('name',
     fields.Many2one(string='Container',
                    comodel_name='olims.Container',
                    required=False,
-                   help="Select the default container to be used for this "
-                            "analysis service. If the container to be used "
-                            "depends on the sample type and preservation "
-                            "combination, specify the container in the sample "
+                   help="Select the default container to be used for this " + \
+                            "analysis service. If the container to be used " + \
+                            "depends on the sample type and preservation " + \
+                            "combination, specify the container in the sample " + \
                             "type table below",                  
 #                    schemata='Container and Preservation',
 #                    allowed_types=('Container', 'ContainerType'),
@@ -993,9 +993,9 @@ schema = (StringField('name',
                  widget=BooleanWidget(
                      label = _("Hidden"),
                      description = _(
-                        "If enabled, this analysis and its results "
-                        "will not be displayed by default in reports. "
-                        "This setting can be overrided in Analysis "
+                        "If enabled, this analysis and its results " + \
+                        "will not be displayed by default in reports. " + \
+                        "This setting can be overrided in Analysis " + \
                         "Profile and/or Analysis Request"),
                  ),
     ),
@@ -1032,6 +1032,8 @@ schema = (StringField('name',
 
 class AnalysisService(models.Model, BaseOLiMSModel):#(BaseContent, HistoryAwareMixin):
     _name = 'olims.analysis_service'
+    
+    # marked Keyword field "unique" 
     _sql_constraints = [
         ('uniq_Keyword', 'unique(Keyword)', "The unique keyword used to identify the analysis service."),
     ]
