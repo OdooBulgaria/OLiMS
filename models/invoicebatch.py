@@ -1,55 +1,65 @@
 """InvoiceBatch is a container for Invoice instances.
 """
-from dependencies.dependency import ClassSecurityInfo
-from dependencies.dependency import _createObjectByType
-from lims import bikaMessageFactory as _
-from lims.utils import t
-from lims.config import ManageInvoices, PROJECTNAME
-from lims.content.bikaschema import BikaSchema
-from lims.content.invoice import InvoiceLineItem
-from lims.interfaces import IInvoiceBatch
-from lims.utils import get_invoice_item_description
-from dependencies.dependency import DateTime
-from dependencies.dependency import *
-from dependencies.dependency import permissions
-from lims.workflow import isBasicTransitionAllowed
-from dependencies.dependency import ContainerModifiedEvent
-from dependencies.dependency import implements
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# from dependencies.dependency import ClassSecurityInfo
+# from dependencies.dependency import _createObjectByType
+# from lims import bikaMessageFactory as _
+# from lims.utils import t
+# from lims.config import ManageInvoices, PROJECTNAME
+# from lims.content.bikaschema import BikaSchema
+# from lims.content.invoice import InvoiceLineItem
+# from lims.interfaces import IInvoiceBatch
+# from lims.utils import get_invoice_item_description
+# from dependencies.dependency import DateTime
+# from dependencies.dependency import *
+# from dependencies.dependency import permissions
+# from lims.workflow import isBasicTransitionAllowed
+# from dependencies.dependency import ContainerModifiedEvent
+# from dependencies.dependency import implements
 
-schema = BikaSchema.copy() + Schema((
+from openerp import fields, models
+from models.base_olims_model import BaseOLiMSModel
+from fields.date_time_field import DateTimeField
+from fields.widget.widget import DateTimeWidget
+from lims import bikaMessageFactory as _
+
+
+#schema = BikaSchema.copy() + Schema((
+schema = (
     DateTimeField('BatchStartDate',
         required=1,
         default_method='current_date',
-        widget=CalendarWidget(
+        widget=DateTimeWidget(
             label=_("Start Date"),
         ),
     ),
     DateTimeField('BatchEndDate',
         required=1,
         default_method='current_date',
-        widget=CalendarWidget(
+        widget=DateTimeWidget(
             label=_("End Date"),
         ),
     ),
-),
 )
 
-schema['title'].default = DateTime().strftime('%b %Y')
+#schema['title'].default = DateTime().strftime('%b %Y')
 
 
-class InvoiceBatch(BaseFolder):
+class InvoiceBatch(models.Model, BaseOLiMSModel): #(BaseFolder)
+    _name='olims.invoicebatch'
 
     """ Container for Invoice instances """
-    implements(IInvoiceBatch)
-    security = ClassSecurityInfo()
-    displayContentsTab = False
-    schema = schema
+    # implements(IInvoiceBatch)
+    # security = ClassSecurityInfo()
+    # displayContentsTab = False
+    # schema = schema
 
-    security.declareProtected(ManageInvoices, 'invoices')
+    #security.declareProtected(ManageInvoices, 'invoices')
 
     def invoices(self):
         return self.objectValues('Invoice')
 
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
     # security.declareProtected(PostInvoiceBatch, 'post')
     # def post(self, REQUEST = None):
     #     """ Post invoices
@@ -58,7 +68,7 @@ class InvoiceBatch(BaseFolder):
     #     if REQUEST:
     #         REQUEST.RESPONSE.redirect('invoicebatch_invoices')
 
-    security.declareProtected(ManageInvoices, 'createInvoice')
+    #security.declareProtected(ManageInvoices, 'createInvoice')
 
     def createInvoice(self, client_uid, items):
         """ Creates and invoice for a client and a set of items
@@ -91,7 +101,7 @@ class InvoiceBatch(BaseFolder):
         invoice.reindexObject()
         return invoice
 
-    security.declarePublic('current_date')
+    #security.declarePublic('current_date')
     def current_date(self):
         """ return current date """
         return DateTime()
@@ -106,54 +116,55 @@ class InvoiceBatch(BaseFolder):
             return False
         return True
 
-registerType(InvoiceBatch, PROJECTNAME)
+#registerType(InvoiceBatch, PROJECTNAME)
+InvoiceBatch.initialze(schema)
 
-
-def ObjectModifiedEventHandler(instance, event):
-    """ Various types need automation on edit.
-    """
-    # if not hasattr(instance, 'portal_type'):
-    #     return
-
-    # if instance.portal_type == 'InvoiceBatch':
-
-    if not isinstance(event, ContainerModifiedEvent):
-        """ Create batch invoices
-        """
-        start = instance.getBatchStartDate()
-        end = instance.getBatchEndDate()
-        # Query for ARs in date range
-        query = {
-            'portal_type': 'AnalysisRequest',
-            'review_state': 'published',
-            'getInvoiceExclude': False,
-            'getDatePublished': {
-                'range': 'min:max',
-                'query': [start, end]
-            }
-        }
-        ars = instance.bika_catalog(query)
-        # Query for Orders in date range
-        query = {
-            'portal_type': 'SupplyOrder',
-            'review_state': 'dispatched',
-            'getDateDispatched': {
-                'range': 'min:max',
-                'query': [start, end]
-            }
-        }
-        orders = instance.portal_catalog(query)
-        # Make list of clients from found ARs and Orders
-        clients = {}
-        for rs in (ars, orders):
-            for p in rs:
-                obj = p.getObject()
-                if obj.getInvoiced():
-                    continue
-                client_uid = obj.aq_parent.UID()
-                l = clients.get(client_uid, [])
-                l.append(obj)
-                clients[client_uid] = l
-        # Create an invoice for each client
-        for client_uid, items in clients.items():
-            instance.createInvoice(client_uid, items)
+    # ~~~~~~~ To be implemented ~~~~~~~
+# def ObjectModifiedEventHandler(instance, event):
+#     """ Various types need automation on edit.
+#     """
+#     # if not hasattr(instance, 'portal_type'):
+#     #     return
+#
+#     # if instance.portal_type == 'InvoiceBatch':
+#
+#     if not isinstance(event, ContainerModifiedEvent):
+#         """ Create batch invoices
+#         """
+#         start = instance.getBatchStartDate()
+#         end = instance.getBatchEndDate()
+#         # Query for ARs in date range
+#         query = {
+#             'portal_type': 'AnalysisRequest',
+#             'review_state': 'published',
+#             'getInvoiceExclude': False,
+#             'getDatePublished': {
+#                 'range': 'min:max',
+#                 'query': [start, end]
+#             }
+#         }
+#         ars = instance.bika_catalog(query)
+#         # Query for Orders in date range
+#         query = {
+#             'portal_type': 'SupplyOrder',
+#             'review_state': 'dispatched',
+#             'getDateDispatched': {
+#                 'range': 'min:max',
+#                 'query': [start, end]
+#             }
+#         }
+#         orders = instance.portal_catalog(query)
+#         # Make list of clients from found ARs and Orders
+#         clients = {}
+#         for rs in (ars, orders):
+#             for p in rs:
+#                 obj = p.getObject()
+#                 if obj.getInvoiced():
+#                     continue
+#                 client_uid = obj.aq_parent.UID()
+#                 l = clients.get(client_uid, [])
+#                 l.append(obj)
+#                 clients[client_uid] = l
+#         # Create an invoice for each client
+#         for client_uid, items in clients.items():
+#             instance.createInvoice(client_uid, items)
