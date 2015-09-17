@@ -594,6 +594,41 @@
        </record>
 
         <menuitem id="container" name="Container" parent="olims_menu"
-                  action="olims_container_list_action"/>                                                               
+                  action="olims_container_list_action"/>
+                  
+       <!-- Container Type view -->         
+          <record model="ir.ui.view" id="olims_container_type_form_view">
+            <field name="name">container_type.form</field>
+            <field name="model">olims.container_type</field>
+            <field name="arch" type="xml">
+                <form string="Container Type">
+                	<label for="name" string="Title"/>
+                	<field name="name"></field>
+                	<label for="Description" string="Description"/>
+                	<field name="Description"></field>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="olims_container_type_tree_view">
+            <field name="name">container_type.tree</field>
+            <field name="model">olims.container_type</field>
+            <field name="arch" type="xml">
+                <tree string="Container Type">
+                	<field name="name"></field>
+                	<field name="Description"></field>
+                </tree>
+            </field>
+        </record>
+                    
+	   <record model="ir.actions.act_window" id="olims_container_type_list_action">
+            <field name="name">Container Type</field>
+            <field name="res_model">olims.container_type</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="container_type" name="Container Type" parent="olims_menu"
+                  action="olims_container_type_list_action"/>                                                                   
     </data>
 </openerp>
