@@ -49,9 +49,15 @@ from fields.widget.widget import *
 from openerp import fields, models
 
 SERVICE_POINT_OF_CAPTURE =(
-    ('field', _('Field')),
-    ('lab', _('Lab')),
-    )
+                           ('field', _('Field')),
+                           ('lab', _('Lab')),
+                           )
+
+ATTACHMENT_OPTIONS = (
+                      ('r', 'Required'),
+                      ('p', 'Permitted'),
+                      ('n', 'Not Permitted')
+                      )
 # ~~~~~~~ To be implemented ~~~~~~~
 # def getContainers(instance,
 #                   minvol=None,
@@ -206,7 +212,7 @@ SERVICE_POINT_OF_CAPTURE =(
 
 # ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
 # schema = BikaSchema.copy() + Schema((
-schema = (StringField('Title',
+schema = (StringField('name',
         required=1,
         widget=StringWidget(
             label=_('Title'),
@@ -355,7 +361,7 @@ schema = (StringField('Title',
     ),
     # ~~~~~~~~~~ Using Odoo fields.Selection field due to SelectionWidget ~~~~~~~~~~
     fields.Selection(string='AttachmentOption',
-                selection=(('r', 'Required'),('p', 'Permitted'),('n', 'Not Permitted')),
+                selection=ATTACHMENT_OPTIONS,
 #                 schemata="Analysis",
                 default='p',
                 help="Indicates whether file attachments, e.g. microscope images, " + \
@@ -419,10 +425,10 @@ schema = (StringField('Title',
     # Add view, closer to this Analysis Service if selected.
     # - If InstrumentEntry not checked, hide and unset
     # - If InstrumentEntry checked, set the first selected and show
-    ReferenceField(string='Instruments',
-                   selection=[('olims.instrument', 'Instrument')],
+    fields.Many2many(string='Instruments',
+                   comodel_name='olims.instrument',
 #                    schemata="Method",
-                   required=0,
+                   required=False,
                    help="More than one instrument can do an " + \
                                     "Analysis Service. The instruments " + \
                                     "selected here are displayed in the " + \
@@ -453,21 +459,22 @@ schema = (StringField('Title',
     # - If InstrumentEntry checked, set first selected instrument
     # - If InstrumentEntry not checked, hide and set None
     # See browser/js/bika.lims.analysisservice.edit.js
-# ~~~~~~~ To be implemented ~~~~~~~
-#     HistoryAwareReferenceField('Instrument',
-#                                schemata="Method",
-#                                searchable=True,
-#                                required=0,
-#                                vocabulary_display_path_bound=sys.maxint,
-#                                vocabulary='_getAvailableInstrumentsDisplayList',
-#                                allowed_types=('Instrument',),
-#                                relationship='AnalysisServiceInstrument',
-#                                referenceClass=HoldingReference,
-#                                widget=SelectionWidget(
-#                                    format='select',
-#                                    label = _("Default Instrument"),
-#                                ),
-#     ),
+    
+    fields.Many2one(string='Instrument',
+                    comodel_name='olims.instrument',
+#                    schemata="Method",
+#                    searchable=True,
+                    required=False,
+# #                 vocabulary_display_path_bound=sys.maxint,
+#                   vocabulary='_getAvailableInstrumentsDisplayList',
+#                   allowed_types=('Instrument',),
+#                   relationship='AnalysisServiceInstrument',
+#                   referenceClass=HoldingReference,
+#                   widget=SelectionWidget(
+#                       format='select',
+#                       label = _("Default Instrument"),
+#                   ),
+    ),
     # Returns the Default's instrument title. If no default instrument
     # set, returns string.empty
 # ~~~~~~~ To be implemented ~~~~~~~
@@ -486,8 +493,8 @@ schema = (StringField('Title',
     # Behavior controlled by js depending on ManualEntry/Instrument:
     # - If InsrtumentEntry not checked, show
     # See browser/js/bika.lims.analysisservice.edit.js
-    ReferenceField(string='Methods',
-        selection=[('olims.method','Method')],
+    fields.Many2many(string='Methods',
+        comodel_name='olims.method',
         help="The Analysis Service can be performed by " + \
                             "using more than one Method. The methods " + \
                             "selected here are displayed in the " + \
@@ -497,7 +504,7 @@ schema = (StringField('Title',
                             "manual entry of results' enabled are " + \
                             "displayed.",
 #         schemata = "Method",
-        required = 0,
+        required = False,
 #         multiValued = 1,
 #         vocabulary_display_path_bound = sys.maxint,
 #         vocabulary = '_getAvailableMethodsDisplayList',
@@ -526,8 +533,8 @@ schema = (StringField('Title',
     # - If InstrumentEntry not checked, populate dynamically with
     #   selected Methods, set the first method selected and non-readonly
     # See browser/js/bika.lims.analysisservice.edit.js
-    ReferenceField(string='_Method',
-        selection=[('olims.method','Method')],
+    fields.Many2one(string='_Method',
+        comodel_name='olims.method',
 #         schemata = "Method",
         required = 0,
         help="If 'Allow instrument entry of results' " + \
@@ -573,10 +580,10 @@ schema = (StringField('Title',
     # - If UseDefaultCalculation is set to False, show this field
     # - If UseDefaultCalculation is set to True, show this field
     # See browser/js/bika.lims.analysisservice.edit.js
-    ReferenceField(string='_Calculation',
-                   selection=[('olims.calculation','Calculation')],
+    fields.Many2one(string='_Calculation',
+                   comodel_name='olims.calculation',
 #                    schemata="Method",
-                   required=0,
+                   required=False,
                    help="Default calculation to be used from the " + \
                                     "default Method selected. The Calculation " + \
                                     "for a method can be assigned in the Method " + \
@@ -609,10 +616,10 @@ schema = (StringField('Title',
     # - If UseDefaultCalculation is set to True, show this field
     # See browser/js/bika.lims.analysisservice.edit.js
     #     bika/lims/upgrade/to3008.py
-    ReferenceField(string='DeferredCalculation',
-                   selection=[('olims.calculation','Calculation')],
+    fields.Many2one(string='DeferredCalculation',
+                   comodel_name='olims.calculation',
 #                    schemata="Method",
-                   required=0,
+                   required=False,
                    help="If required, select a calculation for the analysis here. "
                             "Calculations can be configured under the calculations item "
                             "in the LIMS set-up",
@@ -708,10 +715,10 @@ schema = (StringField('Title',
 #                         "the laboratory"),
 #                 ),
     ),
-    ReferenceField(string='Category',
-                   selection=[('olims.analysis_category','Analysis Category')],
+    fields.Many2one(string='Category',
+                   comodel_name='olims.analysis_category',
 #                    schemata="Description",
-                   required=1,
+                   required=True,
                    help="The category the analysis service belongs to",
 #                    vocabulary_display_path_bound=sys.maxint,
 #                    allowed_types=('AnalysisCategory',),
@@ -783,10 +790,10 @@ schema = (StringField('Title',
 #                       visible=False,
 #                   ),
 #     ),
-    ReferenceField(string='Department',
-                   selection=[('olims.department', 'Department')],
+    fields.Many2one(string='Department',
+                   comodel_name='olims.department',
 #                    schemata="Description",
-                   required=0,
+                   required=False,
                    help="The laboratory department",
 #                    vocabulary_display_path_bound=sys.maxint,
 #                    allowed_types=('Department',),
@@ -916,14 +923,19 @@ schema = (StringField('Title',
                                    "container is used for this analysis service"),
                  ),
     ),
-# ~~~~~~~ To be implemented: Different behavior not same as ReferenceField ~~~~~~~
-#     ReferenceField('Preservation',
+
+    fields.Many2one(string='Preservation',
+                    comodel_name='olims.preservation',
+                    help="Select a default preservation for this " + \
+                                    "analysis service. If the preservation depends on " + \
+                                    "the sample type combination, specify a preservation " + \
+                                    "per sample type in the table below",
+                    required=False,
 #                    schemata='Container and Preservation',
 #                    allowed_types=('Preservation',),
 #                    relationship='AnalysisServicePreservation',
 #                    referenceClass=HoldingReference,
 #                    vocabulary='getPreservations',
-#                    required=0,
 #                    multiValued=0,
 #                    widget=ReferenceWidget(
 #                        checkbox_bound=0,
@@ -935,15 +947,21 @@ schema = (StringField('Title',
 #                        catalog_name='bika_setup_catalog',
 #                        base_query={'inactive_state': 'active'},
 #                    ),
-#     ),
-# ~~~~~~~ To be implemented: Different behavior not same as ReferenceField ~~~~~~~
-#     ReferenceField('Container',
+    ),
+    fields.Many2one(string='Container',
+                   comodel_name='olims.Container',
+                   required=False,
+                   help="Select the default container to be used for this "
+                            "analysis service. If the container to be used "
+                            "depends on the sample type and preservation "
+                            "combination, specify the container in the sample "
+                            "type table below",                  
 #                    schemata='Container and Preservation',
 #                    allowed_types=('Container', 'ContainerType'),
 #                    relationship='AnalysisServiceContainer',
 #                    referenceClass=HoldingReference,
 #                    vocabulary='getContainers',
-#                    required=0,
+
 #                    multiValued=0,
 #                    widget=ReferenceWidget(
 #                        checkbox_bound=0,
@@ -957,7 +975,7 @@ schema = (StringField('Title',
 #                        catalog_name='bika_setup_catalog',
 #                        base_query={'inactive_state': 'active'},
 #                    ),
-#     ),
+    ),
 # ~~~~~~~ To be implemented ~~~~~~~
 #     PartitionSetupField('PartitionSetup',
 #                         schemata='Container and Preservation',
@@ -1014,6 +1032,9 @@ schema = (StringField('Title',
 
 class AnalysisService(models.Model, BaseOLiMSModel):#(BaseContent, HistoryAwareMixin):
     _name = 'olims.analysis_service'
+    _sql_constraints = [
+        ('uniq_Keyword', 'unique(Keyword)', "The unique keyword used to identify the analysis service."),
+    ]
 # ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
 #     security = ClassSecurityInfo()
 #     schema = schema
@@ -1382,16 +1403,16 @@ class AnalysisService(models.Model, BaseOLiMSModel):#(BaseContent, HistoryAwareM
 
 
 #     security.declarePublic('getContainers')
-
-    def getContainers(self, instance=None):
-        # On first render, the containers must be filtered
-        instance = instance or self
-        separate = self.getSeparate()
-        containers = getContainers(instance,
-                                   allow_blank=True,
-                                   show_container_types=not separate,
-                                   show_containers=separate)
-        return DisplayList(containers)
+# ~~~~~~~ To be implemented ~~~~~~~
+#     def getContainers(self, instance=None):
+#         # On first render, the containers must be filtered
+#         instance = instance or self
+#         separate = self.getSeparate()
+#         containers = getContainers(instance,
+#                                    allow_blank=True,
+#                                    show_container_types=not separate,
+#                                    show_containers=separate)
+#         return DisplayList(containers)
 
     def getPreservations(self):
         bsc = getToolByName(self, 'bika_setup_catalog')

@@ -126,8 +126,8 @@
             <field name="model">olims.method</field>
             <field name="arch" type="xml">
                 <form string="Method Form">
-                	<label for="Title" string="Title"/>
-                	<field name="Title"></field>
+                	<label for="name" string="Title"/>
+                	<field name="name"></field>
                 	<label for="Description" string="Description"/>
                 	<field name="Description"></field>
                 	<label for="MethodID" string="Method ID"/>
@@ -155,7 +155,7 @@
             <field name="model">olims.method</field>
             <field name="arch" type="xml">
                 <tree string="Method">
-                	<field name="Title"></field>
+                	<field name="name"></field>
                 	<field name="Description"></field>
                 	<field name="MethodID"></field>
                 	<field name="Instructions"></field>
@@ -410,9 +410,9 @@
             <field name="name">analysis_service.form</field>
             <field name="model">olims.analysis_service</field>
             <field name="arch" type="xml">
-                <form string="Analysis Profile Form">
-                	<label for="Title" string="Title"/>
-                	<field name="Title"></field>
+                <form string="Analysis Service Form">
+                	<label for="name" string="Title"/>
+                	<field name="name"></field>
                 	<label for="ShortTitle" string="Short Title"/>
                 	<field name="ShortTitle"></field>
                 	<label for="Description" string="Description"/>
@@ -444,17 +444,19 @@
                 	<label for="InstrumentEntryOfResults" string="Allow instrument entry of results"/>
                 	<field name="InstrumentEntryOfResults"></field>
                 	<label for="Instruments" string="Instruments"/>
-                	<field name="Instruments"></field>
+                	<field name="Instruments" widget="many2many_tags" options="{'no_create_edit': True}"></field>
+                	<label for="Instrument" string="Default Instrument"/>
+                	<field name="Instrument" options="{'no_create_edit': True}"></field>
                 	<label for="Methods" string="Methods"/>
-                	<field name="Methods"></field>
+                	<field name="Methods" widget="many2many_tags" options="{'no_create_edit': True}"></field>
                 	<label for="_Method" string="Default Method"/>
-                	<field name="_Method"></field>
+                	<field name="_Method" options="{'no_create_edit': True}"></field>
                 	<label for="UseDefaultCalculation" string="Use default calculation"/>
                 	<field name="UseDefaultCalculation"></field>
                 	<label for="_Calculation" string="Default Calculation"/>
-                	<field name="_Calculation"></field>
+                	<field name="_Calculation" options="{'no_create_edit': True}"></field>
                 	<label for="DeferredCalculation" string="Alternative Calculation"/>
-                	<field name="DeferredCalculation"></field>
+                	<field name="DeferredCalculation" options="{'no_create_edit': True}"></field>
                 	<label for="DuplicateVariation" string="Duplicate Variation %"/>
                 	<field name="DuplicateVariation"></field>
                 	<label for="Accredited" string="Accredited"/>
@@ -462,7 +464,7 @@
                 	<label for="PointOfCapture" string="Point of Capture"/>
                 	<field name="PointOfCapture" widget="radio"></field>
                 	<label for="Category" string="Analysis Category"/>
-                	<field name="Category"></field>
+                	<field name="Category" options="{'no_create_edit': True}"></field>
                 	<label for="Price" string="Price (excluding VAT)"/>
                 	<field name="Price"></field>
                 	<label for="BulkPrice" string="Bulk price (excluding VAT"/>
@@ -470,13 +472,17 @@
                 	<label for="VAT" string="VAT %"/>
                 	<field name="VAT"></field>
                 	<label for="Department" string="Department"/>
-                	<field name="Department"></field>
+                	<field name="Department" options="{'no_create_edit': True}"></field>
                 	<label for="PrecisionFromUncertainty" string="Calculate Precision from Uncertainties"/>
                 	<field name="PrecisionFromUncertainty"></field>
                 	<label for="AllowManualUncertainty" string="Allow manual uncertainty value input"/>
                 	<field name="AllowManualUncertainty"></field>
-                	<label for="Separate" string="Separate"/>
+                	<label for="Separate" string="Separate Container"/>
                 	<field name="Separate"></field>
+                	<label for="Preservation" string="Default Preservation"/>
+                	<field name="Preservation" options="{'no_create_edit': True}"></field>
+                	<label for="Container" string="Default Container"/>
+                	<field name="Container" options="{'no_create_edit': True}"></field>
                 	<label for="Hidden" string="Hidden"/>
                 	<field name="Hidden"></field>
                 	<label for="CommercialID" string="Commercial ID"/>
@@ -490,8 +496,8 @@
             <field name="name">analysis_service.tree</field>
             <field name="model">olims.analysis_service</field>
             <field name="arch" type="xml">
-                <tree string="Analysis Profile">
-                    <field name="Title"></field>
+                <tree string="Analysis Service">
+                   	<field name="name"></field>
                 	<field name="ShortTitle"></field>
                 	<field name="Description"></field>
                 	<field name="ScientificName"></field>
@@ -508,6 +514,7 @@
                 	<field name="ManualEntryOfResults"></field>
                 	<field name="InstrumentEntryOfResults"></field>
                 	<field name="Instruments"></field>
+                	<field name="Instrument"></field>
                 	<field name="Methods"></field>
                 	<field name="_Method"></field>
                 	<field name="UseDefaultCalculation"></field>
@@ -524,6 +531,8 @@
                 	<field name="PrecisionFromUncertainty"></field>
                 	<field name="AllowManualUncertainty"></field>
                 	<field name="Separate"></field>
+                	<field name="Preservation"></field>
+                	<field name="Container"></field>
                 	<field name="Hidden"></field>
                 	<field name="CommercialID"></field>
                 	<field name="ProtocolID"></field>
