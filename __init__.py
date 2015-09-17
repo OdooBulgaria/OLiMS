@@ -16,3 +16,4 @@ from models import arimport
 from models import arpriority
 from models import artemplate
 from models import instrument
+from models  import container

@@ -547,6 +547,53 @@
        </record>
 
         <menuitem id="analysis_service_menu" name="Analysis Service" parent="olims_menu"
-                  action="analysis_service_list_action"/>                                                  
+                  action="analysis_service_list_action"/>
+        
+          <!-- Container view -->         
+          <record model="ir.ui.view" id="olims_container_form_view">
+            <field name="name">container.form</field>
+            <field name="model">olims.container</field>
+            <field name="arch" type="xml">
+                <form string="Container">
+                	<label for="name" string="Title"/>
+                	<field name="name"></field>
+                	<label for="Description" string="Description"/>
+                	<field name="Description"></field>
+                	<label for="ContainerType" string="Container Type"/>
+                	<field name="ContainerType" options="{'no_create_edit': True}"></field>
+                	<label for="Capacity" string="Capacity"/>
+                	<field name="Capacity"></field>
+                	<label for="PrePreserved" string="Pre-Preserved"/>
+                	<field name="PrePreserved"></field>
+                	<label for="Preservation" string="Preservation"/>
+                	<field name="Preservation" options="{'no_create_edit': True}"></field>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="olims_container_tree_view">
+            <field name="name">container.tree</field>
+            <field name="model">olims.container</field>
+            <field name="arch" type="xml">
+                <tree string="Container">
+                	<field name="name"></field>
+                	<field name="Description"></field>
+                	<field name="ContainerType"></field>
+                	<field name="Capacity"></field>
+                	<field name="PrePreserved"></field>
+                	<field name="Preservation"></field>
+                </tree>
+            </field>
+        </record>
+                    
+	   <record model="ir.actions.act_window" id="olims_container_list_action">
+            <field name="name">Container</field>
+            <field name="res_model">olims.container</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="container" name="Container" parent="olims_menu"
+                  action="olims_container_list_action"/>                                                               
     </data>
 </openerp>
