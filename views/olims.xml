@@ -13,16 +13,93 @@
              action course_list_action -->
         
 
+       <!--Client form view -->
+        <record model="ir.ui.view" id="olims_client_form_view">
+            <field name="name">client.form</field>
+            <field name="model">olims.client</field>
+            <field name="arch" type="xml">
+                <form string="Client Form">
+                     <label for="Name" string="Name"/>
+                	<field name="Name"></field>
+                	<label for="TaxNumber" string="Tax Number"/>
+                    <field name="TaxNumber"></field>
+                    <label for="Phone" string="Phone"/>
+                	<field name="Phone"></field>
+                    <label for="EmailAddress" string="Email Address"/>
+                	<field name="EmailAddress"></field>
+                    <label for="AccountType" string="Account Type"/>
+                    <field name="AccountType"></field>
+                    <label for="AccountName" string="Account Name"/>
+                    <field name="AccountName"></field>
+                    <label for="AccountNumber" string="Account Number"/>
+                    <field name="AccountNumber"></field>
+                    <label for="BankName" string="Bank Name"/>
+                    <field name="BankName"></field>
+                    <label for="BankBranch" string="Bank Branch"/>
+                    <field name="BankBranch"></field>
+                    <label for="ClientID" string="Client ID"/>
+                    <field name="ClientID"></field>
+                    <label for="BulkDiscount" string="Bulk Discount"/>
+                    <field name="BulkDiscount"></field>
+                    <label for="MemberDiscountApplies" string="Member Discount Applies"/>
+                    <field name="MemberDiscountApplies"></field>
+                    <label for="DefaultCategories" string="Default Categories"/>
+                    <field name="DefaultCategories"></field>
+                    <label for="RestrictedCategories" string="Restricted Categories"/>
+                    <field name="RestrictedCategories"></field>
+                    <label for="DefaultARSpecs" string="Default ARSpecs"/>
+                    <field name="DefaultARSpecs"></field>
+                    <label for="DefaultDecimalMark" string="Default DecimalMark"/>
+                    <field name="DefaultDecimalMark"></field>
+                    <label for="DecimalMark" string="Decimal Mark"/>
+                    <field name="DecimalMark"></field>
+                    </form>
+            </field>
+        </record>
 
+        <record model="ir.ui.view" id="olims_client_tree_view">
+            <field name="name">client.tree</field>
+            <field name="model">olims.client</field>
+            <field name="arch" type="xml">
+                <tree string="CLient">
+                	<field name="Name"></field>
+                	<field name="TaxNumber"></field>
+                	<field name="Phone"></field>
+                	<field name="EmailAddress"></field>
+                    <field name="AccountType"></field>
+                    <field name="AccountName"></field>
+                    <field name="AccountNumber"></field>
+                    <field name="BankName"></field>
+                    <field name="BankBranch"></field>
+                    <field name="ClientID"></field>
+                    <field name="BulkDiscount"></field>
+                    <field name="MemberDiscountApplies"></field>
+                    <field name="DefaultCategories"></field>
+                    <field name="RestrictedCategories"></field>
+                    <field name="DefaultARSpecs"></field>
+                    <field name="DefaultDecimalMark"></field>
+                    <field name="DecimalMark"></field>
+                </tree>
+            </field>
+        </record>
 
+		<record model="ir.actions.act_window" id="client_list_action">
+            <field name="name">Client</field>
+            <field name="res_model">olims.client</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
 
-       !--Imstrument form view -->
+        <menuitem id="client_menu" name="Client" parent="olims_menu"
+                  action="client_list_action"/>
+
+       <!--Imstrument form view -->
         <record model="ir.ui.view" id="olims_instrument_form_view">
             <field name="name">instrument.form</field>
             <field name="model">olims.instrument</field>
             <field name="arch" type="xml">
                 <form string="Instrument Form">
-                	<field name="Title"></field>
+                	<field name="name"></field>
                 	<field name="Description"></field>
                 	<field name="InstrumentType"></field>
                 	<field name="Manufacturer"></field>
@@ -43,7 +120,7 @@
             <field name="model">olims.instrument</field>
             <field name="arch" type="xml">
                 <tree string="Instrument">
-                    <field name="Title"></field>
+                    <field name="name"></field>
                 	<field name="Description"></field>
                 	<field name="InstrumentType"></field>
                 	<field name="Manufacturer"></field>
@@ -76,8 +153,8 @@
             <field name="model">olims.analysis_profile</field>
             <field name="arch" type="xml">
                 <form string="Analysis Profile Form">
-                	<label for="Title" string="Title"/>
-                	<field name="Title"></field>
+                	<label for="name" string="Title"/>
+                	<field name="name"></field>
                 	<label for="Description" string="Description"/>
                 	<field name="Description"></field>
                 	<label for="ProfileKey" string="Profile Keyword"/>
@@ -103,7 +180,7 @@
             <field name="model">olims.analysis_profile</field>
             <field name="arch" type="xml">
                 <tree string="Analysis Profile">
-                    <field name="Title"></field>
+                    <field name="name"></field>
                 	<field name="Description"></field>
                 	<field name="ProfileKey"></field>
                 	<!-- <field name="Service"></field> -->
@@ -191,8 +268,8 @@
             <field name="model">olims.instrument_type</field>
             <field name="arch" type="xml">
                 <form string="Instrument Type Form">
-                	<label for="Title" string="Title"/>
-                	<field name="Title"></field>
+                	<label for="name" string="Title"/>
+                	<field name="name"></field>
                 	<label for="Description" string="Description"/>
                 	<field name="Description"></field>
                 </form>
@@ -204,7 +281,7 @@
             <field name="model">olims.instrument_type</field>
             <field name="arch" type="xml">
                 <tree string="Instrument Type">
-                	<field name="Title"></field>
+                	<field name="name"></field>
                 	<field name="Description"></field>
                 </tree>
             </field>
@@ -226,8 +303,8 @@
             <field name="model">olims.calculation</field>
             <field name="arch" type="xml">
                 <form string="Calculation Form">
-                	<label for="Title" string="Title"/>
-                	<field name="Title"></field>
+                	<label for="name" string="Title"/>
+                	<field name="name"></field>
                 	<label for="Description" string="Description"/>
                 	<field name="Description"></field>
                 	<label for="Formula" string="Calculation Formula"/>
@@ -241,7 +318,7 @@
             <field name="model">olims.calculation</field>
             <field name="arch" type="xml">
                 <tree string="Calculation">
-                	<field name="Title"></field>
+                	<field name="name"></field>
                 	<field name="Description"></field>
                 	<field name="Formula"></field>
                 </tree>
@@ -299,8 +376,8 @@
             <field name="model">olims.analysis_category</field>
             <field name="arch" type="xml">
                 <form string="Analysis Category Form">
-                	<label for="Title" string="Title"/>
-                	<field name="Title"></field>
+                	<label for="name" string="Title"/>
+                	<field name="name"></field>
                 	<label for="Description" string="Description"/>
                 	<field name="Description"></field>
                 	<label for="Comments" string="Comments"/>
@@ -317,7 +394,7 @@
             <field name="model">olims.analysis_category</field>
             <field name="arch" type="xml">
                 <tree string="Analysis Category">
-                	<field name="Title"></field>
+                	<field name="name"></field>
                 	<field name="Description"></field>
                 	<field name="Comments"></field>
                 	<field name="Department"></field>
@@ -341,8 +418,8 @@
             <field name="model">olims.department</field>
             <field name="arch" type="xml">
                 <form string="Department">
-                	<label for="Title" string="Title"/>
-                	<field name="Title"></field>
+                	<label for="name" string="Title"/>
+                	<field name="name"></field>
                 	<label for="Description" string="Description"/>
                 	<field name="Description"></field>
                 </form>
@@ -354,7 +431,7 @@
             <field name="model">olims.department</field>
             <field name="arch" type="xml">
                 <tree string="Department">
-                	<field name="Title"></field>
+                	<field name="name"></field>
                 	<field name="Description"></field>
                 </tree>
             </field>

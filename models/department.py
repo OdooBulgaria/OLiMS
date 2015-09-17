@@ -26,7 +26,7 @@ from models.base_olims_model import BaseOLiMSModel
 
 # schema = BikaSchema.copy() + Schema(
 schema = (
-    StringField('Title',
+    StringField('name',
         required=1,
         widget=StringWidget(
             label=_('Title'),

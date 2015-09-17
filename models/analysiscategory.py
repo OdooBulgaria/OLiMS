@@ -27,7 +27,7 @@ from dependencies import transaction
 
 # ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
 # schema = BikaSchema.copy() + Schema(
-schema =  (StringField('Title',
+schema =  (StringField('name',
               required=1,        
     ),
     TextField('Description',

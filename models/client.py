@@ -131,7 +131,7 @@ schema = (
         #validators = ('uniquefieldvalidator', 'standard_id_validator'),
         widget=StringWidget(
             label=_('Client ID'),
-            description=_('Title is required.'),
+            description=_('ClientID is required.'),
         ),
     ),
 

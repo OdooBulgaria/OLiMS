@@ -47,7 +47,7 @@ _logger = logging.getLogger(__name__)
 #schema = BikaFolderSchema.copy() + BikaSchema.copy() + Schema((
 schema = (
 
-    StringField('Title',
+    StringField('name',
         required=1,
         widget=StringWidget(
             label=_('Title'),

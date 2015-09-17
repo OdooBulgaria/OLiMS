@@ -38,7 +38,7 @@ from fields.widget.widget import StringWidget, AnalysisProfileAnalysesWidget, \
 # ~~~~~ Useful code that need to be converted in Odoo style ~~~~~~ 
 # schema = BikaSchema.copy() + Schema(
 
-schema = (StringField('Title',
+schema = (StringField('name',
               required=1,        
     ),
     TextField('Description',

@@ -21,7 +21,7 @@ from fields.widget.widget import TextAreaWidget
 
 # ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
 # schema = BikaSchema.copy()
-schema = (StringField('Title',
+schema = (StringField('name',
               required=1,        
     ),
     TextField('Description',

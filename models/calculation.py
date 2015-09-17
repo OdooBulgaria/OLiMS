@@ -65,7 +65,7 @@ from models.base_olims_model import BaseOLiMSModel
 #         ),
 #     ),
 
-schema = (StringField('Title',
+schema = (StringField('name',
         required=1,
         schemata='Description',
     ),
