@@ -11,21 +11,17 @@
         <!-- the following menuitem should appear *after*
              its parent olims_menu and *after* its
              action course_list_action -->
-        
-
-
-
-
-       !--Imstrument form view -->
+	
+		<!--Instrument form view -->
         <record model="ir.ui.view" id="olims_instrument_form_view">
             <field name="name">instrument.form</field>
             <field name="model">olims.instrument</field>
             <field name="arch" type="xml">
                 <form string="Instrument Form">
-                	<field name="Title"></field>
-                	<field name="Description"></field>
-                	<field name="InstrumentType"></field>
-                	<field name="Manufacturer"></field>
+                    <field name="Title"></field>
+                    <field name="Description"></field>
+                    <field name="InstrumentType"></field>
+                    <field name="Manufacturer"></field>
                     <field name="Model"></field>
                     <field name="DisposeUntilNextCalibrationTest"></field>
                     <field name="InlabCalibrationProcedure"></field>
@@ -44,9 +40,9 @@
             <field name="arch" type="xml">
                 <tree string="Instrument">
                     <field name="Title"></field>
-                	<field name="Description"></field>
-                	<field name="InstrumentType"></field>
-                	<field name="Manufacturer"></field>
+                    <field name="Description"></field>
+                    <field name="InstrumentType"></field>
+                    <field name="Manufacturer"></field>
                     <field name="Model"></field>
                     <field name="DisposeUntilNextCalibrationTest"></field>
                     <field name="InlabCalibrationProcedure"></field>
@@ -59,17 +55,15 @@
             </field>
         </record>
 
-		<record model="ir.actions.act_window" id="instrument_list_action">
+        <record model="ir.actions.act_window" id="instrument_list_action">
             <field name="name">Instrument</field>
             <field name="res_model">olims.instrument</field>
             <field name="view_type">form</field>
-			<field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form</field>
        </record>
 
         <menuitem id="instrument_menu" name="Instrument" parent="olims_menu"
                   action="instrument_list_action"/>
-
-
 		<!-- Analysis Profile form view -->
         <record model="ir.ui.view" id="olims_analysis_profile_form_view">
             <field name="name">analysis_profile.form</field>
@@ -409,6 +403,141 @@
        </record>
 
         <menuitem id="my_model" name="My Model" parent="olims_menu"
-                  action="mymodel_my_model_list_action"/>                                                                
+                  action="mymodel_my_model_list_action"/>
+                  
+         <!-- Analysis Service form view -->
+        <record model="ir.ui.view" id="olims_analysis_service_form_view">
+            <field name="name">analysis_service.form</field>
+            <field name="model">olims.analysis_service</field>
+            <field name="arch" type="xml">
+                <form string="Analysis Profile Form">
+                	<label for="Title" string="Title"/>
+                	<field name="Title"></field>
+                	<label for="ShortTitle" string="Short Title"/>
+                	<field name="ShortTitle"></field>
+                	<label for="Description" string="Description"/>
+                	<field name="Description"></field>
+                	<label for="ScientificName" string="Scientific name"/>
+                	<field name="ScientificName"></field>
+                	<label for="Unit" string="Unit"/>
+                	<field name="Unit"></field>
+                	<label for="Precision" string="Precision as number of decimals"/>
+                	<field name="Precision"></field>
+                	<label for="ExponentialFormatPrecision" string="Exponential format precision"/>
+                	<field name="ExponentialFormatPrecision"></field>
+                	<label for="LowerDetectionLimit" string="Lower Detection Limit (LDL)"/>
+                	<field name="LowerDetectionLimit"></field>
+                	<label for="UpperDetectionLimit" string="Upper Detection Limit (UDL"/>
+                	<field name="UpperDetectionLimit"></field>
+                	<label for="DetectionLimitSelector" string="Display a Detection Limit selector"/>
+                	<field name="DetectionLimitSelector"></field>
+                	<label for="AllowManualDetectionLimit" string="Allow Manual Detection Limit input"/>
+                	<field name="AllowManualDetectionLimit"></field>
+                	<label for="ReportDryMatter" string="Report as Dry Matter"/>
+                	<field name="ReportDryMatter"></field>
+                	<label for="AttachmentOption" string="Attachment Option"/>
+                	<field name="AttachmentOption"></field>
+                	<label for="Keyword" string="Analysis Keyword"/>
+                	<field name="Keyword"></field>
+                	<label for="ManualEntryOfResults" string="Allow manual entry of results"/>
+                	<field name="ManualEntryOfResults"></field>
+                	<label for="InstrumentEntryOfResults" string="Allow instrument entry of results"/>
+                	<field name="InstrumentEntryOfResults"></field>
+                	<label for="Instruments" string="Instruments"/>
+                	<field name="Instruments"></field>
+                	<label for="Methods" string="Methods"/>
+                	<field name="Methods"></field>
+                	<label for="_Method" string="Default Method"/>
+                	<field name="_Method"></field>
+                	<label for="UseDefaultCalculation" string="Use default calculation"/>
+                	<field name="UseDefaultCalculation"></field>
+                	<label for="_Calculation" string="Default Calculation"/>
+                	<field name="_Calculation"></field>
+                	<label for="DeferredCalculation" string="Alternative Calculation"/>
+                	<field name="DeferredCalculation"></field>
+                	<label for="DuplicateVariation" string="Duplicate Variation %"/>
+                	<field name="DuplicateVariation"></field>
+                	<label for="Accredited" string="Accredited"/>
+                	<field name="Accredited"></field>
+                	<label for="PointOfCapture" string="Point of Capture"/>
+                	<field name="PointOfCapture" widget="radio"></field>
+                	<label for="Category" string="Analysis Category"/>
+                	<field name="Category"></field>
+                	<label for="Price" string="Price (excluding VAT)"/>
+                	<field name="Price"></field>
+                	<label for="BulkPrice" string="Bulk price (excluding VAT"/>
+                	<field name="BulkPrice"></field>
+                	<label for="VAT" string="VAT %"/>
+                	<field name="VAT"></field>
+                	<label for="Department" string="Department"/>
+                	<field name="Department"></field>
+                	<label for="PrecisionFromUncertainty" string="Calculate Precision from Uncertainties"/>
+                	<field name="PrecisionFromUncertainty"></field>
+                	<label for="AllowManualUncertainty" string="Allow manual uncertainty value input"/>
+                	<field name="AllowManualUncertainty"></field>
+                	<label for="Separate" string="Separate"/>
+                	<field name="Separate"></field>
+                	<label for="Hidden" string="Hidden"/>
+                	<field name="Hidden"></field>
+                	<label for="CommercialID" string="Commercial ID"/>
+                	<field name="CommercialID"></field>
+                	<label for="ProtocolID" string="Protocol ID"/>
+                	<field name="ProtocolID"></field>
+                </form>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="olims_analysis_service_tree_view">
+            <field name="name">analysis_service.tree</field>
+            <field name="model">olims.analysis_service</field>
+            <field name="arch" type="xml">
+                <tree string="Analysis Profile">
+                    <field name="Title"></field>
+                	<field name="ShortTitle"></field>
+                	<field name="Description"></field>
+                	<field name="ScientificName"></field>
+                	<field name="Unit"></field>
+                	<field name="Precision"></field>
+                	<field name="ExponentialFormatPrecision"></field>
+                	<field name="LowerDetectionLimit"></field>
+                	<field name="UpperDetectionLimit"></field>
+                	<field name="DetectionLimitSelector"></field>
+                	<field name="AllowManualDetectionLimit"></field>
+                	<field name="ReportDryMatter"></field>
+                	<field name="AttachmentOption"></field>
+                	<field name="Keyword"></field>
+                	<field name="ManualEntryOfResults"></field>
+                	<field name="InstrumentEntryOfResults"></field>
+                	<field name="Instruments"></field>
+                	<field name="Methods"></field>
+                	<field name="_Method"></field>
+                	<field name="UseDefaultCalculation"></field>
+                	<field name="_Calculation"></field>
+                	<field name="DeferredCalculation"></field>
+                	<field name="DuplicateVariation"></field>
+                	<field name="Accredited"></field>
+                	<field name="PointOfCapture"></field>
+                	<field name="Category"></field>
+                	<field name="Price"></field>
+                	<field name="BulkPrice"></field>
+                	<field name="VAT"></field>
+                	<field name="Department"></field>
+                	<field name="PrecisionFromUncertainty"></field>
+                	<field name="AllowManualUncertainty"></field>
+                	<field name="Separate"></field>
+                	<field name="Hidden"></field>
+                	<field name="CommercialID"></field>
+                	<field name="ProtocolID"></field>
+                 </tree>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="analysis_service_list_action">
+            <field name="name">Analysis Service</field>
+            <field name="res_model">olims.analysis_service</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="analysis_service_menu" name="Analysis Service" parent="olims_menu"
+                  action="analysis_service_list_action"/>                                                  
     </data>
 </openerp>
