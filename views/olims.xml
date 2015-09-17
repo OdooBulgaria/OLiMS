@@ -629,6 +629,44 @@
        </record>
 
         <menuitem id="container_type" name="Container Type" parent="olims_menu"
-                  action="olims_container_type_list_action"/>                                                                   
+                  action="olims_container_type_list_action"/>
+                  
+       <!-- Preservation Type view -->         
+          <record model="ir.ui.view" id="olims_preservation_form_view">
+            <field name="name">preservation.form</field>
+            <field name="model">olims.preservation</field>
+            <field name="arch" type="xml">
+                <form string="Preservation">
+                	<label for="name" string="Title"/>
+                	<field name="name"></field>
+                	<label for="Description" string="Description"/>
+                	<field name="Description"></field>
+                	<label for="Category" string="Preservation Category"/>
+                	<field name="Category" widget="radio"></field>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="olims_preservation_tree_view">
+            <field name="name">preservation.tree</field>
+            <field name="model">olims.preservation</field>
+            <field name="arch" type="xml">
+                <tree string="Preservation Type">
+                	<field name="name"></field>
+                	<field name="Description"></field>
+                	<field name="Category"></field>
+                </tree>
+            </field>
+        </record>
+                    
+	   <record model="ir.actions.act_window" id="olims_preservation_list_action">
+            <field name="name">Preservation</field>
+            <field name="res_model">olims.preservation</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="preservation" name="preservation" parent="olims_menu"
+                  action="olims_preservation_list_action"/>                                                                   
     </data>
 </openerp>

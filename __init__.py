@@ -18,3 +18,4 @@ from models import artemplate
 from models import instrument
 from models  import container
 from models import containertype
+from models import preservation
