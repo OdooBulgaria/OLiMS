@@ -11,7 +11,148 @@
         <!-- the following menuitem should appear *after*
              its parent olims_menu and *after* its
              action course_list_action -->
-        
+
+        <!--Contact form view -->
+        <record model="ir.ui.view" id="olims_lab_contact_form_view">
+            <field name="name">lab_contact.form</field>
+            <field name="model">olims.lab_contact</field>
+            <field name="arch" type="xml">
+                <form string="Lab Contact Form">
+                     <label for="Salutation" string="Salutation"/>
+                    <field name="Salutation"></field>
+                    <label for="Firstname" string="First Name"/>
+                    <field name="Firstname"></field>
+                    <label for="Middleinitial" string="Middle Initial"/>
+                    <field name="Middleinitial"></field>
+                    <label for="Middlename" string="Middle Name"/>
+                    <field name="Middlename"></field>
+                    <label for="Surname" string="Surname"/>
+                    <field name="Surname"></field>
+                    <label for="EmailAddress" string="Email Address"/>
+                    <field name="EmailAddress"></field>
+                    <label for="BusinessPhone" string="Business Phone"/>
+                    <field name="BusinessPhone"></field>
+                    <label for="BusinessFax" string="Business Fax"/>
+                    <field name="BusinessFax"></field>
+                    <label for="HomePhone" string="Home Phone"/>
+                    <field name="HomePhone"></field>
+                    <label for="MobilePhone" string="Mobile Phone"/>
+                    <field name="MobilePhone"></field>
+                    <label for="JobTitle" string="Job Title"/>
+                    <field name="JobTitle"></field>
+                    <label for="Department" string="Department"/>
+                    <field name="Department"></field>
+                    </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_lab_contact_tree_view">
+            <field name="name">lab_contact.tree</field>
+            <field name="model">olims.lab_contact</field>
+            <field name="arch" type="xml">
+                <tree string="Lab Contact">
+                	<field name="Salutation"></field>
+                    <field name="Firstname"></field>
+                    <field name="Middleinitial"></field>
+                    <field name="Middlename"></field>
+                    <field name="Surname"></field>
+                    <field name="EmailAddress"></field>
+                    <field name="BusinessPhone"></field>
+                    <field name="BusinessFax"></field>
+                    <field name="HomePhone"></field>
+                    <field name="MobilePhone"></field>
+                    <field name="JobTitle"></field>
+                    <field name="Department"></field>
+
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="lab_contact_list_action">
+            <field name="name">Lab Contact</field>
+            <field name="res_model">olims.lab_contact</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="lab_contact_menu" name="Contact" parent="olims_menu"
+                  action="lab_contact_list_action"/>
+
+
+
+
+
+
+        <!--Contact form view -->
+        <record model="ir.ui.view" id="olims_contact_form_view">
+            <field name="name">contact.form</field>
+            <field name="model">olims.contact</field>
+            <field name="arch" type="xml">
+                <form string="Contact Form">
+                     <label for="Salutation" string="Salutation"/>
+                    <field name="Salutation"></field>
+                    <label for="Firstname" string="First Name"/>
+                    <field name="Firstname"></field>
+                    <label for="Middleinitial" string="Middle Initial"/>
+                    <field name="Middleinitial"></field>
+                    <label for="Middlename" string="Middle Name"/>
+                    <field name="Middlename"></field>
+                    <label for="Surname" string="Surname"/>
+                    <field name="Surname"></field>
+                    <label for="EmailAddress" string="Email Address"/>
+                    <field name="EmailAddress"></field>
+                    <label for="BusinessPhone" string="Business Phone"/>
+                    <field name="BusinessPhone"></field>
+                    <label for="BusinessFax" string="Business Fax"/>
+                    <field name="BusinessFax"></field>
+                    <label for="HomePhone" string="Home Phone"/>
+                    <field name="HomePhone"></field>
+                    <label for="MobilePhone" string="Mobile Phone"/>
+                    <field name="MobilePhone"></field>
+                    <label for="JobTitle" string="Job Title"/>
+                    <field name="JobTitle"></field>
+                    <label for="Department" string="Department"/>
+                    <field name="Department"></field>
+                    <label for="PublicationPreference" string="Publication Preference"/>
+                    <field name="PublicationPreference"></field>
+                    <label for="AttachmentsPermitted" string="Attachments Permitted"/>
+                    <field name="AttachmentsPermitted"></field>
+                    </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_contact_tree_view">
+            <field name="name">contact.tree</field>
+            <field name="model">olims.contact</field>
+            <field name="arch" type="xml">
+                <tree string="Contact">
+                	<field name="Salutation"></field>
+                    <field name="Firstname"></field>
+                    <field name="Middleinitial"></field>
+                    <field name="Middlename"></field>
+                    <field name="Surname"></field>
+                    <field name="EmailAddress"></field>
+                    <field name="BusinessPhone"></field>
+                    <field name="BusinessFax"></field>
+                    <field name="HomePhone"></field>
+                    <field name="MobilePhone"></field>
+                    <field name="JobTitle"></field>
+                    <field name="Department"></field>
+                    <field name="PublicationPreference"></field>
+                    <field name="AttachmentsPermitted"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="contact_list_action">
+            <field name="name">Contact</field>
+            <field name="res_model">olims.contact</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="contact_menu" name="Contact" parent="olims_menu"
+                  action="contact_list_action"/>
 
        <!--Client form view -->
         <record model="ir.ui.view" id="olims_client_form_view">
@@ -99,18 +240,31 @@
             <field name="model">olims.instrument</field>
             <field name="arch" type="xml">
                 <form string="Instrument Form">
+                    <label for="Name" string="Title"/>
                 	<field name="name"></field>
+                    <label for="Description" string="Description"/>
                 	<field name="Description"></field>
-                	<field name="InstrumentType"></field>
+                	<label for="InstrumentType" string="Instrument Type"/>
+                    <field name="InstrumentType"></field>
+                    <label for="Manufacturer" string="Manufacturer"/>
                 	<field name="Manufacturer"></field>
+                    <label for="Model" string="Model"/>
                     <field name="Model"></field>
+                    <label for="DisposeUntilNextCalibrationTest" string="Dispose Until Next Calibration Test"/>
                     <field name="DisposeUntilNextCalibrationTest"></field>
+                    <label for="InlabCalibrationProcedure" string="In lab Calibration Procedure"/>
                     <field name="InlabCalibrationProcedure"></field>
+                    <label for="PreventiveMaintenanceProcedure" string="Preventive Maintenance Procedure"/>
                     <field name="PreventiveMaintenanceProcedure"></field>
+                    <label for="AssetNumber" string="Asset Number"/>
                     <field name="AssetNumber"></field>
+                    <label for="Location" string="Location"/>
                     <field name="Location"></field>
+                    <label for="InstallationDate" string="Installation Date"/>
                     <field name="InstallationDate"></field>
+                    <label for="InstallationCertificate" string="Installation Certificate"/>
                     <field name="InstallationCertificate"></field>
+
                     </form>
             </field>
         </record>
