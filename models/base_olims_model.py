@@ -29,10 +29,21 @@ class BaseOLiMSModel(object):
         # 2. make getter methods for each model variable defined in step 1
         for field in schema:
             add_a_field(cls, field)
-#             add_a_getter(cls, field)
+            #add_a_getter(cls, field)
             pass
         pass       
     pass
                                     
 
-                    
+    #
+    #
+    # def add_a_getter(cls, fieldname):
+    # def getterTemplate(cls):
+    #     field = getattr(cls, fieldname)
+    #     return field.__repr__()
+    #     pass
+    #
+    # getterTemplate.__doc__ = "get%s - method to get value of field: %s" % (fieldname,fieldname)
+    # getterTemplate.__name__ = "get%s" % fieldname
+    # setattr(cls, getterTemplate.__name__, classmethod(getterTemplate))
+    # pass

@@ -22,7 +22,8 @@ from lims import bikaMessageFactory as _
 
 # ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
 # schema = BikaSchema.copy()
-schema = (StringField(string='Title',
+schema = (StringField('name'),
+    StringField(string='Title',
               required=1,        
     ),
     TextField(string='Description',
@@ -49,7 +50,7 @@ class Manufacturer(models.Model, BaseOLiMSModel):#(BaseContent):
     def _renameAfterCreation(self, check_auto_id=False):
         from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
-        
+
 Manufacturer.initialze(schema)
 
 # ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~

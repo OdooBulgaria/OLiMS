@@ -34,7 +34,7 @@ from fields.widget.widget import StringWidget, TextAreaWidget, \
 # ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
 # schema = BikaSchema.copy() + Schema(
 schema = (
-    StringField('Title',
+    StringField('name',
         required=True,
         widget=StringWidget(
             label=_('Title'),

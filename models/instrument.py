@@ -27,12 +27,9 @@ from dependencies.dependency import DisplayList
 
 from lims.config import QCANALYSIS_TYPES
 
-
-
 from openerp import fields, models
 from models.base_olims_model import BaseOLiMSModel
 from models.manufacturer import Manufacturer
-
 from fields.string_field import StringField
 from fields.text_field import TextField
 from fields.boolean_field import BooleanField
@@ -120,7 +117,7 @@ schema = (
             description=_("The serial number that uniquely identifies the instrument"),
         )
     ),
-
+    # ~~~~~~~ To be implemented ~~~~~~~
     # HistoryAwareReferenceField('Method',
     #     vocabulary='_getAvailableMethods',
     #     allowed_types=('Method',),
@@ -173,7 +170,7 @@ schema = (
     #         visible = False,
     #     ),
     # ),
-    #~~~~~~~~~~~~~~~~~~~~~~ to be implemented
+    # ~~~~~~~ To be implemented ~~~~~~~
     # #TODO: To be removed?
     # RecordsField('DataInterfaceOptions',
     #     type = 'interfaceoptions',
@@ -290,7 +287,7 @@ schema = (
     ),
 
 ) #)
-
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
 # schema.moveField('AssetNumber', before='description')
 # schema.moveField('SupplierName', before='Model')
 # schema.moveField('ManufacturerName', before='SupplierName')
@@ -325,6 +322,8 @@ def getCalibrationAgents(context):
 #class Instrument(ATFolder):
 class Instrument(models.Model, BaseOLiMSModel):
     _name = 'olims.instrument'
+    
+    # ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
     # implements(IInstrument)
     # security = ClassSecurityInfo()
     # displayContentsTab = False
