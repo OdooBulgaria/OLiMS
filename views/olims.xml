@@ -12,6 +12,48 @@
              its parent olims_menu and *after* its
              action course_list_action -->
 
+        <!--samplepoint form view -->
+        <record model="ir.ui.view" id="olims_sample_point_form_view">
+            <field name="name">sample_point.form</field>
+            <field name="model">olims.sample_point</field>
+            <field name="arch" type="xml">
+                <form string="Sample Point Form">
+                     <label for="Elevation" string="Elevation"/>
+                	<field name="Elevation"></field>
+                	<label for="SampleTypes" string="Sample Types"/>
+                    <field name="SampleTypes"></field>
+                    <label for="Composite" string="Composite"/>
+                	<field name="Composite"></field>
+                    </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_sample_point_tree_view">
+            <field name="name">sample_point.tree</field>
+            <field name="model">olims.sample_point</field>
+            <field name="arch" type="xml">
+                <tree string="Sample Point">
+                	<field name="Elevation"></field>
+                    <field name="SampleTypes"></field>
+                	<field name="Composite"></field>
+
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="sample_point_list_action">
+            <field name="name">Sample Point</field>
+            <field name="res_model">olims.sample_point</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="sample_point_menu" name="Sample Point" parent="olims_menu"
+                  action="sample_point_list_action"/>
+
+
+
+
         <!--laboratory form view -->
         <record model="ir.ui.view" id="olims_laboratory_form_view">
             <field name="name">laboratory.form</field>

@@ -1,35 +1,50 @@
-from dependencies.dependency import ClassSecurityInfo
-from dependencies.dependency import *
-from dependencies.dependency import HistoryAwareMixin
+# # ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# from dependencies.dependency import ClassSecurityInfo
+# from dependencies.dependency import *
+# from dependencies.dependency import HistoryAwareMixin
+# from dependencies.dependency import getToolByName
+# from dependencies.dependency import safe_unicode
+# from lims.browser import BrowserView
+# from lims.content.bikaschema import BikaSchema
+# from lims.config import PROJECTNAME
+# from lims.browser.fields import CoordinateField
+# from lims.browser.widgets import CoordinateWidget
+# from lims.browser.fields import DurationField
+# from lims.browser.widgets import DurationWidget
+# from lims import PMF, bikaMessageFactory as _
+# from dependencies.dependency import implements
+# import json
+# import sys
+
 from dependencies.dependency import getToolByName
 from dependencies.dependency import safe_unicode
-from lims.browser import BrowserView
-from lims.content.bikaschema import BikaSchema
-from lims.config import PROJECTNAME
-from lims.browser.fields import CoordinateField
-from lims.browser.widgets import CoordinateWidget
-from lims.browser.fields import DurationField
-from lims.browser.widgets import DurationWidget
-from lims import PMF, bikaMessageFactory as _
-from dependencies.dependency import implements
-import json
-import sys
+from lims import bikaMessageFactory as _
+from openerp import fields, models
+from fields.string_field import StringField
+from fields.text_field import TextField
+from fields.boolean_field import BooleanField
+from fields.widget.widget import TextAreaWidget, BooleanWidget, StringWidget
+from models.base_olims_model import BaseOLiMSModel
 
-schema = BikaSchema.copy() + Schema((
-    CoordinateField('Latitude',
-        schemata = 'Location',
-        widget=CoordinateWidget(
-            label=_("Latitude"),
-            description=_("Enter the Sample Point's latitude in degrees 0-90, minutes 0-59, seconds 0-59 and N/S indicator"),
-        ),
-    ),
-    CoordinateField('Longitude',
-        schemata = 'Location',
-        widget=CoordinateWidget(
-            label=_("Longitude"),
-            description=_("Enter the Sample Point's longitude in degrees 0-180, minutes 0-59, seconds 0-59 and E/W indicator"),
-        ),
-    ),
+#schema = BikaSchema.copy() + Schema((
+
+schema = (
+# ~~~~~~~ To be implemented ~~~~~~~
+#     CoordinateField('Latitude',
+#         schemata = 'Location',
+#         widget=CoordinateWidget(
+#             label=_("Latitude"),
+#             description=_("Enter the Sample Point's latitude in degrees 0-90, minutes 0-59, seconds 0-59 and N/S indicator"),
+#         ),
+#     ),
+#     CoordinateField('Longitude',
+#         schemata = 'Location',
+#         widget=CoordinateWidget(
+#             label=_("Longitude"),
+#             description=_("Enter the Sample Point's longitude in degrees 0-180, minutes 0-59, seconds 0-59 and E/W indicator"),
+#         ),
+#     ),
+
     StringField('Elevation',
         schemata = 'Location',
         widget=StringWidget(
@@ -37,34 +52,48 @@ schema = BikaSchema.copy() + Schema((
             description=_("The height or depth at which the sample has to be taken"),
         ),
     ),
-    DurationField('SamplingFrequency',
-        vocabulary_display_path_bound=sys.maxint,
-        widget=DurationWidget(
-            label=_("Sampling Frequency"),
-            description=_("If a sample is taken periodically at this sample point, enter frequency here, e.g. weekly"),
-        ),
+    # ~~~~~~~ To be implemented ~~~~~~~
+    # DurationField('SamplingFrequency',
+    #     vocabulary_display_path_bound=sys.maxint,
+    #     widget=DurationWidget(
+    #         label=_("Sampling Frequency"),
+    #         description=_("If a sample is taken periodically at this sample point, enter frequency here, e.g. weekly"),
+    #     ),
+    # ),
+    fields.Many2one(string='SampleTypes',
+                    comodel_name='olims.sample_type',
+        required = False,
+#         allowed_types = ('SampleMatrix',),
+#         vocabulary = 'SampleMatricesVocabulary',
+#         relationship = 'SampleTypeSampleMatrix',
+#         referenceClass = HoldingReference,
+#         widget = ReferenceWidget(
+#             checkbox_bound = 0,
+#             label=_("Sample Matrix"),
+#         ),
     ),
-    ReferenceField('SampleTypes',
-        required = 0,
-        multiValued = 1,
-        allowed_types = ('SampleType',),
-        vocabulary = 'SampleTypesVocabulary',
-        relationship = 'SamplePointSampleType',
-        widget = ReferenceWidget(
-            checkbox_bound = 0,
-            label=_("Sample Types"),
-            description =_("The list of sample types that can be collected "
-                           "at this sample point.  If no sample types are "
-                           "selected, then all sample types are available."),
-        ),
-    ),
-    ComputedField(
-        'SampleTypeTitle',
-        expression="[o.Title() for o in context.getSampleTypes()]",
-        widget = ComputedWidget(
-            visibile=False,
-        )
-    ),
+    # ReferenceField('SampleTypes',
+    #     required = 0,
+    #     multiValued = 1,
+    #     allowed_types = ('SampleType',),
+    #     vocabulary = 'SampleTypesVocabulary',
+    #     relationship = 'SamplePointSampleType',
+    #     widget = ReferenceWidget(
+    #         checkbox_bound = 0,
+    #         label=_("Sample Types"),
+    #         description =_("The list of sample types that can be collected "
+    #                        "at this sample point.  If no sample types are "
+    #                        "selected, then all sample types are available."),
+    #     ),
+    # ),
+    # ComputedField(
+    #     'SampleTypeTitle',
+    #     expression="[o.Title() for o in context.getSampleTypes()]",
+    #     widget = ComputedWidget(
+    #         visibile=False,
+    #     )
+    # ),
+
     BooleanField('Composite',
         default=False,
         widget=BooleanWidget(
@@ -76,14 +105,16 @@ schema = BikaSchema.copy() + Schema((
                 "The default, unchecked, indicates 'grab' samples"),
         ),
     ),
-))
-schema['description'].widget.visible = True
-schema['description'].schemata = 'default'
+)
 
-class SamplePoint(BaseContent, HistoryAwareMixin):
-    security = ClassSecurityInfo()
-    displayContentsTab = False
-    schema = schema
+# schema['description'].widget.visible = True
+# schema['description'].schemata = 'default'
+
+class SamplePoint(models.Model, BaseOLiMSModel):#BaseContent, HistoryAwareMixin
+    _name='olims.sample_point'
+    # security = ClassSecurityInfo()
+    # displayContentsTab = False
+    # schema = schema
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
@@ -133,7 +164,8 @@ class SamplePoint(BaseContent, HistoryAwareMixin):
     def getClientUID(self):
         return self.aq_parent.UID()
 
-registerType(SamplePoint, PROJECTNAME)
+#registerType(SamplePoint, PROJECTNAME)
+SamplePoint.initialze(schema)
 
 def SamplePoints(self, instance=None, allow_blank=True, lab_only=True):
     instance = instance or self

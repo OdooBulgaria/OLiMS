@@ -27,4 +27,4 @@ from models import client
 from models import contact
 from models import labcontact
 from models import laboratory
-
+from models import samplepoint
