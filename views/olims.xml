@@ -669,7 +669,7 @@
         <menuitem id="preservation" name="Preservation" parent="olims_menu"
                   action="olims_preservation_list_action"/>
                   
-        <!-- Sample Matrix Type view -->         
+        <!-- Sample Matrix view -->         
           <record model="ir.ui.view" id="olims_sample_matrix_form_view">
             <field name="name">sample_matrix.form</field>
             <field name="model">olims.sample_matrix</field>
@@ -702,6 +702,59 @@
        </record>
 
         <menuitem id="sample_matrix" name="Sample Matrix" parent="olims_menu"
-                  action="olims_sample_matrix_list_action"/>                                                                             
+                  action="olims_sample_matrix_list_action"/>
+                  
+        <!-- Sample Type view -->         
+          <record model="ir.ui.view" id="olims_sample_type_form_view">
+            <field name="name">sample_type.form</field>
+            <field name="model">olims.sample_type</field>
+            <field name="arch" type="xml">
+                <form string="Sample Type">
+                	<label for="name" string="Title"/>
+                	<field name="name"></field>
+                	<label for="Description" string="Description"/>
+                	<field name="Description"></field>
+                	<label for="Hazardous" string="Hazardous"/>
+                	<field name="Hazardous"></field>
+                	<label for="SampleMatrix" string="Sample Matrix"/>
+                	<field name="SampleMatrix"></field>
+                	<label for="Prefix" string="Sample Type Prefix"/>
+                	<field name="Prefix"></field>
+                	<label for="MinimumVolume" string="Minimum Volume"/>
+                	<field name="MinimumVolume"></field>
+                	<label for="ContainerType" string="Default Container Type"/>
+                	<field name="ContainerType"></field>
+                	<!-- <label for="SamplePoints" string="Sample Points"/>
+                	<field name="SamplePoints"></field> -->
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="olims_sample_type_tree_view">
+            <field name="name">sample_type.tree</field>
+            <field name="model">olims.sample_type</field>
+            <field name="arch" type="xml">
+                <tree string="Sample Matrix">
+                	<field name="name"></field>
+                	<field name="Description"></field>
+                	<field name="Hazardous"></field>
+                	<field name="SampleMatrix"></field>
+                	<field name="Prefix"></field>
+                	<field name="MinimumVolume"></field>
+                	<field name="ContainerType"></field>
+                	<!-- <field name="SamplePoints"></field> -->
+                </tree>
+            </field>
+        </record>
+                    
+	   <record model="ir.actions.act_window" id="olims_sample_type_list_action">
+            <field name="name">Sample Type</field>
+            <field name="res_model">olims.sample_type</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="sample_type" name="Sample Type" parent="olims_menu"
+                  action="olims_sample_type_list_action"/>                                                                             
     </data>
 </openerp>
