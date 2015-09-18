@@ -19,3 +19,4 @@ from models import instrument
 from models  import container
 from models import containertype
 from models import preservation
+from models import samplematrix

@@ -651,7 +651,7 @@
             <field name="name">preservation.tree</field>
             <field name="model">olims.preservation</field>
             <field name="arch" type="xml">
-                <tree string="Preservation Type">
+                <tree string="Preservation">
                 	<field name="name"></field>
                 	<field name="Description"></field>
                 	<field name="Category"></field>
@@ -666,7 +666,42 @@
 			<field name="view_mode">tree,form</field>
        </record>
 
-        <menuitem id="preservation" name="preservation" parent="olims_menu"
-                  action="olims_preservation_list_action"/>                                                                   
+        <menuitem id="preservation" name="Preservation" parent="olims_menu"
+                  action="olims_preservation_list_action"/>
+                  
+        <!-- Sample Matrix Type view -->         
+          <record model="ir.ui.view" id="olims_sample_matrix_form_view">
+            <field name="name">sample_matrix.form</field>
+            <field name="model">olims.sample_matrix</field>
+            <field name="arch" type="xml">
+                <form string="Sample Matrix">
+                	<label for="name" string="Title"/>
+                	<field name="name"></field>
+                	<label for="Description" string="Description"/>
+                	<field name="Description"></field>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.ui.view" id="olims_sample_matrix_tree_view">
+            <field name="name">sample_matrix.tree</field>
+            <field name="model">olims.sample_matrix</field>
+            <field name="arch" type="xml">
+                <tree string="Sample Matrix">
+                	<field name="name"></field>
+                	<field name="Description"></field>
+                </tree>
+            </field>
+        </record>
+                    
+	   <record model="ir.actions.act_window" id="olims_sample_matrix_list_action">
+            <field name="name">Sample Matrix</field>
+            <field name="res_model">olims.sample_matrix</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="sample_matrix" name="Sample Matrix" parent="olims_menu"
+                  action="olims_sample_matrix_list_action"/>                                                                             
     </data>
 </openerp>
