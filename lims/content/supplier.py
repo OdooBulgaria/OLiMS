@@ -58,7 +58,8 @@ schema = Organisation.schema.copy() + ManagedSchema((
             label=_('SWIFT code.'),
         ),
     ),
-))
+)
+)
 schema['AccountNumber'].write_permission = ManageSuppliers
 
 class Supplier(Organisation):
