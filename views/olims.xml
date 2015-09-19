@@ -12,6 +12,73 @@
              its parent olims_menu and *after* its
              action course_list_action -->
 
+        <!--person form view -->
+        <record model="ir.ui.view" id="olims_person_form_view">
+            <field name="name">person.form</field>
+            <field name="model">olims.person</field>
+            <field name="arch" type="xml">
+                <form string="Person Form">
+                     <label for="Salutation" string="Salutation"/>
+                    <field name="Salutation"></field>
+                    <label for="Firstname" string="First Name"/>
+                    <field name="Firstname"></field>
+                    <label for="Middleinitial" string="Middle Initial"/>
+                    <field name="Middleinitial"></field>
+                    <label for="Middlename" string="Middle Name"/>
+                    <field name="Middlename"></field>
+                    <label for="Surname" string="Surname"/>
+                    <field name="Surname"></field>
+                    <label for="EmailAddress" string="Email Address"/>
+                    <field name="EmailAddress"></field>
+                    <label for="BusinessPhone" string="Business Phone"/>
+                    <field name="BusinessPhone"></field>
+                    <label for="BusinessFax" string="Business Fax"/>
+                    <field name="BusinessFax"></field>
+                    <label for="HomePhone" string="Home Phone"/>
+                    <field name="HomePhone"></field>
+                    <label for="MobilePhone" string="Mobile Phone"/>
+                    <field name="MobilePhone"></field>
+                    <label for="JobTitle" string="Job Title"/>
+                    <field name="JobTitle"></field>
+                    <label for="Department" string="Department"/>
+                    <field name="Department"></field>
+                    </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_person_tree_view">
+            <field name="name">person.tree</field>
+            <field name="model">olims.person</field>
+            <field name="arch" type="xml">
+                <tree string="Person">
+                	<field name="Salutation"></field>
+                    <field name="Firstname"></field>
+                    <field name="Middleinitial"></field>
+                    <field name="Middlename"></field>
+                    <field name="Surname"></field>
+                    <field name="EmailAddress"></field>
+                    <field name="BusinessPhone"></field>
+                    <field name="BusinessFax"></field>
+                    <field name="HomePhone"></field>
+                    <field name="MobilePhone"></field>
+                    <field name="JobTitle"></field>
+                    <field name="Department"></field>
+
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="person_list_action">
+            <field name="name">Person</field>
+            <field name="res_model">olims.person</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="person_menu" name="Person" parent="olims_menu"
+                  action="person_list_action"/>
+
+
         <!--supplier_contact form view -->
         <record model="ir.ui.view" id="olims_supplier_contact_form_view">
             <field name="name">supplier_contact.form</field>
@@ -77,14 +144,6 @@
 
         <menuitem id="supplier_contact_menu" name="Supplier Contact" parent="olims_menu"
                   action="supplier_contact_list_action"/>
-
-
-
-
-
-
-
-
 
                         <!--supply_order form view -->
         <record model="ir.ui.view" id="olims_supply_order_form_view">
