@@ -1,45 +1,54 @@
-import sys
+# # ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
 
-from dependencies.dependency import *
+# from dependencies.dependency import *
+# from dependencies.dependency import ClassSecurityInfo
+# from lims import bikaMessageFactory as _
+# from lims.browser.widgets import DateTimeWidget
+# from lims.browser.widgets import ReferenceWidget as BikaReferenceWidget
+# from lims.config import PROJECTNAME
+# from lims.content.bikaschema import BikaSchema
+# from lims.interfaces import ISupplyOrder
+# from lims.utils import t
+# from dependencies.dependency import DateTime
+# from dependencies.dependency import PersistentMapping
+# from dependencies.dependency import Decimal
+# from dependencies import atapi
+# from dependencies.dependency import View
+# from dependencies.dependency import IConstrainTypes
+# from dependencies.dependency import implements
 
-from dependencies.dependency import ClassSecurityInfo
+
+
 from lims import bikaMessageFactory as _
-from lims.browser.widgets import DateTimeWidget
-from lims.browser.widgets import ReferenceWidget as BikaReferenceWidget
-from lims.config import PROJECTNAME
-from lims.content.bikaschema import BikaSchema
-from lims.interfaces import ISupplyOrder
-from lims.utils import t
-from dependencies.dependency import DateTime
-from dependencies.dependency import PersistentMapping
-from dependencies.dependency import Decimal
-from dependencies import atapi
-from dependencies.dependency import HoldingReference
-from dependencies.dependency import View
-from dependencies.dependency import IConstrainTypes
-from dependencies.dependency import safe_unicode
-from dependencies.dependency import getAdapter
-from dependencies.dependency import implements
+from openerp import fields, models
+from fields.string_field import StringField
+from fields.text_field import TextField
+from fields.date_time_field import DateTimeField
+
+from fields.widget.widget import TextAreaWidget, StringWidget, DateTimeWidget
+from models.base_olims_model import BaseOLiMSModel
 
 
-schema = BikaSchema.copy() + Schema((
-    ReferenceField(
-      'Contact',
-      required=1,
-      vocabulary_display_path_bound=sys.maxsize,
-      allowed_types=('Contact',),
-      referenceClass=HoldingReference,
-      relationship='SupplyOrderContact',
-      widget=BikaReferenceWidget(
-        render_own_label=True,
-        showOn=True,
-        colModel=[
-          {'columnName': 'UID', 'hidden': True},
-          {'columnName': 'Fullname', 'width': '50', 'label': _('Name')},
-          {'columnName': 'EmailAddress', 'width': '50', 'label': _('Email Address')},
-        ],
-      ),
+#schema = BikaSchema.copy() + Schema((
+schema = (
+
+  fields.Many2one(string='Contact',
+        comodel_name='olims.contact',
+        requried =True,
+#         vocabulary_display_path_bound=sys.maxsize,
+    #   allowed_types=('Contact',),
+    #   referenceClass=HoldingReference,
+    #   relationship='SupplyOrderContact',
+    #   widget=BikaReferenceWidget(
+    #     render_own_label=True,
+    #     showOn=True,
+    #     colModel=[
+    #       {'columnName': 'UID', 'hidden': True},
+    #       {'columnName': 'Fullname', 'width': '50', 'label': _('Name')},
+    #       {'columnName': 'EmailAddress', 'width': '50', 'label': _('Email Address')},
+    #     ],
     ),
+
     StringField('OrderNumber',
                 required=1,
                 searchable=True,
@@ -47,12 +56,17 @@ schema = BikaSchema.copy() + Schema((
                     label=_("Order Number"),
                     ),
                 ),
-    ReferenceField('Invoice',
-                   vocabulary_display_path_bound=sys.maxsize,
-                   allowed_types=('Invoice',),
-                   referenceClass=HoldingReference,
-                   relationship='OrderInvoice',
-                   ),
+
+    fields.Many2one(string='Invoice',
+        comodel_name='olims.invoice',
+        requried =False,
+         help =    'contact',
+    # vocabulary_display_path_bound=sys.maxsize,
+    #                allowed_types=('Invoice',),
+    #                referenceClass=HoldingReference,
+    #                relationship='OrderInvoice',
+    ),
+
     DateTimeField(
       'OrderDate',
       required=1,
@@ -85,130 +99,133 @@ schema = BikaSchema.copy() + Schema((
             append_only=True,
         ),
     ),
-    ComputedField('ClientUID',
-                  expression = 'here.aq_parent.UID()',
-                  widget = ComputedWidget(
-                      visible=False,
-                      ),
-                  ),
-    ComputedField('ProductUID',
-                  expression = 'context.getProductUIDs()',
-                  widget = ComputedWidget(
-                      visible=False,
-                      ),
-                  ),
-),
+
+# ~~~~~~~ To be implemented ~~~~~~~
+    # ComputedField('ClientUID',
+    #               expression = 'here.aq_parent.UID()',
+    #               widget = ComputedWidget(
+    #                   visible=False,
+    #                   ),
+    #               ),
+    # ComputedField('ProductUID',
+    #               expression = 'context.getProductUIDs()',
+    #               widget = ComputedWidget(
+    #                   visible=False,
+    #                   ),
+    #               ),
 )
 
-schema['title'].required = False
 
-class SupplyOrderLineItem(PersistentMapping):
-    pass
+#schema['title'].required = False
 
-class SupplyOrder(BaseFolder):
+# class SupplyOrderLineItem(PersistentMapping):
+#     pass
 
-    implements(ISupplyOrder, IConstrainTypes)
+class SupplyOrder(models.Model, BaseOLiMSModel): #BaseFolder
+    _name='olims.supply_order'
+    # implements(ISupplyOrder, IConstrainTypes)
+    #
+    # security = ClassSecurityInfo()
+    # displayContentsTab = False
+    # schema = schema
 
-    security = ClassSecurityInfo()
-    displayContentsTab = False
-    schema = schema
-
-    _at_rename_after_creation = True
-    supplyorder_lineitems = []
-
-    def _renameAfterCreation(self, check_auto_id=False):
-        from lims.idserver import renameAfterCreation
-        renameAfterCreation(self)
-
-    def getInvoiced(self):
-        if self.getInvoice():
-            return True
-        else:
-            return False
-
-    def Title(self):
-        """ Return the OrderNumber as title """
-        return safe_unicode(self.getOrderNumber()).encode('utf-8')
-
-    def getOrderNumber(self):
-        return safe_unicode(self.getId()).encode('utf-8')
-
-    def getContacts(self):
-        adapter = getAdapter(self.aq_parent, name='getContacts')
-        return adapter()
-
-    security.declarePublic('getContactUIDForUser')
-
-    def getContactUIDForUser(self):
-        """ get the UID of the contact associated with the authenticated
-            user
-        """
-        user = self.REQUEST.AUTHENTICATED_USER
-        user_id = user.getUserName()
-        r = self.portal_catalog(
-            portal_type='Contact',
-            getUsername=user_id
-        )
-        if len(r) == 1:
-            return r[0].UID
-
-    security.declareProtected(View, 'getTotalQty')
-
-    def getTotalQty(self):
-        """ Compute total qty """
-        if self.supplyorder_lineitems:
-            return sum(
-                [obj['Quantity'] for obj in self.supplyorder_lineitems])
-        return 0
-
-    security.declareProtected(View, 'getSubtotal')
-
-    def getSubtotal(self):
-        """ Compute Subtotal """
-        if self.supplyorder_lineitems:
-            return sum(
-                [(Decimal(obj['Quantity']) * Decimal(obj['Price'])) for obj in self.supplyorder_lineitems])
-        return 0
-
-    security.declareProtected(View, 'getVATAmount')
-
-    def getVATAmount(self):
-        """ Compute VAT """
-        return Decimal(self.getTotal()) - Decimal(self.getSubtotal())
-
-    security.declareProtected(View, 'getTotal')
-
-    def getTotal(self):
-        """ Compute TotalPrice """
-        total = 0
-        for lineitem in self.supplyorder_lineitems:
-            total += Decimal(lineitem['Quantity']) * \
-                     Decimal(lineitem['Price']) *  \
-                     ((Decimal(lineitem['VAT']) /100) + 1)
-        return total
-
-    def workflow_script_dispatch(self):
-        """ dispatch order """
-        self.setDateDispatched(DateTime())
-        self.reindexObject()
-
-    security.declareProtected(View, 'getProductUIDs')
-
-    def getProductUIDs(self):
-        """ return the uids of the products referenced by order items
-        """
-        uids = []
-        for orderitem in self.objectValues('XupplyOrderItem'):
-            product = orderitem.getProduct()
-            if product is not None:
-                uids.append(orderitem.getProduct().UID())
-        return uids
-
-    security.declarePublic('current_date')
-
-    def current_date(self):
-        """ return current date """
-        return DateTime()
+    # _at_rename_after_creation = True
+    # supplyorder_lineitems = []
+    #
+    # def _renameAfterCreation(self, check_auto_id=False):
+    #     from lims.idserver import renameAfterCreation
+    #     renameAfterCreation(self)
+    #
+    # def getInvoiced(self):
+    #     if self.getInvoice():
+    #         return True
+    #     else:
+    #         return False
+    #
+    # def Title(self):
+    #     """ Return the OrderNumber as title """
+    #     return safe_unicode(self.getOrderNumber()).encode('utf-8')
+    #
+    # def getOrderNumber(self):
+    #     return safe_unicode(self.getId()).encode('utf-8')
+    #
+    # def getContacts(self):
+    #     adapter = getAdapter(self.aq_parent, name='getContacts')
+    #     return adapter()
+    #
+    # #security.declarePublic('getContactUIDForUser')
+    #
+    # def getContactUIDForUser(self):
+    #     """ get the UID of the contact associated with the authenticated
+    #         user
+    #     """
+    #     user = self.REQUEST.AUTHENTICATED_USER
+    #     user_id = user.getUserName()
+    #     r = self.portal_catalog(
+    #         portal_type='Contact',
+    #         getUsername=user_id
+    #     )
+    #     if len(r) == 1:
+    #         return r[0].UID
+    #
+    # #security.declareProtected(View, 'getTotalQty')
+    #
+    # def getTotalQty(self):
+    #     """ Compute total qty """
+    #     if self.supplyorder_lineitems:
+    #         return sum(
+    #             [obj['Quantity'] for obj in self.supplyorder_lineitems])
+    #     return 0
+    #
+    # #security.declareProtected(View, 'getSubtotal')
+    #
+    # def getSubtotal(self):
+    #     """ Compute Subtotal """
+    #     if self.supplyorder_lineitems:
+    #         return sum(
+    #             [(Decimal(obj['Quantity']) * Decimal(obj['Price'])) for obj in self.supplyorder_lineitems])
+    #     return 0
+    #
+    # #security.declareProtected(View, 'getVATAmount')
+    #
+    # def getVATAmount(self):
+    #     """ Compute VAT """
+    #     return Decimal(self.getTotal()) - Decimal(self.getSubtotal())
+    #
+    # #security.declareProtected(View, 'getTotal')
+    #
+    # def getTotal(self):
+    #     """ Compute TotalPrice """
+    #     total = 0
+    #     for lineitem in self.supplyorder_lineitems:
+    #         total += Decimal(lineitem['Quantity']) * \
+    #                  Decimal(lineitem['Price']) *  \
+    #                  ((Decimal(lineitem['VAT']) /100) + 1)
+    #     return total
+    #
+    # def workflow_script_dispatch(self):
+    #     """ dispatch order """
+    #     self.setDateDispatched(DateTime())
+    #     self.reindexObject()
+    #
+    # #security.declareProtected(View, 'getProductUIDs')
+    #
+    # def getProductUIDs(self):
+    #     """ return the uids of the products referenced by order items
+    #     """
+    #     uids = []
+    #     for orderitem in self.objectValues('XupplyOrderItem'):
+    #         product = orderitem.getProduct()
+    #         if product is not None:
+    #             uids.append(orderitem.getProduct().UID())
+    #     return uids
+    #
+    # #security.declarePublic('current_date')
+    #
+    # def current_date(self):
+    #     """ return current date """
+    #     return DateTime()
 
 
-atapi.registerType(SupplyOrder, PROJECTNAME)
+#atapi.registerType(SupplyOrder, PROJECTNAME)
+SupplyOrder.initialze(schema)

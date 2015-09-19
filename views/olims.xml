@@ -12,6 +12,140 @@
              its parent olims_menu and *after* its
              action course_list_action -->
 
+                        <!--laboratory form view -->
+        <record model="ir.ui.view" id="olims_supply_order_form_view">
+            <field name="name">supply_order.form</field>
+            <field name="model">olims.supply_order</field>
+            <field name="arch" type="xml">
+                <form string="Supply Order Form">
+                     <label for="Contact" string="Contact"/>
+                	<field name="Contact"></field>
+
+                	<label for="OrderNumber" string="Order Number"/>
+                    <field name="OrderNumber"></field>
+
+                    <label for="Invoice" string="Invoice"/>
+                	<field name="Invoice"></field>
+
+                    <label for="OrderDate" string="Order Date"/>
+                	<field name="OrderDate"></field>
+
+                    <label for="DateDispatched" string="Date Dispatched"/>
+                    <field name="DateDispatched"></field>
+
+                    <label for="Remarks" string="Remarks"/>
+                    <field name="Remarks"></field>
+
+                    </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_supply_order_tree_view">
+            <field name="name">supply_order.tree</field>
+            <field name="model">olims.supply_order</field>
+            <field name="arch" type="xml">
+                <tree string="Supply Order">
+                	<field name="Contact"></field>
+                    <field name="OrderNumber"></field>
+                	<field name="Invoice"></field>
+                	<field name="OrderDate"></field>
+                    <field name="DateDispatched"></field>
+                    <field name="Remarks"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="supply_order_list_action">
+            <field name="name">Supply Order</field>
+            <field name="res_model">olims.supply_order</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="supply_order_menu" name="Supply Order" parent="olims_menu"
+                  action="supply_order_list_action"/>
+
+
+
+
+
+
+
+                <!--laboratory form view -->
+        <record model="ir.ui.view" id="olims_supplier_form_view">
+            <field name="name">supplier.form</field>
+            <field name="model">olims.supplier</field>
+            <field name="arch" type="xml">
+                <form string="Supplier Form">
+                     <label for="Name" string="Name"/>
+                	<field name="Name"></field>
+                	<label for="TaxNumber" string="Tax Number"/>
+                    <field name="TaxNumber"></field>
+                    <label for="Phone" string="Phone"/>
+                	<field name="Phone"></field>
+                    <label for="EmailAddress" string="Email Address"/>
+                	<field name="EmailAddress"></field>
+                    <label for="AccountType" string="Account Type"/>
+                    <field name="AccountType"></field>
+                    <label for="AccountName" string="Account Name"/>
+                    <field name="AccountName"></field>
+                    <label for="AccountNumber" string="Account Number"/>
+                    <field name="AccountNumber"></field>
+                    <label for="BankName" string="Bank Name"/>
+                    <field name="BankName"></field>
+                    <label for="BankBranch" string="Bank Branch"/>
+                    <field name="BankBranch"></field>
+                    <label for="Remarks" string="Remarks"/>
+                    <field name="Remarks"></field>
+                    <label for="Website" string="Website"/>
+                    <field name="Website"></field>
+                    <label for="NIB" string="NIB"/>
+                    <field name="NIB"></field>
+                    <label for="IBN" string="IBN"/>
+                    <field name="IBN"></field>
+                    <label for="SWIFTcode" string="SWIFT code"/>
+                    <field name="SWIFTcode"></field>
+                    </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_supplier_tree_view">
+            <field name="name">supplier.tree</field>
+            <field name="model">olims.supplier</field>
+            <field name="arch" type="xml">
+                <tree string="Supplier">
+                	<field name="Name"></field>
+                	<field name="TaxNumber"></field>
+                	<field name="Phone"></field>
+                	<field name="EmailAddress"></field>
+                    <field name="AccountType"></field>
+                    <field name="AccountName"></field>
+                    <field name="AccountNumber"></field>
+                    <field name="BankName"></field>
+                    <field name="BankBranch"></field>
+                    <field name="Remarks"></field>
+                    <field name="Website"></field>
+                    <field name="NIB"></field>
+                    <field name="IBN"></field>
+                    <field name="SWIFTcode"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="supplier_list_action">
+            <field name="name">Supplier</field>
+            <field name="res_model">olims.supplier</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="supplier_menu" name="Supplier" parent="olims_menu"
+                  action="supplier_list_action"/>
+
+
+
+
+
         <!--samplepoint form view -->
         <record model="ir.ui.view" id="olims_sample_point_form_view">
             <field name="name">sample_point.form</field>
@@ -130,8 +264,6 @@
 
         <menuitem id="laboratory_menu" name="Laboratory" parent="olims_menu"
                   action="laboratory_list_action"/>
-
-
 
         <!--lab_contact form view -->
         <record model="ir.ui.view" id="olims_lab_contact_form_view">
