@@ -10,10 +10,13 @@
 # from lims.browser.widgets import AddressWidget
 # from dependencies.dependency import getToolByName
 
+
 from dependencies.dependency import safe_unicode
-from lims import PMF, bikaMessageFactory as _
-from dependencies.fields import StringField
-from dependencies.widget import StringWidget
+from lims import bikaMessageFactory as _
+from openerp import fields, models
+from fields.string_field import StringField
+from fields.widget.widget import StringWidget
+from models.base_olims_model import BaseOLiMSModel
 
 # ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
 # schema = BikaFolderSchema.copy() + BikaSchema.copy() + ManagedSchema(
@@ -49,24 +52,24 @@ schema = (
         validators = ('isEmail',)
     ),
 # ~~~~~~~~~~ AddressField behavior in Odoo is as selection field ~~~~~~~~~~~
-    AddressField('PhysicalAddress',
-        schemata = 'Address',
-        widget = AddressWidget(
-           label=_("Physical address"),
-        ),
-    ),
-    AddressField('PostalAddress',
-        schemata = 'Address',
-        widget = AddressWidget(
-           label=_("Postal address"),
-        ),
-    ),
-    AddressField('BillingAddress',
-        schemata = 'Address',
-        widget = AddressWidget(
-           label=_("Billing address"),
-        ),
-    ),
+#     AddressField('PhysicalAddress',
+#         schemata = 'Address',
+#         widget = AddressWidget(
+#            label=_("Physical address"),
+#         ),
+#     ),
+#     AddressField('PostalAddress',
+#         schemata = 'Address',
+#         widget = AddressWidget(
+#            label=_("Postal address"),
+#         ),
+#     ),
+#     AddressField('BillingAddress',
+#         schemata = 'Address',
+#         widget = AddressWidget(
+#            label=_("Billing address"),
+#         ),
+#     ),
     StringField('AccountType',
         schemata = 'Bank details',
         widget = StringWidget(
@@ -99,20 +102,21 @@ schema = (
     ),
 )
 
-IdField = schema['id']
-IdField.widget.visible = {'edit': 'visible', 'view': 'invisible'}
-# Don't make title required - it will be computed from the Organisation's
-# Name
-TitleField = schema['title']
-TitleField.required = 0
-TitleField.widget.visible = {'edit': 'hidden', 'view': 'invisible'}
+# IdField = schema['id']
+# IdField.widget.visible = {'edit': 'visible', 'view': 'invisible'}
+# # Don't make title required - it will be computed from the Organisation's
+# # Name
+# TitleField = schema['title']
+# TitleField.required = 0
+# TitleField.widget.visible = {'edit': 'hidden', 'view': 'invisible'}
 
-class Organisation(ATFolder):
-    security = ClassSecurityInfo()
-    displayContentsTab = False
-    schema = schema
-
-    security.declareProtected(CMFCorePermissions.View, 'getSchema')
+class Organisation(models.Model, BaseOLiMSModel): #ATFolder
+    _name ='olims.organisation'
+    # security = ClassSecurityInfo()
+    # displayContentsTab = False
+    # schema = schema
+    #
+    # security.declareProtected(CMFCorePermissions.View, 'getSchema')
     def getSchema(self):
         return self.schema
 
@@ -162,4 +166,5 @@ class Organisation(ATFolder):
 
         return address_lines
 
-registerType(Organisation, PROJECTNAME)
+#registerType(Organisation, PROJECTNAME)
+Organisation.initialze(schema)

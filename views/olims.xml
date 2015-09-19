@@ -12,6 +12,63 @@
              its parent olims_menu and *after* its
              action course_list_action -->
 
+        <!--organisation form view -->
+        <record model="ir.ui.view" id="olims_organisation_form_view">
+            <field name="name">organisation.form</field>
+            <field name="model">olims.organisation</field>
+            <field name="arch" type="xml">
+                <form string="Organisation Form">
+                     <label for="Name" string="Name"/>
+                	<field name="Name"></field>
+                	<label for="TaxNumber" string="Tax Number"/>
+                    <field name="TaxNumber"></field>
+                    <label for="Phone" string="Phone"/>
+                	<field name="Phone"></field>
+                    <label for="EmailAddress" string="Email Address"/>
+                	<field name="EmailAddress"></field>
+                    <label for="AccountType" string="Account Type"/>
+                    <field name="AccountType"></field>
+                    <label for="AccountName" string="Account Name"/>
+                    <field name="AccountName"></field>
+                    <label for="AccountNumber" string="Account Number"/>
+                    <field name="AccountNumber"></field>
+                    <label for="BankName" string="Bank Name"/>
+                    <field name="BankName"></field>
+                    <label for="BankBranch" string="Bank Branch"/>
+                    <field name="BankBranch"></field>
+                    </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_organisation_tree_view">
+            <field name="name">organisation.tree</field>
+            <field name="model">olims.organisation</field>
+            <field name="arch" type="xml">
+                <tree string="Organisation">
+                	<field name="Name"></field>
+                	<field name="TaxNumber"></field>
+                	<field name="Phone"></field>
+                	<field name="EmailAddress"></field>
+                    <field name="AccountType"></field>
+                    <field name="AccountName"></field>
+                    <field name="AccountNumber"></field>
+                    <field name="BankName"></field>
+                    <field name="BankBranch"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="organisation_list_action">
+            <field name="name">Organisation</field>
+            <field name="res_model">olims.organisation</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="organisation_menu" name="Organisation" parent="olims_menu"
+                  action="organisation_list_action"/>
+
+
         <!--person form view -->
         <record model="ir.ui.view" id="olims_person_form_view">
             <field name="name">person.form</field>
@@ -153,19 +210,14 @@
                 <form string="Supply Order Form">
                      <label for="Contact" string="Contact"/>
                 	<field name="Contact"></field>
-
                 	<label for="OrderNumber" string="Order Number"/>
                     <field name="OrderNumber"></field>
-
                     <label for="Invoice" string="Invoice"/>
                 	<field name="Invoice"></field>
-
                     <label for="OrderDate" string="Order Date"/>
                 	<field name="OrderDate"></field>
-
                     <label for="DateDispatched" string="Date Dispatched"/>
                     <field name="DateDispatched"></field>
-
                     <label for="Remarks" string="Remarks"/>
                     <field name="Remarks"></field>
 
@@ -197,11 +249,6 @@
 
         <menuitem id="supply_order_menu" name="Supply Order" parent="olims_menu"
                   action="supply_order_list_action"/>
-
-
-
-
-
 
 
                 <!--supplier form view -->
@@ -274,10 +321,6 @@
 
         <menuitem id="supplier_menu" name="Supplier" parent="olims_menu"
                   action="supplier_list_action"/>
-
-
-
-
 
         <!--samplepoint form view -->
         <record model="ir.ui.view" id="olims_sample_point_form_view">
