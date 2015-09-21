@@ -1,32 +1,48 @@
-from dependencies.dependency import ClassSecurityInfo
-from dependencies.dependency import DateTime
-from dependencies.dependency import schemata
-from dependencies import atapi
-from dependencies.dependency import *
-from dependencies.dependency import getToolByName
-from dependencies.dependency import safe_unicode
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# from dependencies.dependency import ClassSecurityInfo
+# from dependencies.dependency import DateTime
+# from dependencies.dependency import schemata
+# from dependencies import atapi
+# from dependencies.dependency import *
+# from dependencies.dependency import getToolByName
+# from dependencies.dependency import safe_unicode
+# from lims import bikaMessageFactory as _
+# from lims.utils import t
+# from lims.browser.widgets import DateTimeWidget
+# from lims.config import PROJECTNAME
+# from lims.content.bikaschema import BikaSchema
+
+
 from lims import bikaMessageFactory as _
-from lims.utils import t
-from lims.browser.widgets import DateTimeWidget
-from lims.config import PROJECTNAME
-from lims.content.bikaschema import BikaSchema
+from fields.string_field import StringField
+from fields.text_field import TextField
+from fields.date_time_field import DateTimeField
+from fields.fixed_point_field import FixedPointField
+from fields.boolean_field import BooleanField
+from fields.widget.widget import StringWidget, TextAreaWidget, DateTimeWidget, BooleanWidget, ReferenceWidget, DecimalWidget
+from openerp import fields, models
+from models.base_olims_model import BaseOLiMSModel
 
-schema = BikaSchema.copy() + Schema((
+#schema = BikaSchema.copy() + Schema((
+schema = (
 
-    ReferenceField('Instrument',
-        allowed_types=('Instrument',),
-        relationship='InstrumentMaintenanceTaskInstrument',
-        widget=StringWidget(
-            visible=False,
-        )
+
+        fields.Many2one(string='Instrument',
+                   comodel_name='olims.instrument',
+  #     allowed_types=('Instrument',),
+  #       relationship='InstrumentMaintenanceTaskInstrument',
+  #       widget=StringWidget(
+  #           visible=False,
+  #       )
+
     ),
 
-    ComputedField('InstrumentUID',
-        expression = 'context.getInstrument() and context.getInstrument().UID() or None',
-        widget=ComputedWidget(
-            visible=False,
-        ),
-    ),
+    # ComputedField('InstrumentUID',
+    #     expression = 'context.getInstrument() and context.getInstrument().UID() or None',
+    #     widget=ComputedWidget(
+    #         visible=False,
+    #     ),
+    # ),
 
     StringField('Type',
         vocabulary = "getMaintenanceTypes",
@@ -108,16 +124,16 @@ schema = BikaSchema.copy() + Schema((
             description=_("Set the maintenance task as closed.")
         ),
     ),
-))
+)
 
-IdField = schema['id']
-schema['description'].required = False
-schema['description'].widget.visible = True
-schema['description'].schemata = 'default'
-
-# Title is not needed to be unique
-schema['title'].validators = ()
-schema['title']._validationLayer()
+# IdField = schema['id']
+# schema['description'].required = False
+# schema['description'].widget.visible = True
+# schema['description'].schemata = 'default'
+#
+# # Title is not needed to be unique
+# schema['title'].validators = ()
+# schema['title']._validationLayer()
 
 class InstrumentMaintenanceTaskStatuses:
     CLOSED = 'Closed'
@@ -126,10 +142,11 @@ class InstrumentMaintenanceTaskStatuses:
     PENDING = "Pending"
     INQUEUE = "In queue"
 
-class InstrumentMaintenanceTask(BaseFolder):
-    security = ClassSecurityInfo()
-    schema = schema
-    displayContentsTab = False
+class InstrumentMaintenanceTask(models.Model, BaseOLiMSModel): #BaseFolder
+    _name = 'olims.instrument_maintenance_task'
+    # security = ClassSecurityInfo()
+    # schema = schema
+    # displayContentsTab = False
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
@@ -164,4 +181,5 @@ class InstrumentMaintenanceTask(BaseFolder):
             else:
                 return InstrumentMaintenanceTaskStatuses.INQUEUE
 
-atapi.registerType(InstrumentMaintenanceTask, PROJECTNAME)
+#atapi.registerType(InstrumentMaintenanceTask, PROJECTNAME)
+InstrumentMaintenanceTask.initialze(schema)

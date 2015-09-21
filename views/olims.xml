@@ -13,6 +13,65 @@
              action course_list_action -->
 
 
+        <!--instrument_maintenance_task form view -->
+        <record model="ir.ui.view" id="olims_instrument_maintenance_task_form_view">
+            <field name="name">instrument_maintenance_task.form</field>
+            <field name="model">olims.instrument_maintenance_task</field>
+            <field name="arch" type="xml">
+                <form string="Instrument Maintenance Task Form">
+                    <label for="Instrument" string="Instrument"/>
+                	<field name="Instrument"></field>
+                	<label for="Type" string="Type"/>
+                    <field name="Type"></field>
+                    <label for="DownFrom" string="Down From"/>
+                	<field name="DownFrom"></field>
+                    <label for="DownTo" string="Down To"/>
+                	<field name="DownTo"></field>
+                    <label for="Maintainer" string="Maintainer"/>
+                    <field name="Maintainer"></field>
+                    <label for="Considerations" string="Considerations"/>
+                    <field name="Considerations"></field>
+                    <label for="WorkPerformed" string="Work Performed"/>
+                    <field name="WorkPerformed"></field>
+                    <label for="Remarks" string="Remarks"/>
+                    <field name="Remarks"></field>
+                    <label for="Cost" string="Cost"/>
+                    <field name="Cost"></field>
+                    <label for="Closed" string="Closed"/>
+                    <field name="Closed"></field>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_instrument_certification_tree_view">
+            <field name="name">instrument_maintenance_task.tree</field>
+            <field name="model">olims.instrument_maintenance_task</field>
+            <field name="arch" type="xml">
+                <tree string="Instrument Maintenance Task">
+                	<field name="Instrument"></field>
+                    <field name="Type"></field>
+                	<field name="DownFrom"></field>
+                	<field name="DownTo"></field>
+                    <field name="Maintainer"></field>
+                    <field name="Considerations"></field>
+                    <field name="WorkPerformed"></field>
+                    <field name="Remarks"></field>
+                    <field name="Closed"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="instrument_maintenance_task_list_action">
+            <field name="name">instrument_maintenance_task</field>
+            <field name="res_model">olims.instrument_maintenance_task</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="instrument_maintenance_task_menu" name="Instrument Maintenance Task" parent="olims_menu"
+                  action="instrument_maintenance_task_list_action"/>
+
+
         <!--instrumentcertification form view -->
         <record model="ir.ui.view" id="olims_instrument_certification_form_view">
             <field name="name">instrument_certification.form</field>
