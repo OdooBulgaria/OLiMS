@@ -12,6 +12,45 @@
              its parent olims_menu and *after* its
              action course_list_action -->
 
+        <!--instrument_maintenance_task form view -->
+        <record model="ir.ui.view" id="olims_instrument_scheduled_task_form_view">
+            <field name="name">instrument_scheduled_task.form</field>
+            <field name="model">olims.instrument_scheduled_task</field>
+            <field name="arch" type="xml">
+                <form string="Instrument Scheduled Task Form">
+                    <label for="Instrument" string="Instrument"/>
+                	<field name="Instrument"></field>
+                	<label for="Type" string="Type"/>
+                    <field name="Type"></field>
+                    <label for="Considerations" string="Considerations"/>
+                	<field name="Considerations"></field>
+
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_instrument_scheduled_task_tree_view">
+            <field name="name">instrument_scheduled_task.tree</field>
+            <field name="model">olims.instrument_scheduled_task</field>
+            <field name="arch" type="xml">
+                <tree string="Instrument Scheduled Task">
+                	<field name="Instrument"></field>
+                    <field name="Type"></field>
+                	<field name="Considerations"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="instrument_scheduled_task_list_action">
+            <field name="name">instrument_scheduled_task</field>
+            <field name="res_model">olims.instrument_scheduled_task</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="instrument_scheduled_task_menu" name="Instrument Scheduled Task" parent="olims_menu"
+                  action="instrument_scheduled_task_list_action"/>
+
 
         <!--instrument_maintenance_task form view -->
         <record model="ir.ui.view" id="olims_instrument_maintenance_task_form_view">

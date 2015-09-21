@@ -1,34 +1,47 @@
-from dependencies.dependency import ClassSecurityInfo
-from dependencies.dependency import DateTime
-from dependencies.dependency import schemata
-from dependencies.dependency import RecordsField
-from dependencies import atapi
-from dependencies.dependency import *
-from dependencies.dependency import HoldingReference
-from dependencies.dependency import getToolByName
-from dependencies.dependency import safe_unicode
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# from dependencies.dependency import ClassSecurityInfo
+# from dependencies.dependency import DateTime
+# from dependencies.dependency import schemata
+# from dependencies.dependency import RecordsField
+# from dependencies import atapi
+# from dependencies.dependency import *
+# from dependencies.dependency import HoldingReference
+# from dependencies.dependency import getToolByName
+# from dependencies.dependency import safe_unicode
+# from lims import bikaMessageFactory as _
+# from lims.utils import t
+# from lims.browser.widgets import ScheduleInputWidget
+# from lims.config import PROJECTNAME
+# from lims.content.bikaschema import BikaSchema
+
+
 from lims import bikaMessageFactory as _
-from lims.utils import t
-from lims.browser.widgets import ScheduleInputWidget
-from lims.config import PROJECTNAME
-from lims.content.bikaschema import BikaSchema
+from fields.string_field import StringField
+from fields.text_field import TextField
+from fields.widget.widget import StringWidget, TextAreaWidget, ReferenceWidget
+from openerp import fields, models
+from models.base_olims_model import BaseOLiMSModel
 
-schema = BikaSchema.copy() + Schema((
+#schema = BikaSchema.copy() + Schema((
 
-    ReferenceField('Instrument',
-        allowed_types=('Instrument',),
-        relationship='InstrumentScheduledTaskInstrument',
-        widget=StringWidget(
-            visible=False,
-        )
+schema = (
+
+    fields.Many2one(string='Instrument',
+                   comodel_name='olims.instrument',
+  #     allowed_types=('Instrument',),
+  #       relationship='InstrumentScheduledTaskInstrument',
+  #       widget=StringWidget(
+  #           visible=False,
+  #       )
+
     ),
 
-    ComputedField('InstrumentUID',
-        expression = 'context.getInstrument() and context.getInstrument().UID() or None',
-        widget=ComputedWidget(
-            visible=False,
-        ),
-    ),
+    # ComputedField('InstrumentUID',
+    #     expression = 'context.getInstrument() and context.getInstrument().UID() or None',
+    #     widget=ComputedWidget(
+    #         visible=False,
+    #     ),
+    # ),
 
     StringField('Type',
         vocabulary = "getTaskTypes",
@@ -38,14 +51,14 @@ schema = BikaSchema.copy() + Schema((
                       "Type"),
         ),
     ),
-
-    RecordsField('ScheduleCriteria',
-        required=1,
-        type='schedulecriteria',
-        widget=ScheduleInputWidget(
-            label=_("Criteria"),
-        ),
-    ),
+    # ~~~~~~~ To be implemented ~~~~~~~
+    # RecordsField('ScheduleCriteria',
+    #     required=1,
+    #     type='schedulecriteria',
+    #     widget=ScheduleInputWidget(
+    #         label=_("Criteria"),
+    #     ),
+    # ),
 
     TextField('Considerations',
         default_content_type = 'text/plain',
@@ -56,22 +69,23 @@ schema = BikaSchema.copy() + Schema((
             description=_("Remarks to take into account before performing the task"),
         ),
     ),
-))
+)
 
-IdField = schema['id']
-schema['description'].required = False
-schema['description'].widget.visible = True
-schema['description'].schemata = 'default'
-schema.moveField('description', before='Considerations')
+# IdField = schema['id']
+# schema['description'].required = False
+# schema['description'].widget.visible = True
+# schema['description'].schemata = 'default'
+# schema.moveField('description', before='Considerations')
+#
+# # Title is not needed to be unique
+# schema['title'].validators = ()
+# schema['title']._validationLayer()
 
-# Title is not needed to be unique
-schema['title'].validators = ()
-schema['title']._validationLayer()
-
-class InstrumentScheduledTask(BaseFolder):
-    security = ClassSecurityInfo()
-    schema = schema
-    displayContentsTab = False
+class InstrumentScheduledTask(models.Model, BaseOLiMSModel): #BaseFolder
+    _name = 'olims.instrument_scheduled_task'
+    # security = ClassSecurityInfo()
+    # schema = schema
+    # displayContentsTab = False
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
@@ -102,4 +116,5 @@ class InstrumentScheduledTask(BaseFolder):
                 criteria += _("until") + " " + crit['repeatuntil']
         return criteria;
 
-atapi.registerType(InstrumentScheduledTask, PROJECTNAME)
+#atapi.registerType(InstrumentScheduledTask, PROJECTNAME)
+InstrumentScheduledTask.initialze(schema)
