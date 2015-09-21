@@ -28,3 +28,13 @@ from models import contact
 from models import labcontact
 from models import laboratory
 from models import samplepoint
+from models import supplier
+from models import supplyorder
+from models import suppliercontact
+from models import person
+from models import organisation
+from models import instrumentcalibration
+from models import instrumentcertification
+from models import instrumentmaintenancetask
+from models import instrumentscheduledtask
+from models import instrumentvalidation
