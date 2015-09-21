@@ -12,6 +12,68 @@
              its parent olims_menu and *after* its
              action course_list_action -->
 
+        <!--instrumentcalibration form view -->
+        <record model="ir.ui.view" id="olims_instrument_calibration_form_view">
+            <field name="name">instrument_calibration.form</field>
+            <field name="model">olims.instrument_calibration</field>
+            <field name="arch" type="xml">
+                <form string="Instrument Calibration Form">
+                    <label for="Instruments" string="Instruments"/>
+                	<field name="Instruments"></field>
+                	<label for="DateIssued" string="Date Issued"/>
+                    <field name="DateIssued"></field>
+                    <label for="DownFrom" string="Down From"/>
+                	<field name="DownFrom"></field>
+                    <label for="DownTo" string="Down To"/>
+                	<field name="DownTo"></field>
+                    <label for="Calibrator" string="Calibrator"/>
+                    <field name="Calibrator"></field>
+                    <label for="Considerations" string="Considerations"/>
+                    <field name="Considerations"></field>
+                    <label for="WorkPerformed" string="WorkPerformed"/>
+                    <field name="WorkPerformed"></field>
+                    <label for="Work" string="Work"/>
+                    <field name="Work"></field>
+                    <label for="ReportID" string="Report ID"/>
+                    <field name="ReportID"></field>
+                    <label for="Remarks" string="Remarks"/>
+                    <field name="Remarks"></field>
+                    </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_instrument_calibration_tree_view">
+            <field name="name">instrument_calibration.tree</field>
+            <field name="model">olims.instrument_calibration</field>
+            <field name="arch" type="xml">
+                <tree string="Instrument Calibration">
+                	<field name="Instruments"></field>
+                    <field name="DateIssued"></field>
+                	<field name="DownFrom"></field>
+                	<field name="DownTo"></field>
+                    <field name="Calibrator"></field>
+                    <field name="Considerations"></field>
+                    <field name="WorkPerformed"></field>
+                    <field name="Work"></field>
+                    <field name="ReportID"></field>
+                    <field name="Remarks"></field>
+
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="instrument_calibration_list_action">
+            <field name="name">instrument_calibration</field>
+            <field name="res_model">olims.instrument_calibration</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="instrument_calibration_menu" name="Instrument Calibration" parent="olims_menu"
+                  action="instrument_calibration_list_action"/>
+
+
+
         <!--organisation form view -->
         <record model="ir.ui.view" id="olims_organisation_form_view">
             <field name="name">organisation.form</field>

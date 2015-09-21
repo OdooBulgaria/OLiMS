@@ -1,31 +1,51 @@
-from dependencies.dependency import ClassSecurityInfo
-from dependencies.dependency import schemata
-from dependencies import atapi
-from dependencies.dependency import *
-from dependencies.dependency import getToolByName
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# from dependencies.dependency import ClassSecurityInfo
+# from dependencies.dependency import schemata
+# from dependencies import atapi
+# from dependencies.dependency import *
+# from dependencies.dependency import getToolByName
+# from lims import bikaMessageFactory as _
+# from lims.utils import t
+# from lims.browser.widgets import DateTimeWidget, ReferenceWidget
+# from lims.config import PROJECTNAME
+# from lims.content.bikaschema import BikaSchema
+
+
+
 from lims import bikaMessageFactory as _
-from lims.utils import t
-from lims.browser.widgets import DateTimeWidget, ReferenceWidget
-from lims.config import PROJECTNAME
-from lims.content.bikaschema import BikaSchema
+from fields.string_field import StringField
+from fields.text_field import TextField
+from fields.date_time_field import DateTimeField
+from fields.widget.widget import StringWidget, TextAreaWidget, DateTimeWidget
+from openerp import fields, models
+from models.base_olims_model import BaseOLiMSModel
 
+#schema = BikaSchema.copy() + Schema((
+schema = (
 
-schema = BikaSchema.copy() + Schema((
+    # ReferenceField('Instrument',
+    #     allowed_types=('Instrument',),
+    #     relationship='InstrumentCalibrationInstrument',
+    #     widget=StringWidget(
+    #         visible=False,
+    #     )
+    # ),
 
-    ReferenceField('Instrument',
-        allowed_types=('Instrument',),
-        relationship='InstrumentCalibrationInstrument',
-        widget=StringWidget(
-            visible=False,
-        )
+    fields.Many2one(string='Instruments',
+                   comodel_name='olims.instrument',
+#                    schemata="Method",
+                   required=False,
+
     ),
 
-    ComputedField('InstrumentUID',
-        expression = 'context.getInstrument() and context.getInstrument().UID() or None',
-        widget=ComputedWidget(
-            visible=False,
-        ),
-    ),
+
+# ~~~~~~~ To be implemented ~~~~~~~
+    # ComputedField('InstrumentUID',
+    #     expression = 'context.getInstrument() and context.getInstrument().UID() or None',
+    #     widget=ComputedWidget(
+    #         visible=False,
+    #     ),
+    # ),
 
     DateTimeField('DateIssued',
         with_time = 1,
@@ -72,31 +92,35 @@ schema = BikaSchema.copy() + Schema((
     ),
 
     TextField('WorkPerformed',
-        default_content_type = 'text/plain',
-        allowed_content_types= ('text/plain', ),
-        default_output_type="text/plain",
+     #   default_content_type = 'text/plain',
+     #   allowed_content_types= ('text/plain', ),
+     #   default_output_type="text/plain",
         widget = TextAreaWidget(
             label=_("Work Performed"),
             description=_("Description of the actions made during the calibration"),
         ),
     ),
 
-    ReferenceField('Worker',
-        vocabulary='getLabContacts',
-        allowed_types=('LabContact',),
-        relationship='LabContactInstrumentCalibration',
-        widget=ReferenceWidget(
-            checkbox_bound=0,
-            label=_("Performed by"),
-            description=_("The person at the supplier who performed the task"),
-            size=30,
-            base_query={'inactive_state': 'active'},
-            showOn=True,
-            colModel=[{'columnName': 'UID', 'hidden': True},
-                      {'columnName': 'JobTitle', 'width': '20', 'label': _('Job Title')},
-                      {'columnName': 'Title', 'width': '80', 'label': _('Name')}
-                     ],
-        ),
+    fields.Many2one(string='Work',
+                   comodel_name='olims.lab_contact',
+#                    schemata="Method",
+                   required=False,
+                    #  vocabulary='getLabContacts',
+                    # allowed_types=('LabContact',),
+                    # relationship='LabContactInstrumentCalibration',
+                    # widget=ReferenceWidget(
+                    #     checkbox_bound=0,
+                    #     label=_("Performed by"),
+                    #     description=_("The person at the supplier who performed the task"),
+                    #     size=30,
+                    #     base_query={'inactive_state': 'active'},
+                    #     showOn=True,
+                    #     colModel=[{'columnName': 'UID', 'hidden': True},
+                    #               {'columnName': 'JobTitle', 'width': '20', 'label': _('Job Title')},
+                    #               {'columnName': 'Title', 'width': '80', 'label': _('Name')}
+                    #              ],
+                    # ),
+
     ),
 
     StringField('ReportID',
@@ -115,15 +139,16 @@ schema = BikaSchema.copy() + Schema((
         ),
     ),
 
-))
+)
 
-schema['title'].widget.label = 'Asset Number'
+#schema['title'].widget.label = 'Asset Number'
 
 
-class InstrumentCalibration(BaseFolder):
-    security = ClassSecurityInfo()
-    schema = schema
-    displayContentsTab = False
+class InstrumentCalibration(models.Model, BaseOLiMSModel): #BaseFolder
+    _name = 'olims.instrument_calibration'
+    # security = ClassSecurityInfo()
+    # schema = schema
+    # displayContentsTab = False
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
@@ -140,4 +165,5 @@ class InstrumentCalibration(BaseFolder):
             pairs.append((contact.UID, contact.Title))
         return DisplayList(pairs)
 
-atapi.registerType(InstrumentCalibration, PROJECTNAME)
+#atapi.registerType(InstrumentCalibration, PROJECTNAME)
+InstrumentCalibration.initialze(schema)
