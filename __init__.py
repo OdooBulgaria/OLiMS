@@ -38,3 +38,4 @@ from models import instrumentcertification
 from models import instrumentmaintenancetask
 from models import instrumentscheduledtask
 from models import instrumentvalidation
+from models import labproduct

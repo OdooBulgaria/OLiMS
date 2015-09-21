@@ -12,6 +12,47 @@
              its parent olims_menu and *after* its
              action course_list_action -->
 
+        <!--lab_product form view -->
+        <record model="ir.ui.view" id="olims_lab_product_form_view">
+            <field name="name">lab_product.form</field>
+            <field name="model">olims.lab_product</field>
+            <field name="arch" type="xml">
+                <form string="Lab Product Form">
+                    <label for="Volume" string="Volume"/>
+                	<field name="Volume"></field>
+                	<label for="Unit" string="Unit"/>
+                    <field name="Unit"></field>
+                    <label for="VAT" string="VAT"/>
+                	<field name="VAT"></field>
+                    <label for="Price" string="Price"/>
+                	<field name="Price"></field>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_instrument_validation_tree_view">
+            <field name="name">lab_product.tree</field>
+            <field name="model">olims.lab_product</field>
+            <field name="arch" type="xml">
+                <tree string="instrument Validation">
+                	<field name="Volume"></field>
+                    <field name="Unit"></field>
+                	<field name="VAT"></field>
+                	<field name="Price"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="lab_product_list_action">
+            <field name="name">lab_product</field>
+            <field name="res_model">olims.lab_product</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="lab_product_menu" name="Lab Product" parent="olims_menu"
+                  action="lab_product_list_action"/>
+
 
         <!--instrument_validation form view -->
         <record model="ir.ui.view" id="olims_instrument_validation_form_view">
@@ -69,11 +110,6 @@
 
         <menuitem id="instrument_validation_menu" name="Instrument Validation" parent="olims_menu"
                   action="instrument_validation_list_action"/>
-
-
-
-
-
 
         <!--instrument_maintenance_task form view -->
         <record model="ir.ui.view" id="olims_instrument_scheduled_task_form_view">
