@@ -41,3 +41,5 @@ from models import instrumentvalidation
 from models import labproduct
 from models import multifile
 from models import samplepartition
+from models import samplecondition
+from models import sample
