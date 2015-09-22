@@ -1,65 +1,89 @@
-from dependencies.dependency import ClassSecurityInfo
-from lims.browser.fields import DurationField
-from lims.config import PROJECTNAME
-from lims.content.bikaschema import BikaSchema
-from lims.interfaces import ISamplePartition
-from lims.workflow import doActionFor
-from lims.workflow import skip
-from dependencies.dependency import DateTime
-from datetime import timedelta
-from dependencies.dependency import *
-from dependencies.dependency import HistoryAwareMixin
-from dependencies.dependency import DT2dt, dt2DT
-from dependencies.dependency import getToolByName
-from dependencies.dependency import safe_unicode
-from dependencies.dependency import implements
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# from dependencies.dependency import ClassSecurityInfo
+# from lims.browser.fields import DurationField
+# from lims.config import PROJECTNAME
+# from lims.content.bikaschema import BikaSchema
+# from lims.interfaces import ISamplePartition
+# from lims.workflow import doActionFor
+# from lims.workflow import skip
+# from dependencies.dependency import DateTime
+# from datetime import timedelta
+# from dependencies.dependency import *
+# from dependencies.dependency import HistoryAwareMixin
+# from dependencies.dependency import DT2dt, dt2DT
+# from dependencies.dependency import getToolByName
+# from dependencies.dependency import safe_unicode
+# from dependencies.dependency import implements
 
-schema = BikaSchema.copy() + Schema((
-    ReferenceField('Container',
-        allowed_types=('Container',),
-        relationship='SamplePartitionContainer',
-        required=1,
-        multiValued=0,
+
+from openerp import fields, models
+from models.base_olims_model import BaseOLiMSModel
+from fields.string_field import StringField
+from fields.boolean_field import BooleanField
+from fields.date_time_field import DateTimeField
+
+
+#schema = BikaSchema.copy() + Schema((
+schema = (
+
+
+    fields.Many2one(string='Container',
+        required = False,
+        comodel_name='olims.container',
+#         allowed_types=('Container',),
+#         relationship='SamplePartitionContainer',
+#         required=1,
+#         multiValued=0,
     ),
-    ReferenceField('Preservation',
-        allowed_types=('Preservation',),
-        relationship='SamplePartitionPreservation',
-        required=0,
-        multiValued=0,
+        fields.Many2one(string='Preservation',
+        required = False,
+        comodel_name='olims.preservation',
+#       allowed_types=('Preservation',),
+#         relationship='SamplePartitionPreservation',
+#         required=0,
+#         multiValued=0,
     ),
+
+
     BooleanField('Separate',
         default=False
     ),
-    ReferenceField('Analyses',
-        allowed_types=('Analysis',),
-        relationship='SamplePartitionAnalysis',
-        required=0,
-        multiValued=1,
+            fields.Many2one(string='Analyses',
+        required = False,
+        comodel_name='olims.analyses',
+#       allowed_types=('Analyses',),
+#         relationship='SamplePartitionAnalysis',
+#         required=0,
+#         multiValued=0,
     ),
+
     DateTimeField('DatePreserved',
     ),
+
     StringField('Preserver',
         searchable=True
     ),
-    DurationField('RetentionPeriod',
-    ),
-    ComputedField('DisposalDate',
-        expression = 'context.disposal_date()',
-        widget = ComputedWidget(
-            visible=False,
-        ),
-    ),
+# ~~~~~~~ To be implemented ~~~~~~~
+    # DurationField('RetentionPeriod',
+    # ),
+    # ComputedField('DisposalDate',
+    #     expression = 'context.disposal_date()',
+    #     widget = ComputedWidget(
+    #         visible=False,
+    #     ),
+    # ),
 )
-)
-
-schema['title'].required = False
 
 
-class SamplePartition(BaseContent, HistoryAwareMixin):
-    implements(ISamplePartition)
-    security = ClassSecurityInfo()
-    displayContentsTab = False
-    schema = schema
+#schema['title'].required = False
+
+
+class SamplePartition(models.Model, BaseOLiMSModel): #BaseContent, HistoryAwareMixin
+    _name='olims.sample_partition'
+    # implements(ISamplePartition)
+    # security = ClassSecurityInfo()
+    # displayContentsTab = False
+    # schema = schema
 
     _at_rename_after_creation = True
 
@@ -75,20 +99,20 @@ class SamplePartition(BaseContent, HistoryAwareMixin):
         """ Return the Sample ID as title """
         return safe_unicode(self.getId()).encode('utf-8')
 
-    security.declarePublic('getAnalyses')
+    #security.declarePublic('getAnalyses')
 
     def getAnalyses(self):
         """ return list of titles of analyses linked to this sample Partition """
         analyses = sorted(self.getBackReferences("AnalysisSamplePartition"))
         return analyses
 
-    security.declarePublic('current_date')
+    #security.declarePublic('current_date')
 
     def current_date(self):
         """ return current date """
         return DateTime()
 
-    security.declarePublic('disposal_date')
+    #security.declarePublic('disposal_date')
 
     def disposal_date(self):
         """ return disposal date """
@@ -253,4 +277,5 @@ class SamplePartition(BaseContent, HistoryAwareMixin):
             if sample_c_state == 'active' and not active:
                 workflow.doActionFor(sample, 'cancel')
 
-registerType(SamplePartition, PROJECTNAME)
+#registerType(SamplePartition, PROJECTNAME)
+SamplePartition.initialze(schema)

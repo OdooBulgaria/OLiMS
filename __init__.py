@@ -40,3 +40,4 @@ from models import instrumentscheduledtask
 from models import instrumentvalidation
 from models import labproduct
 from models import multifile
+from models import samplepartition

@@ -12,6 +12,52 @@
              its parent olims_menu and *after* its
              action course_list_action -->
 
+
+        <!--multifile form view -->
+        <record model="ir.ui.view" id="olims_sample_partition_form_view">
+            <field name="name">sample_partition.form</field>
+            <field name="model">olims.sample_partition</field>
+            <field name="arch" type="xml">
+                <form string="Sample Partition Form">
+                    <label for="Container" string="Container"/>
+                	<field name="Container"></field>
+                	<label for="Preservation" string="Preservation"/>
+                    <field name="Preservation"></field>
+                    <label for="Separate" string="Separate"/>
+                	<field name="Separate"></field>
+                    <label for="DatePreserved" string="Date Preserved"/>
+                	<field name="DatePreserved"></field>
+                    <label for="Preserver" string="Preserver"/>
+                	<field name="Preserver"></field>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_sample_partition_tree_view">
+            <field name="name">sample_partition.tree</field>
+            <field name="model">olims.sample_partition</field>
+            <field name="arch" type="xml">
+                <tree string="Sample Partition">
+                	<field name="Container"></field>
+                    <field name="Preservation"></field>
+                	<field name="Separate"></field>
+                	<field name="DatePreserved"></field>
+                	<field name="Preserver"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="sample_partition_list_action">
+            <field name="name">sample_partition</field>
+            <field name="res_model">olims.sample_partition</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="sample_partition_menu" name="Sample Partition" parent="olims_menu"
+                  action="sample_partition_list_action"/>
+
+
         <!--multifile form view -->
         <record model="ir.ui.view" id="olims_multifile_form_view">
             <field name="name">multifile.form</field>
@@ -34,7 +80,7 @@
             <field name="name">multifile.tree</field>
             <field name="model">olims.multifile</field>
             <field name="arch" type="xml">
-                <tree string="multifile">
+                <tree string="Multifile">
                 	<field name="DocumentID"></field>
                     <field name="DocumentVersion"></field>
                 	<field name="DocumentLocation"></field>
@@ -52,11 +98,6 @@
 
         <menuitem id="multifile_menu" name="Multifile" parent="olims_menu"
                   action="multifile_list_action"/>
-
-
-
-
-
 
 
         <!--lab_product form view -->
