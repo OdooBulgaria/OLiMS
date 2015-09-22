@@ -13,6 +13,43 @@
              action course_list_action -->
 
 
+                <!--storage_location form view -->
+        <record model="ir.ui.view" id="olims_sr_template_form_view">
+            <field name="name">sr_template.form</field>
+            <field name="model">olims.sr_template</field>
+            <field name="arch" type="xml">
+                <form string="SR Template Form">
+                    <label for="Instructions" string="Instructions"/>
+                	<field name="Instructions"></field>
+                	<label for="ARTemplates" string="ARTemplates"/>
+                    <field name="ARTemplates"></field>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_sr_template_tree_view">
+            <field name="name">sr_template.tree</field>
+            <field name="model">olims.sr_template</field>
+            <field name="arch" type="xml">
+                <tree string="SR Template">
+                	<field name="Instructions"></field>
+                    <field name="ARTemplates"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="sr_template_list_action">
+            <field name="name">SR template</field>
+            <field name="res_model">olims.sr_template</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="sr_template_menu" name="SR Template" parent="olims_menu"
+                  action="sr_template_list_action"/>
+
+
+
         <!--storage_location form view -->
         <record model="ir.ui.view" id="olims_storage_location_form_view">
             <field name="name">storage_location.form</field>

@@ -45,3 +45,4 @@ from models import samplecondition
 from models import sample
 from models import samplingdeviation
 from models import storagelocation
+from models import srtemplate
