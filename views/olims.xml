@@ -12,6 +12,70 @@
              its parent olims_menu and *after* its
              action course_list_action -->
 
+
+        <!--storage_location form view -->
+        <record model="ir.ui.view" id="olims_storage_location_form_view">
+            <field name="name">storage_location.form</field>
+            <field name="model">olims.storage_location</field>
+            <field name="arch" type="xml">
+                <form string="Storage Location Form">
+                    <label for="SiteTitle" string="Site Title"/>
+                	<field name="SiteTitle"></field>
+                	<label for="SiteCode" string="Site Code"/>
+                    <field name="SiteCode"></field>
+                    <label for="SiteDescription" string="Site Description"/>
+                	<field name="SiteDescription"></field>
+                    <label for="LocationTitle" string="Location Title"/>
+                	<field name="LocationTitle"></field>
+                    <label for="LocationCode" string="Location Code"/>
+                	<field name="LocationCode"></field>
+                    <label for="LocationDescription" string="Location Description"/>
+                	<field name="LocationDescription"></field>
+                    <label for="LocationType" string="Location Type"/>
+                	<field name="LocationType"></field>
+                    <label for="ShelfTitle" string="Shelf Title"/>
+                	<field name="ShelfTitle"></field>
+                    <label for="ShelfCode" string="Shelf Code"/>
+                	<field name="ShelfCode"></field>
+                    <label for="ShelfDescription" string="Shelf Description"/>
+                	<field name="ShelfDescription"></field>
+
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_storage_location_tree_view">
+            <field name="name">storage_location.tree</field>
+            <field name="model">olims.storage_location</field>
+            <field name="arch" type="xml">
+                <tree string="Storage Location">
+                	<field name="SiteTitle"></field>
+                    <field name="SiteCode"></field>
+                	<field name="SiteDescription"></field>
+                	<field name="LocationTitle"></field>
+                	<field name="LocationCode"></field>
+                	<field name="LocationDescription"></field>
+                	<field name="LocationType"></field>
+                	<field name="ShelfTitle"></field>
+                	<field name="ShelfCode"></field>
+                	<field name="ShelfDescription"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="storage_location_list_action">
+            <field name="name">storage_location</field>
+            <field name="res_model">olims.storage_location</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="storage_location_menu" name="Storage Location" parent="olims_menu"
+                  action="storage_location_list_action"/>
+
+
+
+
         <!--sample form view -->
         <record model="ir.ui.view" id="olims_sample_form_view">
             <field name="name">sample.form</field>
