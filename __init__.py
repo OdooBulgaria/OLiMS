@@ -47,3 +47,5 @@ from models import samplingdeviation
 from models import storagelocation
 from models import srtemplate
 from models import worksheet
+from models import worksheettemplate
+

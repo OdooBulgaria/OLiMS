@@ -12,7 +12,45 @@
              its parent olims_menu and *after* its
              action course_list_action -->
 
-                <!--worksheet form view -->
+
+        <!--worksheet_template form view -->
+        <record model="ir.ui.view" id="olims_worksheet_template_form_view">
+            <field name="name">worksheet_template.form</field>
+            <field name="model">olims.worksheet_template</field>
+            <field name="arch" type="xml">
+                <form string="worksheet Template Form">
+                    <label for="Service" string="Service"/>
+                	<field name="Service"></field>
+                	<label for="Instrument" string="Instrument"/>
+                    <field name="Instrument"></field>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_worksheet_template_tree_view">
+            <field name="name">worksheet_template.tree</field>
+            <field name="model">olims.worksheet_template</field>
+            <field name="arch" type="xml">
+                <tree string="Worksheet Template">
+                	<field name="Service"></field>
+                    <field name="Instrument"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="worksheet_template_list_action">
+            <field name="name">Worksheet Template</field>
+            <field name="res_model">olims.worksheet_template</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="worksheet_template_menu" name="Worksheet Template" parent="olims_menu"
+                  action="worksheet_template_list_action"/>
+
+
+
+        <!--worksheet form view -->
         <record model="ir.ui.view" id="olims_worksheet_form_view">
             <field name="name">worksheet.form</field>
             <field name="model">olims.worksheet</field>
@@ -32,7 +70,7 @@
             <field name="name">worksheet.tree</field>
             <field name="model">olims.worksheet</field>
             <field name="arch" type="xml">
-                <tree string="SR Template">
+                <tree string="Worksheet">
                 	<field name="DefaultCategories"></field>
                     <field name="Analyst"></field>
                     <field name="Remarks"></field>
