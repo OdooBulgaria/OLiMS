@@ -12,8 +12,47 @@
              its parent olims_menu and *after* its
              action course_list_action -->
 
+                <!--worksheet form view -->
+        <record model="ir.ui.view" id="olims_worksheet_form_view">
+            <field name="name">worksheet.form</field>
+            <field name="model">olims.worksheet</field>
+            <field name="arch" type="xml">
+                <form string="Worksheet Form">
+                    <label for="DefaultCategories" string="Default Categories"/>
+                	<field name="DefaultCategories"></field>
+                	<label for="Analyst" string="Analyst"/>
+                    <field name="Analyst"></field>
+                    <label for="Remarks" string="Remarks"/>
+                    <field name="Remarks"></field>
+                </form>
+            </field>
+        </record>
 
-                <!--storage_location form view -->
+        <record model="ir.ui.view" id="olims_worksheet_tree_view">
+            <field name="name">worksheet.tree</field>
+            <field name="model">olims.worksheet</field>
+            <field name="arch" type="xml">
+                <tree string="SR Template">
+                	<field name="DefaultCategories"></field>
+                    <field name="Analyst"></field>
+                    <field name="Remarks"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="worksheet_list_action">
+            <field name="name">Worksheet</field>
+            <field name="res_model">olims.worksheet</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="worksheet_menu" name="Worksheet" parent="olims_menu"
+                  action="worksheet_list_action"/>
+
+
+
+                <!--sr_template form view -->
         <record model="ir.ui.view" id="olims_sr_template_form_view">
             <field name="name">sr_template.form</field>
             <field name="model">olims.sr_template</field>
@@ -47,8 +86,6 @@
 
         <menuitem id="sr_template_menu" name="SR Template" parent="olims_menu"
                   action="sr_template_list_action"/>
-
-
 
         <!--storage_location form view -->
         <record model="ir.ui.view" id="olims_storage_location_form_view">
