@@ -1,32 +1,48 @@
 """DuplicateAnalysis uses Analysis as it's base.  Until that's fixed there
 is some confusion.
 """
-from dependencies.dependency import ClassSecurityInfo
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# from dependencies.dependency import ClassSecurityInfo
+# from lims import bikaMessageFactory as _
+# from lims.utils import t
+# from lims.browser.fields import InterimFieldsField
+# from lims.config import PROJECTNAME
+# from lims.content.analysis import schema, Analysis
+# from lims.interfaces import IDuplicateAnalysis
+# from lims.subscribers import skip
+# from dependencies.dependency import REFERENCE_CATALOG
+# from dependencies.dependency import *
+# from dependencies.dependency import HoldingReference
+# from dependencies.dependency import getToolByName
+# from dependencies.dependency import implements
+
+
+from openerp import fields, models
+from models.base_olims_model import BaseOLiMSModel
+from fields.string_field import StringField
+from fields.widget.widget import StringWidget
+from fields.boolean_field import BooleanField
 from lims import bikaMessageFactory as _
-from lims.utils import t
-from lims.browser.fields import InterimFieldsField
-from lims.config import PROJECTNAME
-from lims.content.analysis import schema, Analysis
-from lims.interfaces import IDuplicateAnalysis
-from lims.subscribers import skip
-from dependencies.dependency import REFERENCE_CATALOG
-from dependencies.dependency import *
-from dependencies.dependency import HoldingReference
-from dependencies.dependency import getToolByName
-from dependencies.dependency import implements
 
 
-schema = schema.copy() + Schema((
-    ReferenceField(
-        'Analysis',
-        required=1,
-        allowed_types=('Analysis',),
-        referenceClass=HoldingReference,
-        relationship='DuplicateAnalysisAnalysis',
+#schema = schema.copy() + Schema((
+schema = (
+
+    fields.Many2one(string='Analysis',
+                    comodel_name='olims.analysis',
+        #             'Analysis',
+        # required=1,
+        # allowed_types=('Analysis',),
+        # referenceClass=HoldingReference,
+        # relationship='DuplicateAnalysisAnalysis',
+
     ),
-    InterimFieldsField(
-        'InterimFields',
-    ),
+
+
+    # InterimFieldsField(
+    #     'InterimFields',
+    # ),
+
     StringField(
         'Result',
     ),
@@ -36,84 +52,98 @@ schema = schema.copy() + Schema((
     BooleanField(
         'Retested',
     ),
-    ReferenceField(
-        'Attachment',
-        multiValued=1,
-        allowed_types=('Attachment',),
-        referenceClass=HoldingReference,
-        relationship='DuplicateAnalysisAttachment',
-    ),
+# ~~~~~~~ To be implemented ~~~~~~~
+# fields.One2many(string='Attachment',
+#                     comodel_name='olims.analysis',
+#          #     multiValued=1,
+#     #     allowed_types=('Attachment',),
+#     #     referenceClass=HoldingReference,
+#     #     relationship='DuplicateAnalysisAttachment',
+#     ),
+
+
+    # ReferenceField(
+    #     'Attachment',
+    #     multiValued=1,
+    #     allowed_types=('Attachment',),
+    #     referenceClass=HoldingReference,
+    #     relationship='DuplicateAnalysisAttachment',
+    # ),
 
     StringField(
         'Analyst',
     ),
-    ReferenceField(
-        'Instrument',
-        required=0,
-        allowed_types=('Instrument',),
-        relationship='AnalysisInstrument',
-        referenceClass=HoldingReference,
+
+    fields.Many2one(string='Instrument',
+                    comodel_name='olims.instrument',
+        # required=0,
+        # allowed_types=('Instrument',),
+        # relationship='AnalysisInstrument',
+        # referenceClass=HoldingReference,
     ),
-    ComputedField(
-        'SamplePartition',
-        expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getSamplePartition()',
-    ),
-    ComputedField(
-        'ClientOrderNumber',
-        expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getClientOrderNumber()',
-    ),
-    ComputedField(
-        'Service',
-        expression='context.getAnalysis() and context.getAnalysis().getService() or ""',
-    ),
-    ComputedField(
-        'ServiceUID',
-        expression='context.getAnalysis() and context.getAnalysis().getServiceUID()',
-    ),
-    ComputedField(
-        'CategoryUID',
-        expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getCategoryUID()',
-    ),
-    ComputedField(
-        'Calculation',
-        expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getCalculation()',
-    ),
-    ComputedField(
-        'ReportDryMatter',
-        expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getReportDryMatter()',
-    ),
-    ComputedField(
-        'DateReceived',
-        expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getDateReceived()',
-    ),
-    ComputedField(
-        'MaxTimeAllowed',
-        expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getMaxTimeAllowed()',
-    ),
-    ComputedField(
-        'DueDate',
-        expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getDueDate()',
-    ),
-    ComputedField(
-        'Duration',
-        expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getDuration()',
-    ),
-    ComputedField(
-        'Earliness',
-        expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getEarliness()',
-    ),
-    ComputedField(
-        'ClientUID',
-        expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getClientUID()',
-    ),
-    ComputedField(
-        'RequestID',
-        expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getRequestID() or ""',
-    ),
-    ComputedField(
-        'PointOfCapture',
-        expression='context.getAnalysis() and context.getAnalysis().getPointOfCapture()',
-    ),
+
+# ~~~~~~~ To be implemented ~~~~~~~
+    # ComputedField(
+    #     'SamplePartition',
+    #     expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getSamplePartition()',
+    # ),
+    # ComputedField(
+    #     'ClientOrderNumber',
+    #     expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getClientOrderNumber()',
+    # ),
+    # ComputedField(
+    #     'Service',
+    #     expression='context.getAnalysis() and context.getAnalysis().getService() or ""',
+    # ),
+    # ComputedField(
+    #     'ServiceUID',
+    #     expression='context.getAnalysis() and context.getAnalysis().getServiceUID()',
+    # ),
+    # ComputedField(
+    #     'CategoryUID',
+    #     expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getCategoryUID()',
+    # ),
+    # ComputedField(
+    #     'Calculation',
+    #     expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getCalculation()',
+    # ),
+    # ComputedField(
+    #     'ReportDryMatter',
+    #     expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getReportDryMatter()',
+    # ),
+    # ComputedField(
+    #     'DateReceived',
+    #     expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getDateReceived()',
+    # ),
+    # ComputedField(
+    #     'MaxTimeAllowed',
+    #     expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getMaxTimeAllowed()',
+    # ),
+    # ComputedField(
+    #     'DueDate',
+    #     expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getDueDate()',
+    # ),
+    # ComputedField(
+    #     'Duration',
+    #     expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getDuration()',
+    # ),
+    # ComputedField(
+    #     'Earliness',
+    #     expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getEarliness()',
+    # ),
+    # ComputedField(
+    #     'ClientUID',
+    #     expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getClientUID()',
+    # ),
+    # ComputedField(
+    #     'RequestID',
+    #     expression='context.getAnalysis() and context.getAnalysis().aq_parent.portal_type=="AnalysisRequest" and context.getAnalysis().getRequestID() or ""',
+    # ),
+    # ComputedField(
+    #     'PointOfCapture',
+    #     expression='context.getAnalysis() and context.getAnalysis().getPointOfCapture()',
+    # ),
+
     StringField(
         'ReferenceAnalysesGroupID',
         widget=StringWidget(
@@ -121,19 +151,22 @@ schema = schema.copy() + Schema((
             visible=False,
         ),
     ),
-    ComputedField(
-        'Keyword',
-        expression="context.getAnalysis().getKeyword()",
-    ),
-),
+    # ~~~~~~~ To be implemented ~~~~~~~
+    # ComputedField(
+    #     'Keyword',
+    #     expression="context.getAnalysis().getKeyword()",
+#    ),
+
 )
 
 
-class DuplicateAnalysis(Analysis):
-    implements(IDuplicateAnalysis)
-    security = ClassSecurityInfo()
-    displayContentsTab = False
-    schema = schema
+
+class DuplicateAnalysis(models.Model, BaseOLiMSModel): #Analysis
+    _name='olims.duplicate_analysis'
+    # implements(IDuplicateAnalysis)
+    # security = ClassSecurityInfo()
+    # displayContentsTab = False
+    # schema = schema
 
     _at_rename_after_creation = True
 
@@ -315,4 +348,5 @@ class DuplicateAnalysis(Analysis):
                 workflow.doActionFor(ws, 'retract')
                 skip(ws, 'retract', unskip=True)
 
-registerType(DuplicateAnalysis, PROJECTNAME)
+#registerType(DuplicateAnalysis, PROJECTNAME)
+DuplicateAnalysis.initialze(schema)

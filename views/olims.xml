@@ -12,6 +12,57 @@
              its parent olims_menu and *after* its
              action course_list_action -->
 
+        <!--duplicate_analysis form view -->
+        <record model="ir.ui.view" id="olims_duplicate_analysis_form_view">
+            <field name="name">duplicate_analysis.form</field>
+            <field name="model">olims.duplicate_analysis</field>
+            <field name="arch" type="xml">
+                <form string="Duplicate Analysis Form">
+                    <label for="Analysis" string="Analysis"/>
+                    <field name="Analysis"></field>
+                    <label for="Result" string="Result"/>
+                    <field name="Result"></field>
+                    <label for="ResultDM" string="Result DM"/>
+                    <field name="ResultDM"></field>
+                    <label for="Retested" string="Retested"/>
+                    <field name="Retested"></field>
+                    <label for="Analyst" string="Analyst"/>
+                    <field name="Analyst"></field>
+                   <label for="Instrument" string="Instrument"/>
+                    <field name="Instrument"></field>
+                    <label for="ReferenceAnalysesGroupID" string="Reference Analyses Group ID"/>
+                    <field name="ReferenceAnalysesGroupID"></field>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_duplicate_analysis_tree_view">
+            <field name="name">duplicate_analysis.tree</field>
+            <field name="model">olims.duplicate_analysis</field>
+            <field name="arch" type="xml">
+                <tree string="Duplicate Analysis Template">
+                    <field name="Analysis"></field>
+                    <field name="Result"></field>
+                    <field name="ResultDM"></field>
+                    <field name="Retested"></field>
+                    <field name="Analyst"></field>
+                    <field name="Instrument"></field>
+                    <field name="ReferenceAnalysesGroupID"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="duplicate_analysis_list_action">
+            <field name="name">Duplicate Analysis</field>
+            <field name="res_model">olims.duplicate_analysis</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="duplicate_analysis_menu" name="Duplicate Analysis" parent="olims_menu"
+                  action="duplicate_analysis_list_action"/>
+
+
         <!--batch form view -->
         <record model="ir.ui.view" id="olims_batch_form_view">
             <field name="name">batch.form</field>
