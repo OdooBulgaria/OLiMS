@@ -1,40 +1,58 @@
-from dependencies.dependency import schemata
-from dependencies import atapi
-from dependencies.dependency import ClassSecurityInfo
-from dependencies.dependency import DateTime
-from dependencies.dependency import DateTimeField, DateTimeWidget, RecordsField
-from dependencies.dependency import REFERENCE_CATALOG
-from dependencies.dependency import *
-from dependencies.dependency import ListFolderContents, View
-from dependencies.dependency import getToolByName
-from dependencies.dependency import safe_unicode
-from lims.content.bikaschema import BikaSchema
-from lims.config import PROJECTNAME
-from lims import bikaMessageFactory as _
-from lims.utils import t
-from dependencies.dependency import implements
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# from dependencies.dependency import schemata
+# from dependencies import atapi
+# from dependencies.dependency import ClassSecurityInfo
+# from dependencies.dependency import DateTime
+# from dependencies.dependency import DateTimeField, DateTimeWidget, RecordsField
+# from dependencies.dependency import REFERENCE_CATALOG
+# from dependencies.dependency import *
+# from dependencies.dependency import ListFolderContents, View
+# from dependencies.dependency import getToolByName
+# from dependencies.dependency import safe_unicode
+# from lims.content.bikaschema import BikaSchema
+# from lims.config import PROJECTNAME
+# from lims import bikaMessageFactory as _
+# from lims.utils import t
+# from dependencies.dependency import implements
 
-schema = BikaSchema.copy() + Schema((
-    ComputedField('RequestID',
-        expression = 'here.getRequestID()',
-        widget = ComputedWidget(
-            visible = True,
-        ),
-    ),
+from openerp import fields, models
+from fields.string_field import StringField
+from fields.date_time_field import DateTimeField
+from fields.file_field import FileField
+from fields.widget.widget import  DateTimeWidget, FileWidget, StringWidget
+from models.base_olims_model import BaseOLiMSModel
+from lims import bikaMessageFactory as _
+
+
+
+#schema = BikaSchema.copy() + Schema((
+schema = (
+    # ~~~~~~~ To be implemented ~~~~~~~
+    #          ComputedField('RequestID',
+    #     expression = 'here.getRequestID()',
+    #     widget = ComputedWidget(
+    #         visible = True,
+    #     ),
+    # ),
     FileField('AttachmentFile',
         widget = FileWidget(
             label=_("Attachment"),
         ),
     ),
-    ReferenceField('AttachmentType',
-        required = 0,
-        allowed_types = ('AttachmentType',),
-        relationship = 'AttachmentAttachmentType',
-        widget = ReferenceWidget(
-            label=_("Attachment Type"),
+
+
+    fields.Many2one(string='AttachmentType',
+                        comodel_name='olims.attachment_type',
+
+        #   required = 0,
+        # allowed_types = ('AttachmentType',),
+        # relationship = 'AttachmentAttachmentType',
+        # widget = ReferenceWidget(
+        #     label=_("Attachment Type"),
+        # ),
         ),
-    ),
-    StringField('AttachmentKeys',
+
+     StringField('AttachmentKeys',
         searchable = True,
         widget = StringWidget(
             label=_("Attachment Keys"),
@@ -47,28 +65,29 @@ schema = BikaSchema.copy() + Schema((
             label=_("Date Loaded"),
         ),
     ),
-    ComputedField('AttachmentTypeUID',
-        expression="context.getAttachmentType().UID() if context.getAttachmentType() else ''",
-        widget = ComputedWidget(
-            visible = False,
-        ),
-    ),
-    ComputedField('ClientUID',
-        expression = 'here.aq_parent.UID()',
-        widget = ComputedWidget(
-            visible = False,
-        ),
-    ),
-),
+    # ~~~~~~~ To be implemented ~~~~~~~
+    # ComputedField('AttachmentTypeUID',
+    #     expression="context.getAttachmentType().UID() if context.getAttachmentType() else ''",
+    #     widget = ComputedWidget(
+    #         visible = False,
+    #     ),
+    # ),
+    # ComputedField('ClientUID',
+    #     expression = 'here.aq_parent.UID()',
+    #     widget = ComputedWidget(
+    #         visible = False,
+    #     ),
+    # ),
 )
 
-schema['id'].required = False
-schema['title'].required = False
+# schema['id'].required = False
+# schema['title'].required = False
 
-class Attachment(BaseFolder):
-    security = ClassSecurityInfo()
-    displayContentsTab = False
-    schema = schema
+class Attachment(models.Model, BaseOLiMSModel): #BaseFolder
+    _name='olims.attachment'
+    # security = ClassSecurityInfo()
+    # displayContentsTab = False
+    # schema = schema
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
@@ -150,10 +169,11 @@ class Attachment(BaseFolder):
         workflow = getToolByName(self, 'portal_workflow')
         return workflow.getInfoFor(parent, 'review_state', '')
 
-    security.declarePublic('current_date')
+    #security.declarePublic('current_date')
     def current_date(self):
         """ return current date """
         return DateTime()
 
 
-atapi.registerType(Attachment, PROJECTNAME)
+#atapi.registerType(Attachment, PROJECTNAME)
+Attachment.initialze(schema)

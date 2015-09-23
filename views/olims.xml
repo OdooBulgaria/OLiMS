@@ -12,6 +12,50 @@
              its parent olims_menu and *after* its
              action course_list_action -->
 
+        <!--attachment form view -->
+        <record model="ir.ui.view" id="olims_attachment_form_view">
+            <field name="name">attachment.form</field>
+            <field name="model">olims.attachment</field>
+            <field name="arch" type="xml">
+                <form string="Attachment Form">
+                    <label for="AttachmentFile" string="Attachment File"/>
+                    <field name="AttachmentFile"></field>
+                    <label for="AttachmentType" string="Attachment Type"/>
+                    <field name="AttachmentType"></field>
+                    <label for="AttachmentKeys" string="AttachmentKeys"/>
+                    <field name="AttachmentKeys"></field>
+                    <label for="DateLoaded" string="Date Loaded"/>
+                    <field name="DateLoaded"></field>
+
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_attachment_tree_view">
+            <field name="name">attachment.tree</field>
+            <field name="model">olims.attachment</field>
+            <field name="arch" type="xml">
+                <tree string="Attachment Template">
+                    <field name="AttachmentFile"></field>
+                    <field name="AttachmentType"></field>
+                    <field name="AttachmentKeys"></field>
+                    <field name="DateLoaded"></field>
+
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="attachment_list_action">
+            <field name="name">Attachment</field>
+            <field name="res_model">olims.attachment</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="attachment_menu" name="Attachment" parent="olims_menu"
+                  action="attachment_list_action"/>
+
+
         <!--duplicate_analysis form view -->
         <record model="ir.ui.view" id="olims_duplicate_analysis_form_view">
             <field name="name">duplicate_analysis.form</field>

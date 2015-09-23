@@ -51,4 +51,6 @@ from models import worksheettemplate
 from models import arreport
 from models import batch
 from models import duplicateanalysis
+from models import attachmenttype
+from models import attachment
 
