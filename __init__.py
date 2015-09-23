@@ -49,4 +49,5 @@ from models import srtemplate
 from models import worksheet
 from models import worksheettemplate
 from models import arreport
+from models import batch
 
