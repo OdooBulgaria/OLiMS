@@ -12,6 +12,54 @@
              its parent olims_menu and *after* its
              action course_list_action -->
 
+                <!--ar_report form view -->
+        <record model="ir.ui.view" id="olims_ar_report_form_view">
+            <field name="name">ar_report.form</field>
+            <field name="model">olims.ar_report</field>
+            <field name="arch" type="xml">
+                <form string="Ar Report Form">
+                    <label for="AnalysisRequest" string="Analysis Request"/>
+                    <field name="AnalysisRequest"></field>
+                    <label for="Pdf" string="Pdf"/>
+                    <field name="Pdf"></field>
+                    <label for="Html" string="Html"/>
+                    <field name="Html"></field>
+                    <label for="SMS" string="SMS"/>
+                    <field name="SMS"></field>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_ar_report_tree_view">
+            <field name="name">ar_report.tree</field>
+            <field name="model">olims.ar_report</field>
+            <field name="arch" type="xml">
+                <tree string="Ar Report Template">
+                    <field name="AnalysisRequest"></field>
+                    <field name="Pdf"></field>
+                    <field name="Html"></field>
+                    <field name="SMS"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="ar_report_list_action">
+            <field name="name">Ar Report</field>
+            <field name="res_model">olims.ar_report</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="ar_report_menu" name="Ar Report" parent="olims_menu"
+                  action="ar_report_list_action"/>
+
+
+
+
+
+
+
+
 
         <!--analysis_request form view -->
         <record model="ir.ui.view" id="olims_analysis_request_form_view">
