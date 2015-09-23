@@ -47,6 +47,7 @@ from fields.fixed_point_field import FixedPointField
 from fields.widget.widget import StringWidget, TextAreaWidget, \
                                 BooleanWidget, DateTimeWidget, \
                                 DecimalWidget, RichWidget
+from openerp import fields, models
 import sys
 # ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
 # try:
@@ -124,46 +125,10 @@ schema = (StringField(
 #                      ],
 #         ),
 #     ),
-# ~~~~~~~ To be implemented ~~~~~~~
-#     ReferenceField(
-#         'CCContact',
-#         multiValued=1,
-#         vocabulary_display_path_bound=sys.maxsize,
-#         allowed_types=('Contact',),
-#         referenceClass=HoldingReference,
-#         relationship='AnalysisRequestCCContact',
-#         mode="rw",
-#         read_permission=permissions.View,
-#         write_permission=EditARContact,
-#         widget=ReferenceWidget(
-#             label = _("CC Contacts"),
-#             render_own_label=True,
-#             size=20,
-#             visible={'edit': 'visible',
-#                      'view': 'visible',
-#                      'add': 'edit',
-#                      'header_table': 'prominent',
-#                      'sample_registered': {'view': 'visible', 'edit': 'visible', 'add': 'edit'},
-#                      'to_be_sampled':     {'view': 'visible', 'edit': 'visible'},
-#                      'sampled':           {'view': 'visible', 'edit': 'visible'},
-#                      'to_be_preserved':   {'view': 'visible', 'edit': 'visible'},
-#                      'sample_due':        {'view': 'visible', 'edit': 'visible'},
-#                      'sample_received':   {'view': 'visible', 'edit': 'visible'},
-#                      'attachment_due':    {'view': 'visible', 'edit': 'visible'},
-#                      'to_be_verified':    {'view': 'visible', 'edit': 'visible'},
-#                      'verified':          {'view': 'visible', 'edit': 'invisible'},
-#                      'published':         {'view': 'visible', 'edit': 'invisible'},
-#                      'invalid':           {'view': 'visible', 'edit': 'invisible'},
-#                      },
-#             base_query={'inactive_state': 'active'},
-#             showOn=True,
-#             popup_width='400px',
-#             colModel=[{'columnName': 'UID', 'hidden': True},
-#                       {'columnName': 'Fullname', 'width': '50', 'label': _('Name')},
-#                       {'columnName': 'EmailAddress', 'width': '50', 'label': _('Email Address')},
-#                      ],
-#         ),
-#     ),
+#           fields.Many2many('CCContact',
+#                     comodel_name='olims.contact',
+
+    #),
     StringField(
         'CCEmails',
         mode="rw",
@@ -223,6 +188,17 @@ schema = (StringField(
 #             showOn=True,
 #         ),
 #     ),
+
+    fields.Many2one(string='Client',
+                    comodel_name='olims.client',
+
+    ),
+
+    fields.Many2one(string='Sample',
+                        comodel_name='olims.sample',
+
+        ),
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ReferenceField(
 #         'Sample',
@@ -260,6 +236,12 @@ schema = (StringField(
 #             showOn=True,
 #         ),
 #     ),
+
+        fields.Many2one(string='Batch',
+                        comodel_name='olims.batch',
+
+        ),
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ReferenceField(
 #         'Batch',
@@ -336,6 +318,11 @@ schema = (StringField(
 #             showOn=True,
 #         ),
 #     ),
+              fields.Many2one(string='Template',
+                        comodel_name='olims.ar_template',
+
+        ),
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ReferenceField(
 #         'Template',
@@ -391,6 +378,18 @@ schema = (StringField(
 #             showOn=False,
 #         ),
 #     ),
+#
+#               fields.Many2many(string='Profiles',
+#                         comodel_name='olims.analysis_profile',
+#
+#         ),
+          # ~~~~~~~ To be implemented ~~~~~~~
+        # fields.One2many(string='Analysis Profile',
+        #                  comodel_name='olims.analysis_profile',
+        #                     #relation='abcd',
+        #                     #column1='olims_analysis_request_id',
+        #                     #column2='olims_analysis_profile',
+        #                     ),
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ReferenceField(
 #         'Profiles',
@@ -512,6 +511,11 @@ schema = (StringField(
                      },
         ),
     ),
+              fields.Many2one(string='SampleType',
+                        comodel_name='olims.sample_type',
+
+        ),
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ReferenceField(
 #         'SampleType',
@@ -636,6 +640,12 @@ schema = (StringField(
 #             showOn=True,
 #         ),
 #     ),
+
+              fields.Many2one(string='SamplePoint',
+                        comodel_name='olims.sample_point',
+
+        ),
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ReferenceField(
 #         'SamplePoint',
@@ -671,6 +681,12 @@ schema = (StringField(
 #             showOn=True,
 #         ),
 #     ),
+
+              fields.Many2one(string='StorageLocation',
+                        comodel_name='olims.storage_location',
+
+        ),
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ReferenceField(
 #         'StorageLocation',
@@ -794,6 +810,12 @@ schema = (StringField(
                      },
         ),
     ),
+
+                        fields.Many2one(string='SamplingDeviation',
+                        comodel_name='olims.sampling_deviation',
+
+        ),
+
     # Sample field
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ReferenceField('SamplingDeviation',
@@ -830,6 +852,12 @@ schema = (StringField(
 #         ),
 #     ),
 #     # Sample field
+              fields.Many2one(string='SampleCondition',
+                        comodel_name='olims.sample_condition',
+
+        ),
+
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ReferenceField(
 #         'SampleCondition',
@@ -865,6 +893,12 @@ schema = (StringField(
 #             showOn=True,
 #         ),
 #     ),
+              fields.Many2one(string='DefaultContainerType',
+                        comodel_name='olims.container_type',
+
+        ),
+
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ReferenceField(
 #         'DefaultContainerType',
@@ -1045,6 +1079,11 @@ schema = (StringField(
 #                      },
 #         )
 #     ),
+              fields.Many2one(string='Invoice',
+                        comodel_name='olims.invoice',
+
+        ),
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ReferenceField(
 #         'Invoice',
@@ -1216,6 +1255,11 @@ schema = (StringField(
 #             visible=False,
 #         ),
 #     ),
+              fields.Many2one(string='ChildAnalysisRequest',
+                        comodel_name='olims.analysis_request',
+
+        ),
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ReferenceField(
 #         'ChildAnalysisRequest',
@@ -1229,6 +1273,10 @@ schema = (StringField(
 #             visible=False,
 #         ),
 #     ),
+                        fields.Many2one(string='ParentAnalysisRequest',
+                        comodel_name='olims.analysis_request',
+
+        ),
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ReferenceField(
 #         'ParentAnalysisRequest',

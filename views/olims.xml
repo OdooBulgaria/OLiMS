@@ -13,6 +13,123 @@
              action course_list_action -->
 
 
+        <!--analysis_request form view -->
+        <record model="ir.ui.view" id="olims_analysis_request_form_view">
+            <field name="name">analysis_request.form</field>
+            <field name="model">olims.analysis_request</field>
+            <field name="arch" type="xml">
+                <form string="Analysis Request Form">
+                    <label for="RequestID" string="Request ID"/>
+                	<field name="RequestID"></field>
+                	<label for="CCEmails" string="CCEmails"/>
+                    <field name="CCEmails"></field>
+                    <label for="Client" string="Client"/>
+                    <field name="Client"></field>
+                    <label for="Sample" string="Sample"/>
+                    <field name="Sample"></field>
+                    <label for="Batch" string="Batch"/>
+                    <field name="Batch"></field>
+                    <label for="Template" string="Template"/>
+                    <field name="Template"></field>
+                    <label for="DateSampled" string="Date Sampled"/>
+                    <field name="DateSampled"></field>
+                    <label for="SamplingDate" string="Sampling Date"/>
+                    <field name="SamplingDate"></field>
+                    <label for="SampleType" string="Sample Type"/>
+                    <field name="SampleType"></field>
+                    <label for="SamplePoint" string="Sample Point"/>
+                    <field name="SamplePoint"></field>
+                    <label for="StorageLocation" string="StorageLocation"/>
+                    <field name="StorageLocation"></field>
+                    <label for="ClientOrderNumber" string="Client Order Number"/>
+                    <field name="ClientOrderNumber"></field>
+                    <label for="ClientReference" string="Client Reference"/>
+                    <field name="ClientReference"></field>
+                    <label for="ClientSampleID" string="Client Sample ID"/>
+                    <field name="ClientSampleID"></field>
+                    <label for="SampleCondition" string="Sample Condition"/>
+                    <field name="SampleCondition"></field>
+                    <label for="DefaultContainerType" string="Default Container Type"/>
+                    <field name="DefaultContainerType"></field>
+                    <label for="AdHoc" string="Ad Hoc"/>
+                    <field name="AdHoc"></field>
+                    <label for="Composite" string="Composite"/>
+                    <field name="Composite"></field>
+                    <label for="ReportDryMatter" string="Report Dry Matter"/>
+                    <field name="ReportDryMatter"></field>
+                    <label for="InvoiceExclude" string="Invoice Exclude"/>
+                    <field name="InvoiceExclude"></field>
+                    <label for="Invoice" string="Invoice"/>
+                    <field name="Invoice"></field>
+                    <label for="DateReceived" string="DateReceived"/>
+                    <field name="DateReceived"></field>
+                    <label for="DatePublished" string="Date Published"/>
+                    <field name="DatePublished"></field>
+                    <label for="Remarks" string="Remarks"/>
+                    <field name="Remarks"></field>
+                    <label for="MemberDiscount" string="Member Discount"/>
+                    <field name="MemberDiscount"></field>
+                    <label for="ChildAnalysisRequest" string="Child Analysis Request"/>
+                    <field name="ChildAnalysisRequest"></field>
+                    <label for="ParentAnalysisRequest" string="Parent Analysis Request"/>
+                    <field name="ParentAnalysisRequest"></field>
+                    <label for="ResultsInterpretation" string="Results Interpretation"/>
+                    <field name="ResultsInterpretation"></field>
+
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_analysis_request_tree_view">
+            <field name="name">analysis_request.tree</field>
+            <field name="model">olims.analysis_request</field>
+            <field name="arch" type="xml">
+                <tree string="Analysis Request Template">
+                	<field name="RequestID"></field>
+                    <field name="CCEmails"></field>
+                    <field name="Client"></field>
+                    <field name="Sample"></field>
+                    <field name="Batch"></field>
+                    <field name="Template"></field>
+                    <field name="DateSampled"></field>
+                    <field name="SamplingDate"></field>
+                    <field name="SampleType"></field>
+                    <field name="SamplePoint"></field>
+                    <field name="StorageLocation"></field>
+                    <field name="ClientOrderNumber"></field>
+                    <field name="ClientReference"></field>
+                    <field name="ClientSampleID"></field>
+                    <field name="SampleCondition"></field>
+                    <field name="DefaultContainerType"></field>
+                    <field name="AdHoc"></field>
+                    <field name="Composite"></field>
+                    <field name="ReportDryMatter"></field>
+                    <field name="InvoiceExclude"></field>
+                    <field name="Invoice"></field>
+                    <field name="DateReceived"></field>
+                    <field name="DatePublished"></field>
+                    <field name="Remarks"></field>
+                    <field name="MemberDiscount"></field>
+                    <field name="ChildAnalysisRequest"></field>
+                    <field name="ParentAnalysisRequest"></field>
+                    <field name="ResultsInterpretation"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="analysis_request_list_action">
+            <field name="name">Analysis Request</field>
+            <field name="res_model">olims.analysis_request</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="analysis_request_menu" name="Analysis Request" parent="olims_menu"
+                  action="analysis_request_list_action"/>
+
+
+
+
         <!--worksheet_template form view -->
         <record model="ir.ui.view" id="olims_worksheet_template_form_view">
             <field name="name">worksheet_template.form</field>
