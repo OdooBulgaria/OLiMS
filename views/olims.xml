@@ -12,6 +12,79 @@
              its parent olims_menu and *after* its
              action course_list_action -->
 
+        <!--reject_analysis form view -->
+        <record model="ir.ui.view" id="olims_reject_analysis_form_view">
+            <field name="name">reject_analysis.form</field>
+            <field name="model">olims.reject_analysis</field>
+            <field name="arch" type="xml">
+                <form string="Reject Analysis Form">
+                    <label for="Result" string="Result"/>
+                    <field name="Result"></field>
+                    <label for="ResultCaptureDate" string="Result Capture Date"/>
+                    <field name="ResultCaptureDate"></field>
+                    <label for="ResultDM" string="Result DM"/>
+                    <field name="ResultDM"></field>
+                    <label for="Retested" string="Retested"/>
+                    <field name="Retested"></field>
+                    <label for="DateAnalysisPublished" string="Date Analysis Published"/>
+                    <field name="DateAnalysisPublished"></field>
+                    <label for="DueDate" string="DueDate"/>
+                    <field name="DueDate"></field>
+                    <label for="Duration" string="Duration"/>
+                    <field name="Duration"></field>
+                    <label for="Earliness" string="Earliness"/>
+                    <field name="Earliness"></field>
+                    <label for="ReportDryMatter" string="ReportDryMatter"/>
+                    <field name="ReportDryMatter"></field>
+                    <label for="Analyst" string="Analyst"/>
+                    <field name="Analyst"></field>
+                    <label for="Remarks" string="Remarks"/>
+                    <field name="Remarks"></field>
+                    <label for="Uncertainty" string="Uncertainty"/>
+                    <field name="Uncertainty"></field>
+                    <label for="DetectionLimitOperand" string="DetectionLimitOperand"/>
+                    <field name="DetectionLimitOperand"></field>
+                    <label for="Analysis" string="Analysis"/>
+                    <field name="Analysis"></field>
+
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_reject_analysis_tree_view">
+            <field name="name">reject_analysis.tree</field>
+            <field name="model">olims.reject_analysis</field>
+            <field name="arch" type="xml">
+                <tree string="Reject Analysis Template">
+                    <field name="Result"></field>
+                    <field name="ResultCaptureDate"></field>
+                    <field name="ResultDM"></field>
+                    <field name="Retested"></field>
+                    <field name="DateAnalysisPublished"></field>
+                    <field name="DueDate"></field>
+                    <field name="Duration"></field>
+                    <field name="Earliness"></field>
+                    <field name="ReportDryMatter"></field>
+                    <field name="Analyst"></field>
+                    <field name="Remarks"></field>
+                    <field name="Uncertainty"></field>
+                    <field name="DetectionLimitOperand"></field>
+                    <field name="Analysis"></field>
+
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="reject_analysis_action">
+            <field name="name">Reject Analysis</field>
+            <field name="res_model">olims.reject_analysis</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="reject_analysis_menu" name="Reject Analysis" parent="olims_menu"
+                  action="reject_analysis_action"/>
+
         <!--price_list form view -->
         <record model="ir.ui.view" id="olims_price_list_form_view">
             <field name="name">price_list.form</field>
@@ -57,13 +130,6 @@
 
         <menuitem id="price_list_menu" name="Price List" parent="olims_menu"
                   action="price_list_action"/>
-
-
-
-
-
-
-
 
         <!--attachment form view -->
         <record model="ir.ui.view" id="olims_attachment_form_view">
