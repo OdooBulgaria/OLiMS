@@ -55,4 +55,5 @@ from models import attachmenttype
 from models import attachment
 from models import pricelist
 from models import rejectanalysis
+from models import referencedefinition
 

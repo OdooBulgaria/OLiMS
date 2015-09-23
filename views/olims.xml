@@ -12,6 +12,42 @@
              its parent olims_menu and *after* its
              action course_list_action -->
 
+        <!--reference_definition form view -->
+        <record model="ir.ui.view" id="olims_reference_definition_form_view">
+            <field name="name">reference_definition.form</field>
+            <field name="model">olims.reference_definition</field>
+            <field name="arch" type="xml">
+                <form string="Reference Definition Form">
+                    <label for="Blank" string="Blank"/>
+                    <field name="Blank"></field>
+                    <label for="Hazardous" string="Hazardous"/>
+                    <field name="Hazardous"></field>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_reference_definition_tree_view">
+            <field name="name">reference_definition.tree</field>
+            <field name="model">olims.reference_definition</field>
+            <field name="arch" type="xml">
+                <tree string="Reference Definition Template">
+                    <field name="Blank"></field>
+                    <field name="Hazardous"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="reference_definition_action">
+            <field name="name">Reference Definition</field>
+            <field name="res_model">olims.reference_definition</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="reference_definition_menu" name="Reference Definition" parent="olims_menu"
+                  action="reference_definition_action"/>
+
+
         <!--reject_analysis form view -->
         <record model="ir.ui.view" id="olims_reject_analysis_form_view">
             <field name="name">reject_analysis.form</field>
