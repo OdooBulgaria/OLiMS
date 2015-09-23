@@ -53,4 +53,5 @@ from models import batch
 from models import duplicateanalysis
 from models import attachmenttype
 from models import attachment
+from models import pricelist
 

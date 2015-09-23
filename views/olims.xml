@@ -12,6 +12,59 @@
              its parent olims_menu and *after* its
              action course_list_action -->
 
+        <!--price_list form view -->
+        <record model="ir.ui.view" id="olims_price_list_form_view">
+            <field name="name">price_list.form</field>
+            <field name="model">olims.price_list</field>
+            <field name="arch" type="xml">
+                <form string="Price List Form">
+                    <label for="Type" string="Type"/>
+                    <field name="Type"></field>
+                    <label for="BulkDiscount" string="BulkDiscount"/>
+                    <field name="BulkDiscount"></field>
+                    <label for="BulkPrice" string="BulkPrice"/>
+                    <field name="BulkPrice"></field>
+                    <label for="Descriptions" string="Descriptions"/>
+                    <field name="Descriptions"></field>
+                    <label for="Remarks" string="Remarks"/>
+                    <field name="Remarks"></field>
+
+
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_price_list_tree_view">
+            <field name="name">price_list.tree</field>
+            <field name="model">olims.price_list</field>
+            <field name="arch" type="xml">
+                <tree string="Price List Template">
+                    <field name="Type"></field>
+                    <field name="BulkDiscount"></field>
+                    <field name="BulkPrice"></field>
+                    <field name="Descriptions"></field>
+                    <field name="Remarks"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="price_list_action">
+            <field name="name">Price List</field>
+            <field name="res_model">olims.price_list</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="price_list_menu" name="Price List" parent="olims_menu"
+                  action="price_list_action"/>
+
+
+
+
+
+
+
+
         <!--attachment form view -->
         <record model="ir.ui.view" id="olims_attachment_form_view">
             <field name="name">attachment.form</field>

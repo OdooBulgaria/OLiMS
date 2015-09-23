@@ -1,35 +1,50 @@
-from dependencies.dependency import ClassSecurityInfo
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# from dependencies.dependency import ClassSecurityInfo
+# from lims import bikaMessageFactory as _
+# from lims.utils import t
+# from lims.browser.widgets.datetimewidget import DateTimeWidget
+#from lims.config import PRICELIST_TYPES, PROJECTNAME
+# from lims.content.bikaschema import BikaFolderSchema
+# from lims.interfaces import IPricelist
+# from dependencies.dependency import DateTime
+# from dependencies.dependency import PersistentMapping
+# from dependencies import folder
+# from dependencies.dependency import *
+# from dependencies.dependency import permissions
+# from dependencies.dependency import implements
+# from dependencies.dependency import getToolByName
+# from dependencies.dependency import permissions
+
+
+
+from openerp import fields, models
+from models.base_olims_model import BaseOLiMSModel
+from fields.boolean_field import BooleanField
+from fields.reference_field import ReferenceField
+from fields.fixed_point_field import FixedPointField
+from fields.text_field import TextField
+from fields.widget.widget import DecimalWidget, BooleanWidget, TextAreaWidget, ReferenceWidget
 from lims import bikaMessageFactory as _
-from lims.utils import t
-from lims.browser.widgets.datetimewidget import DateTimeWidget
-from lims.config import PRICELIST_TYPES, PROJECTNAME
-from lims.content.bikaschema import BikaFolderSchema
-from lims.interfaces import IPricelist
-from dependencies.dependency import DateTime
-from dependencies.dependency import PersistentMapping
-from dependencies import folder
-from dependencies.dependency import *
-from dependencies.dependency import permissions
-from dependencies.dependency import implements
-from dependencies.dependency import getToolByName
-from dependencies.dependency import permissions
 
+#schema = BikaFolderSchema.copy() + Schema((
+schema = (
 
-
-schema = BikaFolderSchema.copy() + Schema((
-    StringField('Type',
-        required=1,
-        vocabulary=PRICELIST_TYPES,
-        widget=SelectionWidget(
-            format='select',
-            label=_("Pricelist for"),
-        ),
+             ReferenceField(string='Type',
+           selection=([ ('olims.analysis_service', _('Analysis Services')), ('olims.lab_product', _('Lab Products'))]),
+           required=0,
+        #     widget = ReferenceWidget(
+        #     checkbox_bound = 0,
+        #     # format='select',
+        #     # label=_("Pricelist for"),
+        # ),
     ),
+
+
     BooleanField('BulkDiscount',
         default=False,
-        widget=SelectionWidget(
-            label=_("Bulk discount applies"),
-        ),
+        #widget=SelectionWidget(
+         #   label=_("Bulk discount applies"),
+        #),
     ),
     FixedPointField('BulkPrice',
         widget=DecimalWidget(
@@ -55,23 +70,22 @@ schema = BikaFolderSchema.copy() + Schema((
             append_only=True,
         ),
     ),
-),
 )
 
-Field = schema['title']
-Field.required = 1
-Field.widget.visible = True
-
-Field = schema['effectiveDate']
-Field.schemata = 'default'
-Field.required = 0 # "If no date is selected the item will be published
-                   #immediately."
-Field.widget.visible = True
-
-Field = schema['expirationDate']
-Field.schemata = 'default'
-Field.required = 0 # "If no date is chosen, it will never expire."
-Field.widget.visible = True
+# Field = schema['title']
+# Field.required = 1
+# Field.widget.visible = True
+#
+# Field = schema['effectiveDate']
+# Field.schemata = 'default'
+# Field.required = 0 # "If no date is selected the item will be published
+#                    #immediately."
+# Field.widget.visible = True
+#
+# Field = schema['expirationDate']
+# Field.schemata = 'default'
+# Field.required = 0 # "If no date is chosen, it will never expire."
+# Field.widget.visible = True
 
 
 def apply_discount(price=None, discount=None):
@@ -81,16 +95,17 @@ def apply_discount(price=None, discount=None):
 def get_vat_amount(price, vat_perc):
     return float(price) * float(vat_perc) / 100
 
+#
+# class PricelistLineItem(PersistentMapping):
+#     pass
 
-class PricelistLineItem(PersistentMapping):
-    pass
 
-
-class Pricelist(folder.ATFolder):
-    implements(IPricelist)
-    security = ClassSecurityInfo()
-    displayContentsTab = False
-    schema = schema
+class Pricelist(models.Model, BaseOLiMSModel): #folder.ATFolder
+    _name= 'olims.price_list'
+    # implements(IPricelist)
+    # security = ClassSecurityInfo()
+    # displayContentsTab = False
+    # schema = schema
 
     _at_rename_after_creation = True
 
@@ -98,17 +113,17 @@ class Pricelist(folder.ATFolder):
         from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
-    security.declarePublic('current_date')
+#    security.declarePublic('current_date')
 
     def current_date(self):
         """ return current date """
         return DateTime()
 
-    security.declareProtected(permissions.ModifyPortalContent,
-                              'processForm')
+ #   security.declareProtected(permissions.ModifyPortalContent,
+  #                            'processForm')
 
-registerType(Pricelist, PROJECTNAME)
-
+#registerType(Pricelist, PROJECTNAME)
+Pricelist.initialze(schema)
 
 def ObjectModifiedEventHandler(instance, event):
     """ Various types need automation on edit.
