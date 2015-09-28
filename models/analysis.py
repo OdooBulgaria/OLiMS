@@ -42,7 +42,7 @@ from dependencies.dependency import Decimal
 import datetime
 import math
 import logging
-from openerp import models
+from openerp import fields, models
 
 _logger = logging.getLogger(__name__)
 
@@ -142,26 +142,34 @@ schema = (
     ),
     TextField('Remarks',
     ),
-# ~~~~~~~ To be implemented ~~~~~~~
-#     ReferenceField('Instrument',
-#         required = 0,
-#         allowed_types = ('Instrument',),
-#         relationship = 'AnalysisInstrument',
-#         referenceClass = HoldingReference,
-#     ),
-#     ReferenceField('Method',
-#         required = 0,
-#         allowed_types = ('Method',),
-#         relationship = 'AnalysisMethod',
-#         referenceClass = HoldingReference,
-#     ),
-# ~~~~~~~ To be implemented ~~~~~~~
-#     ReferenceField('SamplePartition',
-#         required = 0,
-#         allowed_types = ('SamplePartition',),
-#         relationship = 'AnalysisSamplePartition',
-#         referenceClass = HoldingReference,
-#     ),
+
+ fields.Many2one(string='Instrument',
+                    comodel_name='olims.instrument',
+        #          required = 0,
+        # allowed_types = ('Instrument',),
+        # relationship = 'AnalysisInstrument',
+        # referenceClass = HoldingReference,
+
+    ),
+
+     fields.Many2one(string='Method',
+                    comodel_name='olims.method',
+        #   required = 0,
+        # allowed_types = ('Method',),
+        # relationship = 'AnalysisMethod',
+        # referenceClass = HoldingReference,
+
+    ),
+
+#~~~~~~~ To be implemented ~~~~~~~
+         fields.Many2one(string='SamplePartition',
+                    comodel_name='olims.sample_partition',
+        # required = 0,
+        # allowed_types = ('SamplePartition',),
+        # relationship = 'AnalysisSamplePartition',
+        # referenceClass = HoldingReference,
+    ),
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ComputedField('ClientUID',
 #         expression = 'context.aq_parent.aq_parent.UID()',
