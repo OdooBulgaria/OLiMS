@@ -12,6 +12,45 @@
              its parent olims_menu and *after* its
              action course_list_action -->
 
+        <!-- report form view -->
+        <record model="ir.ui.view" id="olims_report_form_view">
+            <field name="name">report.form</field>
+            <field name="model">olims.report</field>
+            <field name="arch" type="xml">
+                <form string="Report Form">
+                    <label for="ReportFile" string="ReportFile"/>
+                    <field name="ReportFile"></field>
+                    <label for="ReportType" string="ReportType"/>
+                    <field name="ReportType"></field>
+                    <label for="Client" string="Client"/>
+                    <field name="Client"></field>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_report_tree_view">
+            <field name="name">report.tree</field>
+            <field name="model">olims.report</field>
+            <field name="arch" type="xml">
+                <tree string="Report Template">
+                    <field name="ReportFile"></field>
+                    <field name="ReportType"></field>
+                    <field name="Client"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="report_action">
+            <field name="name">Report</field>
+            <field name="res_model">olims.report</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="report_menu" name="Report" parent="olims_menu"
+                  action="report_action"/>
+
+
         <!--reference_definition form view -->
         <record model="ir.ui.view" id="olims_reference_definition_form_view">
             <field name="name">reference_definition.form</field>
