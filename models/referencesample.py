@@ -1,43 +1,57 @@
 """ReferenceSample represents a reference sample used for quality control testing
 """
 
-from dependencies.dependency import ClassSecurityInfo
-from dependencies.dependency import DateTime
-from dependencies.dependency import REFERENCE_CATALOG
-from dependencies.dependency import *
-from dependencies.dependency import HoldingReference
-from dependencies.dependency import permissions
-from dependencies.dependency import WorkflowException
-from dependencies.dependency import View
-from dependencies.dependency import getToolByName
-from dependencies.dependency import _createObjectByType
-from lims import PMF, bikaMessageFactory as _
-from lims.idserver import renameAfterCreation
-from lims.utils import t
-from lims.browser.fields import ReferenceResultsField
-from lims.browser.widgets import DateTimeWidget as bika_DateTimeWidget
-from lims.browser.widgets import ReferenceResultsWidget
-from lims.config import PROJECTNAME
-from lims.content.bikaschema import BikaSchema
-from lims.interfaces import IReferenceSample
-from lims.utils import sortable_title, tmpID
-from lims.utils import to_unicode as _u
-from lims.utils import to_utf8
-from dependencies.dependency import implements
-import sys, time
+# ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
+# from dependencies.dependency import ClassSecurityInfo
+# from dependencies.dependency import DateTime
+# from dependencies.dependency import REFERENCE_CATALOG
+# from dependencies.dependency import *
+# from dependencies.dependency import HoldingReference
+# from dependencies.dependency import permissions
+# from dependencies.dependency import WorkflowException
+# from dependencies.dependency import View
+# from dependencies.dependency import getToolByName
+# from dependencies.dependency import _createObjectByType
+# from lims import PMF, bikaMessageFactory as _
+# from lims.idserver import renameAfterCreation
+# from lims.utils import t
+# from lims.browser.fields import ReferenceResultsField
+# from lims.browser.widgets import DateTimeWidget as bika_DateTimeWidget
+# from lims.browser.widgets import ReferenceResultsWidget
+# from lims.config import PROJECTNAME
+# from lims.content.bikaschema import BikaSchema
+# from lims.interfaces import IReferenceSample
+# from lims.utils import sortable_title, tmpID
+# from lims.utils import to_unicode as _u
+# from lims.utils import to_utf8
+# from dependencies.dependency import implements
+# import sys, time
 
-schema = BikaSchema.copy() + Schema((
-    ReferenceField('ReferenceDefinition',
-        schemata = 'Description',
-        allowed_types = ('ReferenceDefinition',),
-        relationship = 'ReferenceSampleReferenceDefinition',
-        referenceClass = HoldingReference,
-        vocabulary = "getReferenceDefinitions",
-        widget = ReferenceWidget(
-            checkbox_bound = 0,
-            label=_("Reference Definition"),
-        ),
-    ),
+from lims import bikaMessageFactory as _
+from fields.string_field import StringField
+from fields.date_time_field import DateTimeField
+from fields.boolean_field import BooleanField
+from fields.text_field import TextField
+from fields.widget.widget import StringWidget, BooleanWidget, DateTimeWidget, TextAreaWidget
+from openerp import fields, models
+from models.base_olims_model import BaseOLiMSModel
+
+
+#schema = BikaSchema.copy() + Schema((
+schema = (
+    fields.Many2one(string='ReferenceDefinition',
+                   comodel_name='olims.reference_definition',
+        # schemata = 'Description',
+        # allowed_types = ('ReferenceDefinition',),
+        # relationship = 'ReferenceSampleReferenceDefinition',
+        # referenceClass = HoldingReference,
+        # vocabulary = "getReferenceDefinitions",
+        # widget = ReferenceWidget(
+        #     checkbox_bound = 0,
+        #     label=_("Reference Definition"),
+        # ),
+                    ),
+
     BooleanField('Blank',
         schemata = 'Description',
         default = False,
@@ -54,17 +68,19 @@ schema = BikaSchema.copy() + Schema((
             description=_("Samples of this type should be treated as hazardous"),
         ),
     ),
-    ReferenceField('ReferenceManufacturer',
-        schemata = 'Description',
-        allowed_types = ('Manufacturer',),
-        relationship = 'ReferenceSampleManufacturer',
-        vocabulary = "getReferenceManufacturers",
-        referenceClass = HoldingReference,
-        widget = ReferenceWidget(
-            checkbox_bound = 0,
-            label=_("Manufacturer"),
-        ),
-    ),
+
+    fields.Many2one(string='ReferenceManufacturer',
+                   comodel_name='olims.manufacturer',
+        # schemata = 'Description',
+        # allowed_types = ('Manufacturer',),
+        # relationship = 'ReferenceSampleManufacturer',
+        # vocabulary = "getReferenceManufacturers",
+        # referenceClass = HoldingReference,
+        # widget = ReferenceWidget(
+        #     checkbox_bound = 0,
+        #     label=_("Manufacturer"),
+        # ),
+                    ),
     StringField('CatalogueNumber',
         schemata = 'Description',
         widget = StringWidget(
@@ -91,84 +107,88 @@ schema = BikaSchema.copy() + Schema((
     ),
     DateTimeField('DateSampled',
         schemata = 'Dates',
-        widget = bika_DateTimeWidget(
+        widget = DateTimeWidget(
             label=_("Date Sampled"),
         ),
     ),
     DateTimeField('DateReceived',
         schemata = 'Dates',
         default_method = 'current_date',
-        widget = bika_DateTimeWidget(
+        widget = DateTimeWidget(
             label=_("Date Received"),
         ),
     ),
     DateTimeField('DateOpened',
         schemata = 'Dates',
-        widget = bika_DateTimeWidget(
+        widget = DateTimeWidget(
             label=_("Date Opened"),
         ),
     ),
     DateTimeField('ExpiryDate',
         schemata = 'Dates',
         required = 1,
-        widget = bika_DateTimeWidget(
+        widget = DateTimeWidget(
             label=_("Expiry Date"),
         ),
     ),
     DateTimeField('DateExpired',
         schemata = 'Dates',
-        widget = bika_DateTimeWidget(
+        widget = DateTimeWidget(
             label=_("Date Expired"),
             visible = {'edit':'hidden'},
         ),
     ),
     DateTimeField('DateDisposed',
         schemata = 'Dates',
-        widget = bika_DateTimeWidget(
+        widget = DateTimeWidget(
             label=_("Date Disposed"),
             visible = {'edit':'hidden'},
         ),
     ),
-    ReferenceResultsField('ReferenceResults',
-        schemata = 'Reference Values',
-        required = 1,
-        subfield_validators = {
-                    'result':'referencevalues_validator',
-                    'min':'referencevalues_validator',
-                    'max':'referencevalues_validator',
-                    'error':'referencevalues_validator'},
-        widget = ReferenceResultsWidget(
-            label=_("Expected Values"),
-        ),
-    ),
-    ComputedField('SupplierUID',
-        expression = 'context.aq_parent.UID()',
-        widget = ComputedWidget(
-            visible = False,
-        ),
-    ),
-    ComputedField('ReferenceDefinitionUID',
-        expression = 'here.getReferenceDefinition() and here.getReferenceDefinition().UID() or None',
-        widget = ComputedWidget(
-            visible = False,
-        ),
-    ),
-))
+    # ~~~~~~~ To be implemented ~~~~~~~
+    # ReferenceResultsField('ReferenceResults',
+    #     schemata = 'Reference Values',
+    #     required = 1,
+    #     subfield_validators = {
+    #                 'result':'referencevalues_validator',
+    #                 'min':'referencevalues_validator',
+    #                 'max':'referencevalues_validator',
+    #                 'error':'referencevalues_validator'},
+    #     widget = ReferenceResultsWidget(
+    #         label=_("Expected Values"),
+    #     ),
+    # ),
 
-schema['title'].schemata = 'Description'
+    # ~~~~~~~ To be implemented ~~~~~~~
+    # ComputedField('SupplierUID',
+    #     expression = 'context.aq_parent.UID()',
+    #     widget = ComputedWidget(
+    #         visible = False,
+    #     ),
+    # ),
+    # ComputedField('ReferenceDefinitionUID',
+    #     expression = 'here.getReferenceDefinition() and here.getReferenceDefinition().UID() or None',
+    #     widget = ComputedWidget(
+    #         visible = False,
+    #     ),
+    # ),
+)
 
-class ReferenceSample(BaseFolder):
-    implements(IReferenceSample)
-    security = ClassSecurityInfo()
-    displayContentsTab = False
-    schema = schema
+#schema['title'].schemata = 'Description'
+
+class ReferenceSample(models.Model, BaseOLiMSModel): #BaseFolder
+    _name='olims.reference_sample'
+    # implements(IReferenceSample)
+    # security = ClassSecurityInfo()
+    # displayContentsTab = False
+    # schema = schema
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
         from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
-    security.declarePublic('current_date')
+    #security.declarePublic('current_date')
     def current_date(self):
         return DateTime()
 
@@ -211,7 +231,7 @@ class ReferenceSample(BaseFolder):
         items.sort(lambda x,y: cmp(x[1], y[1]))
         return DisplayList(list(items))
 
-    security.declarePublic('getSpecCategories')
+    #security.declarePublic('getSpecCategories')
     def getSpecCategories(self):
         tool = getToolByName(self, REFERENCE_CATALOG)
         categories = []
@@ -221,7 +241,7 @@ class ReferenceSample(BaseFolder):
                 categories.append(service.getCategoryUID())
         return categories
 
-    security.declarePublic('getResultsRangeDict')
+    #security.declarePublic('getResultsRangeDict')
     def getResultsRangeDict(self):
         specs = {}
         for spec in self.getReferenceResults():
@@ -233,7 +253,7 @@ class ReferenceSample(BaseFolder):
             specs[uid]['error'] = 'error' in spec and spec['error'] or 0
         return specs
 
-    security.declarePublic('getResultsRangeSorted')
+    #security.declarePublic('getResultsRangeSorted')
     def getResultsRangeSorted(self):
         tool = getToolByName(self, REFERENCE_CATALOG)
 
@@ -267,12 +287,12 @@ class ReferenceSample(BaseFolder):
 
         return sorted_specs
 
-    security.declarePublic('getReferenceAnalyses')
+    #security.declarePublic('getReferenceAnalyses')
     def getReferenceAnalyses(self):
         """ return all analyses linked to this reference sample """
         return self.objectValues('ReferenceAnalysis')
 
-    security.declarePublic('getReferenceAnalysesService')
+    #security.declarePublic('getReferenceAnalysesService')
     def getReferenceAnalysesService(self, service_uid):
         """ return all analyses linked to this reference sample for a service """
         analyses = []
@@ -281,7 +301,7 @@ class ReferenceSample(BaseFolder):
                 analyses.append(analysis)
         return analyses
 
-    security.declarePublic('getReferenceResult')
+    #security.declarePublic('getReferenceResult')
     def getReferenceResult(self, service_uid):
         """ Return an array [result, min, max, error] with the desired result
             for a specific service.
@@ -309,7 +329,7 @@ class ReferenceSample(BaseFolder):
                 return found == True and outrefs or None
         return None
 
-    security.declarePublic('addReferenceAnalysis')
+    #security.declarePublic('addReferenceAnalysis')
     def addReferenceAnalysis(self, service_uid, reference_type):
         """ add an analysis to the sample """
         rc = getToolByName(self, REFERENCE_CATALOG)
@@ -339,7 +359,7 @@ class ReferenceSample(BaseFolder):
         return analysis.UID()
 
 
-    security.declarePublic('getServices')
+    #security.declarePublic('getServices')
     def getServices(self):
         """ get all services for this Sample """
         tool = getToolByName(self, REFERENCE_CATALOG)
@@ -349,7 +369,7 @@ class ReferenceSample(BaseFolder):
             services.append(service)
         return services
 
-    security.declarePublic('getReferenceResultStr')
+    #security.declarePublic('getReferenceResultStr')
     def getReferenceResultStr(self, service_uid):
         specstr = ''
         specs = self.getReferenceResult(service_uid)
@@ -380,4 +400,5 @@ class ReferenceSample(BaseFolder):
         self.setDateDisposed(DateTime())
         self.reindexObject()
 
-registerType(ReferenceSample, PROJECTNAME)
+#registerType(ReferenceSample, PROJECTNAME)
+ReferenceSample.initialze(schema)

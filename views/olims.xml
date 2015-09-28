@@ -12,6 +12,79 @@
              its parent olims_menu and *after* its
              action course_list_action -->
 
+        <!-- reference_sample form view -->
+        <record model="ir.ui.view" id="olims_reference_sample_form_view">
+            <field name="name">reference_sample.form</field>
+            <field name="model">olims.reference_sample</field>
+            <field name="arch" type="xml">
+                <form string="Reference Sample Form">
+                    <label for="ReferenceDefinition" string="Reference Definition"/>
+                    <field name="ReferenceDefinition"></field>
+                    <label for="Blank" string="Blank"/>
+                    <field name="Blank"></field>
+                    <label for="Hazardous" string="Hazardous"/>
+                    <field name="Hazardous"></field>
+                    <label for="ReferenceManufacturer" string="Reference Manufacturer"/>
+                    <field name="ReferenceManufacturer"></field>
+                    <label for="CatalogueNumber" string="Catalogue Number"/>
+                    <field name="CatalogueNumber"></field>
+                    <label for="LotNumber" string="Lot Number"/>
+                    <field name="LotNumber"></field>
+                    <label for="Remarks" string="Remarks"/>
+                    <field name="Remarks"></field>
+                    <label for="DateSampled" string="Date Sampled"/>
+                    <field name="DateSampled"></field>
+                    <label for="DateReceived" string="Date Received"/>
+                    <field name="DateReceived"></field>
+                    <label for="DateOpened" string="Date Opened"/>
+                    <field name="DateOpened"></field>
+                    <label for="ExpiryDate" string="Expiry Date"/>
+                    <field name="ExpiryDate"></field>
+                    <label for="DateExpired" string="Date Expired"/>
+                    <field name="DateExpired"></field>
+                    <label for="DateDisposed" string="Date Disposed"/>
+                    <field name="DateDisposed"></field>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_reference_sample_tree_view">
+            <field name="name">reference_sample.tree</field>
+            <field name="model">olims.reference_sample</field>
+            <field name="arch" type="xml">
+                <tree string="Reference Sample Template">
+                    <field name="ReferenceDefinition"></field>
+                    <field name="Blank"></field>
+                    <field name="Hazardous"></field>
+                    <field name="ReferenceManufacturer"></field>
+                    <field name="CatalogueNumber"></field>
+                    <field name="LotNumber"></field>
+                    <field name="Remarks"></field>
+                    <field name="DateSampled"></field>
+                    <field name="DateReceived"></field>
+                    <field name="DateOpened"></field>
+                    <field name="ExpiryDate"></field>
+                    <field name="DateExpired"></field>
+                    <field name="DateDisposed"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="reference_sample_action">
+            <field name="name">Reference Sample</field>
+            <field name="res_model">olims.reference_sample</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="reference_sample_menu" name="Reference Sample" parent="olims_menu"
+                  action="reference_sample_action"/>
+
+
+
+
+
+
         <!-- report form view -->
         <record model="ir.ui.view" id="olims_report_form_view">
             <field name="name">report.form</field>
