@@ -12,6 +12,112 @@
              its parent olims_menu and *after* its
              action course_list_action -->
 
+<!-- ar_import form view -->
+        <record model="ir.ui.view" id="olims_ar_import_form_view">
+            <field name="name">ar_import.form</field>
+            <field name="model">olims.ar_import</field>
+            <field name="arch" type="xml">
+                <form string="AR Import Form">
+                    <label for="FileName" string="File Name"/>
+                    <field name="FileName"></field>
+                    <label for="OriginalFile" string="OriginalFile"/>
+                    <field name="OriginalFile"></field>
+                    <label for="ClientTitle" string="Client Title"/>
+                    <field name="ClientTitle"></field>
+                    <label for="ClientPhone" string="Client Phone"/>
+                    <field name="ClientPhone"></field>
+                    <label for="ClientFax" string="ClientFax"/>
+                    <field name="ClientFax"></field>
+                    <label for="ClientAddress" string="ClientAddress"/>
+                    <field name="ClientAddress"></field>
+                    <label for="ClientCity" string="ClientCity"/>
+                    <field name="ClientCity"></field>
+                    <label for="ClientID" string="ClientID"/>
+                    <field name="ClientID"></field>
+                    <label for="ContactID" string="ContactID"/>
+                    <field name="ContactID"></field>
+                    <label for="ContactName" string="ContactName"/>
+                    <field name="ContactName"></field>
+                    <label for="ClientEmail" string="ClientEmail"/>
+                    <field name="ClientEmail"></field>
+                    <label for="CCContactID" string="CCContactID"/>
+                    <field name="CCContactID"></field>
+                    <label for="CCContact" string="CCContact"/>
+                    <field name="CCContact"></field>
+                    <label for="CCNamesReport" string="CCNamesReport"/>
+                    <field name="CCNamesReport"></field>
+                    <label for="CCEmailsReport" string="CCEmailsReport"/>
+                    <field name="CCEmailsReport"></field>
+                    <label for="CCEmailsInvoice" string="CCEmailsInvoice"/>
+                    <field name="CCEmailsInvoice"></field>
+                    <label for="OrderID" string="OrderID"/>
+                    <field name="OrderID"></field>
+                    <label for="QuoteID" string="QuoteID"/>
+                    <field name="QuoteID"></field>
+                    <label for="SamplePoint" string="SamplePoint"/>
+                    <field name="SamplePoint"></field>
+                    <label for="Temperature" string="Temperature"/>
+                    <field name="Temperature"></field>
+                    <label for="DateImported" string="DateImported"/>
+                    <field name="DateImported"></field>
+                    <label for="DateApplied" string="DateApplied"/>
+                    <field name="DateApplied"></field>
+                    <label for="NumberSamples" string="NumberSamples"/>
+                    <field name="NumberSamples"></field>
+                    <label for="Status" string="Status"/>
+                    <field name="Status"></field>
+
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_ar_import_tree_view">
+            <field name="name">ar_import.tree</field>
+            <field name="model">olims.ar_import</field>
+            <field name="arch" type="xml">
+                <tree string="AR Import Template">
+                    <field name="FileName"></field>
+                    <field name="OriginalFile"></field>
+                    <field name="ClientTitle"></field>
+                    <field name="ClientPhone"></field>
+                    <field name="ClientFax"></field>
+                    <field name="ClientAddress"></field>
+                    <field name="ClientCity"></field>
+                    <field name="ClientID"></field>
+                    <field name="ContactID"></field>
+                    <field name="ContactName"></field>
+                    <field name="ClientEmail"></field>
+                    <field name="CCContactID"></field>
+                    <field name="CCContact"></field>
+                    <field name="CCNamesReport"></field>
+                    <field name="CCEmailsReport"></field>
+                    <field name="CCEmailsInvoice"></field>
+                    <field name="OrderID"></field>
+                    <field name="QuoteID"></field>
+                    <field name="SamplePoint"></field>
+                    <field name="Temperature"></field>
+                    <field name="DateImported"></field>
+                    <field name="DateApplied"></field>
+                    <field name="NumberSamples"></field>
+                    <field name="Status"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="ar_import_action">
+            <field name="name">AR Import</field>
+            <field name="res_model">olims.ar_import</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="ar_import_menu" name="AR Import" parent="olims_menu"
+                  action="ar_import_action"/>
+
+
+
+
+
         <!-- reference_sample form view -->
         <record model="ir.ui.view" id="olims_reference_sample_form_view">
             <field name="name">reference_sample.form</field>
@@ -79,10 +185,6 @@
 
         <menuitem id="reference_sample_menu" name="Reference Sample" parent="olims_menu"
                   action="reference_sample_action"/>
-
-
-
-
 
 
         <!-- report form view -->

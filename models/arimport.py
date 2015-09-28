@@ -12,17 +12,12 @@
 # from lims import _logger
 
 import logging
-from openerp import models
+from openerp import fields, models
 
 _logger = logging.getLogger(__name__)
 
-import sys
-import time
-from dependencies import transaction
 from lims import bikaMessageFactory as _
-from lims.config import ManageBika, PROJECTNAME, ARIMPORT_OPTIONS
-# from lims.idserver import renameAfterCreation
-from lims.jsonapi import resolve_request_lookup
+
 from lims.workflow import doActionFor
 from lims.utils import tmpID
 from dependencies.dependency import InitialiseProgressBar
@@ -31,8 +26,6 @@ from dependencies.dependency import UpdateProgressEvent
 from dependencies.dependency import ProgressState
 from dependencies.dependency import DateTime
 from dependencies.dependency import ObjectInitializedEvent
-from dependencies.dependency import HoldingReference
-from dependencies.dependency import permissions
 from dependencies.dependency import getToolByName
 from dependencies.dependency import safe_unicode, _createObjectByType
 from dependencies.dependency import event
@@ -44,6 +37,7 @@ from fields.date_time_field import DateTimeField
 from fields.integer_field import IntegerField
 from fields.widget.widget import StringWidget, DateTimeWidget, \
                                 FileWidget, IntegerWidget
+
                                 
 # ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
 # schema = BikaSchema.copy() + Schema(
@@ -142,6 +136,34 @@ schema = (
             label = _("CC Contact ID"),
         ),
     ),
+
+
+    fields.Many2one(string='CCContact',
+                    comodel_name='olims.contact',
+                    help="Select a default preservation for this " + \
+                                    "analysis service. If the preservation depends on " + \
+                                    "the sample type combination, specify a preservation " + \
+                                    "per sample type in the table below",
+                    required=False,
+#      allowed_types = ('Contact',),
+#         relationship = 'ARImportCCContact',
+#         default_method = 'getCCContactUIDForUser',
+#         referenceClass = HoldingReference,
+#         vocabulary_display_path_bound = sys.maxint,
+#         widget=ReferenceWidget(
+#             label=_("CCContact"),
+#             size=12,
+#             helper_js=("bika_widgets/referencewidget.js", "++resource++bika.lims.js/contact.js"),
+#             visible={'edit': 'visible', 'view': 'visible', 'add': 'visible'},
+#             base_query={'inactive_state': 'active'},
+#             showOn=True,
+#             popup_width='300px',
+#             colModel=[{'columnName': 'UID', 'hidden': True},
+#                       {'columnName': 'Fullname', 'width': '100', 'label': _('Name')},
+#                      ],
+#         ),
+    ),
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ReferenceField('CCContact',
 #         allowed_types = ('Contact',),
