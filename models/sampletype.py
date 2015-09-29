@@ -20,8 +20,7 @@ from openerp import fields, models
 from fields.string_field import StringField
 from fields.text_field import TextField
 from fields.boolean_field import BooleanField
-from fields.widget.widget import TextAreaWidget, BooleanWidget, \
-                                StringWidget
+from fields.widget.widget import TextAreaWidget, BooleanWidget, StringWidget
 from models.base_olims_model import BaseOLiMSModel
 from lims.utils import t
 # ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
@@ -97,25 +96,25 @@ schema = (StringField('name',
 #                 "per analysis service"),
 #         ),
     ),
-# Uncomment when SamplePoints model implemented
-#     fields.Many2many(string='SamplePoints',
-#         required = False,
-#         comodel_name = 'olims.sample_point',
-#         help="The list of sample points from which this sample " + \
-#                             "type can be collected.  If no sample points are " + \
-#                             "selected, then all sample points are available."
-# #         multiValued = 1,
-# #         allowed_types = ('SamplePoint',),
-# #         vocabulary = 'SamplePointsVocabulary',
-# #         relationship = 'SampleTypeSamplePoint',
-# #         widget = ReferenceWidget(
-# #             checkbox_bound = 0,
-# #             label=_("Sample Points"),
-# #             description =_("The list of sample points from which this sample "
-# #                            "type can be collected.  If no sample points are "
-# #                            "selected, then all sample points are available."),
-# #         ),
-#     ),
+
+    fields.Many2many(string='SamplePoints',
+        required = False,
+        comodel_name = 'olims.sample_point',
+        help="The list of sample points from which this sample " + \
+                            "type can be collected.  If no sample points are " + \
+                            "selected, then all sample points are available."
+#         multiValued = 1,
+#         allowed_types = ('SamplePoint',),
+#         vocabulary = 'SamplePointsVocabulary',
+#         relationship = 'SampleTypeSamplePoint',
+#         widget = ReferenceWidget(
+#             checkbox_bound = 0,
+#             label=_("Sample Points"),
+#             description =_("The list of sample points from which this sample "
+#                            "type can be collected.  If no sample points are "
+#                            "selected, then all sample points are available."),
+#         ),
+    ),
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ComputedField(
 #         'SamplePointTitle',

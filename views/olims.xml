@@ -2729,8 +2729,8 @@
                 	<field name="MinimumVolume"></field>
                 	<label for="ContainerType" string="Default Container Type"/>
                 	<field name="ContainerType"></field>
-                	<!-- <label for="SamplePoints" string="Sample Points"/>
-                	<field name="SamplePoints"></field> -->
+                    <label for="SamplePoints" string="Sample Points"/>
+                	<field name="SamplePoints"></field>
                 </form>
             </field>
         </record>
@@ -2747,7 +2747,7 @@
                 	<field name="Prefix"></field>
                 	<field name="MinimumVolume"></field>
                 	<field name="ContainerType"></field>
-                	<!-- <field name="SamplePoints"></field> -->
+                    <field name="SamplePoints"></field>
                 </tree>
             </field>
         </record>
