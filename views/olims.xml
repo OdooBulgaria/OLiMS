@@ -2331,6 +2331,8 @@
                 	<field name="name"></field>
                 	<label for="Description" string="Description"/>
                 	<field name="Description"></field>
+                    <label for="Manager" string="Manager"/>
+                	<field name="Manager"></field>
                 </form>
             </field>
         </record>
@@ -2342,6 +2344,7 @@
                 <tree string="Department">
                 	<field name="name"></field>
                 	<field name="Description"></field>
+                    <field name="Manager"></field>
                 </tree>
             </field>
         </record>

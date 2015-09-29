@@ -20,6 +20,7 @@ from dependencies.dependency import getToolByName
 from lims.config import PROJECTNAME
 # from dependencies.fields import StringField, TextField, ReferenceField
 from fields.string_field import StringField
+from fields.reference_field import ReferenceField
 from fields.text_field import TextField
 from fields.widget.widget import StringWidget, TextAreaWidget, ReferenceWidget
 from models.base_olims_model import BaseOLiMSModel
@@ -39,9 +40,10 @@ schema = (
             description=_('Used in item listings and search results.'),
         ),
     ),
-# ~~~~~~~ To be implemented ~~~~~~~
-#     ReferenceField(string='Manager',
-#         selection=[('olims.lab_contact', 'Lab Manager')],
+
+    ReferenceField(string='Manager',
+           selection=[('olims.lab_contact', 'Manager')],
+           required=1,
 #         vocabulary = 'getContacts',
 #         vocabulary_display_path_bound = sys.maxint,
 #         allowed_types = ('LabContact',),
@@ -55,7 +57,8 @@ schema = (
 #                 "'lab contacts' setup item. Departmental managers are referenced on "
 #                 "analysis results reports containing analyses by their department."),
 #         ),
-#     ),
+    ),
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ComputedField('ManagerName',
 #         expression = "context.getManager() and context.getManager().getFullname() or ''",
@@ -63,6 +66,7 @@ schema = (
 #             visible = False,
 #         ),
 #     ),
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ComputedField('ManagerPhone',
 #         expression = "context.getManager() and context.getManager().getBusinessPhone() or ''",
