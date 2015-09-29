@@ -161,20 +161,15 @@ schema = (
     #         label=_("Email subject line"),
     #     ),
     # ),
+    #
 
 
-    ReferenceField(string='DefaultCategories',
-           selection=[('olims.analysis_category', 'AnalysisCategory')],
-           required=0,
-            widget = ReferenceWidget(
-            checkbox_bound = 0,
-            #label=_("Default categories"),
-            help=_("Always expand the selected categories in client views"),
-        ),
-    ),
-    ## ~~~~~~~ To be implemented ~~~~~~~ multiValued
-    # atapi.ReferenceField('DefaultCategories',
-    #     schemata = 'Preferences',
+    fields.Many2many(string='DefaultCategories',
+                   comodel_name='olims.analysis_category',
+#                    schemata="Method",
+                   required=False,
+                   help="Always expand the selected categories in client views",
+#     schemata = 'Preferences',
     #     required = 0,
     #     multiValued = 1,
     #     vocabulary = 'getAnalysisCategories',
@@ -186,7 +181,8 @@ schema = (
     #         label=_("Default categories"),
     #         description=_("Always expand the selected categories in client views"),
     #     ),
-    # ),
+    ),
+
 
     ReferenceField(string='RestrictedCategories',
                selection=[('olims.analysis_category', 'AnalysisCategory')],
