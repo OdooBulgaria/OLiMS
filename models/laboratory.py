@@ -171,6 +171,10 @@ schema = (
     #             "Maximum size is 175 x 175 pixels.")
     #     ),
     # ),
+    fields.Text('AccreditationPageHeader', size=10, help="Enter the details of your lab`s service accreditations "+
+                "here.  The following fields are available:  lab_is_accredited, "+
+                "lab_name, lab_country, confidence, accreditation_body_name, "+
+                "accreditation_standard, accreditation_reference<br/>"
     # TextField('AccreditationPageHeader',
     #     schemata = 'Accreditation',
     #     default = "${lab_name} has been accredited as ${accreditation_standard} conformant by ${accreditation_body_abbr}, ${accreditation_body_name}<br/><br/>" + \
@@ -185,7 +189,8 @@ schema = (
     #             "accreditation_standard, accreditation_reference<br/>"),
     #             rows = 10
     #     ),
-    #),
+    ),
+
 )
 
 

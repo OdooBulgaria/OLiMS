@@ -1734,6 +1734,9 @@
                     <field name="Accreditation"></field>
                     <label for="AccreditationReference" string="AccreditationReference"/>
                     <field name="AccreditationReference"></field>
+                    <label for="AccreditationPageHeader" string="AccreditationPageHeader"/>
+                    <field name="AccreditationPageHeader"></field>
+
                     </form>
             </field>
         </record>
@@ -1759,6 +1762,7 @@
                     <field name="AccreditationBodyURL"></field>
                     <field name="Accreditation"></field>
                     <field name="AccreditationReference"></field>
+                    <field name="AccreditationPageHeader"></field>
                 </tree>
             </field>
         </record>
