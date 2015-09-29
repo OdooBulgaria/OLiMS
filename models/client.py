@@ -183,16 +183,37 @@ schema = (
     #     ),
     ),
 
+    #
+    # ReferenceField(string='RestrictedCategories',
+    #            selection=[('olims.analysis_category', 'AnalysisCategory')],
+    #            required=0,
+    #             widget = ReferenceWidget(
+    #             checkbox_bound = 0,
+    #             #label=_("Default categories"),
+    #             help=_("Always expand the selected categories in client views"),
+    #         ),
+    #     ),
 
-    ReferenceField(string='RestrictedCategories',
-               selection=[('olims.analysis_category', 'AnalysisCategory')],
-               required=0,
-                widget = ReferenceWidget(
-                checkbox_bound = 0,
-                #label=_("Default categories"),
-                help=_("Always expand the selected categories in client views"),
-            ),
-        ),
+        fields.Many2many(string='RestrictedCategories',
+                   comodel_name='olims.analysis_category',
+#                    schemata="Method",
+                   required=False,
+                   help="Show only selected categories in client views",
+    #  schemata = 'Preferences',
+    #     required = 0,
+    #     multiValued = 1,
+    #     vocabulary = 'getAnalysisCategories',
+    #     validators = ('restrictedcategoriesvalidator',),
+    #     vocabulary_display_path_bound = sys.maxint,
+    #     allowed_types = ('AnalysisCategory',),
+    #     relationship = 'ClientRestrictedCategories',
+    #     widget = atapi.ReferenceWidget(
+    #         checkbox_bound = 0,
+    #         label=_("Restrict categories"),
+    #         description=_("Show only selected categories in client views"),
+    #     ),
+    ),
+
     ## ~~~~~~~ To be implemented ~~~~~~~ multiValued
     # atapi.ReferenceField('RestrictedCategories',
     #     schemata = 'Preferences',
@@ -264,12 +285,14 @@ schema = (
 #
 # schema.moveField('ClientID', after='Name')
 
+
 class Client(models.Model, BaseOLiMSModel):#(Organisation):
     _name='olims.client'
     # implements(IClient)
     # security = ClassSecurityInfo()
     # displayContentsTab = False
     # schema = schema
+    
 
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
