@@ -198,6 +198,38 @@ schema = (
 #         ),
 #     ),
 
+
+        fields.Many2one(string='StorageLocation',
+                   comodel_name='olims.storage_location',
+        # # vocabulary_display_path_bound=sys.maxsize,
+        # allowed_types=('SamplePoint',),
+        # relationship = 'SampleSamplePoint',
+        # referenceClass = HoldingReference,
+        # mode="rw",
+        # read_permission=permissions.View,
+        # write_permission=permissions.ModifyPortalContent,
+        # widget=ReferenceWidget(
+        #     label=_("Sample Point"),
+        #     render_own_label=True,
+        #     visible={'edit': 'visible',
+        #              'view': 'visible',
+        #              'header_table': 'visible',
+        #              'sample_registered': {'view': 'visible', 'edit': 'visible'},
+        #              'to_be_sampled':     {'view': 'visible', 'edit': 'invisible'},
+        #              'sampled':           {'view': 'visible', 'edit': 'invisible'},
+        #              'to_be_preserved':   {'view': 'visible', 'edit': 'invisible'},
+        #              'sample_due':        {'view': 'visible', 'edit': 'invisible'},
+        #              'sample_received':   {'view': 'visible', 'edit': 'invisible'},
+        #              'expired':           {'view': 'visible', 'edit': 'invisible'},
+        #              'disposed':          {'view': 'visible', 'edit': 'invisible'},
+        #              },
+        #     catalog_name='bika_setup_catalog',
+        #     base_query={'inactive_state': 'active'},
+        #     showOn=True,
+        # ),
+
+    ),
+
     # ~~~~~~~ To be implemented ~~~~~~~, when we have storage location
     # ReferenceField(
     #     'StorageLocation',
@@ -300,8 +332,9 @@ schema = (
         #     render_own_label=True,
         # ),
     ),
-# ~~~~~~~ To be implemented ~~~~~~~, when we have Sampling Deviation
-#     ReferenceField('SamplingDeviation',
+
+    fields.Many2one(string='SamplingDeviation',
+                   comodel_name='olims.sampling_deviation',
 #         vocabulary_display_path_bound = sys.maxsize,
 #         allowed_types = ('SamplingDeviation',),
 #         relationship = 'SampleSamplingDeviation',
@@ -328,7 +361,8 @@ schema = (
 #             base_query={'inactive_state': 'active'},
 #             showOn=True,
 #         ),
-#     ),
+    ),
+
 
     fields.Many2one(string='SampleCondition',
                    comodel_name='olims.sample_condition',

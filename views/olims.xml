@@ -874,6 +874,10 @@
                 	<field name="SampleType"></field>
                     <label for="SamplePoint" string="Sample Point"/>
                 	<field name="SamplePoint"></field>
+                    <label for="StorageLocation" string="Storage Location"/>
+                	<field name="StorageLocation"></field>
+                    <label for="SamplingDeviation" string="Sampling Deviation"/>
+                	<field name="SamplingDeviation"></field>
                     <label for="SamplingWorkflowEnabled" string="Sampling Work flow Enabled"/>
                 	<field name="SamplingWorkflowEnabled"></field>
                     <label for="DateSampled" string="DateSampled"/>
@@ -910,6 +914,8 @@
                 	<field name="LinkedSample"></field>
                 	<field name="SampleType"></field>
                 	<field name="SamplePoint"></field>
+                    <field name="StorageLocation"></field>
+                	<field name="SamplingDeviation"></field>
                 	<field name="SamplingWorkflowEnabled"></field>
                 	<field name="DateSampled"></field>
                 	<field name="SamplingDate"></field>
