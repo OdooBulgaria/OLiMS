@@ -2149,9 +2149,9 @@
                 	<label for="ManualEntryOfResults" string="Manual entry of results"/>
                 	<field name="ManualEntryOfResults"></field>
                 	<!-- <label for="ManualEntryOfResultsViewField" string="Manual entry of results"/>
-                	<field name="ManualEntryOfResultsViewField"></field>
+                	<field name="ManualEntryOfResultsViewField"></field>-->
                 	<label for="Calculation" string="Calculation"/>
-                	<field name="Calculation"></field> -->
+                	<field name="Calculation"></field>
                 	<label for="Accredited" string="Accredited"/>
                 	<field name="Accredited"></field>
                 </form>
@@ -2170,8 +2170,8 @@
                 	<field name="MethodDocument"></field>
                 	<!-- <field name="Instruments"></field> -->
                 	<field name="ManualEntryOfResults"></field>
-                	<!-- <field name="ManualEntryOfResultsViewField"></field>
-                	 <field name="Calculation"></field> -->
+                	<!-- <field name="ManualEntryOfResultsViewField"></field> -->
+                	 <field name="Calculation"></field>
                 	<field name="Accredited"></field>
                 </tree>
             </field>

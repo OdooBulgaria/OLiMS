@@ -140,6 +140,17 @@ schema = (
 
     # Calculations associated to this method. The analyses services
     # with this method assigned will use the calculation selected here.
+
+        fields.Many2one(string='Calculation',
+                   comodel_name='olims.calculation',
+                   required=False,
+                   help="If required, select a calculation for the "+
+                           "The analysis services linked to this "+
+                           "method. Calculations can be configured "+
+                           "under the calculations item in the LIMS "+
+                            "set-up",
+            ),
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #     HistoryAwareReferenceField(string='Calculation',
 #         comodel_name='olims.calculation',
