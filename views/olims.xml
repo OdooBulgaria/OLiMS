@@ -13,6 +13,40 @@
              action course_list_action -->
 
 <!-- ar_import form view -->
+        <record model="ir.ui.view" id="olims_analysis_spec_form_view">
+            <field name="name">analysis_spec.form</field>
+            <field name="model">olims.analysis_spec</field>
+            <field name="arch" type="xml">
+                <form string="AnalysisSpec Form">
+                    <label for="SampleType" string="SampleType"/>
+                    <field name="SampleType"></field>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_analysis_spec_tree_view">
+            <field name="name">analysis_spec.tree</field>
+            <field name="model">olims.analysis_spec</field>
+            <field name="arch" type="xml">
+                <tree string="AnalysisSpec Template">
+                <field name="SampleType"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="analysis_spec_action">
+            <field name="name">AnalysisSpec</field>
+            <field name="res_model">olims.analysis_spec</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="analysis_spec_menu" name="AnalysisSpec" parent="olims_menu"
+                  action="analysis_spec_action"/>
+
+
+
+<!-- ar_import form view -->
         <record model="ir.ui.view" id="olims_ar_import_form_view">
             <field name="name">ar_import.form</field>
             <field name="model">olims.ar_import</field>
