@@ -1277,6 +1277,9 @@ schema = (StringField(
                         comodel_name='olims.analysis_request',
 
         ),
+
+
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ReferenceField(
 #         'ParentAnalysisRequest',
@@ -1290,6 +1293,13 @@ schema = (StringField(
 #             visible=False,
 #         ),
 #     ),
+
+        fields.Many2one(string='Priority',
+                   comodel_name='olims.ar_priority',
+                   required=False,
+
+        ),
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #     HistoryAwareReferenceField(
 #         'Priority',

@@ -658,6 +658,8 @@
                     <field name="ChildAnalysisRequest"></field>
                     <label for="ParentAnalysisRequest" string="Parent Analysis Request"/>
                     <field name="ParentAnalysisRequest"></field>
+                    <label for="Priority" string="Priority"/>
+                    <field name="Priority"></field>
                     <label for="ResultsInterpretation" string="Results Interpretation"/>
                     <field name="ResultsInterpretation"></field>
 
@@ -697,6 +699,7 @@
                     <field name="MemberDiscount"></field>
                     <field name="ChildAnalysisRequest"></field>
                     <field name="ParentAnalysisRequest"></field>
+                    <field name="Priority"></field>
                     <field name="ResultsInterpretation"></field>
                 </tree>
             </field>
