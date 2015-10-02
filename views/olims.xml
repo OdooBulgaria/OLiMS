@@ -2017,6 +2017,10 @@
                 	<field name="Manufacturer"></field>
                     <label for="Model" string="Model"/>
                     <field name="Model"></field>
+                    <label for="SerialNo" string="Serial No"/>
+                    <field name="SerialNo"></field>
+                    <label for="Method" string="Method"/>
+                    <field name="Method"></field>
                     <label for="DisposeUntilNextCalibrationTest" string="Dispose Until Next Calibration Test"/>
                     <field name="DisposeUntilNextCalibrationTest"></field>
                     <label for="InlabCalibrationProcedure" string="In lab Calibration Procedure"/>
@@ -2046,6 +2050,8 @@
                 	<field name="InstrumentType"></field>
                 	<field name="Manufacturer"></field>
                     <field name="Model"></field>
+                    <field name="SerialNo"></field>
+                    <field name="Method"></field>
                     <field name="DisposeUntilNextCalibrationTest"></field>
                     <field name="InlabCalibrationProcedure"></field>
                     <field name="PreventiveMaintenanceProcedure"></field>

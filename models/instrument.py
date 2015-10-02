@@ -117,7 +117,33 @@ schema = (
             description=_("The serial number that uniquely identifies the instrument"),
         )
     ),
-    # ~~~~~~~ To be implemented ~~~~~~~
+
+
+        fields.Many2one(string='Method',
+                   comodel_name='olims.method',
+                   required=False,
+                   help="Method",
+#                    schemata='Container and Preservation',
+#                    allowed_types=('Container', 'ContainerType'),
+#                    relationship='AnalysisServiceContainer',
+#                    referenceClass=HoldingReference,
+#                    vocabulary='getContainers',
+
+#                    multiValued=0,
+#                    widget=ReferenceWidget(
+#                        checkbox_bound=0,
+#                        label = _("Default Container"),
+#                        description=_(
+#                            "Select the default container to be used for this "
+#                            "analysis service. If the container to be used "
+#                            "depends on the sample type and preservation "
+#                            "combination, specify the container in the sample "
+#                            "type table below"),
+#                        catalog_name='bika_setup_catalog',
+#                        base_query={'inactive_state': 'active'},
+#                    ),
+    ),
+
     # HistoryAwareReferenceField('Method',
     #     vocabulary='_getAvailableMethods',
     #     allowed_types=('Method',),
