@@ -12,6 +12,93 @@
              its parent olims_menu and *after* its
              action course_list_action -->
 
+
+<!-- olims.analysis form view -->
+        <record model="ir.ui.view" id="olims_analysis_form_view">
+            <field name="name">analysis.form</field>
+            <field name="model">olims.analysis</field>
+            <field name="arch" type="xml">
+                <form string="Analysis Form">
+                    <label for="Service" string="Service"/>
+                    <field name="Service"></field>
+                    <label for="Calculation" string="Calculation"/>
+                    <field name="Calculation"></field>
+                    <label for="Result" string="Result"/>
+                    <field name="Result"></field>
+                    <label for="ResultCaptureDate" string="Result Capture Date"/>
+                    <field name="ResultCaptureDate"></field>
+                    <label for="ResultDM" string="Result DM"/>
+                    <field name="ResultDM"></field>
+                    <label for="Retested" string="Retested"/>
+                    <field name="Retested"></field>
+                    <label for="DateAnalysisPublished" string="Date Analysis Published"/>
+                    <field name="DateAnalysisPublished"></field>
+                    <label for="DueDate" string="Due Date"/>
+                    <field name="DueDate"></field>l
+                    <label for="Duration" string="Duration"/>
+                    <field name="Duration"></field>
+                    <label for="Earliness" string="Earliness"/>
+                    <field name="Earliness"></field>
+                    <label for="ReportDryMatter" string="Report Dry Matter"/>
+                    <field name="ReportDryMatter"></field>
+                    <label for="Analyst" string="Analyst"/>
+                    <field name="Analyst"></field>
+                    <label for="Remarks" string="Remarks"/>
+                    <field name="Remarks"></field>
+                    <label for="Instrument" string="Instrument"/>
+                    <field name="Instrument"></field>
+                    <label for="Method" string="Method"/>
+                    <field name="Method"></field>
+                    <label for="SamplePartition" string="Sample Partition"/>
+                    <field name="SamplePartition"></field>
+                    <label for="Uncertainty" string="Uncertainty"/>
+                    <field name="Uncertainty"></field>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_analysis_tree_view">
+            <field name="name">analysis.tree</field>
+            <field name="model">olims.analysis</field>
+            <field name="arch" type="xml">
+                <tree string="Analysis Template">
+                    <field name="Service"></field>
+                    <field name="Calculation"></field>
+                    <field name="Result"></field>
+                    <field name="ResultCaptureDate"></field>
+                    <field name="ResultDM"></field>
+                    <field name="Retested"></field>
+                    <field name="DateAnalysisPublished"></field>
+                    <field name="DueDate"></field>
+                    <field name="Duration"></field>
+                    <field name="Earliness"></field>
+                    <field name="ReportDryMatter"></field>
+                    <field name="Analyst"></field>
+                    <field name="Remarks"></field>
+                    <field name="Instrument"></field>
+                    <field name="Method"></field>
+                    <field name="SamplePartition"></field>
+                    <field name="Uncertainty"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="analysis_action">
+            <field name="name">Analysis</field>
+            <field name="res_model">olims.analysis</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="analysis_menu" name="Analysis" parent="olims_menu"
+                  action="analysis_action"/>
+
+
+
+
+
+
+
 <!-- ar_import form view -->
         <record model="ir.ui.view" id="olims_analysis_spec_form_view">
             <field name="name">analysis_spec.form</field>

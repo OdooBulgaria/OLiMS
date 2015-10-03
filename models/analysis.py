@@ -66,6 +66,19 @@ def Priority(instance):
 # ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
 # schema = BikaSchema.copy() + Schema((
 schema = (
+            fields.Many2one(string='Service',
+                   comodel_name='olims.analysis_service',
+                   required=False,
+                   help="Analysis Service",
+            ),
+
+
+        fields.Many2one(string='Calculation',
+                   comodel_name='olims.calculation',
+                   required=False
+            ),
+
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #         HistoryAwareReferenceField('Service',
 #         required=1,

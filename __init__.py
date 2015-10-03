@@ -58,4 +58,5 @@ from models import rejectanalysis
 from models import referencedefinition
 from models import report
 from models import referencesample
+from models import analysisspec
 
