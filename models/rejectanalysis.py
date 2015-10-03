@@ -19,6 +19,8 @@ from models.base_olims_model import BaseOLiMSModel
 
 #schema = analysis_schema + Schema((
 schema = (
+
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #         HistoryAwareReferenceField('Service',
 #         required=1,
@@ -29,6 +31,15 @@ schema = (
 #             label = _("Analysis Service"),
 #         )
 #     ),
+
+
+
+      fields.Many2one(string='Calculation',
+                   comodel_name='olims.calculation',
+                   required=False,
+
+            ),
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #     HistoryAwareReferenceField('Calculation',
 #         allowed_types=('Calculation',),

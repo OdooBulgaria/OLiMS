@@ -96,9 +96,6 @@
 
 
 
-
-
-
 <!-- ar_import form view -->
         <record model="ir.ui.view" id="olims_analysis_spec_form_view">
             <field name="name">analysis_spec.form</field>
@@ -389,6 +386,8 @@
             <field name="model">olims.reject_analysis</field>
             <field name="arch" type="xml">
                 <form string="Reject Analysis Form">
+                    <label for="Calculation" string="Calculation"/>
+                    <field name="Calculation"></field>
                     <label for="Result" string="Result"/>
                     <field name="Result"></field>
                     <label for="ResultCaptureDate" string="Result Capture Date"/>
@@ -427,6 +426,7 @@
             <field name="model">olims.reject_analysis</field>
             <field name="arch" type="xml">
                 <tree string="Reject Analysis Template">
+                    <field name="Calculation"></field>
                     <field name="Result"></field>
                     <field name="ResultCaptureDate"></field>
                     <field name="ResultDM"></field>
