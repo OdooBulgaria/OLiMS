@@ -67,6 +67,8 @@ schema = (
             label=_("Surname"),
         ),
     ),
+    
+    fields.Char(compute='computeFulname', string='fullname'),
 
       # ~~~~~~~ To be implemented ~~~~~~~
     # ComputedField('Fullname',
@@ -193,7 +195,37 @@ class Contact(models.Model, BaseOLiMSModel): #(Person)
     def _renameAfterCreation(self, check_auto_id=False):
         from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
+    
+    def computeFulname(self):
+        """ return Person's Fullname """
+        for record in self:
+        
+            #record.Fullname_method = 'sdsdsdsdsd'
+            fn = record.getFirstname()
+            mi = record.getMiddleinitial()
+            md = record.getMiddlename()
+            sn = record.getSurname()
+            fullname = ''
+             
+            if fn or sn:
+                if mi and md:
+                    fullname = '%s %s %s %s' % (record.getFirstname(),
+                                            record.getMiddleinitial(),
+                                            record.getMiddlename(),
+                                            record.getSurname())
+                elif mi:
+                    fullname = '%s %s %s' % (record.getFirstname(),
+                                            record.getMiddleinitial(),
+                                            record.getSurname())
+                elif md:
+                    fullname = '%s %s %s' % (record.getFirstname(),
+                                            record.getMiddlename(),
+                                            record.getSurname())
+                else:
+                    fullname = '%s %s' % (record.getFirstname(), record.getSurname())
+            record.fullname = fullname.strip()
 
+        
     def Title(self):
         """ Return the contact's Fullname as title """
         return safe_unicode(self.getFullname()).encode('utf-8')
