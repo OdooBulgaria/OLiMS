@@ -751,6 +751,8 @@ schema = (StringField('name',
                             "The price charged per analysis for clients who qualify for bulk discounts"),
                     ),
     ),
+    fields.Float(compute='computeVATAmount',string='VATAmount'),
+    
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ComputedField('VATAmount',
 #                   schemata="Description",
@@ -760,6 +762,7 @@ schema = (StringField('name',
 #                       visible={'edit': 'hidden', }
 #                   ),
 #     ),
+fields.Float(compute='computeTotalPrice',string='TotalPrice'),
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ComputedField('TotalPrice',
 #                   schemata="Description",
@@ -1073,6 +1076,16 @@ class AnalysisService(models.Model, BaseOLiMSModel):#(BaseContent, HistoryAwareM
         discount = discount and discount or 0
         return float(price) - (float(price) * float(discount)) / 100
 
+    
+    def computeTotalPrice(self):
+        """ compute total price """
+        for record in self:
+            price = record.getPrice()
+            vat = record.getVAT()
+            price = price and price or 0
+            vat = vat and vat or 0
+            record.TotalPrice = float(price) + (float(price) * float(vat)) / 100
+    
     def getTotalPrice(self):
         """ compute total price """
         price = self.getPrice()
@@ -1118,12 +1131,17 @@ class AnalysisService(models.Model, BaseOLiMSModel):#(BaseContent, HistoryAwareM
             return "0.00"
 
 #     security.declarePublic('getVATAmount')
-
-    def getVATAmount(self):
-        """ Compute VATAmount
-        """
-        price, vat = self.getPrice(), self.getVAT()
-        return (float(price) * (float(vat) / 100))
+    
+    def computeVATAmount(self):
+        for record in self:
+            price, vat = record.getPrice(), record.getVAT()
+            record.VATAmount = (float(price) * (float(vat) / 100))
+        
+#     def getVATAmount(self):
+#         """ Compute VATAmount
+#         """
+#         price, vat = self.getPrice(), self.getVAT()
+#         return (float(price) * (float(vat) / 100))
 
     def getAnalysisCategories(self):
         bsc = getToolByName(self, 'bika_setup_catalog')
