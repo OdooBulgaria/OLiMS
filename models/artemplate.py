@@ -19,7 +19,7 @@
 from dependencies.dependency import getToolByName
 from lims import bikaMessageFactory as _
 import sys
-from openerp import models
+from openerp import fields, models
 from models.base_olims_model import BaseOLiMSModel
 from fields.widget.widget import BooleanWidget, TextAreaWidget
 from fields.boolean_field import BooleanField
@@ -59,9 +59,12 @@ schema = (
 #             visible=False,
 #         ),
 #     ),
-# ~~~~~~~ To be implemented ~~~~~~~
-#     ReferenceField('SampleType',
-#         vocabulary_display_path_bound = sys.maxint,
+
+    fields.Many2one(string='SampleType',
+                    comodel_name='olims.sample_type',
+                    help="Create a new sample of this type",
+                    required=False,
+#      #         vocabulary_display_path_bound = sys.maxint,
 #         allowed_types = ('SampleType',),
 #         relationship = 'ARTemplateSampleType',
 #         referenceClass = HoldingReference,
@@ -77,7 +80,8 @@ schema = (
 #             base_query={'inactive_state': 'active'},
 #             showOn=True,
 #         ),
-#     ),
+    ),
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ComputedField(
 #         "SampleTypeUID",
@@ -154,8 +158,11 @@ schema = (
 #             },
 #          ),
 #     ),
-# ~~~~~~~ To be implemented ~~~~~~~
-#     ReferenceField('AnalysisProfile',
+
+    fields.Many2one(string='AnalysisProfile',
+                    comodel_name='olims.analysis_profile',
+                    help="The Analysis Profile selection for this template",
+                    required=False,
 #         schemata = 'Analyses',
 #         required = 0,
 #         multiValued = 0,
@@ -170,7 +177,8 @@ schema = (
 #             base_query={'inactive_state': 'active'},
 #             showOn=True,
 #         ),
-#     ),
+    ),
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #     RecordsField('Analyses',
 #         schemata = 'Analyses',
