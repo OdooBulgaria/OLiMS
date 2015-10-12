@@ -69,6 +69,9 @@ schema = (
             append_only=True,
         ),
     ),
+    
+    fields.Float(compute='getSubtotal', string='subtotal'),
+          
     # ~~~~~~~ To be implemented ~~~~~~~
     # ComputedField('Subtotal',
     #     expression='context.getSubtotal()',
@@ -77,6 +80,7 @@ schema = (
     #         visible=False,
     #     ),
     # ),
+    fields.Float(compute='getVATAmount', string='VATAmount'),
     # ComputedField('VATAmount',
     #     expression='context.getVATAmount()',
     #     widget=ComputedWidget(
@@ -139,21 +143,25 @@ class Invoice(models.Model, BaseOLiMSModel): #(BaseFolder):
 
     def getSubtotal(self):
         """ Compute Subtotal """
-        return sum([float(obj['Subtotal']) for obj in self.invoice_lineitems])
-
+        for record in self:
+            total = sum([float(obj['Subtotal']) for obj in record.invoice_lineitems])
+            record.subtotal = total
 # ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
     #security.declareProtected(View, 'getVATAmount')
 
     def getVATAmount(self):
         """ Compute VAT """
-        return Decimal(self.getTotal()) - Decimal(self.getSubtotal())
+        for record in self:
+            
+            record.VATAmount = Decimal(record.getTotal()) - Decimal(record.getSubtotal())
 
 # ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
     #security.declareProtected(View, 'getTotal')
 
     def getTotal(self):
         """ Compute Total """
-        return sum([float(obj['Total']) for obj in self.invoice_lineitems])
+        total = sum([float(obj['Total']) for obj in self.invoice_lineitems])
+        
 
 # ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
     #security.declareProtected(View, 'getInvoiceSearchableText')
