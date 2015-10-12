@@ -372,6 +372,7 @@
 		<record model="ir.actions.act_window" id="reference_definition_action">
             <field name="name">Reference Definition</field>
             <field name="res_model">olims.reference_definition</field>
+            <field name="res_model">olims.reference_definition</field>
             <field name="view_type">form</field>
 			<field name="view_mode">tree,form</field>
        </record>
@@ -850,6 +851,8 @@
                 <form string="Worksheet Form">
                     <label for="DefaultCategories" string="Default Categories"/>
                 	<field name="DefaultCategories"></field>
+                    <label for="WorksheetTemplate" string="Worksheet Template"/>
+                	<field name="WorksheetTemplate"></field>
                 	<label for="Analyst" string="Analyst"/>
                     <field name="Analyst"></field>
                     <label for="Remarks" string="Remarks"/>
@@ -864,6 +867,7 @@
             <field name="arch" type="xml">
                 <tree string="Worksheet">
                 	<field name="DefaultCategories"></field>
+                    <field name="WorksheetTemplate"></field>
                     <field name="Analyst"></field>
                     <field name="Remarks"></field>
                 </tree>
@@ -1170,6 +1174,12 @@
                 	<field name="VAT"></field>
                     <label for="Price" string="Price"/>
                 	<field name="Price"></field>
+                	<label for="VATAmount" string="VATAmount"/>
+                	<field name="VATAmount"></field>
+                	<label for="TotalPrice" string="Total Price"/>
+                	<field name="TotalPrice"></field>
+                	
+                	
                 </form>
             </field>
         </record>
@@ -1183,6 +1193,8 @@
                     <field name="Unit"></field>
                 	<field name="VAT"></field>
                 	<field name="Price"></field>
+                	<field name="VATAmount"></field>
+                	<field name="TotalPrice"></field>
                 </tree>
             </field>
         </record>
@@ -1561,6 +1573,9 @@
                     <field name="JobTitle"></field>
                     <label for="Department" string="Department"/>
                     <field name="Department"></field>
+                    <label for="Fullname" string="Fullname method"/>
+                    <field name="Fullname"></field>
+                    
                     </form>
             </field>
         </record>
@@ -1582,6 +1597,8 @@
                     <field name="MobilePhone"></field>
                     <field name="JobTitle"></field>
                     <field name="Department"></field>
+                    <field name="Fullname"></field>
+                    
 
                 </tree>
             </field>
@@ -1628,6 +1645,9 @@
                     <field name="JobTitle"></field>
                     <label for="Department" string="Department"/>
                     <field name="Department"></field>
+                    <label for="Fullname" string="Full Name"/>
+                    <field name="Fullname"></field>
+                    
                     </form>
             </field>
         </record>
@@ -1649,6 +1669,7 @@
                     <field name="MobilePhone"></field>
                     <field name="JobTitle"></field>
                     <field name="Department"></field>
+                    <field name="Fullname"></field>
 
                 </tree>
             </field>
@@ -1937,6 +1958,8 @@
                     <field name="JobTitle"></field>
                     <label for="Department" string="Department"/>
                     <field name="Department"></field>
+                    <label for="Fullname" string="Fullname"/>
+                    <field name="Fullname"></field>
                     </form>
             </field>
         </record>
@@ -1958,7 +1981,7 @@
                     <field name="MobilePhone"></field>
                     <field name="JobTitle"></field>
                     <field name="Department"></field>
-
+					<field name="Fullname"></field>
                 </tree>
             </field>
         </record>
@@ -2007,6 +2030,9 @@
                     <field name="PublicationPreference"></field>
                     <label for="AttachmentsPermitted" string="Attachments Permitted"/>
                     <field name="AttachmentsPermitted"></field>
+                    <label for="fullname" string="Full Name"/>
+                    <field name="fullname"></field>
+                    
                     </form>
             </field>
         </record>
@@ -2030,6 +2056,8 @@
                     <field name="Department"></field>
                     <field name="PublicationPreference"></field>
                     <field name="AttachmentsPermitted"></field>
+                    <field name="fullname"></field>
+                   
                 </tree>
             </field>
         </record>
@@ -2218,8 +2246,13 @@
                 	<field name="UseAnalysisProfilePrice"></field>
                 	<label for="AnalysisProfilePrice" string="Price (excluding VAT)"/>
                 	<field name="AnalysisProfilePrice"></field>
-                	<label for="AnalysisProfileVAT" string="VAT %"/>
+                	<label for="AnalysisProfileVAT" string="VAT asdasdasd%"/>
                 	<field name="AnalysisProfileVAT"></field>
+                	<label for="VATAmount" string="VAT Amount compute "/>
+                	<field name="VATAmount"></field>
+                	<label for="TotalPrice" string="Total Price"/>
+                	<field name="TotalPrice"></field>
+                	
                 </form>
             </field>
         </record>
@@ -2238,6 +2271,7 @@
                 	<field name="UseAnalysisProfilePrice"></field>
                 	<field name="AnalysisProfilePrice"></field>
                 	<field name="AnalysisProfileVAT"></field>
+                	<field name="VATAmount"></field>
                 </tree>
             </field>
         </record>
@@ -2473,6 +2507,9 @@
                 	<field name="Description"></field>
                     <label for="Manager" string="Manager"/>
                 	<field name="Manager"></field>
+                	<label for="ManagerName" string="Manager Name"/>
+                	<field name="ManagerName"></field>
+                	
                 </form>
             </field>
         </record>
@@ -2485,6 +2522,7 @@
                 	<field name="name"></field>
                 	<field name="Description"></field>
                     <field name="Manager"></field>
+                    <field name="ManagerName"></field>
                 </tree>
             </field>
         </record>
@@ -2505,14 +2543,16 @@
             <field name="model">mymodel.my_model</field>
             <field name="arch" type="xml">
                 <form string="My Model Form">
-                	<label for="CommercialID" string="CommercialID"/>
-                	<field name="CommercialID"></field>
+                	<!--label for="CommercialID" string="CommercialID"/>
+                	<field name="CommercialID"></field-->
                 	<label for="MyTestField" string="MyTestField"/>
                 	<field name="MyTestField"></field>
                 	<label for="NewField" string="NewField"/>
                 	<field name="NewField"></field>
-                	<label for="AnalysisProfilePrice" string="AnalysisProfilePrice"/>
-                	<field name="AnalysisProfilePrice"></field>
+                	<label for="test_string" string="test_string"/>
+                	<field name="test_string"></field>
+                	<!--label for="AnalysisProfilePrice" string="AnalysisProfilePrice"/>
+                	<field name="AnalysisProfilePrice"></field-->
                 </form>
             </field>
         </record>
@@ -2522,10 +2562,12 @@
             <field name="model">mymodel.my_model</field>
             <field name="arch" type="xml">
                 <tree string="My Model">
-                	<field name="CommercialID"></field>
+                	<!--field name="CommercialID"></field-->
                 	<field name="MyTestField"></field>
                 	<field name="NewField"></field>
-                	<field name="AnalysisProfilePrice"></field>
+                	<!--field name="AnalysisProfilePrice"></field-->
+                	<field name="test_string"></field>
+                	
                 </tree>
             </field>
         </record>
@@ -2624,6 +2666,10 @@
                 	<field name="CommercialID"></field>
                 	<label for="ProtocolID" string="Protocol ID"/>
                 	<field name="ProtocolID"></field>
+                	<label for="VATAmount" string="VAT Amount"/>
+                	<field name="VATAmount"></field>
+                	<label for="TotalPrice" string="Total Price"/>
+                	<field name="TotalPrice"></field>
                 </form>
             </field>
         </record>
@@ -2671,6 +2717,8 @@
                 	<field name="Hidden"></field>
                 	<field name="CommercialID"></field>
                 	<field name="ProtocolID"></field>
+                	<field name="VATAmount"></field>
+                	<field name="TotalPrice"></field>
                  </tree>
             </field>
         </record>
