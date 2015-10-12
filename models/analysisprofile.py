@@ -125,7 +125,7 @@ schema = (StringField('name',
     ),
           FixedPointField('AnalysisProfileVAT',
         schemata="Accounting",
-        default='0.00',
+        default='14.00',
         widget=DecimalWidget(
             label = _("Price (excluding VAT)"),
             visible={'view': 'visible', 'edit': 'visible'},

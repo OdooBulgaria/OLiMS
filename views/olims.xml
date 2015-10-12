@@ -2246,7 +2246,7 @@
                 	<field name="UseAnalysisProfilePrice"></field>
                 	<label for="AnalysisProfilePrice" string="Price (excluding VAT)"/>
                 	<field name="AnalysisProfilePrice"></field>
-                	<label for="AnalysisProfileVAT" string="VAT asdasdasd%"/>
+                	<label for="AnalysisProfileVAT" string="Analysis Profile VAT%"/>
                 	<field name="AnalysisProfileVAT"></field>
                 	<label for="VATAmount" string="VAT Amount compute "/>
                 	<field name="VATAmount"></field>
