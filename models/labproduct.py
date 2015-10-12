@@ -41,7 +41,8 @@ schema = (StringField('Volume',
             label=_("Price excluding VAT"),
         )
     ),
-
+    
+    fields.Float(compute='computeVATAmount',string='VATAmount'),
 # ~~~~~~~ To be implemented ~~~~~~~
     # ComputedField('VATAmount',
     #     expression = 'context.getVATAmount()',
@@ -50,6 +51,7 @@ schema = (StringField('Volume',
     #         visible = {'edit':'hidden', }
     #     ),
     # ),
+    fields.Float(compute='computeTotalPrice',string='TotalPrice'),
     # ComputedField('TotalPrice',
     #     expression = 'context.getTotalPrice()',
     #     widget = ComputedWidget(
@@ -73,15 +75,26 @@ class LabProduct(models.Model, BaseOLiMSModel): #BaseContent
         from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
 
-    def getTotalPrice(self):
+    def computeTotalPrice(self):
         """ compute total price """
-        price = self.getPrice()
-        price = Decimal(price or '0.00')
-        vat = Decimal(self.getVAT())
-        price = price and price or 0
-        vat = vat and vat / 100 or 0
-        price = price + (price * vat)
-        return price.quantize(Decimal('0.00'))
+        for record in self:
+            price = record.getPrice()
+            price = int(price or '0.00')
+            vat = int(record.getVAT())
+            price = price and price or 0
+            vat = vat and vat / 100 or 0
+            price = price + (price * vat)
+            record.TotalPrice = price       
+    
+#     def getTotalPrice(self):
+#         """ compute total price """
+#         price = self.getPrice()
+#         price = Decimal(price or '0.00')
+#         vat = Decimal(self.getVAT())
+#         price = price and price or 0
+#         vat = vat and vat / 100 or 0
+#         price = price + (price * vat)
+#         return price.quantize(Decimal('0.00'))
 
     def getDefaultVAT(self):
         """ return default VAT from bika_setup """
@@ -92,14 +105,15 @@ class LabProduct(models.Model, BaseOLiMSModel): #BaseContent
             return "0.00"
 
     #security.declarePublic('getVATAmount')
-    def getVATAmount(self):
+    def computeVATAmount(self):
         """ Compute VATAmount
         """
-        try:
-            vatamount = self.getTotalPrice() - Decimal(self.getPrice())
-        except:
-            vatamount = Decimal('0.00')
-        return vatamount.quantize(Decimal('0.00'))
+        for record in self:
+            try:
+                vatamount = record.getTotalPrice() - record.getPrice()
+            except:
+                vatamount = 0
+            record.VATAmount= vatamount
 
 #registerType(LabProduct, PROJECTNAME)
 
