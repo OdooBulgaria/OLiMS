@@ -59,6 +59,7 @@ schema = (
 #         ),
     ),
 
+    fields.Char(compute='getManager_fulname', string='ManagerName'),
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ComputedField('ManagerName',
 #         expression = "context.getManager() and context.getManager().getFullname() or ''",
@@ -99,6 +100,10 @@ class Department(models.Model, BaseOLiMSModel):
     def _renameAfterCreation(self, check_auto_id=False):
         from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
+        
+    def getManager_fulname(self):
+        for record in self:
+            record.ManagerName = record.getManager()  
 
 Department.initialze(schema)
 # ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
