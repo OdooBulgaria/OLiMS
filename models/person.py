@@ -50,6 +50,8 @@ schema = (
             label=_("Surname"),
         ),
     ),
+          
+    fields.Char(compute='computeFulname', string='Fullname'),
     # ~~~~~~~ To be implemented ~~~~~~~
     # ComputedField('Fullname',
     #     expression = 'context.getFullname()',
@@ -134,8 +136,39 @@ class Person(models.Model, BaseOLiMSModel):#BaseFolder
     def getPossibleAddresses(self):
         return ['PhysicalAddress', 'PostalAddress']
 
+    def computeFulname(self):
+        """ return Person's Fullname """
+        for record in self:
+            #record.Fullname_method = 'sdsdsdsdsd'
+        
+            fn = record.getFirstname()
+            mi = record.getMiddleinitial()
+            md = record.getMiddlename()
+            sn = record.getSurname()
+            fullname = ''
+             
+            if fn or sn:
+                if mi and md:
+                    fullname = '%s %s %s %s' % (record.getFirstname(),
+                                            record.getMiddleinitial(),
+                                            record.getMiddlename(),
+                                            record.getSurname())
+                elif mi:
+                    fullname = '%s %s %s' % (record.getFirstname(),
+                                            record.getMiddleinitial(),
+                                            record.getSurname())
+                elif md:
+                    fullname = '%s %s %s' % (record.getFirstname(),
+                                            record.getMiddlename(),
+                                            record.getSurname())
+                else:
+                    fullname = '%s %s' % (record.getFirstname(), record.getSurname())
+            record.Fullname = fullname.strip()
+    
     def getFullname(self):
         """ return Person's Fullname """
+        
+        
         fn = self.getFirstname()
         mi = self.getMiddleinitial()
         md = self.getMiddlename()
