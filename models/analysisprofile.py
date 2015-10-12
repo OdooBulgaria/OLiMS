@@ -123,19 +123,21 @@ schema = (StringField('name',
             visible={'view': 'visible', 'edit': 'visible'},
         ),
     ),
+          FixedPointField('AnalysisProfileVAT',
+        schemata="Accounting",
+        default='0.00',
+        widget=DecimalWidget(
+            label = _("Price (excluding VAT)"),
+            visible={'view': 'visible', 'edit': 'visible'},
+        ),
+    ),
+          
+   fields.Float(compute='computeVATAmount',string='VATAmount'),
+    
+          
     # When the checkbox "use analysis profiles' price" is set, the AnalysisProfilesVAT should override
     # the system's VAT
-    FixedPointField('AnalysisProfileVAT',
-        schemata = "Accounting",
-        default = '14.00',
-        widget = DecimalWidget(
-            label=_("VAT %"),
-            description=_(
-                "Enter percentage value eg. 14.0. This percentage is applied on the Analysis Profile only, overriding "
-                "the systems VAT"),
-                visible={'view': 'visible', 'edit': 'visible'},
-        )
-    ),
+
     # This VAT amount is computed using the AnalysisProfileVAT instead of systems VAT
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ComputedField('VATAmount',
@@ -147,6 +149,9 @@ schema = (StringField('name',
 #             visible={'view': 'visible', 'edit': 'invisible'},
 #             ),
 #     ),
+   
+   fields.Float(compute='computeTotalPrice',string='TotalPrice'),
+   
 #     ComputedField('TotalPrice',
 #           schemata="Accounting",
 #           coumpute='getTotalPrice',
@@ -164,6 +169,7 @@ schema = (StringField('name',
 # schema['description'].widget.visible = True
 # IdField = schema['id']
 
+     
 class AnalysisProfile(models.Model, BaseOLiMSModel):
     _name = "olims.analysis_profile"
     
@@ -172,12 +178,14 @@ class AnalysisProfile(models.Model, BaseOLiMSModel):
 #     schema = schema
 #     displayContentsTab = False
 #     implements(IAnalysisProfile)
-
+    
+    
+    
     _at_rename_after_creation = True
     def _renameAfterCreation(self, check_auto_id=False):
         from lims.idserver import renameAfterCreation
         renameAfterCreation(self)
-
+        
     def getClientUID(self):
         return self.aq_parent.UID();
 
@@ -212,20 +220,39 @@ class AnalysisProfile(models.Model, BaseOLiMSModel):
             else:
                 raise ValueError('%s is not valid' % uid)
         return sets.get('hidden', False)
-
-    def getVATAmount(self):
+    
+        
+#     def getVATAmount(self):
+#         """ Compute AnalysisProfileVATAmount
+#         """
+#         for reccord  in self:
+#             price, vat = self.getAnalysisProfilePrice(), self.getAnalysisProfileVAT()
+#             self.VATAmount = float(price) * float(vat) / 100
+#             
+    def computeVATAmount(self):
         """ Compute AnalysisProfileVATAmount
         """
-        price, vat = self.getAnalysisProfilePrice(), self.getAnalysisProfileVAT()
-        return float(price) * float(vat) / 100
+        for record  in self:
+            price, vat = record.getAnalysisProfileVAT(), record.getAnalysisProfilePrice(), 
+            record.VATAmount =  float(vat) * float(price)  / 100
+            
 
-    def getTotalPrice(self):
+    def computeTotalPrice(self):
         """
         Computes the final price using the VATAmount and the subtotal price
         """
-        price, vat = self.getAnalysisProfilePrice(), self.getVATAmount()
-        return float(price) + float(vat)
-    
+        for reccord  in self:
+            price, vat = reccord.getAnalysisProfilePrice(), reccord.getVATAmount()
+            reccord.TotalPrice =  float(price)+float(vat)
+        
+#     def getTotalPrice(self):
+#         """
+#         Computes the final price using the VATAmount and the subtotal price
+#         """
+#         for reccord  in self:
+#             price, vat = reccord.getAnalysisProfilePrice(), reccord.getVATAmount()
+#             reccord.TotalPrice =  4000
+#     
 # ~~~~~~~~~~  Irrelevant code for Odoo ~~~~~~~~~~~
 # registerType(AnalysisProfile, PROJECTNAME)
 
