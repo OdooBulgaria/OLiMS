@@ -215,7 +215,7 @@ class Person(models.Model, BaseOLiMSModel):#BaseFolder
 
         return fullname.strip()
 
-    Title = getFullname
+    #Title = getFullname
 
  #   security.declareProtected(CMFCorePermissions.ManagePortal, 'hasUser')
     def hasUser(self):

@@ -13,6 +13,121 @@
              action course_list_action -->
 
 
+<!-- olims.district form view -->
+        <record model="ir.ui.view" id="olims_district_form_view">
+            <field name="name">district.form</field>
+            <field name="model">olims.district</field>
+            <field name="arch" type="xml">
+                <form string="District Form">
+                
+                    <label for="name" string="District"/>
+                    <field name="name"></field>
+                     
+                    <label for="Country" string="Country"/>
+                    <field name="Country"></field>
+                    <label for="State" string="State"/>
+                    <field name="State"></field>   
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_district_tree_view">
+            <field name="name">district.tree</field>
+            <field name="model">olims.district</field>
+            <field name="arch" type="xml">
+                <tree string="District">
+                <field name="name"></field>
+                <field name="State"></field>    
+                <field name="Country"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="district_action">
+            <field name="name">District</field>
+            <field name="res_model">olims.district</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="district_menu" name="District" parent="olims_menu"
+                  action="district_action"/>
+
+
+
+
+
+
+<!-- olims.state form view -->
+        <record model="ir.ui.view" id="olims_state_form_view">
+            <field name="name">state.form</field>
+            <field name="model">olims.state</field>
+            <field name="arch" type="xml">
+                <form string="State Form">
+                    <label for="name" string="State"/>
+                    <field name="name"></field>    
+                    <label for="Country" string="Country"/>
+                    <field name="Country"></field>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_state_tree_view">
+            <field name="name">state.tree</field>
+            <field name="model">olims.state</field>
+            <field name="arch" type="xml">
+                <tree string="State">
+                <field name="name"></field>
+                <field name="Country"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="state_action">
+            <field name="name">State</field>
+            <field name="res_model">olims.state</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="state_menu" name="State" parent="olims_menu"
+                  action="state_action"/>
+
+
+
+
+<!-- olims.country form view -->
+        <record model="ir.ui.view" id="olims_country_form_view">
+            <field name="name">country.form</field>
+            <field name="model">olims.country</field>
+            <field name="arch" type="xml">
+                <form string="Country Form">
+                    <label for="name" string="Country"/>
+                    <field name="name"></field>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_country_tree_view">
+            <field name="name">country.tree</field>
+            <field name="model">olims.country</field>
+            <field name="arch" type="xml">
+                <tree string="Country">
+                    <field name="name"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="country_action">
+            <field name="name">Country</field>
+            <field name="res_model">olims.country</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="country_menu" name="Country" parent="olims_menu"
+                  action="country_action"/>
+
 <!-- olims.analysis form view -->
         <record model="ir.ui.view" id="olims_analysis_form_view">
             <field name="name">analysis.form</field>
@@ -93,9 +208,6 @@
         <menuitem id="analysis_menu" name="Analysis" parent="olims_menu"
                   action="analysis_action"/>
 
-
-
-
 <!-- ar_import form view -->
         <record model="ir.ui.view" id="olims_analysis_spec_form_view">
             <field name="name">analysis_spec.form</field>
@@ -127,8 +239,6 @@
 
         <menuitem id="analysis_spec_menu" name="AnalysisSpec" parent="olims_menu"
                   action="analysis_spec_action"/>
-
-
 
 <!-- ar_import form view -->
         <record model="ir.ui.view" id="olims_ar_import_form_view">
@@ -231,10 +341,6 @@
 
         <menuitem id="ar_import_menu" name="AR Import" parent="olims_menu"
                   action="ar_import_action"/>
-
-
-
-
 
         <!-- reference_sample form view -->
         <record model="ir.ui.view" id="olims_reference_sample_form_view">
@@ -802,9 +908,6 @@
 
         <menuitem id="analysis_request_menu" name="Analysis Request" parent="olims_menu"
                   action="analysis_request_list_action"/>
-
-
-
 
         <!--worksheet_template form view -->
         <record model="ir.ui.view" id="olims_worksheet_template_form_view">
@@ -1444,8 +1547,8 @@
                     <field name="Considerations"></field>
                     <label for="WorkPerformed" string="WorkPerformed"/>
                     <field name="WorkPerformed"></field>
-                    <label for="Work" string="Work"/>
-                    <field name="Work"></field>
+                    <label for="Worker" string="Work"/>
+                    <field name="Worker"></field>
                     <label for="ReportID" string="Report ID"/>
                     <field name="ReportID"></field>
                     <label for="Remarks" string="Remarks"/>
@@ -1466,7 +1569,7 @@
                     <field name="Calibrator"></field>
                     <field name="Considerations"></field>
                     <field name="WorkPerformed"></field>
-                    <field name="Work"></field>
+                    <field name="Worker"></field>
                     <field name="ReportID"></field>
                     <field name="Remarks"></field>
 
@@ -2102,6 +2205,49 @@
                     <field name="BulkDiscount"></field>
                     <label for="MemberDiscountApplies" string="Member Discount Applies"/>
                     <field name="MemberDiscountApplies"></field>
+     
+                    <group col='2' string='Physical Address'>
+                    <label for='physical_country' string='Country'/>
+                    <field name="physical_country" nolabel='1'></field>
+                    <label for='physical_state' string='State'/>
+                    <field name="physical_state" nolabel='1'></field>
+                    <label for='physical_district' string='District'/>
+                    <field name="physical_district" nolabel='1'></field>
+                    <label for='physical_city' string='city'/>
+                    <field name="physical_city" nolabel='1'></field>
+                    <label for='physical_postalcode' string='code'/>
+                    <field name="physical_postalcode" nolabel='1'></field>
+                    <label for='physical_address' string='Addrss'/>
+                    <field name="physical_address" nolabel='1'></field>
+                    </group>
+                    <group col='2' string='Postal Address'>
+                    <label for='postal_country' string='Country'/>
+                    <field name="postal_country" nolabel='1'></field>
+                    <label for='postal_state' string='State'/>
+                    <field name="postal_state" nolabel='1'></field>
+                    <label for='postal_district' string='District'/>
+                    <field name="postal_district" nolabel='1'></field>
+                    <label for='postal_city' string='city'/>
+                    <field name="postal_city" nolabel='1'></field>
+                    <label for='postal_postalcode' string='code'/>
+                    <field name="postal_postalcode" nolabel='1'></field>
+                    <label for='postal_address' string='Addrss'/>
+                    <field name="postal_address" nolabel='1'></field>
+                    </group>
+                    <group col='2' string='Billing Address'>
+                    <label for='billing_country' string='Country'/>
+                    <field name="billing_country" nolabel='1'></field>
+                    <label for='billing_state' string='State'/>
+                    <field name="billing_state" nolabel='1'></field>
+                    <label for='billing_district' string='District'/>
+                    <field name="billing_district" nolabel='1'></field>
+                    <label for='billing_city' string='city'/>
+                    <field name="billing_city" nolabel='1'></field>
+                    <label for='billing_postalcode' string='code'/>
+                    <field name="billing_postalcode" nolabel='1'></field>
+                    <label for='billing_address' string='Addrss'/>
+                    <field name="billing_address" nolabel='1'></field>
+                    </group>
                     <label for="DefaultCategories" string="Default Categories"/>
                     <field name="DefaultCategories"></field>
                     <label for="RestrictedCategories" string="Restricted Categories"/>
