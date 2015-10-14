@@ -123,13 +123,17 @@ schema = (StringField('name',
             visible={'view': 'visible', 'edit': 'visible'},
         ),
     ),
-          FixedPointField('AnalysisProfileVAT',
-        schemata="Accounting",
-        default='14.00',
-        widget=DecimalWidget(
-            label = _("Price (excluding VAT)"),
-            visible={'view': 'visible', 'edit': 'visible'},
-        ),
+    
+    FixedPointField('AnalysisProfileVAT',
+        schemata = "Accounting",
+        default = '14.00',
+        widget = DecimalWidget(
+            label=_("VAT %"),
+            description=_(
+                "Enter percentage value eg. 14.0. This percentage is applied on the Analysis Profile only, overriding "
+                "the systems VAT"),
+                visible={'view': 'visible', 'edit': 'visible'},
+        )
     ),
           
    fields.Float(compute='computeVATAmount',string='VATAmount'),

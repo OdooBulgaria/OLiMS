@@ -68,7 +68,7 @@ def Priority(instance):
 schema = (
             fields.Many2one(string='Service',
                    comodel_name='olims.analysis_service',
-                   required=False,
+                   required=True,
                    help="Analysis Service",
             ),
 
@@ -158,6 +158,7 @@ schema = (
 
  fields.Many2one(string='Instrument',
                     comodel_name='olims.instrument',
+                    required=False
         #          required = 0,
         # allowed_types = ('Instrument',),
         # relationship = 'AnalysisInstrument',
@@ -167,6 +168,7 @@ schema = (
 
      fields.Many2one(string='Method',
                     comodel_name='olims.method',
+                    required=False
         #   required = 0,
         # allowed_types = ('Method',),
         # relationship = 'AnalysisMethod',
@@ -177,6 +179,7 @@ schema = (
 #~~~~~~~ To be implemented ~~~~~~~
          fields.Many2one(string='SamplePartition',
                     comodel_name='olims.sample_partition',
+                    required=False
         # required = 0,
         # allowed_types = ('SamplePartition',),
         # relationship = 'AnalysisSamplePartition',

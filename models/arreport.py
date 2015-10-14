@@ -25,6 +25,7 @@ from fields.string_field import StringField
 schema = (
         fields.Many2one(string='AnalysisRequest',
                     comodel_name='olims.analysis_request',
+                    required=True
 
     ),
 

@@ -42,7 +42,9 @@ schema = (
 
 
     fields.Many2one(string='AttachmentType',
-                        comodel_name='olims.attachment_type',
+                    comodel_name='olims.attachment_type',
+                    required=False,
+                    help='Attachment Type'
 
         #   required = 0,
         # allowed_types = ('AttachmentType',),

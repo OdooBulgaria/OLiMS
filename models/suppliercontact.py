@@ -147,7 +147,6 @@ class SupplierContact(models.Model, BaseOLiMSModel): #Person
     def computeFulname(self):
         """ return Person's Fullname """
         for record in self:
-            #record.Fullname_method = 'sdsdsdsdsd'
         
             fn = record.getFirstname()
             mi = record.getMiddleinitial()

@@ -33,7 +33,6 @@ schema = (
 
     fields.Many2one(string='Instruments',
                    comodel_name='olims.instrument',
-#                    schemata="Method",
                    required=False,
 
     ),
@@ -101,9 +100,8 @@ schema = (
         ),
     ),
 
-    fields.Many2one(string='Work',
+    fields.Many2one(string='Worker',
                    comodel_name='olims.lab_contact',
-#                    schemata="Method",
                    required=False,
                     #  vocabulary='getLabContacts',
                     # allowed_types=('LabContact',),

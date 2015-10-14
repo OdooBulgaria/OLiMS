@@ -84,6 +84,7 @@ schema = (    StringField(
 
     fields.Many2one(string='Client',
     comodel_name='olims.client',
+    required=False,
      # required=0,
      #    allowed_types=('Client',),
      #    relationship='BatchClient',
@@ -141,6 +142,7 @@ schema = (    StringField(
 
     fields.Many2one(string='InheritedObjects',
     comodel_name='olims.analysis_request',
+    required=False
      # required=0,
      #    multiValued=True,
      #    allowed_types=('AnalysisRequest'),  # batches are expanded on save

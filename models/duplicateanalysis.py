@@ -30,6 +30,7 @@ schema = (
 
     fields.Many2one(string='Analysis',
                     comodel_name='olims.analysis',
+                    required=True,
         #             'Analysis',
         # required=1,
         # allowed_types=('Analysis',),
@@ -76,6 +77,7 @@ schema = (
 
     fields.Many2one(string='Instrument',
                     comodel_name='olims.instrument',
+                    requied=False,
         # required=0,
         # allowed_types=('Instrument',),
         # relationship='AnalysisInstrument',

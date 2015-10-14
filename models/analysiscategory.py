@@ -46,7 +46,8 @@ schema =  (StringField('name',
 # ~~~~~~~ Using Odoo fields.Reference ~~~~~~~
     fields.Reference(string='Department',
         selection=[('olims.department', 'Department')],
-        required=True,
+        required=False,
+        help='The laboratory department'
     ),
 # ~~~~~~~ To be implemented ~~~~~~~
 #     ComputedField('DepartmentTitle',

@@ -78,6 +78,7 @@ schema = (
 
     fields.Many2one(string='Worker',
                    comodel_name='olims.lab_contact',
+                   help='The person at the supplier who performed the task',
         # vocabulary='getLabContacts',
         # allowed_types=('LabContact',),
         # relationship='LabContactInstrumentValidation',

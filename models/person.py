@@ -139,8 +139,6 @@ class Person(models.Model, BaseOLiMSModel):#BaseFolder
     def computeFulname(self):
         """ return Person's Fullname """
         for record in self:
-            #record.Fullname_method = 'sdsdsdsdsd'
-        
             fn = record.getFirstname()
             mi = record.getMiddleinitial()
             md = record.getMiddlename()
@@ -165,32 +163,32 @@ class Person(models.Model, BaseOLiMSModel):#BaseFolder
                     fullname = '%s %s' % (record.getFirstname(), record.getSurname())
             record.Fullname = fullname.strip()
     
-    def getFullname(self):
-        """ return Person's Fullname """
-        
-        
-        fn = self.getFirstname()
-        mi = self.getMiddleinitial()
-        md = self.getMiddlename()
-        sn = self.getSurname()
-        fullname = ''
-        if fn or sn:
-            if mi and md:
-                fullname = '%s %s %s %s' % (self.getFirstname(),
-                                        self.getMiddleinitial(),
-                                        self.getMiddlename(),
-                                        self.getSurname())
-            elif mi:
-                fullname = '%s %s %s' % (self.getFirstname(),
-                                        self.getMiddleinitial(),
-                                        self.getSurname())
-            elif md:
-                fullname = '%s %s %s' % (self.getFirstname(),
-                                        self.getMiddlename(),
-                                        self.getSurname())
-            else:
-                fullname = '%s %s' % (self.getFirstname(), self.getSurname())
-        return fullname.strip()
+#     def getFullname(self):
+#         """ return Person's Fullname """
+#         
+#         
+#         fn = self.getFirstname()
+#         mi = self.getMiddleinitial()
+#         md = self.getMiddlename()
+#         sn = self.getSurname()
+#         fullname = ''
+#         if fn or sn:
+#             if mi and md:
+#                 fullname = '%s %s %s %s' % (self.getFirstname(),
+#                                         self.getMiddleinitial(),
+#                                         self.getMiddlename(),
+#                                         self.getSurname())
+#             elif mi:
+#                 fullname = '%s %s %s' % (self.getFirstname(),
+#                                         self.getMiddleinitial(),
+#                                         self.getSurname())
+#             elif md:
+#                 fullname = '%s %s %s' % (self.getFirstname(),
+#                                         self.getMiddlename(),
+#                                         self.getSurname())
+#             else:
+#                 fullname = '%s %s' % (self.getFirstname(), self.getSurname())
+#         return fullname.strip()
 
     def getListingname(self):
         """ return Person's Fullname as Surname, Firstname """

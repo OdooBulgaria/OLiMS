@@ -95,6 +95,7 @@ schema = (
 
     fields.Many2one(string='Preparator',
                    comodel_name='olims.lab_contact',
+                   help="The person at the supplier who prepared the certificate",
 #               vocabulary='getLabContacts',
     #     allowed_types=('LabContact',),
     #     relationship='LabContactInstrumentCertificatePreparator',
@@ -114,6 +115,7 @@ schema = (
 
     fields.Many2one(string='Validator',
                    comodel_name='olims.lab_contact',
+                   help="The person at the supplier who approved the certificate"
     #     vocabulary='getLabContacts',
     #     allowed_types=('LabContact',),
     #     relationship='LabContactInstrumentCertificateValidator',

@@ -42,21 +42,25 @@ schema =   (
         # )
     #),
         fields.Many2one(string='Service',
-                    comodel_name='olims.sample_matrix',
-        #required = False,
-#         allowed_types = ('SampleMatrix',),
-#         vocabulary = 'SampleMatricesVocabulary',
-#         relationship = 'SampleTypeSampleMatrix',
+                    comodel_name='olims.analysis_service',
+                    required=True,
+                    help='Select which Analyses should be included on the Worksheet',
+#         schemata = 'Analyses',
+#         required = 1,
+#         multiValued = 1,
+#         allowed_types = ('AnalysisService',),
+#         relationship = 'WorksheetTemplateAnalysisService',
 #         referenceClass = HoldingReference,
-#         widget = ReferenceWidget(
-#             checkbox_bound = 0,
-#             label=_("Sample Matrix"),
-#         ),
+#         widget = ServicesWidget(
+#             label=_("Analysis Service"),
+#             description=_("Select which Analyses should be included on the Worksheet"),
+#         )
     ),
 
         fields.Many2one(string='Instrument',
                     comodel_name='olims.instrument',
         required = False,
+        help='Select the preferred instrument'
 #             #     schemata = "Description",
     #     required = 0,
     #     vocabulary_display_path_bound = sys.maxint,

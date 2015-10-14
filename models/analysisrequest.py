@@ -191,6 +191,7 @@ schema = (StringField(
 
     fields.Many2one(string='Client',
                     comodel_name='olims.client',
+                    required=True,
 
     ),
 
@@ -513,6 +514,7 @@ schema = (StringField(
     ),
               fields.Many2one(string='SampleType',
                         comodel_name='olims.sample_type',
+                        required=True
 
         ),
 

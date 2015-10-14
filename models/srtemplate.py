@@ -37,6 +37,8 @@ schema = (
 
         fields.Many2one(string='ARTemplates',
                    comodel_name='olims.ar_template',
+                   required=True,
+                   help='Select AR Templates to include'
         # schemata = 'AR Templates',
         # required = 1,
         # multiValued = 1,
