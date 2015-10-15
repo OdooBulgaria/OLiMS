@@ -19,10 +19,8 @@
             <field name="model">olims.district</field>
             <field name="arch" type="xml">
                 <form string="District Form">
-                
                     <label for="name" string="District"/>
-                    <field name="name"></field>
-                     
+                    <field name="name"></field>                     
                     <label for="Country" string="Country"/>
                     <field name="Country"></field>
                     <label for="State" string="State"/>
@@ -52,10 +50,6 @@
 
         <menuitem id="district_menu" name="District" parent="olims_menu"
                   action="district_action"/>
-
-
-
-
 
 
 <!-- olims.state form view -->
@@ -2090,6 +2084,16 @@
                 <form string="Sample Point Form">
                      <label for="Elevation" string="Elevation"/>
                 	<field name="Elevation"></field>
+                	<group col='2' string='Sampling Frequency'>
+                	<p >If a sample is taken periodically at this sample point, enter frequency here, e.g. weekly</p>
+                	<p></p>
+                	<label for="Days" string="Days"/>
+                	<field name="Days" nolabel='1'></field>
+                	<label for="Hours" string="Hours"/>
+                	<field name="Hours" nolabel='1'></field>
+                	<label for="Minutes" string="Minutes"/>
+                	<field name="Minutes" nolabel='1'></field>
+                	</group>
                 	<label for="SampleTypes" string="Sample Types"/>
                     <field name="SampleTypes"></field>
                     <label for="Composite" string="Composite"/>

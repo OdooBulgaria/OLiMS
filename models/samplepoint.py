@@ -52,14 +52,11 @@ schema = (
             description=_("The height or depth at which the sample has to be taken"),
         ),
     ),
-    # ~~~~~~~ To be implemented ~~~~~~~
-    # DurationField('SamplingFrequency',
-    #     vocabulary_display_path_bound=sys.maxint,
-    #     widget=DurationWidget(
-    #         label=_("Sampling Frequency"),
-    #         description=_("If a sample is taken periodically at this sample point, enter frequency here, e.g. weekly"),
-    #     ),
-    # ),
+          
+    fields.Char(string='Days'),
+    fields.Char(string='Hours'),
+    fields.Char(string='Minutes'),
+    
     fields.Many2one(string='SampleTypes',
                     comodel_name='olims.sample_type',
         required = False,
