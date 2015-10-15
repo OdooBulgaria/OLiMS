@@ -2607,6 +2607,8 @@
                     <field name="AssetNumber"></field>
                     <label for="Location" string="Location"/>
                     <field name="Location"></field>
+                    <label for="Photo" string="Photo"/>
+                    <field name="Photo"  widget='image'></field>
                     <label for="InstallationDate" string="Installation Date"/>
                     <field name="InstallationDate"></field>
                     <label for="InstallationCertificate" string="Installation Certificate"/>

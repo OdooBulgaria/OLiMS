@@ -277,14 +277,13 @@ schema = (
         )
     ),
 
-    # ImageField('Photo',
-    #     schemata='Additional info.',
-    #     widget=ImageWidget(
-    #         label=_("Photo image file"),
-    #         description=_("Photo of the instrument"),
-    #     ),
-    # ),
-
+    FileField('Photo',
+              help='Photo of the instrument',
+        widget = FileWidget(
+            label = _("Photo image file"),
+        ),
+    ),
+          
     DateTimeField('InstallationDate',
     schemata = 'Additional info.',
     widget = DateTimeWidget(
