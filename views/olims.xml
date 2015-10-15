@@ -146,6 +146,20 @@
                     <field name="ResultDM"></field>
                     <label for="Retested" string="Retested"/>
                     <field name="Retested"></field>
+
+                	<group col='2' string='MaxTimeAllowed'>
+                	<p >Maximum time allowed for completion of the analysis. 
+                	A late analysis alert is raised when this period elapses</p>
+                	<p></p>
+                	<label for="Days" string="Days"/>
+                	<field name="Days" nolabel='1'></field>
+                	<label for="Hours" string="Hours"/>
+                	<field name="Hours" nolabel='1'></field>
+                	<label for="Minutes" string="Minutes"/>
+                	<field name="Minutes" nolabel='1'></field>
+                	</group>
+                    
+                    
                     <label for="DateAnalysisPublished" string="Date Analysis Published"/>
                     <field name="DateAnalysisPublished"></field>
                     <label for="DueDate" string="Due Date"/>

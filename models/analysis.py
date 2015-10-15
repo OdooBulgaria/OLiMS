@@ -120,6 +120,11 @@ schema = (
     BooleanField('Retested',
         default = False,
     ),
+          
+    fields.Char(string='Days'),
+    fields.Char(string='Hours'),
+    fields.Char(string='Minutes'),
+
 # ~~~~~~~ To be implemented ~~~~~~~
 #     DurationField('MaxTimeAllowed',
 #         widget = DurationWidget(
