@@ -3033,7 +3033,6 @@
                 	<field name="_Calculation" options="{'no_create_edit': True}"></field>
                 	<label for="DeferredCalculation" string="Alternative Calculation"/>
                 	<field name="DeferredCalculation" options="{'no_create_edit': True}"></field>
-                	
                 	<group col='2' string='MaxTimeAllowed'>
                 	<p >Maximum time allowed for completion of the analysis. 
                 	A late analysis alert is raised when this period elapses</p>
@@ -3045,7 +3044,6 @@
                 	<label for="Minutes" string="Minutes"/>
                 	<field name="Minutes" nolabel='1'></field>
                 	</group>
-                	
                 	<label for="DuplicateVariation" string="Duplicate Variation %"/>
                 	<field name="DuplicateVariation"></field>
                 	<label for="Accredited" string="Accredited"/>
@@ -3238,6 +3236,17 @@
                 	<field name="Description"></field>
                 	<label for="Category" string="Preservation Category"/>
                 	<field name="Category" widget="radio"></field>
+                	<group col='2' string='Retention Period'>
+                	<p >Once preserved, the sample must be disposed of within this time period. 
+                	If not specified, the sample type retention period will be used.</p>
+                	<p></p>
+                	<label for="Days" string="Days"/>
+                	<field name="Days" nolabel='1'></field>
+                	<label for="Hours" string="Hours"/>
+                	<field name="Hours" nolabel='1'></field>
+                	<label for="Minutes" string="Minutes"/>
+                	<field name="Minutes" nolabel='1'></field>
+                	</group>
                 </form>
             </field>
         </record>

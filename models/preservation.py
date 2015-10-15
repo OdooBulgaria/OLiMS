@@ -44,15 +44,11 @@ schema = (StringField('name',
 #             label=_("Preservation Category"),
 #         ),
     ),
-#     DurationField('RetentionPeriod',
-#         widget=DurationWidget(
-#             label=_("Retention Period"),
-#             description=_(
-#                 'Once preserved, the sample must be disposed of within this '
-#                 'time period.  If not specified, the sample type retention '
-#                 'period will be used.')
-#         ),
-#     ),
+    
+    fields.Char(string='Days'),
+    fields.Char(string='Hours'),
+    fields.Char(string='Minutes'),
+
 )#)
 # schema['description'].widget.visible = True
 # schema['description'].schemata = 'default'
