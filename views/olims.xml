@@ -3287,6 +3287,19 @@
                 	<field name="Description"></field>
                 	<label for="Hazardous" string="Hazardous"/>
                 	<field name="Hazardous"></field>
+
+                	<group col='2' string='RetentionPeriod'>
+                	<p >The period for which un-preserved samples of this type can be kept before 
+                	they expire and cannot be analysed any further</p>
+                	<p></p>
+                	<label for="Days" string="Days"/>
+                	<field name="Days" nolabel='1'></field>
+                	<label for="Hours" string="Hours"/>
+                	<field name="Hours" nolabel='1'></field>
+                	<label for="Minutes" string="Minutes"/>
+                	<field name="Minutes" nolabel='1'></field>
+                	</group>
+                	
                 	<label for="SampleMatrix" string="Sample Matrix"/>
                 	<field name="SampleMatrix"></field>
                 	<label for="Prefix" string="Sample Type Prefix"/>
@@ -3308,6 +3321,8 @@
                 <tree string="Sample Matrix">
                 	<field name="name"></field>
                 	<field name="Description"></field>
+                	
+                	
                 	<field name="Hazardous"></field>
                 	<field name="SampleMatrix"></field>
                 	<field name="Prefix"></field>

@@ -33,6 +33,11 @@ schema = (StringField('name',
                 label=_('Description'),
                 description=_('Used in item listings and search results.')),    
     ),
+          
+    fields.Char(string='Days', required=True),
+    fields.Char(string='Hours', required=True),
+    fields.Char(string='Minutes', required=True),    
+      
 # ~~~~~~~ To be implemented ~~~~~~~
 #     DurationField('RetentionPeriod',
 #         required = 1,
