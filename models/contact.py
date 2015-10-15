@@ -125,22 +125,25 @@ schema = (
             label=_("Department"),
         ),
     ),
+          
+          
+                      # # ~~~~~~~~~~ PhysicalAddress behavior in Odoo is as selection field ~~~~~~~~~~~
+        fields.Many2one(comodel_name='olims.country',string='physical_country'),
+        fields.Many2one(comodel_name='olims.state',string='physical_state', domain="[('Country', '=', physical_country)]"),
+        fields.Many2one(comodel_name='olims.district',string='physical_district', domain="[('State', '=', physical_state)]"),
+        fields.Char(string='physical_city'),
+        fields.Char(string='physical_postalcode'),
+        fields.Char(string='physical_address'),
+           
+          
+        # # ~~~~~~~~~~ PostalAddress behavior in Odoo is as selection field ~~~~~~~~~~~
+        fields.Many2one(comodel_name='olims.country',string='postal_country'),
+        fields.Many2one(comodel_name='olims.state',string='postal_state', domain="[('Country', '=', postal_country)]"),
+        fields.Many2one(comodel_name='olims.district',string='postal_district', domain="[('State', '=', postal_state)]"),
+        fields.Char(string='postal_city'),
+        fields.Char(string='postal_postalcode'),
+        fields.Char(string='postal_address'),
 
-    # ~~~~~~~ To be implemented ~~~~~~~
-    #
-    # AddressField('PhysicalAddress',
-    #     schemata = 'Address',
-    #     widget = AddressWidget(
-    #        label=_("Physical address"),
-    #     ),
-    # ),
-    # AddressField('PostalAddress',
-    #     schemata = 'Address',
-    #     widget = AddressWidget(
-    #        label=_("Postal address"),
-    #     ),
-    # ),
-#),
         # note line filed multi-select , multi-select need to be implemented
             ReferenceField(string='PublicationPreference',
                selection=([ ('email', _('Email')), ('pdf', _('PDF'))]),
