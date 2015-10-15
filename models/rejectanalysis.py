@@ -71,14 +71,12 @@ schema = (
     BooleanField('Retested',
         default = False,
     ),
-# ~~~~~~~ To be implemented ~~~~~~~
-#     DurationField('MaxTimeAllowed',
-#         widget = DurationWidget(
-#             label = _("Maximum turn-around time"),
-#             description=_("Maximum time allowed for completion of the analysis. "
-#                             "A late analysis alert is raised when this period elapses"),
-#         ),
-#     ),
+          
+          
+    fields.Char(string='Days'),
+    fields.Char(string='Hours'),
+    fields.Char(string='Minutes'),
+
     DateTimeField('DateAnalysisPublished',
         widget = DateTimeWidget(
             label = _("Date Published"),
