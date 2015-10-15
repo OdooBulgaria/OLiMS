@@ -1603,6 +1603,48 @@
                 	<field name="Phone"></field>
                     <label for="EmailAddress" string="Email Address"/>
                 	<field name="EmailAddress"></field>
+                	<group col='2' string='Physical Address'>
+                    <label for='physical_country' string='Country'/>
+                    <field name="physical_country" nolabel='1'></field>
+                    <label for='physical_state' string='State'/>
+                    <field name="physical_state" nolabel='1'></field>
+                    <label for='physical_district' string='District'/>
+                    <field name="physical_district" nolabel='1'></field>
+                    <label for='physical_city' string='city'/>
+                    <field name="physical_city" nolabel='1'></field>
+                    <label for='physical_postalcode' string='code'/>
+                    <field name="physical_postalcode" nolabel='1'></field>
+                    <label for='physical_address' string='Addrss'/>
+                    <field name="physical_address" nolabel='1'></field>
+                    </group>
+                    <group col='2' string='Postal Address'>
+                    <label for='postal_country' string='Country'/>
+                    <field name="postal_country" nolabel='1'></field>
+                    <label for='postal_state' string='State'/>
+                    <field name="postal_state" nolabel='1'></field>
+                    <label for='postal_district' string='District'/>
+                    <field name="postal_district" nolabel='1'></field>
+                    <label for='postal_city' string='city'/>
+                    <field name="postal_city" nolabel='1'></field>
+                    <label for='postal_postalcode' string='code'/>
+                    <field name="postal_postalcode" nolabel='1'></field>
+                    <label for='postal_address' string='Addrss'/>
+                    <field name="postal_address" nolabel='1'></field>
+                    </group>
+                    <group col='2' string='Billing Address'>
+                    <label for='billing_country' string='Country'/>
+                    <field name="billing_country" nolabel='1'></field>
+                    <label for='billing_state' string='State'/>
+                    <field name="billing_state" nolabel='1'></field>
+                    <label for='billing_district' string='District'/>
+                    <field name="billing_district" nolabel='1'></field>
+                    <label for='billing_city' string='city'/>
+                    <field name="billing_city" nolabel='1'></field>
+                    <label for='billing_postalcode' string='code'/>
+                    <field name="billing_postalcode" nolabel='1'></field>
+                    <label for='billing_address' string='Addrss'/>
+                    <field name="billing_address" nolabel='1'></field>
+                    </group>
                     <label for="AccountType" string="Account Type"/>
                     <field name="AccountType"></field>
                     <label for="AccountName" string="Account Name"/>
