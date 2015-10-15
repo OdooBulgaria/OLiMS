@@ -2322,7 +2322,6 @@
                     <field name="MobilePhone"></field>
                     <label for="JobTitle" string="Job Title"/>
                     <field name="JobTitle"></field>
-                    
                     <group col='2' string='Physical Address'>
                     <label for='physical_country' string='Country'/>
                     <field name="physical_country" nolabel='1'></field>
@@ -2351,9 +2350,10 @@
                     <label for='postal_address' string='Addrss'/>
                     <field name="postal_address" nolabel='1'></field>
                     </group>
-                    
                     <label for="Department" string="Department"/>
                     <field name="Department"></field>
+                    <label for="Signature" string="Signature"/>
+                    <field name="Signature" widget='image'></field>
                     <label for="Fullname" string="Fullname"/>
                     <field name="Fullname"></field>
                     </form>

@@ -18,9 +18,10 @@
 
 from models.base_olims_model import BaseOLiMSModel
 from fields.string_field import StringField
-
-from fields.widget.widget import StringWidget
+from fields.file_field import FileField
+from fields.widget.widget import StringWidget, FileWidget
 from openerp import fields, models
+
 from dependencies.dependency import DisplayList
 from dependencies.dependency import safe_unicode
 from lims import PMF, bikaMessageFactory as _
@@ -152,6 +153,13 @@ schema =  (
     #         label=_("Publication preference"),
     #     ),
     # ),
+    FileField('Signature',
+              help="Upload a scanned signature to be used on printed analysis results reports."+
+               "Ideal size is 250 pixels wide by 150 high",
+               widget = FileWidget(
+               label = _("Signature"),
+        ),
+    ),
     # ImageField('Signature',
     #     widget = ImageWidget(
     #         label=_("Signature"),
