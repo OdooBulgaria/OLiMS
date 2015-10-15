@@ -38,17 +38,7 @@ schema = (StringField('name',
     fields.Char(string='Hours', required=True),
     fields.Char(string='Minutes', required=True),    
       
-# ~~~~~~~ To be implemented ~~~~~~~
-#     DurationField('RetentionPeriod',
-#         required = 1,
-#         default_method = 'getDefaultLifetime',
-#         widget = DurationWidget(
-#             label=_("Retention Period"),
-#             description =_(
-#                 "The period for which un-preserved samples of this type can be kept before "
-#                 "they expire and cannot be analysed any further"),
-#         )
-#     ),
+
     BooleanField('Hazardous',
         default = False,
         widget = BooleanWidget(

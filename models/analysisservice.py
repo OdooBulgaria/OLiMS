@@ -664,16 +664,12 @@ schema = (StringField('name',
 #                                "specified in the Calculation Interim Fields."),
 #                        ),
 #     ),
-# ~~~~~~~ To be implemented ~~~~~~~
-#     DurationField('MaxTimeAllowed',
-#                   schemata="Analysis",
-#                   widget=DurationWidget(
-#                       label = _("Maximum turn-around time"),
-#                       description=_(
-#                           "Maximum time allowed for completion of the analysis. "
-#                           "A late analysis alert is raised when this period elapses"),
-#                   ),
-#     ),
+    
+    fields.Char(string='Days', required=True),
+    fields.Char(string='Hours', required=True),
+    fields.Char(string='Minutes', required=True),
+    
+    
     FixedPointField('DuplicateVariation',
                     schemata="Method",
                     widget=DecimalWidget(
