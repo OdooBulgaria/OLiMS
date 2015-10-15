@@ -1214,6 +1214,16 @@
                 	<field name="DatePreserved"></field>
                     <label for="Preserver" string="Preserver"/>
                 	<field name="Preserver"></field>
+                	
+                	<group col='2' string='Retention Period'>
+                	<label for="Days" string="Days"/>
+                	<field name="Days" nolabel='1'></field>
+                	<label for="Hours" string="Hours"/>
+                	<field name="Hours" nolabel='1'></field>
+                	<label for="Minutes" string="Minutes"/>
+                	<field name="Minutes" nolabel='1'></field>
+                	</group>
+                	
                 </form>
             </field>
         </record>

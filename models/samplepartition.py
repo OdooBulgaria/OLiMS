@@ -63,9 +63,14 @@ schema = (
     StringField('Preserver',
         searchable=True
     ),
+          
+    fields.Char(string='Days'),
+    fields.Char(string='Hours'),
+    fields.Char(string='Minutes'),
 # ~~~~~~~ To be implemented ~~~~~~~
     # DurationField('RetentionPeriod',
     # ),
+    
     # ComputedField('DisposalDate',
     #     expression = 'context.disposal_date()',
     #     widget = ComputedWidget(
