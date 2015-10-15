@@ -59,4 +59,7 @@ from models import referencedefinition
 from models import report
 from models import referencesample
 from models import analysisspec
+from models import country
+from models import state
+from models import district
 
