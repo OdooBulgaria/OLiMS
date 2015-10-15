@@ -12,6 +12,49 @@
              its parent olims_menu and *after* its
              action course_list_action -->
 
+<!-- olims.ar_priority form view -->
+        <record model="ir.ui.view" id="olims_ar_priority_form_view">
+            <field name="name">ar_priority.form</field>
+            <field name="model">olims.ar_priority</field>
+            <field name="arch" type="xml">
+                <form string="AP Priority Form">
+                    <label for="sortKey" string="SortKey"/>
+                    <field name="sortKey"></field>                     
+                    <label for="pricePremium" string="pricePremium"/>
+                    <field name="pricePremium"></field>
+                    <label for="smallIcon" string="Small Icon"/>
+                    <field name="smallIcon" widget='image'></field>
+                    <label for="bigIcon" string="Big Icon"/>
+                    <field name="bigIcon" widget='image'></field>
+                    <label for="isDefault" string="isDefault"/>
+                    <field name="isDefault"></field>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="olims_ar_priority_tree_view">
+            <field name="name">ar_priority.tree</field>
+            <field name="model">olims.ar_priority</field>
+            <field name="arch" type="xml">
+                <tree string="AR Priority">
+                    <field name="sortKey"></field>                     
+                    <field name="pricePremium"></field>
+                    
+                    <field name="isDefault"></field>
+                </tree>
+            </field>
+        </record>
+
+		<record model="ir.actions.act_window" id="ar_priority_action">
+            <field name="name">AR Priority</field>
+            <field name="res_model">olims.ar_priority</field>
+            <field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+       </record>
+
+        <menuitem id="ar_priority_menu" name="AR Priority" parent="olims_menu"
+                  action="ar_priority_action"/>
+
 
 <!-- olims.district form view -->
         <record model="ir.ui.view" id="olims_district_form_view">

@@ -17,8 +17,9 @@ from lims.idserver import renameAfterCreation
 from lims import bikaMessageFactory as _
 from models.base_olims_model import BaseOLiMSModel
 from fields.integer_field import IntegerField
+from fields.file_field import FileField
 from fields.boolean_field import BooleanField
-from fields.widget.widget import IntegerWidget, BooleanWidget
+from fields.widget.widget import IntegerWidget, BooleanWidget, FileWidget
 # ~~~~~~~~~~ Irrelevant code for Odoo ~~~~~~~~~~~
 # schema = BikaSchema.copy() + Schema((
 schema = (IntegerField('sortKey',
@@ -33,20 +34,21 @@ schema = (IntegerField('sortKey',
             description = _("The percentage used to calculate the price for analyses done at this priority"),
         ),
     ),
-# ~~~~~~~ To be implemented ~~~~~~~
-#     ImageField('smallIcon',
-#         widget=ImageWidget(
-#             label = _("Small Icon"),
-#             description = _("16x16 pixel icon used for the this priority in listings."),
-#         ),
-#     ),
-# ~~~~~~~ To be implemented ~~~~~~~
-#     ImageField('bigIcon',
-#         widget=ImageWidget(
-#             label = _("Big Icon"),
-#             description = _("32x32 pixel icon used for the this priority in object views."),
-#         ),
-#     ),
+          
+    FileField('smallIcon',
+              help='6x16 pixel icon used for the this priority in listings.',
+              widget = FileWidget(
+              label = _("Small Icon"),
+              ),
+    ),
+          
+    FileField('bigIcon',
+              help='32x32 pixel icon used for the this priority in object views.',
+              widget = FileWidget(
+              label = _("Big Icon"),
+              ),
+    ),
+         
     BooleanField('isDefault',
         widget=BooleanWidget(
             label = _("Default Priority?"),
