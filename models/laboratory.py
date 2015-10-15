@@ -16,7 +16,8 @@ from models.base_olims_model import BaseOLiMSModel
 from fields.string_field import StringField
 from fields.integer_field import IntegerField
 from fields.boolean_field import BooleanField
-from fields.widget.widget import StringWidget, BooleanWidget,IntegerWidget
+from fields.file_field import FileField
+from fields.widget.widget import StringWidget, BooleanWidget, IntegerWidget, FileWidget
 from dependencies.dependency import safe_unicode
 from lims import PMF, bikaMessageFactory as _
 
@@ -186,16 +187,17 @@ schema = (
         ),
     ),
 # ~~~~~~~ To be implemented ~~~~~~~
-    # ImageField('AccreditationBodyLogo',
-    #     schemata = 'Accreditation',
-    #     widget = ImageWidget(
-    #         label=_("Accreditation Logo"),
-    #         description = _(
-    #             "Please upload the logo you are authorised to use on your "
-    #             "website and results reports by your accreditation body. "
-    #             "Maximum size is 175 x 175 pixels.")
-    #     ),
-    # ),
+    
+    FileField('AccreditationBodyLogo',
+              help="Please upload the logo you are authorised to use on your "+
+                "website and results reports by your accreditation body. "+
+                "Maximum size is 175 x 175 pixels.",
+        widget = FileWidget(
+            label = _("Accreditation Logo"),
+        ),
+    ),
+          
+    
     fields.Text('AccreditationPageHeader', size=10, help="Enter the details of your lab`s service accreditations "+
                 "here.  The following fields are available:  lab_is_accredited, "+
                 "lab_name, lab_country, confidence, accreditation_body_name, "+

@@ -160,14 +160,7 @@ schema =  (
                label = _("Signature"),
         ),
     ),
-    # ImageField('Signature',
-    #     widget = ImageWidget(
-    #         label=_("Signature"),
-    #         description = _(
-    #             "Upload a scanned signature to be used on printed analysis "
-    #             "results reports. Ideal size is 250 pixels wide by 150 high"),
-    #     ),
-    # ),
+    
  fields.Many2many(string='Department',
                        comodel_name='olims.department',
 #         schemata = 'Publication preference',

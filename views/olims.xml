@@ -2249,12 +2249,13 @@
                     <field name="AccreditationBodyURL"></field>
                     <label for="Accreditation" string="Accreditation"/>
                     <field name="Accreditation"></field>
-                    <label for="AccreditationReference" string="AccreditationReference"/>
+                    <label for="AccreditationReference" string="Accreditation Reference"/>
                     <field name="AccreditationReference"></field>
-                    <label for="AccreditationPageHeader" string="AccreditationPageHeader"/>
+                    <label for="AccreditationPageHeader" string="Accreditation PageHeader"/>
                     <field name="AccreditationPageHeader"></field>
-
-                    </form>
+					<label for="AccreditationBodyLogo" string="Accreditation Body Logo"/>
+                    <field name="AccreditationBodyLogo" widget='image'></field>
+				</form>
             </field>
         </record>
 
